@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Molarity Calculator | BioVerse Hub</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f9fb;
+      color: #1f2937;
+    }
+
+    header {
+      background: #123b4a;
+      color: white;
+      padding: 25px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    header p {
+      margin-top: 8px;
+    }
+
+    .tool-container {
+      max-width: 650px;
+      margin: 40px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+      border: 1px solid #d9e1e5;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      display: block;
+      margin: 25px auto;
+      padding: 13px 28px;
+      border: none;
+      border-radius: 8px;
+      background: #123b4a;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    #result {
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      margin: 25px 0;
+    }
+
+    .formula {
+      background: #f1f6f8;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 25px;
+      color: #123b4a;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Molarity Calculator</h1>
+    <p>Calculate the molarity of a solution quickly and easily.</p>
+  </header>
+
+  <main class="tool-container">
+
+    <div class="formula">
+      <strong>Formula:</strong><br>
+      Molarity (M) = Moles of Solute ÷ Volume of Solution (L)
+    </div>
+
+    <div class="input-group">
+      <label for="moles">Moles of Solute</label>
+      <input type="number" id="moles" step="any" min="0" placeholder="e.g. 0.5">
+    </div>
+
+    <div class="input-group">
+      <label for="volume">Volume of Solution (Litres)</label>
+      <input type="number" id="volume" step="any" min="0" placeholder="e.g. 2">
+    </div>
+
+    <button onclick="calculateMolarity()">Calculate Molarity</button>
+
+    <div id="result"></div>
+
+    <a href="index.html#explore" class="back-link">
+      ← Back to BioVerse Hub
+    </a>
+
+  </main>
+
+  <script>
+    function calculateMolarity() {
+
+      const moles = parseFloat(document.getElementById("moles").value);
+      const volume = parseFloat(document.getElementById("volume").value);
+      const result = document.getElementById("result");
+
+      if (isNaN(moles) || isNaN(volume)) {
+        result.textContent = "Please enter both values.";
+        return;
+      }
+
+      if (moles < 0 || volume <= 0) {
+        result.textContent = "Please enter valid positive values.";
+        return;
+      }
+
+      const molarity = moles / volume;
+
+      result.textContent =
+        "Molarity = " + molarity.toFixed(4) + " M";
+    }
+  </script>
+
+</body>
+</html>
