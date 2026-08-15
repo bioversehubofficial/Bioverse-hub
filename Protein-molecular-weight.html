@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Protein Molecular Weight Calculator | BioVerse Hub</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f9fb;
+      color: #1f2937;
+    }
+
+    header {
+      background: #123b4a;
+      color: white;
+      padding: 25px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    header p {
+      margin-top: 8px;
+    }
+
+    .tool-container {
+      max-width: 750px;
+      margin: 40px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    textarea {
+      width: 100%;
+      box-sizing: border-box;
+      min-height: 150px;
+      padding: 12px;
+      border: 1px solid #d9e1e5;
+      border-radius: 8px;
+      font-size: 16px;
+      resize: vertical;
+      font-family: monospace;
+      text-transform: uppercase;
+    }
+
+    .example {
+      background: #f1f6f8;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 25px;
+    }
+
+    button {
+      display: block;
+      margin: 25px auto;
+      padding: 13px 28px;
+      border: none;
+      border-radius: 8px;
+      background: #123b4a;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    #result {
+      margin-top: 25px;
+      line-height: 1.8;
+    }
+
+    .result-box {
+      background: #f1f6f8;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .result-box strong {
+      color: #123b4a;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 25px;
+      color: #123b4a;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Protein Molecular Weight Calculator</h1>
+    <p>Estimate the molecular weight of a protein from its amino acid sequence.</p>
+  </header>
+
+  <main class="tool-container">
+
+    <div class="example">
+      <strong>How to use:</strong><br>
+      Enter a protein sequence using standard one-letter amino acid codes.
+      Spaces and line breaks will be ignored.
+    </div>
+
+    <div class="input-group">
+      <label for="sequence">Protein Sequence</label>
+
+      <textarea
+        id="sequence"
+        placeholder="Example: MVLSPADKTNVKAAWGKVGAHAGEYGAEALERMF"
+      ></textarea>
+    </div>
+
+    <button onclick="calculateProteinWeight()">
+      Calculate Molecular Weight
+    </button>
+
+    <div id="result"></div>
+
+    <a href="index.html#explore" class="back-link">
+      ← Back to BioVerse Hub
+    </a>
+
+  </main>
+
+  <script>
+    const aminoAcidWeights = {
+      A: 89.09,
+      R: 174.20,
+      N: 132.12,
+      D: 133.10,
+      C: 121.15,
+      E: 147.13,
+      Q: 146.15,
+      G: 75.07,
+      H: 155.16,
+      I: 131.17,
+      L: 131.17,
+      K: 146.19,
+      M: 149.21,
+      F: 165.19,
+      P: 115.13,
+      S: 105.09,
+      T: 119.12,
+      W: 204.23,
+      Y: 181.19,
+      V: 117.15
+    };
+
+    function calculateProteinWeight() {
+
+      const input = document.getElementById("sequence").value;
+      const result = document.getElementById("result");
+
+      const sequence = input
+        .toUpperCase()
+        .replace(/\s/g, "");
+
+      if (sequence === "") {
+        result.innerHTML =
+          "<div class='result-box'>Please enter a protein sequence.</div>";
+        return;
+      }
+
+      const validProtein = /^[ARNDCQEGHILKMFPSTWYV]+$/.test(sequence);
+
+      if (!validProtein) {
+        result.innerHTML =
+          "<div class='result-box'>Invalid protein sequence. Please use standard one-letter amino acid codes.</div>";
+        return;
+      }
+
+      let totalWeight = 0;
+
+      for (const aminoAcid of sequence) {
+        totalWeight += aminoAcidWeights[aminoAcid];
+      }
+
+      const peptideBonds = sequence.length - 1;
+
+      const molecularWeight =
+        totalWeight - (peptideBonds * 18.015);
+
+      result.innerHTML = `
+        <div class="result-box">
+          <strong>Sequence Length:</strong> ${sequence.length} amino acids<br>
+          <strong>Estimated Molecular Weight:</strong>
+          ${molecularWeight.toFixed(2)} Da
+          <br>
+          <strong>Estimated Molecular Weight:</strong>
+          ${(molecularWeight / 1000).toFixed(3)} kDa
+        </div>
+      `;
+    }
+  </script>
+
+</body>
+</html>
