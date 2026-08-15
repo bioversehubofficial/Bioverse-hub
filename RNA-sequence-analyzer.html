@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>RNA Sequence Analyzer | BioVerse Hub</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f9fb;
+      color: #1f2937;
+    }
+
+    header {
+      background: #123b4a;
+      color: white;
+      padding: 25px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    header p {
+      margin-top: 8px;
+    }
+
+    .tool-container {
+      max-width: 750px;
+      margin: 40px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    textarea {
+      width: 100%;
+      box-sizing: border-box;
+      min-height: 150px;
+      padding: 12px;
+      border: 1px solid #d9e1e5;
+      border-radius: 8px;
+      font-size: 16px;
+      resize: vertical;
+      font-family: monospace;
+    }
+
+    .example {
+      background: #f1f6f8;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 25px;
+    }
+
+    button {
+      display: block;
+      margin: 25px auto;
+      padding: 13px 28px;
+      border: none;
+      border-radius: 8px;
+      background: #123b4a;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    #result {
+      margin-top: 25px;
+      line-height: 1.8;
+    }
+
+    .result-box {
+      background: #f1f6f8;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .result-box strong {
+      color: #123b4a;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 25px;
+      color: #123b4a;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>RNA Sequence Analyzer</h1>
+    <p>Analyze the basic nucleotide composition of an RNA sequence.</p>
+  </header>
+
+  <main class="tool-container">
+
+    <div class="example">
+      <strong>How to use:</strong><br>
+      Enter an RNA sequence containing A, U, G, and C.
+      Spaces and line breaks will be ignored.
+    </div>
+
+    <div class="input-group">
+      <label for="sequence">RNA Sequence</label>
+
+      <textarea
+        id="sequence"
+        placeholder="Example: AUGCGUACGAUCG"
+      ></textarea>
+    </div>
+
+    <button onclick="analyzeRNA()">
+      Analyze RNA Sequence
+    </button>
+
+    <div id="result"></div>
+
+    <a href="index.html#explore" class="back-link">
+      ← Back to BioVerse Hub
+    </a>
+
+  </main>
+
+  <script>
+    function analyzeRNA() {
+
+      const input = document.getElementById("sequence").value;
+      const result = document.getElementById("result");
+
+      const sequence = input
+        .toUpperCase()
+        .replace(/\s/g, "");
+
+      if (sequence === "") {
+        result.innerHTML =
+          "<div class='result-box'>Please enter an RNA sequence.</div>";
+        return;
+      }
+
+      const validRNA = /^[AUGC]+$/.test(sequence);
+
+      if (!validRNA) {
+        result.innerHTML =
+          "<div class='result-box'>Invalid RNA sequence. Please use only A, U, G, and C.</div>";
+        return;
+      }
+
+      const length = sequence.length;
+
+      const a = (sequence.match(/A/g) || []).length;
+      const u = (sequence.match(/U/g) || []).length;
+      const g = (sequence.match(/G/g) || []).length;
+      const c = (sequence.match(/C/g) || []).length;
+
+      const gcPercentage = ((g + c) / length) * 100;
+      const auPercentage = ((a + u) / length) * 100;
+
+      result.innerHTML = `
+        <div class="result-box">
+          <strong>Sequence Length:</strong> ${length} nucleotides<br>
+          <strong>Adenine (A):</strong> ${a}<br>
+          <strong>Uracil (U):</strong> ${u}<br>
+          <strong>Guanine (G):</strong> ${g}<br>
+          <strong>Cytosine (C):</strong> ${c}<br>
+          <strong>GC Content:</strong> ${gcPercentage.toFixed(2)}%<br>
+          <strong>AU Content:</strong> ${auPercentage.toFixed(2)}%
+        </div>
+      `;
+    }
+  </script>
+
+</body>
+</html>
