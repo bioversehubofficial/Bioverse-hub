@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Dilution Calculator | BioVerse Hub</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f9fb;
+      color: #1f2937;
+    }
+
+    header {
+      background: #123b4a;
+      color: white;
+      padding: 25px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    header p {
+      margin-top: 8px;
+    }
+
+    .tool-container {
+      max-width: 650px;
+      margin: 40px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .formula {
+      background: #f1f6f8;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 25px;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+      border: 1px solid #d9e1e5;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      display: block;
+      margin: 25px auto;
+      padding: 13px 28px;
+      border: none;
+      border-radius: 8px;
+      background: #123b4a;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    #result {
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      margin: 25px 0;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 25px;
+      color: #123b4a;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Dilution Calculator</h1>
+    <p>Calculate the final volume needed for a dilution.</p>
+  </header>
+
+  <main class="tool-container">
+
+    <div class="formula">
+      <strong>Formula:</strong><br>
+      C₁V₁ = C₂V₂
+    </div>
+
+    <div class="input-group">
+      <label for="c1">Initial Concentration (C₁)</label>
+      <input type="number" id="c1" step="any" min="0" placeholder="e.g. 10">
+    </div>
+
+    <div class="input-group">
+      <label for="v1">Initial Volume (V₁)</label>
+      <input type="number" id="v1" step="any" min="0" placeholder="e.g. 5">
+    </div>
+
+    <div class="input-group">
+      <label for="c2">Final Concentration (C₂)</label>
+      <input type="number" id="c2" step="any" min="0" placeholder="e.g. 2">
+    </div>
+
+    <button onclick="calculateDilution()">Calculate Final Volume</button>
+
+    <div id="result"></div>
+
+    <a href="index.html#explore" class="back-link">
+      ← Back to BioVerse Hub
+    </a>
+
+  </main>
+
+  <script>
+    function calculateDilution() {
+
+      const c1 = parseFloat(document.getElementById("c1").value);
+      const v1 = parseFloat(document.getElementById("v1").value);
+      const c2 = parseFloat(document.getElementById("c2").value);
+      const result = document.getElementById("result");
+
+      if (isNaN(c1) || isNaN(v1) || isNaN(c2)) {
+        result.textContent = "Please enter all three values.";
+        return;
+      }
+
+      if (c1 <= 0 || v1 <= 0 || c2 <= 0) {
+        result.textContent = "Please enter valid positive values.";
+        return;
+      }
+
+      if (c2 >= c1) {
+        result.textContent =
+          "For a dilution, the final concentration should be lower than the initial concentration.";
+        return;
+      }
+
+      const v2 = (c1 * v1) / c2;
+
+      result.textContent =
+        "Final Volume (V₂) = " + v2.toFixed(4);
+    }
+  </script>
+
+</body>
+</html>
