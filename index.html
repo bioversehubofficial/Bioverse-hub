@@ -8,6 +8,19 @@
 
   <meta name="description" content="BioVerse Hub is a student-friendly biotechnology platform for resources, practice, tools, courses, research, and career opportunities.">
 
+  .cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.card-link {
+  display: block;
+  margin-top: 10px;
+  color: #123b4a;
+  text-decoration: none;
+  font-weight: bold;
+}
   <style>
     * {
       margin: 0;
@@ -38,6 +51,7 @@
       align-items: center;
       position: sticky;
       top: 0;
+      
       z-index: 1000;
     }
 
@@ -415,102 +429,98 @@
 
 </div>
  
-      <div class="card">
-        <div class="card-icon">🎓</div>
-        <h3>Courses</h3>
-        <p>
-          Explore useful courses and learning opportunities from reliable educational platforms.
-        </p>
-      </div>
+     <!-- EXPLORE -->
 
+<section class="section" id="explore">
 
-      <div class="card">
-        <div class="card-icon">🔬</div>
-        <h3>Research</h3>
-        <p>
-          Build research awareness with beginner-friendly resources and guidance for students.
-        </p>
-      </div>
+  <div class="section-heading">
 
+    <h2>Explore BioVerse</h2>
 
-      <div class="card">
-        <div class="card-icon">🚀</div>
-        <h3>Career</h3>
-        <p>
-          Discover internships, programs, certifications, competitions, and career resources.
-        </p>
-      </div>
+    <p>
+      Everything is being designed around the real needs of biotechnology students.
+    </p>
 
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-icon">📚</div>
+      <h3>Resources</h3>
+      <p>
+        Discover organized learning resources and study material across different areas of biotechnology.
+      </p>
     </div>
 
-  </section>
-
-  <!-- PRACTICE -->
-
-  <section class="section" id="practice">
-
-    <div class="section-heading">
-
-      <h2>Practice & Quizzes</h2>
-
+    <div class="card">
+      <div class="card-icon">📝</div>
+      <h3>Practice</h3>
       <p>
         Strengthen your biotechnology concepts with quizzes, questions, and topic-based practice.
       </p>
-
+      <a href="#practice" class="card-link">Explore Practice →</a>
     </div>
 
-
-    <div class="cards">
-
-      <div class="card">
-        <div class="card-icon">🧬</div>
-        <h3>Biotechnology Basics</h3>
-        <p>
-          Practice fundamental biotechnology concepts and test your understanding.
-        </p>
-        <a href="Biotechnology-basics.html" class="card-link">Start Quiz →</a>
-      </div>
-
-
-      <div class="card">
-        <div class="card-icon">🔬</div>
-        <h3>Cell Biology</h3>
-        <p>
-          Review important cell biology concepts through practice questions.
-        </p>
-        <a href="Cell-biology.html" class="card-link">Start Quiz →</a>
-      </div>
-
-
-      <div class="card">
-        <div class="card-icon">🧪</div>
-        <h3>Molecular Biology</h3>
-        <p>
-          Test your knowledge of DNA, RNA, genes, and molecular processes.
-        </p>
-        <a href="Molecular-biology.html" class="card-link">Start Quiz →</a>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ABOUT -->
-
-  <section class="section about" id="about">
-
-    <div class="about-content">
-
-      <h2>Built for Students, Growing with Science.</h2>
-
+    <div class="card">
+      <div class="card-icon">🧪</div>
+      <h3>Biotech Tools</h3>
       <p>
-        BioVerse Hub is being created as a student-friendly biotechnology platform.
-        Our goal is to make useful learning resources, practice opportunities,
-        tools, courses, research guidance, and career resources easier to discover
-        and explore.
+        Use useful calculators, converters, and other tools designed to support biotechnology students.
       </p>
 
+      <a href="Molarity-calculator.html" class="card-link">
+        Molarity Calculator →
+      </a>
+
+      <a href="Dilution-calculator.html" class="card-link">
+        Dilution Calculator →
+      </a>
+
+      <a href="Molecular-weight-calculator.html" class="card-link">
+        Molecular Weight Calculator →
+      </a>
+
+      <a href="DNA-sequence-analyzer.html" class="card-link">
+        DNA Sequence Analyzer →
+      </a>
+
+      <a href="RNA-sequence-analyzer.html" class="card-link">
+        RNA Sequence Analyzer →
+      </a>
+
+      <a href="Protein-molecular-weight.html" class="card-link">
+        Protein Molecular Weight Calculator →
+      </a>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🎓</div>
+      <h3>Courses</h3>
+      <p>
+        Explore useful courses and learning opportunities from reliable educational platforms.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🔬</div>
+      <h3>Research</h3>
+      <p>
+        Build research awareness with beginner-friendly resources and guidance for students.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🚀</div>
+      <h3>Career</h3>
+      <p>
+        Discover internships, programs, certifications, competitions, and career resources.
+      </p>
+    </div>
+
+  </div>
+
+</section>
     </div>
 
   </section>
