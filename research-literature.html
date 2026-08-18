@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Research Papers & Literature | BioVerse Hub</title>
+
+  <meta name="description" content="Learn how biotechnology students can find, understand, read, and evaluate scientific research papers and literature.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7fbfa;
+      color: #173b3a;
+      line-height: 1.7;
+    }
+
+    nav {
+      background: white;
+      border-bottom: 1px solid #e2eeee;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      color: #126b67;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: #173b3a;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #315654;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: #126b67;
+    }
+
+    .hero {
+      padding: 80px 7%;
+      text-align: center;
+      background: linear-gradient(135deg, #f8fcfb, #eef8f6);
+    }
+
+    .badge {
+      display: inline-block;
+      background: #dff1ee;
+      color: #126b67;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 68px);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #126b67;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: auto;
+      color: #58706e;
+      font-size: 18px;
+    }
+
+    .section {
+      padding: 70px 7%;
+    }
+
+    .heading {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 40px;
+    }
+
+    .heading h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .heading p {
+      color: #687d7b;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 0 auto 25px;
+      background: white;
+      border: 1px solid #e0eceb;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 8px 25px rgba(20, 80, 75, 0.05);
+    }
+
+    .content h3 {
+      font-size: 23px;
+      margin-bottom: 10px;
+    }
+
+    .content p {
+      color: #607573;
+      margin-bottom: 12px;
+    }
+
+    .content ul {
+      padding-left: 22px;
+      color: #607573;
+    }
+
+    .tip {
+      margin-top: 16px;
+      padding: 16px;
+      background: #eef8f6;
+      border-left: 4px solid #126b67;
+      border-radius: 8px;
+    }
+
+    .tip strong {
+      color: #126b67;
+    }
+
+    .paper-structure {
+      max-width: 1050px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .structure-card {
+      background: white;
+      border: 1px solid #e0eceb;
+      border-radius: 18px;
+      padding: 25px;
+      box-shadow: 0 8px 25px rgba(20, 80, 75, 0.05);
+    }
+
+    .structure-card h3 {
+      margin-bottom: 8px;
+      font-size: 20px;
+    }
+
+    .structure-card p {
+      color: #667b79;
+      font-size: 14px;
+    }
+
+    .steps {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .step {
+      background: white;
+      border: 1px solid #e0eceb;
+      border-radius: 18px;
+      padding: 25px;
+      margin-bottom: 18px;
+    }
+
+    .step-number {
+      display: inline-block;
+      width: 34px;
+      height: 34px;
+      line-height: 34px;
+      text-align: center;
+      border-radius: 50%;
+      background: #126b67;
+      color: white;
+      font-weight: bold;
+      margin-right: 8px;
+    }
+
+    .step h3 {
+      display: inline;
+      font-size: 20px;
+    }
+
+    .step p {
+      margin-top: 12px;
+      color: #667b79;
+    }
+
+    .remember {
+      background: #173b3a;
+      color: white;
+      text-align: center;
+    }
+
+    .remember div {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .remember h2 {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .remember p {
+      color: #d4e4e2;
+    }
+
+    footer {
+      background: #102b2a;
+      color: #b9ccca;
+      text-align: center;
+      padding: 28px;
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    @media (max-width: 850px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .paper-structure {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 55px 6%;
+      }
+
+      .heading h2,
+      .remember h2 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+
+    <a href="index.html" class="logo">
+      BioVerse <span>Hub</span>
+    </a>
+
+    <ul class="nav-links">
+
+      <li><a href="index.html">Home</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="practice.html">Practice</a></li>
+      <li><a href="tools.html">Tools</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="career.html">Career</a></li>
+
+    </ul>
+
+  </nav>
+
+
+  <section class="hero">
+
+    <div class="badge">
+      Research & Literature
+    </div>
+
+    <h1>
+      Research <span>Papers.</span>
+    </h1>
+
+    <p>
+      Learn how to find, understand, read, and critically evaluate
+      scientific literature as a biotechnology student.
+    </p>
+
+  </section>
+
+
+  <section class="section">
+
+    <div class="heading">
+
+      <h2>What Is a Research Paper?</h2>
+
+      <p>
+        A research paper communicates the question, methods,
+        results, and conclusions of a scientific investigation.
+      </p>
+
+    </div>
+
+
+    <div class="content">
+
+      <h3>Why Should Students Learn to Read Papers?</h3>
+
+      <p>
+        Research papers introduce you to scientific work beyond
+        textbooks. They can help you understand current discoveries,
+        experimental techniques, evidence, and different scientific viewpoints.
+      </p>
+
+      <div class="tip">
+
+        <strong>Student tip:</strong>
+        You do not need to understand every sentence on your first reading.
+        Start by identifying the main question, methods, results, and conclusion.
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="section">
+
+    <div class="heading">
+
+      <h2>Structure of a Research Paper</h2>
+
+      <p>
+        Most scientific papers follow a recognizable structure,
+        although the exact format can vary between journals.
+      </p>
+
+    </div>
+
+
+    <div class="paper-structure">
+
+      <div class="structure-card">
+
+        <h3>Abstract</h3>
+
+        <p>
+          A short summary of the research question, methods,
+          major results, and conclusions.
+        </p>
+
+      </div>
+
+
+      <div class="structure-card">
+
+        <h3>Introduction</h3>
+
+        <p>
+          Provides background information and explains the
+          scientific problem or research question.
+        </p>
+
+      </div>
+
+
+      <div class="structure-card">
+
+        <h3>Methods</h3>
+
+        <p>
+          Explains how the study was conducted, including
+          experimental procedures and analysis methods.
+        </p>
+
+      </div>
+
+
+      <div class="structure-card">
+
+        <h3>Results</h3>
+
+        <p>
+          Presents the observations, measurements, analyses,
+          figures, tables, and statistical findings.
+        </p>
+
+      </div>
+
+
+      <div class="structure-card">
+
+        <h3>Discussion</h3>
+
+        <p>
+          Interprets the results and explains their meaning
+          in relation to previous research.
+        </p>
+
+      </div>
+
+
+      <div class="structure-card">
+
+        <h3>Conclusion</h3>
+
+        <p>
+          Summarizes the main findings and their significance.
+        </p>
+
+      </div>
+
+
+      <div class="structure-card">
+
+        <h3>References</h3>
+
+        <p>
+          Lists the scientific sources cited by the authors.
+        </p>
+
+      </div>
+
+
+      <div class="structure-card">
+
+        <h3>Figures & Tables</h3>
+
+        <p>
+          Present data visually and can make complex results
+          easier to understand.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="section">
+
+    <div class="heading">
+
+      <h2>How to Read a Research Paper</h2>
+
+      <p>
+        You do not always need to read a scientific paper from
+        beginning to end in a single pass.
+      </p>
+
+    </div>
+
+
+    <div class="steps">
+
+      <div class="step">
+
+        <span class="step-number">1</span>
+        <h3>Read the Title</h3>
+
+        <p>
+          Identify the main topic and determine whether the paper
+          is relevant to your question.
+        </p>
+
+      </div>
+
+
+      <div class="step">
+
+        <span class="step-number">2</span>
+        <h3>Read the Abstract</h3>
+
+        <p>
+          Get a quick overview of the research question,
+          approach, major findings, and conclusion.
+        </p>
+
+      </div>
+
+
+      <div class="step">
+
+        <span class="step-number">3</span>
+        <h3>Identify the Research Question</h3>
+
+        <p>
+          Ask what the researchers were actually trying
+          to investigate or discover.
+        </p>
+
+      </div>
+
+
+      <div class="step">
+
+        <span class="step-number">4</span>
+        <h3>Look at the Figures and Tables</h3>
+
+        <p>
+          Examine the main data before getting lost in
+          every detail of the text.
+        </p>
+
+      </div>
+
+
+      <div class="step">
+
+        <span class="step-number">5</span>
+        <h3>Check the Methods</h3>
+
+        <p>
+          Understand how the researchers collected their evidence
+          and whether the methods fit the research question.
+        </p>
+
+      </div>
+
+
+      <div class="step">
+
+        <span class="step-number">6</span>
+        <h3>Read the Discussion</h3>
+
+        <p>
+          See how the authors interpret their findings and
+          compare them with previous research.
+        </p>
+
+      </div>
+
+
+      <div class="step">
+
+        <span class="step-number">7</span>
+        <h3>Check the Conclusion</h3>
+
+        <p>
+          Identify the main message of the study and what
+          the researchers believe their findings mean.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="section">
+
+    <div class="heading">
+
+      <h2>Original Research vs Review Articles</h2>
+
+      <p>
+        Knowing the difference helps you choose the right type
+        of paper for your purpose.
+      </p>
+
+    </div>
+
+
+    <div class="content">
+
+      <h3>Original Research Article</h3>
+
+      <p>
+        Presents new research conducted by the authors.
+        It normally includes methods, newly collected or analyzed
+        data, results, and interpretation.
+      </p>
+
+    </div>
+
+
+    <div class="content">
+
+      <h3>Review Article</h3>
+
+      <p>
+        Summarizes and discusses findings from multiple existing
+        studies rather than primarily presenting a new experiment.
+      </p>
+
+      <div class="tip">
+
+        <strong>Beginner tip:</strong>
+        Review articles can be useful when you are first learning
+        about an unfamiliar research topic.
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="section remember">
+
+    <div>
+
+      <h2>Think Critically</h2>
+
+      <p>
+        A published paper is not automatically proof that every
+        conclusion is correct. Consider the study design, sample size,
+        controls, methods, results, limitations, and whether the
+        conclusions are supported by the evidence.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <footer>
+
+    <p>
+      © 2026 <strong>BioVerse Hub</strong>.
+      Built for biotechnology students worldwide.
+    </p>
+
+  </footer>
+
+</body>
+</html>
