@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Courses | BioVerse Hub</title>
+
+  <meta name="description" content="Explore biotechnology, molecular biology, bioinformatics, research, and data science learning opportunities for students.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7fbfa;
+      color: #173b3a;
+      line-height: 1.6;
+    }
+
+    nav {
+      background: white;
+      border-bottom: 1px solid #e1eceb;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      text-decoration: none;
+      font-size: 24px;
+      font-weight: 800;
+      color: #126b67;
+    }
+
+    .logo span {
+      color: #173b3a;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #315654;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: #126b67;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 85px 7%;
+      background:
+        radial-gradient(circle at 85% 20%, #dcefed 0, transparent 30%),
+        linear-gradient(135deg, #f8fcfb, #eaf7f4);
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 60px);
+      margin-bottom: 18px;
+      color: #173b3a;
+    }
+
+    .hero h1 span {
+      color: #126b67;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+      color: #607774;
+      font-size: 17px;
+    }
+
+    .courses {
+      max-width: 1200px;
+      margin: auto;
+      padding: 70px 7%;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+
+    .section-heading h2 {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .section-heading p {
+      color: #687d7b;
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .course-card {
+      background: white;
+      border: 1px solid #e0eceb;
+      border-radius: 18px;
+      padding: 28px;
+      min-height: 280px;
+      box-shadow: 0 8px 25px rgba(20, 80, 75, 0.06);
+      transition: 0.25s ease;
+    }
+
+    .course-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 30px rgba(20, 80, 75, 0.10);
+    }
+
+    .course-icon {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .course-card h3 {
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .course-card p {
+      color: #687d7b;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .course-tag {
+      display: inline-block;
+      background: #e6f4f1;
+      color: #126b67;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
+    .course-link {
+      display: inline-block;
+      color: #123b4a;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .course-link:hover {
+      color: #126b67;
+      text-decoration: underline;
+    }
+
+    .note {
+      margin-top: 55px;
+      background: #173b3a;
+      color: white;
+      border-radius: 18px;
+      padding: 32px;
+      text-align: center;
+    }
+
+    .note h2 {
+      margin-bottom: 10px;
+      font-size: 27px;
+    }
+
+    .note p {
+      max-width: 750px;
+      margin: auto;
+      color: #d4e4e2;
+      font-size: 14px;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 40px;
+      color: #126b67;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #102b2a;
+      color: #c5d4d2;
+      text-align: center;
+      padding: 28px;
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    @media (max-width: 850px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .course-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 65px 6%;
+      }
+
+      .courses {
+        padding: 55px 6%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+
+    <a href="index.html" class="logo">
+      BioVerse <span>Hub</span>
+    </a>
+
+    <ul class="nav-links">
+
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+
+      <li>
+        <a href="resources.html">Resources</a>
+      </li>
+
+      <li>
+        <a href="practice.html">Practice</a>
+      </li>
+
+      <li>
+        <a href="index.html#explore">Tools</a>
+      </li>
+
+      <li>
+        <a href="courses.html">Courses</a>
+      </li>
+
+      <li>
+        <a href="index.html#explore">Research</a>
+      </li>
+
+      <li>
+        <a href="index.html#explore">Career</a>
+      </li>
+
+    </ul>
+
+  </nav>
+
+
+  <!-- HERO -->
+
+  <header class="hero">
+
+    <h1>
+      Learn & <span>Grow</span>
+    </h1>
+
+    <p>
+      Discover useful courses and learning opportunities
+      that can help you build biotechnology knowledge and practical skills.
+    </p>
+
+  </header>
+
+
+  <!-- COURSES -->
+
+  <main class="courses">
+
+    <div class="section-heading">
+
+      <h2>Explore Learning Areas</h2>
+
+      <p>
+        Start with subjects that support your biotechnology studies
+        and gradually build skills beyond the classroom.
+      </p>
+
+    </div>
+
+
+    <div class="course-grid">
+
+
+      <!-- BIOTECHNOLOGY -->
+
+      <div class="course-card">
+
+        <div class="course-icon">🧬</div>
+
+        <span class="course-tag">Biotechnology</span>
+
+        <h3>Biotechnology Fundamentals</h3>
+
+        <p>
+          Build a stronger foundation in biotechnology concepts,
+          techniques, applications, and life-science principles.
+        </p>
+
+        <a
+          href="https://www.coursera.org/courses?query=biotechnology"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="course-link">
+          Explore Courses →
+        </a>
+
+      </div>
+
+
+      <!-- MOLECULAR BIOLOGY -->
+
+      <div class="course-card">
+
+        <div class="course-icon">🧬</div>
+
+        <span class="course-tag">Molecular Biology</span>
+
+        <h3>DNA, RNA & Molecular Biology</h3>
+
+        <p>
+          Explore molecular biology topics including DNA,
+          RNA, genes, proteins, and cellular information flow.
+        </p>
+
+        <a
+          href="https://www.coursera.org/courses?query=molecular%20biology"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="course-link">
+          Explore Courses →
+        </a>
+
+      </div>
+
+
+      <!-- CELL BIOLOGY -->
+
+      <div class="course-card">
+
+        <div class="course-icon">🔬</div>
+
+        <span class="course-tag">Cell Biology</span>
+
+        <h3>Cell & Cellular Biology</h3>
+
+        <p>
+          Strengthen your understanding of cell structure,
+          organelles, cellular processes, and biological systems.
+        </p>
+
+        <a
+          href="https://www.coursera.org/courses?query=cell%20biology"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="course-link">
+          Explore Courses →
+        </a>
+
+      </div>
+
+
+      <!-- BIOINFORMATICS -->
+
+      <div class="course-card">
+
+        <div class="course-icon">💻</div>
+
+        <span class="course-tag">Bioinformatics</span>
+
+        <h3>Bioinformatics & Biological Data</h3>
+
+        <p>
+          Begin exploring computational approaches used
+          to analyze and understand biological data.
+        </p>
+
+        <a
+          href="https://www.coursera.org/courses?query=bioinformatics"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="course-link">
+          Explore Courses →
+        </a>
+
+      </div>
+
+
+      <!-- BIOSTATISTICS -->
+
+      <div class="course-card">
+
+        <div class="course-icon">📊</div>
+
+        <span class="course-tag">Data Skills</span>
+
+        <h3>Biostatistics & Data Analysis</h3>
+
+        <p>
+          Develop basic statistical and data-analysis skills
+          that are useful in biotechnology and research.
+        </p>
+
+        <a
+          href="https://www.coursera.org/courses?query=biostatistics"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="course-link">
+          Explore Courses →
+        </a>
+
+      </div>
+
+
+      <!-- RESEARCH -->
+
+      <div class="course-card">
+
+        <div class="course-icon">🔎</div>
+
+        <span class="course-tag">Research Skills</span>
+
+        <h3>Research & Scientific Skills</h3>
+
+        <p>
+          Explore learning opportunities related to scientific
+          research, experimental thinking, and academic skills.
+        </p>
+
+        <a
+          href="https://www.coursera.org/courses?query=scientific%20research"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="course-link">
+          Explore Courses →
+        </a>
+
+      </div>
+
+
+    </div>
+
+
+    <!-- NOTE -->
+
+    <section class="note">
+
+      <h2>Choose Courses Carefully</h2>
+
+      <p>
+        Course availability, free access, certificates, and pricing
+        can vary by platform and course. Always check the course page
+        before enrolling to confirm the current conditions.
+      </p>
+
+    </section>
+
+
+    <a href="index.html" class="back-link">
+      ← Back to BioVerse Hub
+    </a>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    © 2026 <strong>BioVerse Hub</strong>.
+    Built for biotechnology students worldwide.
+
+  </footer>
+
+</body>
+</html>
