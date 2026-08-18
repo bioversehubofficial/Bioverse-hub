@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Practice & Quizzes | BioVerse Hub</title>
+
+  <meta name="description" content="Practice biotechnology concepts with quizzes and topic-based questions on BioVerse Hub.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7fbfa;
+      color: #173b3a;
+      line-height: 1.6;
+    }
+
+    nav {
+      width: 100%;
+      background: white;
+      border-bottom: 1px solid #e2eeee;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      color: #126b67;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: #173b3a;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #315654;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .hero {
+      padding: 80px 7%;
+      text-align: center;
+      background:
+        radial-gradient(circle at 85% 20%, #dcefed 0, transparent 30%),
+        linear-gradient(135deg, #f8fcfb, #eef8f6);
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      margin: 0 0 15px;
+      color: #173b3a;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      color: #58706e;
+      font-size: 17px;
+    }
+
+    .practice-section {
+      padding: 70px 7%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-heading h2 {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .section-heading p {
+      color: #687d7b;
+    }
+
+    .topic-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 25px;
+    }
+
+    .topic-card {
+      background: white;
+      border: 1px solid #e0eceb;
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: 0 8px 30px rgba(20, 80, 75, 0.05);
+    }
+
+    .topic-icon {
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    .topic-card h3 {
+      margin: 0 0 10px;
+      font-size: 21px;
+    }
+
+    .topic-card p {
+      color: #6a7e7c;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .quiz-link {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 8px;
+      background: #123b4a;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .quiz-link:hover {
+      opacity: 0.9;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 45px;
+      color: #126b67;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #102b2a;
+      color: #b9ccca;
+      text-align: center;
+      padding: 28px 7%;
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    @media (max-width: 850px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 65px 6%;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .practice-section {
+        padding: 55px 6%;
+      }
+
+      .topic-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+
+    <a href="index.html" class="logo">
+      BioVerse <span>Hub</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="practice.html">Practice</a></li>
+      <li><a href="index.html#explore">Tools</a></li>
+      <li><a href="index.html#explore">Courses</a></li>
+      <li><a href="index.html#explore">Research</a></li>
+      <li><a href="index.html#explore">Career</a></li>
+    </ul>
+
+  </nav>
+
+
+  <header class="hero">
+
+    <h1>Practice & Quizzes</h1>
+
+    <p>
+      Strengthen your biotechnology concepts with topic-based quizzes,
+      practice questions, and interactive learning.
+    </p>
+
+  </header>
+
+
+  <main class="practice-section">
+
+    <div class="section-heading">
+
+      <h2>Choose a Topic</h2>
+
+      <p>
+        Select a topic to start practicing and test your understanding.
+      </p>
+
+    </div>
+
+
+    <div class="topic-grid">
+
+      <div class="topic-card">
+
+        <div class="topic-icon">🧬</div>
+
+        <h3>Biotechnology Basics</h3>
+
+        <p>
+          Practice fundamental biotechnology concepts and terminology.
+        </p>
+
+        <a href="Biotechnology-basics.html" class="quiz-link">
+          Start Quiz →
+        </a>
+
+      </div>
+
+
+      <div class="topic-card">
+
+        <div class="topic-icon">🔬</div>
+
+        <h3>Cell Biology</h3>
+
+        <p>
+          Review important cell structures, organelles, and cellular processes.
+        </p>
+
+        <a href="Cell-biology.html" class="quiz-link">
+          Start Quiz →
+        </a>
+
+      </div>
+
+
+      <div class="topic-card">
+
+        <div class="topic-icon">🧬</div>
+
+        <h3>Molecular Biology</h3>
+
+        <p>
+          Test your knowledge of DNA, RNA, genes, and molecular processes.
+        </p>
+
+        <a href="Molecular-biology.html" class="quiz-link">
+          Start Quiz →
+        </a>
+
+      </div>
+
+
+      <div class="topic-card">
+
+        <div class="topic-icon">🧪</div>
+
+        <h3>Biochemistry</h3>
+
+        <p>
+          Practice concepts related to biomolecules, enzymes, and metabolism.
+        </p>
+
+        <a href="#" class="quiz-link">
+          Coming Soon
+        </a>
+
+      </div>
+
+
+      <div class="topic-card">
+
+        <div class="topic-icon">🦠</div>
+
+        <h3>Microbiology</h3>
+
+        <p>
+          Practice basic concepts related to microorganisms and microbiology.
+        </p>
+
+        <a href="#" class="quiz-link">
+          Coming Soon
+        </a>
+
+      </div>
+
+
+      <div class="topic-card">
+
+        <div class="topic-icon">🧬</div>
+
+        <h3>Genetics</h3>
+
+        <p>
+          Test your understanding of genes, inheritance, mutations, and variation.
+        </p>
+
+        <a href="#" class="quiz-link">
+          Coming Soon
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <a href="index.html" class="back-link">
+      ← Back to BioVerse Hub
+    </a>
+
+  </main>
+
+
+  <footer>
+
+    <p>
+      © 2026 <strong>BioVerse Hub</strong>.
+      Built for biotechnology students worldwide.
+    </p>
+
+  </footer>
+
+</body>
+</html>
