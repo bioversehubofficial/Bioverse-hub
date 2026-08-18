@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Research | BioVerse Hub</title>
+
+  <meta name="description" content="Explore biotechnology research resources, guidance, databases, papers, and opportunities with BioVerse Hub.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7fbfa;
+      color: #173b3a;
+      line-height: 1.6;
+    }
+
+    nav {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid #e2eeee;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      color: #126b67;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: #173b3a;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #315654;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: #126b67;
+    }
+
+    .hero {
+      padding: 90px 7%;
+      text-align: center;
+      background:
+        radial-gradient(circle at 85% 20%, #dcefed 0, transparent 30%),
+        linear-gradient(135deg, #f8fcfb, #eef8f6);
+    }
+
+    .badge {
+      display: inline-block;
+      background: #dff1ee;
+      color: #126b67;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 70px);
+      line-height: 1;
+      margin-bottom: 20px;
+      color: #173b3a;
+    }
+
+    .hero h1 span {
+      color: #126b67;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+      color: #58706e;
+      font-size: 18px;
+    }
+
+    .section {
+      padding: 75px 7%;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 45px;
+    }
+
+    .section-heading h2 {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .section-heading p {
+      color: #687d7b;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e0eceb;
+      border-radius: 18px;
+      padding: 30px;
+      min-height: 230px;
+      box-shadow: 0 8px 30px rgba(20, 80, 75, 0.05);
+      transition: 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 35px rgba(20, 80, 75, 0.10);
+    }
+
+    .card-icon {
+      font-size: 32px;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #6a7e7c;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .card-link {
+      color: #126b67;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .card-link:hover {
+      text-decoration: underline;
+    }
+
+    .guide {
+      background: #173b3a;
+      color: white;
+      text-align: center;
+    }
+
+    .guide-content {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .guide h2 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    .guide p {
+      color: #d4e4e2;
+    }
+
+    footer {
+      background: #102b2a;
+      color: #b9ccca;
+      text-align: center;
+      padding: 28px 7%;
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    @media (max-width: 850px) {
+
+      nav {
+        padding: 16px 5%;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 70px 6%;
+      }
+
+      .section {
+        padding: 60px 6%;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading h2,
+      .guide h2 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+
+    <a href="index.html" class="logo">
+      BioVerse <span>Hub</span>
+    </a>
+
+    <ul class="nav-links">
+
+      <li><a href="index.html">Home</a></li>
+
+      <li><a href="resources.html">Resources</a></li>
+
+      <li><a href="practice.html">Practice</a></li>
+
+      <li><a href="tools.html">Tools</a></li>
+
+      <li><a href="courses.html">Courses</a></li>
+
+      <li><a href="research.html">Research</a></li>
+
+      <li><a href="career.html">Career</a></li>
+
+    </ul>
+
+  </nav>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="badge">
+      Explore Biotechnology Research
+    </div>
+
+    <h1>
+      Discover the World of <span>Research.</span>
+    </h1>
+
+    <p>
+      Build your research awareness, discover scientific resources,
+      understand research methods, and explore opportunities in biotechnology.
+    </p>
+
+  </section>
+
+
+  <!-- RESEARCH AREAS -->
+
+  <section class="section">
+
+    <div class="section-heading">
+
+      <h2>Explore Research</h2>
+
+      <p>
+        Start building your understanding of biotechnology research through
+        these important areas.
+      </p>
+
+    </div>
+
+
+    <div class="cards">
+
+
+      <!-- RESEARCH BASICS -->
+
+      <div class="card">
+
+        <div class="card-icon">🔬</div>
+
+        <h3>Research Basics</h3>
+
+        <p>
+          Learn how scientific research works, from asking research questions
+          to designing experiments and interpreting results.
+        </p>
+
+        <a href="#" class="card-link">
+          Explore Basics →
+        </a>
+
+      </div>
+
+
+      <!-- RESEARCH METHODS -->
+
+      <div class="card">
+
+        <div class="card-icon">🧪</div>
+
+        <h3>Research Methods</h3>
+
+        <p>
+          Understand common laboratory techniques, experimental approaches,
+          data collection, and scientific methodology.
+        </p>
+
+        <a href="#" class="card-link">
+          Explore Methods →
+        </a>
+
+      </div>
+
+
+      <!-- SCIENTIFIC PAPERS -->
+
+      <div class="card">
+
+        <div class="card-icon">📄</div>
+
+        <h3>Scientific Papers</h3>
+
+        <p>
+          Learn how to find, read, understand, and organize scientific
+          literature related to biotechnology.
+        </p>
+
+        <a href="#" class="card-link">
+          Learn More →
+        </a>
+
+      </div>
+
+
+      <!-- DATABASES -->
+
+      <div class="card">
+
+        <div class="card-icon">🧬</div>
+
+        <h3>Research Databases</h3>
+
+        <p>
+          Discover useful biological databases and online resources for
+          exploring genes, proteins, sequences, and scientific information.
+        </p>
+
+        <a href="#" class="card-link">
+          Explore Databases →
+        </a>
+
+      </div>
+
+
+      <!-- BIOINFORMATICS -->
+
+      <div class="card">
+
+        <div class="card-icon">💻</div>
+
+        <h3>Bioinformatics</h3>
+
+        <p>
+          Explore how computational tools and biological data are used to
+          answer modern biotechnology research questions.
+        </p>
+
+        <a href="#" class="card-link">
+          Explore Bioinformatics →
+        </a>
+
+      </div>
+
+
+      <!-- RESEARCH OPPORTUNITIES -->
+
+      <div class="card">
+
+        <div class="card-icon">🚀</div>
+
+        <h3>Research Opportunities</h3>
+
+        <p>
+          Find research programs, internships, competitions, fellowships,
+          and other opportunities for biotechnology students.
+        </p>
+
+        <a href="#" class="card-link">
+          Explore Opportunities →
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- RESEARCH GUIDANCE -->
+
+  <section class="section guide">
+
+    <div class="guide-content">
+
+      <h2>Start Building Your Research Skills</h2>
+
+      <p>
+        Research is not only about reading scientific papers.
+        It is about asking better questions, thinking critically,
+        understanding evidence, and learning how science solves problems.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+      © 2026 <strong>BioVerse Hub</strong>.
+      Built for biotechnology students worldwide.
+    </p>
+
+  </footer>
+
+</body>
+</html>
