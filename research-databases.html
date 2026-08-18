@@ -6,7 +6,7 @@
 
   <title>Research Databases | BioVerse Hub</title>
 
-  <meta name="description" content="Explore useful biological and scientific databases for biotechnology students, including sequence, protein, structure, genome, and research literature resources.">
+  <meta name="description" content="Useful biological research databases for biotechnology students.">
 
   <style>
     * {
@@ -53,10 +53,6 @@
       color: #315654;
       font-size: 14px;
       font-weight: 600;
-    }
-
-    .nav-links a:hover {
-      color: #126b67;
     }
 
     .hero {
@@ -108,15 +104,298 @@
       margin-bottom: 10px;
     }
 
-    <section class="section">
+    .heading p {
+      color: #687d7b;
+    }
+
+    .cards {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e0eceb;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 8px 25px rgba(20, 80, 75, 0.05);
+      transition: 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .icon {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #667b79;
+      font-size: 14px;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 0 auto 25px;
+      background: white;
+      border: 1px solid #e0eceb;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 8px 25px rgba(20, 80, 75, 0.05);
+    }
+
+    .content h3 {
+      font-size: 23px;
+      margin-bottom: 10px;
+    }
+
+    .content p {
+      color: #607573;
+    }
+
+    .content ul {
+      padding-left: 22px;
+      color: #607573;
+      margin-top: 10px;
+    }
+
+    .tip {
+      margin-top: 16px;
+      padding: 16px;
+      background: #eef8f6;
+      border-left: 4px solid #126b67;
+      border-radius: 8px;
+    }
+
+    .tip strong {
+      color: #126b67;
+    }
+
+    .remember {
+      background: #173b3a;
+      color: white;
+      text-align: center;
+    }
+
+    .remember div {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .remember h2 {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .remember p {
+      color: #d4e4e2;
+    }
+
+    footer {
+      background: #102b2a;
+      color: #b9ccca;
+      text-align: center;
+      padding: 28px;
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    @media (max-width: 850px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 55px 6%;
+      }
+
+      .heading h2,
+      .remember h2 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+
+    <a href="index.html" class="logo">
+      BioVerse <span>Hub</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="practice.html">Practice</a></li>
+      <li><a href="tools.html">Tools</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="career.html">Career</a></li>
+    </ul>
+
+  </nav>
+
+
+  <section class="hero">
+
+    <div class="badge">Research Resources</div>
+
+    <h1>
+      Research <span>Databases.</span>
+    </h1>
+
+    <p>
+      Discover important biological databases that help students
+      explore sequences, proteins, genomes, structures, and scientific literature.
+    </p>
+
+  </section>
+
+
+  <section class="section">
 
     <div class="heading">
 
-      <h2>Useful Research Databases</h2>
+      <h2>Why Use Research Databases?</h2>
 
       <p>
-        Here are some important resources that biotechnology students
-        should gradually become familiar with.
+        Biological databases organize scientific information so researchers
+        can search, compare, analyze, and retrieve biological data.
+      </p>
+
+    </div>
+
+
+    <div class="content">
+
+      <h3>From Textbooks to Real Research</h3>
+
+      <p>
+        Textbooks are useful for learning concepts, but research often
+        requires access to real biological data. Databases allow students
+        to explore sequences, proteins, genomes, structures, and publications.
+      </p>
+
+      <div class="tip">
+
+        <strong>Student tip:</strong>
+        Start with the type of biological information you need,
+        then choose a database designed for that purpose.
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="section">
+
+    <div class="heading">
+
+      <h2>Essential Database Categories</h2>
+
+      <p>
+        Different databases provide different types of biological information.
+      </p>
+
+    </div>
+
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="icon">🧬</div>
+        <h3>DNA & RNA Sequences</h3>
+        <p>
+          Explore nucleotide sequences from genes and organisms
+          for sequence analysis and research.
+        </p>
+      </div>
+
+
+      <div class="card">
+        <div class="icon">🧪</div>
+        <h3>Protein Databases</h3>
+        <p>
+          Find protein sequences, functions, annotations,
+          and related information.
+        </p>
+      </div>
+
+
+      <div class="card">
+        <div class="icon">🧩</div>
+        <h3>Structure Databases</h3>
+        <p>
+          Explore three-dimensional structures of proteins,
+          nucleic acids, and other molecules.
+        </p>
+      </div>
+
+
+      <div class="card">
+        <div class="icon">🌍</div>
+        <h3>Genome Databases</h3>
+        <p>
+          Explore genomes, genes, genomic regions,
+          and other genomic information.
+        </p>
+      </div>
+
+
+      <div class="card">
+        <div class="icon">📄</div>
+        <h3>Literature Databases</h3>
+        <p>
+          Search scientific publications, research papers,
+          reviews, and biomedical literature.
+        </p>
+      </div>
+
+
+      <div class="card">
+        <div class="icon">💻</div>
+        <h3>Bioinformatics Resources</h3>
+        <p>
+          Explore computational resources and biological
+          data analysis tools.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="section">
+
+    <div class="heading">
+
+      <h2>Important Databases to Know</h2>
+
+      <p>
+        These are useful starting points for biotechnology students.
       </p>
 
     </div>
@@ -127,9 +406,8 @@
       <h3>🧬 NCBI</h3>
 
       <p>
-        NCBI provides access to a large collection of biological
-        information, including nucleotide sequences, proteins,
-        genomes, scientific literature, and other research resources.
+        NCBI provides access to many biological resources, including
+        nucleotide sequences, proteins, genomes, genes, and scientific literature.
       </p>
 
       <ul>
@@ -140,9 +418,9 @@
       </ul>
 
       <div class="tip">
-        <strong>Best for beginners:</strong>
-        Start with NCBI when you need to search for a gene,
-        nucleotide sequence, protein, or research article.
+        <strong>Good starting point:</strong>
+        Use NCBI when you need to search for a gene, sequence,
+        protein, or research article.
       </div>
 
     </div>
@@ -154,21 +432,20 @@
 
       <p>
         UniProt is a major resource for protein sequence and
-        functional information. It helps researchers explore
-        protein names, functions, sequences, and annotations.
+        functional information.
       </p>
 
       <ul>
         <li>Search protein sequences</li>
         <li>Study protein functions</li>
         <li>Explore protein annotations</li>
-        <li>Compare information about proteins</li>
+        <li>Compare protein information</li>
       </ul>
 
       <div class="tip">
         <strong>Student use:</strong>
-        If your assignment involves understanding a protein,
-        UniProt is an excellent place to begin.
+        If you are studying a particular protein,
+        UniProt is a useful place to begin.
       </div>
 
     </div>
@@ -180,15 +457,14 @@
 
       <p>
         The Protein Data Bank provides access to three-dimensional
-        structural information for proteins, nucleic acids,
-        and other biological macromolecules.
+        structural information for biological macromolecules.
       </p>
 
       <ul>
         <li>Explore molecular structures</li>
         <li>View three-dimensional models</li>
-        <li>Study protein structure</li>
-        <li>Explore protein-ligand interactions</li>
+        <li>Study protein structures</li>
+        <li>Explore molecular interactions</li>
       </ul>
 
     </div>
@@ -212,9 +488,7 @@
 
       <div class="tip">
         <strong>Research tip:</strong>
-        Use specific keywords rather than very broad searches.
-        For example, combine a biological process with an organism
-        or experimental technique.
+        Use specific keywords instead of very broad searches.
       </div>
 
     </div>
@@ -241,18 +515,18 @@
 
     <div class="content">
 
-      <h3>🧬 Gene Expression Resources</h3>
+      <h3>📊 Gene Expression Resources</h3>
 
       <p>
-        Gene expression databases can help researchers investigate
+        Gene expression resources can help researchers investigate
         how genes are expressed under different biological conditions,
         tissues, or experimental settings.
       </p>
 
       <div class="tip">
         <strong>Remember:</strong>
-        Gene expression data can be complex. Always check the
-        experimental design and metadata before interpreting results.
+        Always check the experimental design and metadata before
+        interpreting gene expression data.
       </div>
 
     </div>
@@ -267,8 +541,7 @@
       <h2>How to Choose a Database</h2>
 
       <p>
-        Start by identifying exactly what type of biological
-        information you are looking for.
+        Identify what type of biological information you need first.
       </p>
 
     </div>
@@ -279,7 +552,7 @@
       <h3>Looking for a DNA Sequence?</h3>
 
       <p>
-        Start with a nucleotide or sequence-focused resource.
+        Start with a nucleotide sequence resource.
         NCBI is a useful starting point for many sequence searches.
       </p>
 
@@ -292,7 +565,7 @@
 
       <p>
         UniProt is useful for protein sequences, functions,
-        annotations, and related information.
+        and annotations.
       </p>
 
     </div>
@@ -304,7 +577,7 @@
 
       <p>
         The Protein Data Bank is a major resource for exploring
-        experimentally determined molecular structures.
+        molecular structures.
       </p>
 
     </div>
@@ -328,4 +601,39 @@
 
       <p>
         Resources such as Ensembl and NCBI can help you explore
-        genomes, genes, genomic regions,
+        genomes, genes, and genomic regions.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section class="section remember">
+
+    <div>
+
+      <h2>Research Like a Scientist</h2>
+
+      <p>
+        Do not rely on a single database without checking the source
+        and context of the information. Understand what the data
+        represents before drawing conclusions.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <footer>
+
+    <p>
+      © 2026 <strong>BioVerse Hub</strong>.
+      Built for biotechnology students worldwide.
+    </p>
+
+  </footer>
+
+</body>
+</html>
