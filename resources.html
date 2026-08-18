@@ -6,6 +6,8 @@
 
   <title>Resources | BioVerse Hub</title>
 
+  <meta name="description" content="Explore biotechnology study resources, practice, tools, research, courses, and career learning areas on BioVerse Hub.">
+
   <style>
     * {
       box-sizing: border-box;
@@ -14,9 +16,10 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       background: #f7fbfa;
       color: #173b3a;
+      line-height: 1.6;
     }
 
     nav {
@@ -31,16 +34,12 @@
     .logo {
       text-decoration: none;
       font-size: 24px;
-      font-weight: bold;
+      font-weight: 800;
       color: #126b67;
     }
 
     .logo span {
       color: #173b3a;
-    }
-
-    nav a {
-      text-decoration: none;
     }
 
     .nav-links {
@@ -50,20 +49,28 @@
     }
 
     .nav-links a {
+      text-decoration: none;
       color: #315654;
       font-size: 14px;
-      font-weight: bold;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: #126b67;
     }
 
     .hero {
       text-align: center;
-      padding: 90px 7%;
-      background: linear-gradient(135deg, #f8fcfb, #eaf7f4);
+      padding: 85px 7%;
+      background:
+        radial-gradient(circle at 85% 20%, #dcefed 0, transparent 30%),
+        linear-gradient(135deg, #f8fcfb, #eaf7f4);
     }
 
     .hero h1 {
-      font-size: 58px;
+      font-size: clamp(42px, 6vw, 60px);
       margin-bottom: 18px;
+      color: #173b3a;
     }
 
     .hero h1 span {
@@ -71,22 +78,36 @@
     }
 
     .hero p {
-      max-width: 700px;
+      max-width: 720px;
       margin: auto;
       color: #607774;
       font-size: 17px;
-      line-height: 1.7;
     }
 
     .resources {
-      max-width: 1150px;
+      max-width: 1200px;
       margin: auto;
       padding: 70px 7%;
     }
 
+    .section-heading {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+
+    .section-heading h2 {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .section-heading p {
+      color: #687d7b;
+    }
+
     .grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 22px;
     }
 
@@ -95,8 +116,14 @@
       border: 1px solid #e0eceb;
       border-radius: 18px;
       padding: 28px;
-      min-height: 220px;
+      min-height: 240px;
       box-shadow: 0 8px 25px rgba(20, 80, 75, 0.06);
+      transition: 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 30px rgba(20, 80, 75, 0.10);
     }
 
     .icon {
@@ -104,7 +131,7 @@
       margin-bottom: 15px;
     }
 
-    .card h2 {
+    .card h3 {
       font-size: 21px;
       margin-bottom: 10px;
     }
@@ -112,7 +139,61 @@
     .card p {
       color: #687d7b;
       font-size: 14px;
-      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .card-link {
+      display: inline-block;
+      color: #123b4a;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .card-link:hover {
+      color: #126b67;
+      text-decoration: underline;
+    }
+
+    .quick-links {
+      margin-top: 70px;
+    }
+
+    .quick-card {
+      background: #173b3a;
+      color: white;
+      border-radius: 18px;
+      padding: 35px;
+      text-align: center;
+    }
+
+    .quick-card h2 {
+      margin-bottom: 12px;
+      font-size: 30px;
+    }
+
+    .quick-card p {
+      color: #d4e4e2;
+      max-width: 700px;
+      margin: 0 auto 22px;
+    }
+
+    .quick-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .quick-button {
+      display: inline-block;
+      background: white;
+      color: #173b3a;
+      padding: 11px 18px;
+      border-radius: 9px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
     }
 
     footer {
@@ -123,7 +204,12 @@
       font-size: 13px;
     }
 
-    @media (max-width: 800px) {
+    footer strong {
+      color: white;
+    }
+
+    @media (max-width: 850px) {
+
       .nav-links {
         display: none;
       }
@@ -132,8 +218,12 @@
         grid-template-columns: 1fr;
       }
 
-      .hero h1 {
-        font-size: 42px;
+      .hero {
+        padding: 65px 6%;
+      }
+
+      .resources {
+        padding: 55px 6%;
       }
     }
   </style>
@@ -141,113 +231,310 @@
 
 <body>
 
+  <!-- NAVIGATION -->
+
   <nav>
+
     <a href="index.html" class="logo">
       BioVerse <span>Hub</span>
     </a>
 
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="resources.html">Resources</a></li>
-      <li><a href="index.html#"practice">Practice</a></li>
-      <li><a href="#">Tools</a></li>
-      <li><a href="#">Courses</a></li>
-      <li><a href="#">Research</a></li>
-      <li><a href="#">Career</a></li>
+
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+
+      <li>
+        <a href="resources.html">Resources</a>
+      </li>
+
+      <li>
+        <a href="practice.html">Practice</a>
+      </li>
+
+      <li>
+        <a href="index.html#explore">Tools</a>
+      </li>
+
+      <li>
+        <a href="index.html#explore">Courses</a>
+      </li>
+
+      <li>
+        <a href="index.html#explore">Research</a>
+      </li>
+
+      <li>
+        <a href="index.html#explore">Career</a>
+      </li>
+
     </ul>
+
   </nav>
 
+
+  <!-- HERO -->
+
   <section class="hero">
-    <h1>Explore <span>Resources</span></h1>
+
+    <h1>
+      Explore <span>Resources</span>
+    </h1>
 
     <p>
       Explore organized biotechnology learning areas designed to help
-      students build their knowledge step by step.
+      students build knowledge, practice concepts, discover useful tools,
+      and develop toward research and career opportunities.
     </p>
+
   </section>
 
-  <section class="resources">
+
+  <!-- RESOURCES -->
+
+  <main class="resources">
+
+    <div class="section-heading">
+
+      <h2>Biotechnology Study Areas</h2>
+
+      <p>
+        Start with a topic and gradually build your understanding
+        across different areas of biotechnology.
+      </p>
+
+    </div>
+
 
     <div class="grid">
 
-      <div class="card">
-        <div class="icon">🧬</div>
-        <h2>Genetics</h2>
-        <p>
-          Explore genes, inheritance, chromosomes, mutations, and genetic variation.
-        </p>
-      </div>
+
+      <!-- GENETICS -->
 
       <div class="card">
+
+        <div class="icon">🧬</div>
+
+        <h3>Genetics</h3>
+
+        <p>
+          Explore genes, inheritance, chromosomes, mutations,
+          genetic variation, and basic genetic concepts.
+        </p>
+
+        <a href="practice.html" class="card-link">
+          Practice Genetics →
+        </a>
+
+      </div>
+
+
+      <!-- CELL BIOLOGY -->
+
+      <div class="card">
+
         <div class="icon">🔬</div>
-        <h2>Cell Biology</h2>
+
+        <h3>Cell Biology</h3>
+
         <p>
-          Learn about cells, organelles, cellular processes, and biological organization.
+          Learn about cells, organelles, membranes, cellular
+          processes, and biological organization.
         </p>
+
+        <a href="Cell-biology.html" class="card-link">
+          Start Cell Biology Quiz →
+        </a>
+
       </div>
 
+
+      <!-- MOLECULAR BIOLOGY -->
+
       <div class="card">
+
         <div class="icon">🧬</div>
-        <h2>Molecular Biology</h2>
+
+        <h3>Molecular Biology</h3>
+
         <p>
-          Explore DNA, RNA, replication, transcription, translation, and proteins.
+          Explore DNA, RNA, replication, transcription,
+          translation, genes, and proteins.
         </p>
+
+        <a href="Molecular-biology.html" class="card-link">
+          Start Molecular Biology Quiz →
+        </a>
+
       </div>
 
+
+      <!-- MICROBIOLOGY -->
+
       <div class="card">
+
         <div class="icon">🦠</div>
-        <h2>Microbiology</h2>
+
+        <h3>Microbiology</h3>
+
         <p>
-          Explore microorganisms, microbial structures, growth, and biological processes.
+          Explore microorganisms, microbial structures,
+          growth, and fundamental microbiology concepts.
         </p>
+
+        <a href="practice.html" class="card-link">
+          Explore Microbiology →
+        </a>
+
       </div>
 
+
+      <!-- BIOCHEMISTRY -->
+
       <div class="card">
+
         <div class="icon">🧪</div>
-        <h2>Biochemistry</h2>
+
+        <h3>Biochemistry</h3>
+
         <p>
-          Learn about biomolecules, enzymes, metabolism, and biochemical reactions.
+          Learn about biomolecules, enzymes, metabolism,
+          and important biochemical reactions.
         </p>
+
+        <a href="practice.html" class="card-link">
+          Explore Biochemistry →
+        </a>
+
       </div>
 
+
+      <!-- GENETIC ENGINEERING -->
+
       <div class="card">
+
         <div class="icon">🧬</div>
-        <h2>Genetic Engineering</h2>
+
+        <h3>Genetic Engineering</h3>
+
         <p>
-          Explore introductory concepts related to recombinant DNA, vectors, and genetic modification.
+          Explore introductory concepts related to recombinant DNA,
+          vectors, genetic modification, and biotechnology applications.
         </p>
+
+        <a href="practice.html" class="card-link">
+          Explore Topic →
+        </a>
+
       </div>
 
+
+      <!-- BIOINFORMATICS -->
+
       <div class="card">
+
         <div class="icon">💻</div>
-        <h2>Bioinformatics</h2>
+
+        <h3>Bioinformatics</h3>
+
         <p>
-          Discover how computational approaches are used to understand biological data.
+          Discover how computational approaches are used to
+          understand, organize, and analyze biological data.
         </p>
+
+        <a href="index.html#explore" class="card-link">
+          Explore Tools →
+        </a>
+
       </div>
 
+
+      <!-- IMMUNOLOGY -->
+
       <div class="card">
+
         <div class="icon">🛡️</div>
-        <h2>Immunology</h2>
+
+        <h3>Immunology</h3>
+
         <p>
-          Explore the immune system, immune responses, antibodies, and cellular defense.
+          Explore the immune system, immune responses,
+          antibodies, and cellular defense.
         </p>
+
+        <a href="practice.html" class="card-link">
+          Explore Immunology →
+        </a>
+
       </div>
 
+
+      <!-- BIOTECHNOLOGY -->
+
       <div class="card">
-        <div class="icon">🌱</div>
-        <h2>Biotechnology</h2>
+
+        <div class="icon">🧬</div>
+
+        <h3>Biotechnology</h3>
+
         <p>
-          Explore biotechnology concepts, techniques, applications, and real-world uses.
+          Explore biotechnology concepts, techniques,
+          applications, and real-world uses.
         </p>
+
+        <a href="Biotechnology-basics.html" class="card-link">
+          Start Biotechnology Quiz →
+        </a>
+
       </div>
 
     </div>
 
-  </section>
+
+    <!-- QUICK ACCESS -->
+
+    <section class="quick-links">
+
+      <div class="quick-card">
+
+        <h2>Quick Access</h2>
+
+        <p>
+          Continue learning with BioVerse Hub's practice quizzes
+          and biotechnology tools.
+        </p>
+
+        <div class="quick-buttons">
+
+          <a href="practice.html" class="quick-button">
+            Practice & Quizzes
+          </a>
+
+          <a href="Molarity-calculator.html" class="quick-button">
+            Molarity Calculator
+          </a>
+
+          <a href="Dilution-calculator.html" class="quick-button">
+            Dilution Calculator
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
 
   <footer>
-    © 2026 BioVerse Hub. Built for biotechnology students worldwide.
+
+    © 2026 <strong>BioVerse Hub</strong>.
+    Built for biotechnology students worldwide.
+
   </footer>
 
 </body>
