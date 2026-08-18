@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Research Basics | BioVerse Hub</title>
+
+  <meta name="description" content="Learn the fundamentals of scientific research, including research questions, hypotheses, variables, experimental design, data collection, and scientific thinking.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7fbfa;
+      color: #173b3a;
+      line-height: 1.7;
+    }
+
+    nav {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid #e2eeee;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      color: #126b67;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: #173b3a;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #315654;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: #126b67;
+    }
+
+    .hero {
+      padding: 85px 7%;
+      text-align: center;
+      background:
+        radial-gradient(circle at 85% 20%, #dcefed 0, transparent 30%),
+        linear-gradient(135deg, #f8fcfb, #eef8f6);
+    }
+
+    .badge {
+      display: inline-block;
+      background: #dff1ee;
+      color: #126b67;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 6vw, 68px);
+      line-height: 1;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span {
+      color: #126b67;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: auto;
+      color: #58706e;
+      font-size: 18px;
+    }
+
+    .section {
+      padding: 75px 7%;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 750px;
+      margin: 0 auto 45px;
+    }
+
+    .section-heading h2 {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .section-heading p {
+      color: #687d7b;
+    }
+
+    .content-box {
+      max-width: 900px;
+      margin: 0 auto 30px;
+      background: white;
+      border: 1px solid #e0eceb;
+      border-radius: 18px;
+      padding: 32px;
+      box-shadow: 0 8px 30px rgba(20, 80, 75, 0.05);
+    }
+
+    .content-box h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+      color: #173b3a;
+    }
+
+    .content-box p {
+      color: #5f7472;
+      margin-bottom: 14px;
+    }
+
+    .content-box ul {
+      padding-left: 22px;
+      color: #5f7472;
+    }
+
+    .content-box li {
+      margin-bottom: 8px;
+    }
+
+    .example {
+      background: #eef8f6;
+      border-left: 5px solid #126b67;
+      padding: 20px;
+      margin-top: 18px;
+      border-radius: 10px;
+    }
+
+    .example strong {
+      color: #126b67;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .step {
+      background: white;
+      border: 1px solid #e0eceb;
+      border-radius: 16px;
+      padding: 25px;
+    }
+
+    .step-number {
+      display: inline-flex;
+      width: 38px;
+      height: 38px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #dff1ee;
+      color: #126b67;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .step h3 {
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      color: #667b79;
+      font-size: 14px;
+    }
+
+    .tip-section {
+      background: #173b3a;
+      color: white;
+    }
+
+    .tip-content {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .tip-content h2 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    .tip-content p {
+      color: #d4e4e2;
+    }
+
+    footer {
+      background: #102b2a;
+      color: #b9ccca;
+      text-align: center;
+      padding: 28px 7%;
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    @media (max-width: 850px) {
+
+      nav {
+        padding: 16px 5%;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 70px 6%;
+      }
+
+      .section {
+        padding: 60px 6%;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading h2,
+      .tip-content h2 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+
+    <a href="index.html" class="logo">
+      BioVerse <span>Hub</span>
+    </a>
+
+    <ul class="nav-links">
+
+      <li><a href="index.html">Home</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="practice.html">Practice</a></li>
+      <li><a href="tools.html">Tools</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="career.html">Career</a></li>
+
+    </ul>
+
+  </nav>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="badge">
+      Research Learning
+    </div>
+
+    <h1>
+      Research <span>Basics.</span>
+    </h1>
+
+    <p>
+      Learn how scientific research begins, how researchers develop questions,
+      design experiments, collect evidence, and reach scientifically supported conclusions.
+    </p>
+
+  </section>
+
+
+  <!-- WHAT IS RESEARCH -->
+
+  <section class="section">
+
+    <div class="section-heading">
+
+      <h2>What Is Scientific Research?</h2>
+
+      <p>
+        Scientific research is a systematic process used to investigate questions,
+        test ideas, generate evidence, and improve our understanding of the natural world.
+      </p>
+
+    </div>
+
+
+    <div class="content-box">
+
+      <h3>Research Is More Than Finding Information</h3>
+
+      <p>
+        Research involves asking a meaningful question and using appropriate
+        methods to collect and analyze evidence. In biotechnology, research can
+        help scientists understand diseases, develop treatments, improve crops,
+        study microorganisms, analyze genes, and solve many biological problems.
+      </p>
+
+      <div class="example">
+
+        <strong>Biotechnology example:</strong>
+
+        Suppose researchers want to investigate whether a particular compound
+        affects the growth of bacteria. They would develop a research question,
+        design an experiment, collect measurements, analyze the results, and
+        determine whether the evidence supports their hypothesis.
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- KEY CONCEPTS -->
+
+  <section class="section">
+
+    <div class="section-heading">
+
+      <h2>Key Research Concepts</h2>
+
+      <p>
+        These concepts form the foundation of experimental research.
+      </p>
+
+    </div>
+
+
+    <div class="content-box">
+
+      <h3>1. Research Question</h3>
+
+      <p>
+        A research question clearly states what the researcher wants to investigate.
+        A strong question should be focused, understandable, and possible to investigate.
+      </p>
+
+      <div class="example">
+
+        <strong>Example:</strong>
+        Does increasing the concentration of a nutrient affect bacterial growth?
+
+      </div>
+
+    </div>
+
+
+    <div class="content-box">
+
+      <h3>2. Hypothesis</h3>
+
+      <p>
+        A hypothesis is a testable prediction about what may happen in an experiment.
+        It should be possible to support or reject it using evidence.
+      </p>
+
+      <div class="example">
+
+        <strong>Example:</strong>
+        Increasing nutrient concentration will increase bacterial growth up to an optimal concentration.
+
+      </div>
+
+    </div>
+
+
+    <div class="content-box">
+
+      <h3>3. Variables</h3>
+
+      <p>
+        Variables are factors that can change during an experiment.
+      </p>
+
+      <ul>
+
+        <li><strong>Independent variable:</strong> the factor deliberately changed by the researcher.</li>
+
+        <li><strong>Dependent variable:</strong> the factor measured or observed.</li>
+
+        <li><strong>Controlled variables:</strong> factors kept constant to make the experiment fair.</li>
+
+      </ul>
+
+    </div>
+
+
+    <div
