@@ -6,8 +6,6 @@
 
   <title>Research Methods | BioVerse Hub</title>
 
-  <meta name="description" content="Learn common research methods and experimental approaches used in biotechnology and life sciences.">
-
   <style>
     * {
       margin: 0;
@@ -23,8 +21,7 @@
     }
 
     nav {
-      width: 100%;
-      background: rgba(255, 255, 255, 0.96);
+      background: white;
       border-bottom: 1px solid #e2eeee;
       padding: 18px 7%;
       display: flex;
@@ -45,7 +42,7 @@
 
     .nav-links {
       display: flex;
-      gap: 25px;
+      gap: 22px;
       list-style: none;
     }
 
@@ -56,16 +53,10 @@
       font-weight: 600;
     }
 
-    .nav-links a:hover {
-      color: #126b67;
-    }
-
     .hero {
-      padding: 85px 7%;
+      padding: 80px 7%;
       text-align: center;
-      background:
-        radial-gradient(circle at 85% 20%, #dcefed 0, transparent 30%),
-        linear-gradient(135deg, #f8fcfb, #eef8f6);
+      background: linear-gradient(135deg, #f8fcfb, #eef8f6);
     }
 
     .badge {
@@ -75,14 +66,14 @@
       padding: 8px 16px;
       border-radius: 30px;
       font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 20px;
+      font-weight: bold;
+      margin-bottom: 18px;
     }
 
     .hero h1 {
-      font-size: clamp(40px, 6vw, 68px);
+      font-size: clamp(42px, 6vw, 68px);
       line-height: 1;
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
 
     .hero h1 span {
@@ -90,87 +81,303 @@
     }
 
     .hero p {
-      max-width: 760px;
+      max-width: 750px;
       margin: auto;
       color: #58706e;
       font-size: 18px;
     }
 
     .section {
-      padding: 75px 7%;
+      padding: 70px 7%;
     }
 
-    .section-heading {
+    .heading {
       text-align: center;
       max-width: 750px;
-      margin: 0 auto 45px;
+      margin: 0 auto 40px;
     }
 
-    .section-heading h2 {
+    .heading h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .heading p {
+      color: #687d7b;
+    }
+
+    .cards {
+      max-width: 1050px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e0eceb;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 8px 25px rgba(20,80,75,0.05);
+    }
+
+    .icon {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+      font-size: 20px;
+    }
+
+    .card p {
+      color: #667b79;
+      font-size: 14px;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 0 auto 25px;
+      background: white;
+      border: 1px solid #e0eceb;
+      border-radius: 18px;
+      padding: 28px;
+    }
+
+    .content h3 {
+      font-size: 23px;
+      margin-bottom: 10px;
+    }
+
+    .content p {
+      color: #607573;
+    }
+
+    .content ul {
+      margin-top: 12px;
+      padding-left: 22px;
+      color: #607573;
+    }
+
+    .example {
+      margin-top: 16px;
+      padding: 16px;
+      background: #eef8f6;
+      border-left: 4px solid #126b67;
+      border-radius: 8px;
+    }
+
+    .remember {
+      background: #173b3a;
+      color: white;
+      text-align: center;
+    }
+
+    .remember div {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .remember h2 {
       font-size: 36px;
       margin-bottom: 12px;
+    }
 
-    <section class="section">
+    .remember p {
+      color: #d4e4e2;
+    }
 
-    <div class="section-heading">
+    footer {
+      background: #102b2a;
+      color: #b9ccca;
+      text-align: center;
+      padding: 28px;
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    @media (max-width: 850px) {
+      .nav-links {
+        display: none;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 55px 6%;
+      }
+
+      .heading h2,
+      .remember h2 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+
+    <a href="index.html" class="logo">
+      BioVerse <span>Hub</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="practice.html">Practice</a></li>
+      <li><a href="tools.html">Tools</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="career.html">Career</a></li>
+    </ul>
+
+  </nav>
+
+
+  <section class="hero">
+
+    <div class="badge">Biotechnology Research</div>
+
+    <h1>
+      Research <span>Methods.</span>
+    </h1>
+
+    <p>
+      Explore common experimental and analytical methods used
+      by researchers in biotechnology and life sciences.
+    </p>
+
+  </section>
+
+
+  <section class="section">
+
+    <div class="heading">
+
+      <h2>Common Research Approaches</h2>
+
+      <p>
+        Different research questions require different approaches.
+      </p>
+
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="icon">🧪</div>
+        <h3>Experimental Research</h3>
+        <p>
+          Researchers change selected factors and observe their effects
+          under controlled conditions.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🔍</div>
+        <h3>Observational Research</h3>
+        <p>
+          Researchers observe biological phenomena without deliberately
+          manipulating the main factor being studied.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">📊</div>
+        <h3>Quantitative Research</h3>
+        <p>
+          Uses numerical measurements and statistical analysis
+          to investigate biological questions.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">📝</div>
+        <h3>Qualitative Research</h3>
+        <p>
+          Focuses on descriptive information, observations,
+          experiences, and characteristics.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">💻</div>
+        <h3>Computational Research</h3>
+        <p>
+          Uses software, computational methods, and data analysis
+          to investigate biological problems.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🧬</div>
+        <h3>Molecular Research</h3>
+        <p>
+          Investigates molecules such as DNA, RNA, proteins,
+          and their interactions.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="section">
+
+    <div class="heading">
 
       <h2>Important Biotechnology Methods</h2>
 
       <p>
-        These are some of the major techniques students may encounter
-        while studying biotechnology and life sciences.
+        These techniques are commonly encountered in biotechnology
+        and molecular biology.
       </p>
 
     </div>
 
 
-    <div class="content-box">
+    <div class="content">
 
       <h3>1. Polymerase Chain Reaction (PCR)</h3>
 
       <p>
-        PCR is a molecular technique used to amplify a specific DNA region,
-        producing many copies of the selected sequence.
+        PCR is a molecular technique used to amplify a specific
+        region of DNA, producing many copies of the selected sequence.
       </p>
 
-      <ul>
-        <li>Denaturation separates the DNA strands.</li>
-        <li>Annealing allows primers to bind to the target sequence.</li>
-        <li>Extension allows DNA polymerase to synthesize new DNA.</li>
-      </ul>
-
       <div class="example">
-
         <strong>Common applications:</strong>
-        DNA analysis, research, diagnostics, cloning workflows,
-        and detection of specific DNA sequences.
-
+        DNA analysis, research, diagnostics, and detection of
+        specific DNA sequences.
       </div>
 
     </div>
 
 
-    <div class="content-box">
+    <div class="content">
 
       <h3>2. Gel Electrophoresis</h3>
 
       <p>
         Gel electrophoresis is used to separate biological molecules,
-        such as DNA fragments, according to properties such as size
+        such as DNA fragments, based on properties such as size
         and electrical charge.
       </p>
-
-      <div class="example">
-
-        <strong>Common application:</strong>
-        Comparing DNA fragment patterns after molecular experiments.
-
-      </div>
 
     </div>
 
 
-    <div class="content-box">
+    <div class="content">
 
       <h3>3. DNA Sequencing</h3>
 
@@ -180,24 +387,21 @@
       </p>
 
       <div class="example">
-
         <strong>Why it matters:</strong>
         Sequence information can help researchers study genes,
         mutations, genomes, and biological variation.
-
       </div>
 
     </div>
 
 
-    <div class="content-box">
+    <div class="content">
 
       <h3>4. Microscopy</h3>
 
       <p>
         Microscopy allows researchers to observe cells, tissues,
-        microorganisms, and other structures that may not be
-        visible to the unaided eye.
+        microorganisms, and other structures.
       </p>
 
       <ul>
@@ -209,28 +413,25 @@
     </div>
 
 
-    <div class="content-box">
+    <div class="content">
 
       <h3>5. Cell Culture</h3>
 
       <p>
         Cell culture involves maintaining and studying cells under
-        controlled laboratory conditions. It is widely used in
-        biological and biomedical research.
+        controlled laboratory conditions.
       </p>
 
       <div class="example">
-
         <strong>Important:</strong>
         Cell culture requires appropriate sterile technique,
         suitable growth conditions, and proper laboratory procedures.
-
       </div>
 
     </div>
 
 
-    <div class="content-box">
+    <div class="content">
 
       <h3>6. Spectrophotometry</h3>
 
@@ -240,11 +441,9 @@
       </p>
 
       <div class="example">
-
         <strong>Common uses:</strong>
         Estimating concentrations of biological molecules,
-        measuring optical density, and monitoring experimental samples.
-
+        measuring optical density, and monitoring samples.
       </div>
 
     </div>
@@ -254,65 +453,61 @@
 
   <section class="section">
 
-    <div class="section-heading">
+    <div class="heading">
 
       <h2>Choosing the Right Method</h2>
 
       <p>
-        There is no single research method that works for every
-        biological question.
+        The best research method depends on the scientific question
+        and the type of evidence required.
       </p>
 
     </div>
 
 
-    <div class="content-box">
+    <div class="content">
 
       <h3>Start With the Research Question</h3>
 
       <p>
-        Researchers first identify what they need to know.
-        The research question then guides the selection of an
-        appropriate method.
+        First determine exactly what you want to investigate.
+        The research question guides the selection of an appropriate method.
       </p>
 
     </div>
 
 
-    <div class="content-box">
+    <div class="content">
 
       <h3>Consider the Type of Data</h3>
 
       <p>
-        Determine whether the study requires numerical measurements,
-        images, sequences, descriptive observations, or another type
-        of evidence.
+        Determine whether you need numerical measurements, images,
+        DNA sequences, descriptive observations, or another type of evidence.
       </p>
 
     </div>
 
 
-    <div class="content-box">
+    <div class="content">
 
       <h3>Consider Controls and Reliability</h3>
 
       <p>
         Appropriate controls, replication, standardized procedures,
-        and careful measurement can help improve the reliability
-        of experimental findings.
+        and careful measurements can improve the reliability of findings.
       </p>
 
     </div>
 
 
-    <div class="content-box">
+    <div class="content">
 
       <h3>Consider Safety and Ethics</h3>
 
       <p>
-        Research methods must be selected and performed according
-        to appropriate laboratory safety requirements, ethical
-        standards, and institutional procedures.
+        Research methods must follow appropriate laboratory safety
+        requirements, ethical standards, and institutional procedures.
       </p>
 
     </div>
@@ -320,16 +515,16 @@
   </section>
 
 
-  <section class="section tip-section">
+  <section class="section remember">
 
-    <div class="tip-content">
+    <div>
 
       <h2>Remember</h2>
 
       <p>
         A good researcher does not choose a technique simply because
         it is advanced. The best method is the one that appropriately
-        answers the research question while producing reliable,
+        answers the research question and produces reliable,
         interpretable evidence.
       </p>
 
