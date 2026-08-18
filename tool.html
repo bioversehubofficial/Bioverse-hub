@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Biotech Tools | BioVerse Hub</title>
+
+  <meta name="description" content="Use biotechnology calculators and sequence analysis tools designed for students.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7fbfa;
+      color: #173b3a;
+      line-height: 1.6;
+    }
+
+    nav {
+      background: white;
+      border-bottom: 1px solid #e1eceb;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      text-decoration: none;
+      font-size: 24px;
+      font-weight: 800;
+      color: #126b67;
+    }
+
+    .logo span {
+      color: #173b3a;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #315654;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: #126b67;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 85px 7%;
+      background:
+        radial-gradient(circle at 85% 20%, #dcefed 0, transparent 30%),
+        linear-gradient(135deg, #f8fcfb, #eaf7f4);
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 60px);
+      margin-bottom: 18px;
+    }
+
+    .hero h1 span {
+      color: #126b67;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+      color: #607774;
+      font-size: 17px;
+    }
+
+    .tools {
+      max-width: 1200px;
+      margin: auto;
+      padding: 70px 7%;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+
+    .section-heading h2 {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .section-heading p {
+      color: #687d7b;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .tool-card {
+      background: white;
+      border: 1px solid #e0eceb;
+      border-radius: 18px;
+      padding: 28px;
+      min-height: 260px;
+      box-shadow: 0 8px 25px rgba(20, 80, 75, 0.06);
+      transition: 0.25s ease;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 30px rgba(20, 80, 75, 0.10);
+    }
+
+    .tool-icon {
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    .tool-card h3 {
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .tool-card p {
+      color: #687d7b;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .tool-link {
+      display: inline-block;
+      color: #123b4a;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .tool-link:hover {
+      color: #126b67;
+      text-decoration: underline;
+    }
+
+    .note {
+      margin-top: 55px;
+      background: #173b3a;
+      color: white;
+      border-radius: 18px;
+      padding: 32px;
+      text-align: center;
+    }
+
+    .note h2 {
+      margin-bottom: 10px;
+      font-size: 27px;
+    }
+
+    .note p {
+      max-width: 750px;
+      margin: auto;
+      color: #d4e4e2;
+      font-size: 14px;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 40px;
+      color: #126b67;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #102b2a;
+      color: #c5d4d2;
+      text-align: center;
+      padding: 28px;
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    @media (max-width: 850px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .tool-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 65px 6%;
+      }
+
+      .tools {
+        padding: 55px 6%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+
+    <a href="index.html" class="logo">
+      BioVerse <span>Hub</span>
+    </a>
+
+    <ul class="nav-links">
+
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+
+      <li>
+        <a href="resources.html">Resources</a>
+      </li>
+
+      <li>
+        <a href="practice.html">Practice</a>
+      </li>
+
+      <li>
+        <a href="tools.html">Tools</a>
+      </li>
+
+      <li>
+        <a href="courses.html">Courses</a>
+      </li>
+
+      <li>
+        <a href="index.html#explore">Research</a>
+      </li>
+
+      <li>
+        <a href="index.html#explore">Career</a>
+      </li>
+
+    </ul>
+
+  </nav>
+
+
+  <!-- HERO -->
+
+  <header class="hero">
+
+    <h1>
+      Biotechnology <span>Tools</span>
+    </h1>
+
+    <p>
+      Use simple calculators and sequence analysis tools
+      designed to support biotechnology students during study and practice.
+    </p>
+
+  </header>
+
+
+  <!-- TOOLS -->
+
+  <main class="tools">
+
+    <div class="section-heading">
+
+      <h2>Explore Our Tools</h2>
+
+      <p>
+        Choose a tool below to calculate, analyze, or explore
+        common biotechnology-related problems.
+      </p>
+
+    </div>
+
+
+    <div class="tool-grid">
+
+
+      <!-- MOLARITY -->
+
+      <div class="tool-card">
+
+        <div class="tool-icon">🧪</div>
+
+        <h3>Molarity Calculator</h3>
+
+        <p>
+          Calculate solution molarity using moles of solute
+          and volume of solution.
+        </p>
+
+        <a href="Molarity-calculator.html" class="tool-link">
+          Open Calculator →
+        </a>
+
+      </div>
+
+
+      <!-- DILUTION -->
+
+      <div class="tool-card">
+
+        <div class="tool-icon">🧪</div>
+
+        <h3>Dilution Calculator</h3>
+
+        <p>
+          Calculate dilution values using the common
+          C₁V₁ = C₂V₂ relationship.
+        </p>
+
+        <a href="Dilution-calculator.html" class="tool-link">
+          Open Calculator →
+        </a>
+
+      </div>
+
+
+      <!-- MOLECULAR WEIGHT -->
+
+      <div class="tool-card">
+
+        <div class="tool-icon">⚖️</div>
+
+        <h3>Molecular Weight Calculator</h3>
+
+        <p>
+          Calculate molecular weight from chemical formula
+          information.
+        </p>
+
+        <a href="Molecular-weight-calculator.html" class="tool-link">
+          Open Calculator →
+        </a>
+
+      </div>
+
+
+      <!-- DNA -->
+
+      <div class="tool-card">
+
+        <div class="tool-icon">🧬</div>
+
+        <h3>DNA Sequence Analyzer</h3>
+
+        <p>
+          Explore basic properties of a DNA sequence
+          with a simple student-friendly analyzer.
+        </p>
+
+        <a href="DNA-sequence-analyzer.html" class="tool-link">
+          Open Analyzer →
+        </a>
+
+      </div>
+
+
+      <!-- RNA -->
+
+      <div class="tool-card">
+
+        <div class="tool-icon">🧬</div>
+
+        <h3>RNA Sequence Analyzer</h3>
+
+        <p>
+          Explore basic properties of RNA sequences
+          for learning and practice.
+        </p>
+
+        <a href="RNA-sequence-analyzer.html" class="tool-link">
+          Open Analyzer →
+        </a>
+
+      </div>
+
+
+      <!-- PROTEIN -->
+
+      <div class="tool-card">
+
+        <div class="tool-icon">🧬</div>
+
+        <h3>Protein Molecular Weight</h3>
+
+        <p>
+          Estimate protein molecular weight from an
+          amino-acid sequence.
+        </p>
+
+        <a href="Protein-molecular-weight.html" class="tool-link">
+          Open Tool →
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- NOTE -->
+
+    <section class="note">
+
+      <h2>For Learning & Practice</h2>
+
+      <p>
+        These tools are designed to support learning and practice.
+        Always verify important calculations and experimental decisions
+        using appropriate scientific references and laboratory protocols.
+      </p>
+
+    </section>
+
+
+    <a href="index.html" class="back-link">
+      ← Back to BioVerse Hub
+    </a>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    © 2026 <strong>BioVerse Hub</strong>.
+    Built for biotechnology students worldwide.
+
+  </footer>
+
+</body>
+</html>
