@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Career | BioVerse Hub</title>
+
+  <meta name="description" content="Explore biotechnology career resources, internships, certifications, competitions, skills, and opportunities with BioVerse Hub.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7fbfa;
+      color: #173b3a;
+      line-height: 1.6;
+    }
+
+    nav {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid #e2eeee;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      color: #126b67;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: #173b3a;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #315654;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: #126b67;
+    }
+
+    .hero {
+      padding: 90px 7%;
+      text-align: center;
+      background:
+        radial-gradient(circle at 85% 20%, #dcefed 0, transparent 30%),
+        linear-gradient(135deg, #f8fcfb, #eef8f6);
+    }
+
+    .badge {
+      display: inline-block;
+      background: #dff1ee;
+      color: #126b67;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 70px);
+      line-height: 1;
+      margin-bottom: 20px;
+      color: #173b3a;
+    }
+
+    .hero h1 span {
+      color: #126b67;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+      color: #58706e;
+      font-size: 18px;
+    }
+
+    .section {
+      padding: 75px 7%;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 45px;
+    }
+
+    .section-heading h2 {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .section-heading p {
+      color: #687d7b;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e0eceb;
+      border-radius: 18px;
+      padding: 30px;
+      min-height: 235px;
+      box-shadow: 0 8px 30px rgba(20, 80, 75, 0.05);
+      transition: 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 35px rgba(20, 80, 75, 0.10);
+    }
+
+    .card-icon {
+      font-size: 32px;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #6a7e7c;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .card-link {
+      color: #126b67;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .card-link:hover {
+      text-decoration: underline;
+    }
+
+    .skills {
+      background: #eef8f6;
+    }
+
+    .skills-content {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .skills-content h2 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    .skills-content p {
+      color: #687d7b;
+      margin-bottom: 30px;
+    }
+
+    .skill-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .skill {
+      background: white;
+      padding: 18px;
+      border-radius: 12px;
+      border: 1px solid #dfeceb;
+      font-weight: 700;
+    }
+
+    .cta {
+      background: #173b3a;
+      color: white;
+      text-align: center;
+    }
+
+    .cta-content {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .cta h2 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      color: #d4e4e2;
+    }
+
+    footer {
+      background: #102b2a;
+      color: #b9ccca;
+      text-align: center;
+      padding: 28px 7%;
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    @media (max-width: 850px) {
+
+      nav {
+        padding: 16px 5%;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 70px 6%;
+      }
+
+      .section {
+        padding: 60px 6%;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .skill-list {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading h2,
+      .skills-content h2,
+      .cta h2 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+
+    <a href="index.html" class="logo">
+      BioVerse <span>Hub</span>
+    </a>
+
+    <ul class="nav-links">
+
+      <li><a href="index.html">Home</a></li>
+
+      <li><a href="resources.html">Resources</a
