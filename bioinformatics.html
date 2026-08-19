@@ -1,34 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Bioinformatics | BioVerse Hub</title>
 
-  <meta name="description" content="Learn the basics of bioinformatics, sequence analysis, BLAST, protein analysis, alignment, genomics, and useful bioinformatics resources.">
+  <meta
+    name="description"
+    content="Explore bioinformatics concepts, biological data analysis, genomics, protein analysis, sequence analysis, and career pathways for biotechnology students."
+  >
 
   <style>
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: #f7fbfa;
       color: #173b3a;
-      line-height: 1.7;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
+    /* NAVIGATION */
+
     nav {
+      width: 100%;
       background: white;
       border-bottom: 1px solid #e2eeee;
       padding: 18px 7%;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     .logo {
@@ -36,6 +53,7 @@
       font-weight: 800;
       color: #126b67;
       text-decoration: none;
+      white-space: nowrap;
     }
 
     .logo span {
@@ -46,6 +64,8 @@
       display: flex;
       gap: 22px;
       list-style: none;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     .nav-links a {
@@ -59,10 +79,15 @@
       color: #126b67;
     }
 
+
+    /* HERO */
+
     .hero {
-      padding: 80px 7%;
+      padding: 85px 7%;
       text-align: center;
-      background: linear-gradient(135deg, #f8fcfb, #eef8f6);
+      background:
+        radial-gradient(circle at 85% 20%, #dcefed 0, transparent 30%),
+        linear-gradient(135deg, #f8fcfb, #eef8f6);
     }
 
     .badge {
@@ -72,14 +97,16 @@
       padding: 8px 16px;
       border-radius: 30px;
       font-size: 13px;
-      font-weight: bold;
-      margin-bottom: 18px;
+      font-weight: 700;
+      margin-bottom: 20px;
     }
 
     .hero h1 {
-      font-size: clamp(42px, 6vw, 68px);
+      font-size: clamp(42px, 7vw, 72px);
       line-height: 1;
+      letter-spacing: -2px;
       margin-bottom: 20px;
+      color: #173b3a;
     }
 
     .hero h1 span {
@@ -93,146 +120,175 @@
       font-size: 18px;
     }
 
+
+    /* GENERAL SECTION */
+
     .section {
-      padding: 70px 7%;
+      width: 100%;
+      padding: 75px 7%;
     }
 
     .heading {
-      text-align: center;
+      width: 100%;
       max-width: 780px;
-      margin: 0 auto 40px;
+      margin: 0 auto 45px;
+      text-align: center;
     }
 
     .heading h2 {
       font-size: 36px;
-      margin-bottom: 10px;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      color: #173b3a;
     }
 
     .heading p {
       color: #687d7b;
+      font-size: 16px;
     }
 
+
+    /* CARDS */
+
     .cards {
+      width: 100%;
       max-width: 1100px;
-      margin: auto;
+      margin: 0 auto;
+
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
       gap: 22px;
     }
 
     .card {
+      width: 100%;
+      min-width: 0;
+
       background: white;
+
       border: 1px solid #e0eceb;
       border-radius: 18px;
+
       padding: 28px;
-      box-shadow: 0 8px 25px rgba(20, 80, 75, 0.05);
+
+      box-shadow:
+        0 8px 25px rgba(20, 80, 75, 0.05);
+
       transition: 0.25s ease;
+
+      overflow-wrap: break-word;
     }
 
     .card:hover {
       transform: translateY(-5px);
+
+      box-shadow:
+        0 14px 35px rgba(20, 80, 75, 0.10);
     }
 
     .icon {
-      font-size: 30px;
-      margin-bottom: 12px;
+      font-size: 31px;
+      margin-bottom: 15px;
     }
 
     .card h3 {
+      color: #173b3a;
       font-size: 21px;
+      line-height: 1.3;
       margin-bottom: 10px;
+
+      word-break: normal;
+      overflow-wrap: break-word;
     }
 
     .card p {
       color: #667b79;
       font-size: 14px;
+      line-height: 1.7;
     }
 
-    .content {
+
+    /* WHY BIOINFORMATICS */
+
+    .info-box {
+      width: 100%;
       max-width: 900px;
-      margin: 0 auto 25px;
+      margin: 0 auto;
+
       background: white;
+
       border: 1px solid #e0eceb;
       border-radius: 18px;
-      padding: 28px;
-      box-shadow: 0 8px 25px rgba(20, 80, 75, 0.05);
+
+      padding: 32px;
+
+      box-shadow:
+        0 8px 25px rgba(20, 80, 75, 0.05);
     }
 
-    .content h3 {
-      font-size: 23px;
-      margin-bottom: 10px;
-    }
-
-    .content p {
-      color: #607573;
+    .info-box h3 {
+      font-size: 24px;
       margin-bottom: 12px;
+      color: #173b3a;
     }
 
-    .content ul {
+    .info-box p {
+      color: #667b79;
+      margin-bottom: 15px;
+    }
+
+    .info-box ul {
       padding-left: 22px;
-      color: #607573;
+      color: #667b79;
     }
 
-    .tip {
-      margin-top: 16px;
-      padding: 16px;
-      background: #eef8f6;
-      border-left: 4px solid #126b67;
-      border-radius: 8px;
-    }
-
-    .tip strong {
-      color: #126b67;
-    }
-
-    .workflow {
-      max-width: 1000px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 12px;
-    }
-
-    .workflow-item {
-      background: white;
-      border: 1px solid #e0eceb;
-      border-radius: 16px;
-      padding: 20px 12px;
-      text-align: center;
-      font-weight: bold;
-    }
-
-    .workflow-item span {
-      display: block;
-      font-size: 28px;
+    .info-box li {
       margin-bottom: 8px;
     }
 
-    .remember {
+
+    /* CAREER PATH */
+
+    .path-section {
+      background: #eef8f6;
+    }
+
+
+    /* FINAL SECTION */
+
+    .final-section {
       background: #173b3a;
       color: white;
       text-align: center;
     }
 
-    .remember div {
-      max-width: 820px;
+    .final-content {
+      max-width: 850px;
       margin: auto;
     }
 
-    .remember h2 {
-      font-size: 36px;
-      margin-bottom: 12px;
+    .final-content h2 {
+      font-size: 38px;
+      line-height: 1.2;
+      margin-bottom: 15px;
     }
 
-    .remember p {
+    .final-content p {
       color: #d4e4e2;
+      font-size: 16px;
     }
+
+
+    /* FOOTER */
 
     footer {
       background: #102b2a;
       color: #b9ccca;
       text-align: center;
-      padding: 28px;
+      padding: 28px 7%;
       font-size: 13px;
     }
 
@@ -240,33 +296,88 @@
       color: white;
     }
 
-    @media (max-width: 850px) {
+
+    /* TABLET */
+
+    @media (max-width: 950px) {
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      .cards {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+      }
+
+    }
+
+
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+
+      nav {
+        padding: 16px 5%;
+      }
 
       .nav-links {
         display: none;
       }
 
-      .cards {
-        grid-template-columns: 1fr;
+      .hero {
+        padding: 70px 6%;
       }
 
-      .workflow {
-        grid-template-columns: 1fr;
+      .hero h1 {
+        font-size: 46px;
+        letter-spacing: -1px;
+      }
+
+      .hero p {
+        font-size: 16px;
       }
 
       .section {
-        padding: 55px 6%;
+        padding: 60px 6%;
       }
 
-      .heading h2,
-      .remember h2 {
+      .heading {
+        margin-bottom: 35px;
+      }
+
+      .heading h2 {
         font-size: 30px;
       }
+
+      .cards {
+        grid-template-columns: 1fr;
+        width: 100%;
+      }
+
+      .card {
+        width: 100%;
+      }
+
+      .info-box {
+        padding: 24px;
+      }
+
+      .final-content h2 {
+        font-size: 30px;
+      }
+
     }
+
   </style>
+
 </head>
 
+
 <body>
+
+
+  <!-- NAVIGATION -->
 
   <nav>
 
@@ -276,37 +387,61 @@
 
     <ul class="nav-links">
 
-      <li><a href="index.html">Home</a></li>
-      <li><a href="resources.html">Resources</a></li>
-      <li><a href="practice.html">Practice</a></li>
-      <li><a href="tools.html">Tools</a></li>
-      <li><a href="courses.html">Courses</a></li>
-      <li><a href="research.html">Research</a></li>
-      <li><a href="career.html">Career</a></li>
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+
+      <li>
+        <a href="resources.html">Resources</a>
+      </li>
+
+      <li>
+        <a href="practice.html">Practice</a>
+      </li>
+
+      <li>
+        <a href="tools.html">Tools</a>
+      </li>
+
+      <li>
+        <a href="courses.html">Courses</a>
+      </li>
+
+      <li>
+        <a href="research.html">Research</a>
+      </li>
+
+      <li>
+        <a href="career.html">Career</a>
+      </li>
 
     </ul>
 
   </nav>
 
 
+  <!-- HERO -->
+
   <section class="hero">
 
     <div class="badge">
-      Biotechnology + Computing
+      Bioinformatics for Biotechnology Students
     </div>
 
     <h1>
-      Introduction to <span>Bioinformatics.</span>
+      Explore <span>Bioinformatics.</span>
     </h1>
 
     <p>
       Learn how biological data can be analyzed using computational
-      methods and discover the tools researchers use to study DNA,
-      RNA, proteins, genomes, and biological relationships.
+      approaches, from DNA and RNA sequences to proteins, genomes,
+      and larger biological datasets.
     </p>
 
   </section>
 
+
+  <!-- INTRODUCTION -->
 
   <section class="section">
 
@@ -316,35 +451,52 @@
 
       <p>
         Bioinformatics combines biology, computer science,
-        mathematics, and statistics to work with biological data.
+        mathematics, and data analysis to study biological information.
       </p>
 
     </div>
 
 
-    <div class="content">
+    <div class="info-box">
 
-      <h3>Why Does It Matter?</h3>
+      <h3>🧬 Biology + Data + Computing</h3>
 
       <p>
-        Modern biotechnology produces huge amounts of biological data.
-        Researchers need computational approaches to store, search,
-        compare, analyze, and interpret this information.
+        Modern biotechnology produces enormous amounts of biological
+        data. Bioinformatics provides methods and tools that help
+        researchers organize, analyze, compare, and interpret this data.
       </p>
 
-      <div class="tip">
+      <ul>
 
-        <strong>Think of it this way:</strong>
-        Biology gives us the biological question,
-        while bioinformatics provides computational ways
-        to work with the data.
+        <li>
+          Analyze DNA, RNA, and protein sequences.
+        </li>
 
-      </div>
+        <li>
+          Compare biological sequences to identify similarities.
+        </li>
+
+        <li>
+          Study genes, genomes, proteins, and biological pathways.
+        </li>
+
+        <li>
+          Work with databases containing biological information.
+        </li>
+
+        <li>
+          Use computational methods to support biological research.
+        </li>
+
+      </ul>
 
     </div>
 
   </section>
 
+
+  <!-- AREAS -->
 
   <section class="section">
 
@@ -360,6 +512,7 @@
 
 
     <div class="cards">
+
 
       <div class="card">
 
@@ -377,13 +530,27 @@
 
       <div class="card">
 
+        <div class="icon">🔗</div>
+
+        <h3>Sequence Alignment</h3>
+
+        <p>
+          Compare biological sequences to identify regions of similarity
+          that may have biological significance.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
         <div class="icon">🧪</div>
 
         <h3>Protein Analysis</h3>
 
         <p>
-          Explore protein sequences, functions, domains,
-          structures, and relationships between proteins.
+          Explore protein sequences, functions, domains, structures,
+          and relationships between proteins.
         </p>
 
       </div>
@@ -396,22 +563,8 @@
         <h3>Genomics</h3>
 
         <p>
-          Study genomes and genomic information to understand
-          genes, variations, and biological organization.
-        </p>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="icon">🔗</div>
-
-        <h3>Sequence Alignment</h3>
-
-        <p>
-          Compare biological sequences to identify regions
-          of similarity that may have biological significance.
+          Study genomes and genomic information to understand genes,
+          variations, and biological organization.
         </p>
 
       </div>
@@ -424,9 +577,34 @@
         <h3>Phylogenetics</h3>
 
         <p>
-          Use
+          Study evolutionary relationships between organisms or
+          biological sequences using computational approaches.
+        </p>
 
-          <section class="section">
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">📊</div>
+
+        <h3>Biological Data Science</h3>
+
+        <p>
+          Develop skills for analyzing, visualizing, and interpreting
+          increasingly large biological datasets.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- WHERE IT LEADS -->
+
+  <section class="section path-section">
 
     <div class="heading">
 
@@ -439,7 +617,9 @@
 
     </div>
 
+
     <div class="cards">
+
 
       <div class="card">
 
@@ -489,8 +669,8 @@
         <h3>Agricultural Biotechnology</h3>
 
         <p>
-          Study genes and biological traits in plants,
-          crops, and other organisms.
+          Study genes and biological traits in plants, crops,
+          and other organisms.
         </p>
 
       </div>
@@ -512,13 +692,13 @@
 
       <div class="card">
 
-        <div class="icon">🧠</div>
+        <div class="icon">📈</div>
 
-        <h3>Research & Data Science</h3>
+        <h3>Research &amp; Data Science</h3>
 
         <p>
           Develop skills for analyzing and interpreting
-          increasingly large biological datasets.
+          biological datasets.
         </p>
 
       </div>
@@ -528,11 +708,122 @@
   </section>
 
 
-  <section class="section remember">
+  <!-- SKILLS -->
 
-    <div>
+  <section class="section">
 
-      <h2>Start Small. Analyze Carefully.</h2>
+    <div class="heading">
+
+      <h2>Skills to Build First</h2>
+
+      <p>
+        You do not need to become an expert immediately.
+        Start with the fundamentals and build gradually.
+      </p>
+
+    </div>
+
+
+    <div class="cards">
+
+
+      <div class="card">
+
+        <div class="icon">🧬</div>
+
+        <h3>Biological Sequences</h3>
+
+        <p>
+          Understand DNA, RNA, proteins, nucleotides,
+          amino acids, and basic sequence concepts.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">💻</div>
+
+        <h3>Computer Skills</h3>
+
+        <p>
+          Become comfortable with files, databases,
+          web-based biological tools, and basic computing.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">📊</div>
+
+        <h3>Data Analysis</h3>
+
+        <p>
+          Learn how to organize, interpret, visualize,
+          and communicate biological data.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">🐍</div>
+
+        <h3>Programming</h3>
+
+        <p>
+          Python and other programming skills can later
+          help automate biological data analysis.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">🔎</div>
+
+        <h3>Database Searching</h3>
+
+        <p>
+          Learn how researchers find and retrieve useful
+          biological information from scientific databases.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">📚</div>
+
+        <h3>Scientific Reading</h3>
+
+        <p>
+          Develop the ability to understand research papers,
+          biological datasets, and scientific explanations.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FINAL -->
+
+  <section class="section final-section">
+
+    <div class="final-content">
+
+      <h2>
+        Start Small. Analyze Carefully.
+      </h2>
 
       <p>
         Bioinformatics can look complicated at first, but you can
@@ -546,6 +837,8 @@
   </section>
 
 
+  <!-- FOOTER -->
+
   <footer>
 
     <p>
@@ -555,5 +848,7 @@
 
   </footer>
 
+
 </body>
+
 </html>
