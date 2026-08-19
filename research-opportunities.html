@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Research Opportunities | BioVerse Hub</title>
+
+  <meta name="description" content="Explore research internships, undergraduate research opportunities, research programs, competitions, training, and practical guidance for biotechnology students.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7fbfa;
+      color: #173b3a;
+      line-height: 1.7;
+    }
+
+    nav {
+      background: white;
+      border-bottom: 1px solid #e2eeee;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      color: #126b67;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: #173b3a;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #315654;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: #126b67;
+    }
+
+    .hero {
+      padding: 80px 7%;
+      text-align: center;
+      background: linear-gradient(135deg, #f8fcfb, #eef8f6);
+    }
+
+    .badge {
+      display: inline-block;
+      background: #dff1ee;
+      color: #126b67;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 68px);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #126b67;
+    }
+
+    .hero p {
+      max-width: 780px;
+      margin: auto;
+      color: #58706e;
+      font-size: 18px;
+    }
+
+    .section {
+      padding: 70px 7%;
+    }
+
+    .heading {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 40px;
+    }
+
+    .heading h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .heading p {
+      color: #687d7b;
+    }
+
+    .cards {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e0eceb;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 8px 25px rgba(20, 80, 75, 0.05);
+      transition: 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .icon {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #667b79;
+      font-size: 14px;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 0 auto 25px;
+      background: white;
+      border: 1px solid #e0eceb;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 8px 25px rgba(20, 80, 75, 0.05);
+    }
+
+    .content h3 {
+      font-size: 23px;
+      margin-bottom: 10px;
+    }
+
+    .content p {
+      color: #607573;
+      margin-bottom: 12px;
+    }
+
+    .content ul {
+      padding-left: 22px;
+      color: #607573;
+    }
+
+    .tip {
+      margin-top: 16px;
+      padding: 16px;
+      background: #eef8f6;
+      border-left: 4px solid #126b67;
+      border-radius: 8px;
+    }
+
+    .tip strong {
+      color: #126b67;
+    }
+
+    .checklist {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .check-item {
+      background: white;
+      border: 1px solid #e0eceb;
+      border-radius: 14px;
+      padding: 18px 22px;
+      margin-bottom: 12px;
+    }
+
+    .check-item strong {
+      color: #126b67;
+    }
+
+    .dark-section {
+      background: #173b3a;
+      color: white;
+      text-align: center;
+    }
+
+    .dark-section div {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .dark-section h2 {
+      font-size: 36px;
+      margin-bottom: 14px;
+    }
+
+    .dark-section p {
+      color: #d4e4e2;
+    }
+
+    footer {
+      background: #102b2a;
+      color: #b9ccca;
+      text-align: center;
+      padding: 28px;
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    @media (max-width: 850px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 55px 6%;
+      }
+
+      .heading h2,
+      .dark-section h2 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+
+    <a href="index.html" class="logo">
+      BioVerse <span>Hub</span>
+    </a>
+
+    <ul class="nav-links">
+
+      <li><a href="index.html">Home</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="practice.html">Practice</a></li>
+      <li><a href="tools.html">Tools</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="career.html">Career</a></li>
+
+    </ul>
+
+  </nav>
+
+
+  <section class="hero">
+
+    <div class="badge">
+      Research Opportunities
+    </div>
+
+    <h1>
+      Find Your <span>Research Path.</span>
+    </h1>
+
+    <p>
+      Discover different types of research opportunities and learn
+      how to prepare yourself for internships, programs, projects,
+      and research experiences.
+    </p>
+
+  </section>
+
+
+  <section class="section">
+
+    <div class="heading">
+
+      <h2>What Counts as a Research Opportunity?</h2>
+
+      <p>
+        Research experience can come in many forms, especially for
+        undergraduate biotechnology students.
+      </p>
+
+    </div>
+
+
+    <div class="cards">
+
+      <div class="card">
+
+        <div class="icon">🔬</div>
+
+        <h3>Research Internships</h3>
+
+        <p>
+          Short-term experiences where students work with researchers,
+          laboratories, universities, or research organizations.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">🧑‍🔬</div>
+
+        <h3>University Research</h3>
+
+        <p>
+          Work with faculty members or research groups on projects
+          connected to biotechnology and related sciences.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">🌍</div>
+
+        <h3>International Programs</h3>
+
+        <p>
+          Some universities and organizations offer research programs
+          for students from different countries.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">🏆</div>
+
+        <h3>Research Competitions</h3>
+
+        <p>
+          Competitions can help students develop scientific thinking,
+          presentation skills, and experience communicating ideas.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">📚</div>
+
+        <h3>Research Training</h3>
+
+        <p>
+          Courses and workshops can build skills in scientific writing,
+          laboratory methods, data analysis, and bioinformatics.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">💻</div>
+
+        <h3>Computational Research</h3>
+
+        <p>
+          Bioinformatics and computational projects can provide research
+          experience without always requiring access to a laboratory.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="section">
+
+    <div class="heading">
+
+      <h2>What Should You Have Before Applying?</h2>
+
+      <p>
+        You do not need to know everything before applying,
+        but preparation can make your application stronger.
+      </p>
+
+    </div>
+
+
+    <div class="checklist">
+
+      <div class="check-item">
+        <strong>1. Basic Scientific Knowledge</strong><br>
+        Understand the fundamentals of the field you want to work in.
+      </div>
+
+      <div class="check-item">
+        <strong>2. A Simple CV</strong><br>
+        Include your education, relevant skills, courses, projects,
+        achievements, and research interests.
+      </div>
+
+      <div class="check-item">
+        <strong>3. Research Interest</strong><br>
+        Know which areas interest you and why you want research experience.
+      </div>
+
+      <div class="check-item">
+        <strong>4. Relevant Skills</strong><br>
+        Laboratory skills, scientific writing, data analysis,
+        bioinformatics, or other relevant abilities can help.
+      </div>
+
+      <div class="check-item">
+        <strong>5. Professional Communication</strong><br>
+        Learn how to write a clear and respectful email to a researcher,
+        professor, or program coordinator.
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="section">
+
+    <div class="heading">
+
+      <h2>How to Find Research Opportunities</h2>
+
+      <p>
+        Searching systematically is often more effective than waiting
+        for an opportunity to appear.
+      </p>
+
+    </div>
+
+
+    <div class="content">
+
+      <h3>🔎 Search University Websites</h3>
+
+      <p>
+        Look for faculty research groups, laboratory pages,
+        undergraduate research programs, summer programs,
+        and departmental announcements.
+      </p>
+
+    </div>
+
+
+    <div class="content">
+
+      <h3>🧑‍🔬 Identify Researchers</h3>
+
+      <p>
+        Find researchers whose work matches your interests.
+        Read their research areas and recent publications before contacting them.
+      </p>
+
+    </div>
+
+
+    <div class="content">
+
+      <h3>📄 Read Before You Apply</h3>
+
+      <p>
+        Check eligibility requirements, deadlines, required documents,
+        funding information, and whether international students are eligible.
+      </p>
+
+    </div>
+
+
+    <div class="content">
+
+      <h3>✉️ Contact Professionally</h3>
+
+      <p>
+        A short, personalized email is better than sending the same
+        generic message to many researchers.
+      </p>
+
+      <div class="tip">
+
+        <strong>Good approach:</strong>
+        Mention the researcher's work, briefly introduce yourself,
+        explain your interest, and clearly state what you are asking for.
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="section">
+
+    <div class="heading">
+
+      <h2>Application Checklist</h2>
+
+      <p>
+        Before submitting an application, check these basics.
+      </p>
+
+    </div>
+
+
+    <div class="content">
+
+      <ul>
+
+        <li>Check the deadline.</li>
+
+        <li>Confirm your eligibility.</li>
+
+        <li>Prepare an updated CV.</li>
+
+        <li>Prepare a short statement of interest if required.</li>
+
+        <li>Collect academic documents if requested.</li>
+
+        <li>Check whether references or recommendation letters are required.</li>
+
+        <li>Verify funding and travel arrangements.</li>
+
+        <li>Read the official program information carefully.</li>
+
+      </ul>
+
+    </div>
+
+  </section>
+
+
+  <section class="section dark-section">
+
+    <div>
+
+      <h2>Start Building Research Experience</h2>
+
+      <p>
+        Your first research opportunity does not have to be perfect.
+        Start by building useful skills, learning how research works,
+        connecting with researchers, and applying consistently.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <footer>
+
+    <p>
+      © 2026 <strong>BioVerse Hub</strong>.
+      Built for biotechnology students worldwide.
+    </p>
+
+  </footer>
+
+</body>
+</html>
