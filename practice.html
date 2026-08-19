@@ -255,37 +255,38 @@
 
       position:relative;
 
-      padding:100px 7%;
+      min-height:430px;
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:center;
 
       text-align:center;
+
+      padding:90px 7%;
 
       overflow:hidden;
 
       background:
-
         radial-gradient(
           circle at 15% 20%,
-          rgba(57,124,255,.18),
-          transparent 28%
-        ),
-
-        radial-gradient(
-          circle at 85% 20%,
-          rgba(255,95,158,.20),
+          rgba(57,124,255,.12),
           transparent 30%
         ),
 
         radial-gradient(
-          circle at 70% 90%,
-          rgba(255,75,95,.12),
-          transparent 28%
+          circle at 85% 25%,
+          rgba(255,95,158,.13),
+          transparent 30%
         ),
 
         linear-gradient(
           135deg,
-          #eef3ff 0%,
-          #f8f3ff 48%,
-          #fff0f7 100%
+          #f8f9ff,
+          #edf2ff 55%,
+          #fff1f7
         );
     }
 
@@ -311,6 +312,15 @@
       background-size:50px 50px;
 
       mask-image:
+        linear-gradient(
+          to bottom,
+          transparent,
+          black 20%,
+          black 80%,
+          transparent
+        );
+
+      -webkit-mask-image:
         linear-gradient(
           to bottom,
           transparent,
@@ -898,6 +908,8 @@
       /* HERO */
 
       .hero{
+
+        min-height:400px;
 
         padding:75px 6%;
       }
