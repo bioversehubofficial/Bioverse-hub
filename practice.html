@@ -6,190 +6,1071 @@
 
   <title>Practice & Quizzes | BioVerse Hub</title>
 
-  <meta name="description" content="Practice biotechnology concepts with quizzes and topic-based questions on BioVerse Hub.">
+  <meta name="description"
+        content="Practice biotechnology concepts with quizzes and topic-based questions on BioVerse Hub.">
 
   <style>
-    * {
-      box-sizing: border-box;
+
+    /* =====================================================
+       RESET
+    ===================================================== */
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f7fbfa;
-      color: #173b3a;
-      line-height: 1.6;
+    html{
+      scroll-behavior:smooth;
     }
 
-    nav {
-      width: 100%;
-      background: white;
-      border-bottom: 1px solid #e2eeee;
-      padding: 18px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    body{
+      font-family:"Segoe UI", Inter, Arial, sans-serif;
+      background:#f4f6ff;
+      color:#17213f;
+      line-height:1.6;
+      overflow-x:hidden;
     }
 
-    .logo {
-      font-size: 24px;
-      font-weight: 800;
-      color: #126b67;
-      text-decoration: none;
+    a{
+      text-decoration:none;
     }
 
-    .logo span {
-      color: #173b3a;
+
+    /* =====================================================
+       NAVBAR
+    ===================================================== */
+
+    nav{
+      width:100%;
+      padding:17px 7%;
+
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+
+      position:sticky;
+      top:0;
+      z-index:1000;
+
+      background:rgba(8,13,35,.94);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+
+      border-bottom:1px solid rgba(255,255,255,.09);
     }
 
-    .nav-links {
-      display: flex;
-      gap: 25px;
-      list-style: none;
-      margin: 0;
-      padding: 0;
+    .logo{
+      font-size:25px;
+      font-weight:900;
+      letter-spacing:-1px;
+      color:#5da7ff;
     }
 
-    .nav-links a {
-      text-decoration: none;
-      color: #315654;
-      font-size: 14px;
-      font-weight: 600;
+    .logo span{
+      color:#ff5f9e;
     }
 
-    .hero {
-      padding: 80px 7%;
-      text-align: center;
+    .nav-links{
+      display:flex;
+      gap:24px;
+      list-style:none;
+      align-items:center;
+    }
+
+    .nav-links a{
+      color:#dce3fa;
+      font-size:14px;
+      font-weight:700;
+      transition:.25s ease;
+    }
+
+    .nav-links a:hover{
+      color:#ff6ba7;
+    }
+
+
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
+
+    .menu-toggle{
+      display:none;
+
+      width:44px;
+      height:44px;
+
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:12px;
+
+      background:rgba(255,255,255,.06);
+
+      color:white;
+      font-size:25px;
+
+      cursor:pointer;
+
+      align-items:center;
+      justify-content:center;
+
+      transition:.3s ease;
+    }
+
+    .menu-toggle:hover{
+      background:rgba(255,95,158,.15);
+      border-color:#ff5f9e;
+    }
+
+
+    /* =====================================================
+       BIOTECH SIDE PATTERN
+    ===================================================== */
+
+    .side-bio{
+      position:fixed;
+
+      top:50%;
+      transform:translateY(-50%);
+
+      width:48px;
+
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+
+      gap:34px;
+
+      z-index:2;
+
+      pointer-events:none;
+    }
+
+    .side-bio.left{
+      left:10px;
+    }
+
+    .side-bio.right{
+      right:10px;
+    }
+
+    .bio-symbol{
+      width:30px;
+      height:30px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      font-size:20px;
+
+      opacity:.38;
+
+      filter:
+        drop-shadow(
+          0 0 7px rgba(255,95,158,.45)
+        );
+
+      animation:
+        bioFloat 4s ease-in-out infinite;
+    }
+
+    .bio-symbol:nth-child(odd){
+      color:#4f9cff;
+
+      filter:
+        drop-shadow(
+          0 0 8px rgba(79,156,255,.65)
+        );
+    }
+
+    .bio-symbol:nth-child(even){
+      color:#ff5f9e;
+
+      filter:
+        drop-shadow(
+          0 0 8px rgba(255,95,158,.65)
+        );
+    }
+
+    .bio-symbol:nth-child(2){
+      animation-delay:.8s;
+    }
+
+    .bio-symbol:nth-child(3){
+      animation-delay:1.6s;
+    }
+
+    .bio-symbol:nth-child(4){
+      animation-delay:2.4s;
+    }
+
+    .bio-symbol:nth-child(5){
+      animation-delay:3.2s;
+    }
+
+    @keyframes bioFloat{
+
+      0%,100%{
+        transform:translateY(0);
+        opacity:.28;
+      }
+
+      50%{
+        transform:translateY(-7px);
+        opacity:.55;
+      }
+
+    }
+
+    .side-bio::before{
+      content:"";
+
+      position:absolute;
+
+      top:8px;
+      bottom:8px;
+
+      width:1px;
+
       background:
-        radial-gradient(circle at 85% 20%, #dcefed 0, transparent 30%),
-        linear-gradient(135deg, #f8fcfb, #eef8f6);
+        linear-gradient(
+          to bottom,
+          transparent,
+          rgba(79,156,255,.25),
+          rgba(255,95,158,.3),
+          rgba(79,156,255,.25),
+          transparent
+        );
+
+      z-index:-1;
     }
 
-    .hero h1 {
-      font-size: 52px;
-      margin: 0 0 15px;
-      color: #173b3a;
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .hero{
+
+      position:relative;
+
+      padding:100px 7%;
+
+      text-align:center;
+
+      overflow:hidden;
+
+      background:
+
+        radial-gradient(
+          circle at 15% 20%,
+          rgba(57,124,255,.18),
+          transparent 28%
+        ),
+
+        radial-gradient(
+          circle at 85% 20%,
+          rgba(255,95,158,.20),
+          transparent 30%
+        ),
+
+        radial-gradient(
+          circle at 70% 90%,
+          rgba(255,75,95,.12),
+          transparent 28%
+        ),
+
+        linear-gradient(
+          135deg,
+          #eef3ff 0%,
+          #f8f3ff 48%,
+          #fff0f7 100%
+        );
     }
 
-    .hero p {
-      max-width: 700px;
-      margin: auto;
-      color: #58706e;
-      font-size: 17px;
+    .hero::before{
+      content:"";
+
+      position:absolute;
+      inset:0;
+
+      background-image:
+
+        linear-gradient(
+          rgba(49,95,232,.035) 1px,
+          transparent 1px
+        ),
+
+        linear-gradient(
+          90deg,
+          rgba(49,95,232,.035) 1px,
+          transparent 1px
+        );
+
+      background-size:50px 50px;
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          transparent,
+          black 20%,
+          black 80%,
+          transparent
+        );
     }
 
-    .practice-section {
-      padding: 70px 7%;
-      max-width: 1200px;
-      margin: auto;
+    .hero-content{
+      position:relative;
+      z-index:5;
     }
 
-    .section-heading {
-      text-align: center;
-      margin-bottom: 45px;
+    .hero h1{
+
+      font-size:
+        clamp(45px,6vw,64px);
+
+      line-height:1;
+
+      letter-spacing:-3px;
+
+      font-weight:950;
+
+      color:#17213f;
+
+      margin-bottom:20px;
     }
 
-    .section-heading h2 {
-      font-size: 34px;
-      margin-bottom: 10px;
+    .hero h1 span{
+
+      background:
+        linear-gradient(
+          90deg,
+          #397cff,
+          #e83e82,
+          #ff5967
+        );
+
+      -webkit-background-clip:text;
+      background-clip:text;
+
+      color:transparent;
     }
 
-    .section-heading p {
-      color: #687d7b;
+    .hero p{
+
+      max-width:720px;
+
+      margin:auto;
+
+      color:#69738e;
+
+      font-size:17px;
+
+      line-height:1.8;
     }
 
-    .topic-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 25px;
+
+    /* =====================================================
+       PRACTICE SECTION
+    ===================================================== */
+
+    .practice-section{
+
+      position:relative;
+
+      max-width:1200px;
+
+      margin:auto;
+
+      padding:90px 7%;
     }
 
-    .topic-card {
-      background: white;
-      border: 1px solid #e0eceb;
-      border-radius: 18px;
-      padding: 30px;
-      box-shadow: 0 8px 30px rgba(20, 80, 75, 0.05);
+    .section-heading{
+
+      text-align:center;
+
+      max-width:720px;
+
+      margin:0 auto 50px;
     }
 
-    .topic-icon {
-      font-size: 32px;
-      margin-bottom: 15px;
+    .section-heading h2{
+
+      font-size:40px;
+
+      color:#17213f;
+
+      letter-spacing:-2px;
+
+      font-weight:950;
+
+      margin-bottom:12px;
     }
 
-    .topic-card h3 {
-      margin: 0 0 10px;
-      font-size: 21px;
+    .section-heading h2::after{
+
+      content:"";
+
+      display:block;
+
+      width:70px;
+      height:4px;
+
+      margin:14px auto 0;
+
+      border-radius:20px;
+
+      background:
+        linear-gradient(
+          90deg,
+          #397cff,
+          #ff5f9e,
+          #ff5967
+        );
     }
 
-    .topic-card p {
-      color: #6a7e7c;
-      font-size: 14px;
-      margin-bottom: 20px;
+    .section-heading p{
+
+      color:#69738e;
+
+      font-size:16px;
     }
 
-    .quiz-link {
-      display: inline-block;
-      padding: 10px 16px;
-      border-radius: 8px;
-      background: #123b4a;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 14px;
+
+    /* =====================================================
+       TOPIC GRID
+    ===================================================== */
+
+    .topic-grid{
+
+      display:grid;
+
+      grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+      gap:26px;
     }
 
-    .quiz-link:hover {
-      opacity: 0.9;
+
+    /* =====================================================
+       TOPIC CARDS
+    ===================================================== */
+
+    .topic-card{
+
+      position:relative;
+
+      min-height:245px;
+
+      padding:31px;
+
+      border-radius:22px;
+
+      overflow:hidden;
+
+      border:
+        1px solid rgba(120,135,220,.20);
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff 20%,
+          #edf5ff 100%
+        );
+
+      box-shadow:
+        0 14px 40px rgba(49,70,150,.10);
+
+      transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
     }
 
-    .back-link {
-      display: block;
-      text-align: center;
-      margin-top: 45px;
-      color: #126b67;
-      text-decoration: none;
-      font-weight: bold;
+
+    /* CARD COLOR VARIATIONS */
+
+    .topic-card:nth-child(2){
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff 20%,
+          #fff0f7 100%
+        );
     }
 
-    footer {
-      background: #102b2a;
-      color: #b9ccca;
-      text-align: center;
-      padding: 28px 7%;
-      font-size: 13px;
+    .topic-card:nth-child(3){
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff 18%,
+          #f0f3ff 70%,
+          #fff0f4
+        );
     }
 
-    footer strong {
-      color: white;
+    .topic-card:nth-child(4){
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff 20%,
+          #f4efff 100%
+        );
     }
 
-    @media (max-width: 850px) {
+    .topic-card:nth-child(5){
 
-      .nav-links {
-        display: none;
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff 20%,
+          #edf4ff 65%,
+          #fff0f7
+        );
+    }
+
+    .topic-card:nth-child(6){
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff 20%,
+          #fff0f1 100%
+        );
+    }
+
+
+    /* CARD GLOW */
+
+    .topic-card::before{
+
+      content:"";
+
+      position:absolute;
+
+      width:180px;
+      height:180px;
+
+      border-radius:50%;
+
+      top:-90px;
+      right:-70px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(57,124,255,.22),
+          transparent 70%
+        );
+
+      transition:.4s ease;
+    }
+
+    .topic-card:nth-child(even)::before{
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(255,75,145,.22),
+          transparent 70%
+        );
+    }
+
+
+    /* BOTTOM LINE */
+
+    .topic-card::after{
+
+      content:"";
+
+      position:absolute;
+
+      left:0;
+      bottom:0;
+
+      width:100%;
+      height:4px;
+
+      background:
+        linear-gradient(
+          90deg,
+          #397cff,
+          #ff5f9e,
+          #ff5967
+        );
+
+      transform:scaleX(.25);
+
+      transform-origin:left;
+
+      transition:.35s ease;
+    }
+
+
+    /* HOVER */
+
+    .topic-card:hover{
+
+      transform:
+        translateY(-10px)
+        rotateX(2deg);
+
+      border-color:
+        rgba(232,62,130,.35);
+
+      box-shadow:
+        0 25px 55px rgba(49,84,217,.16);
+    }
+
+    .topic-card:hover::before{
+      transform:scale(1.8);
+    }
+
+    .topic-card:hover::after{
+      transform:scaleX(1);
+    }
+
+
+    /* =====================================================
+       ICON
+    ===================================================== */
+
+    .topic-icon{
+
+      width:60px;
+      height:60px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      border-radius:17px;
+
+      font-size:30px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(49,110,255,.14),
+          rgba(232,62,130,.16)
+        );
+
+      border:
+        1px solid rgba(80,120,230,.12);
+
+      margin-bottom:20px;
+
+      transition:.3s ease;
+    }
+
+    .topic-card:hover .topic-icon{
+
+      transform:
+        translateY(-3px)
+        rotate(-5deg)
+        scale(1.08);
+    }
+
+
+    /* =====================================================
+       CARD TEXT
+    ===================================================== */
+
+    .topic-card h3{
+
+      position:relative;
+      z-index:2;
+
+      margin:0 0 10px;
+
+      font-size:21px;
+
+      font-weight:900;
+
+      color:#17213f;
+    }
+
+    .topic-card p{
+
+      position:relative;
+      z-index:2;
+
+      color:#69738e;
+
+      font-size:14px;
+
+      margin-bottom:20px;
+    }
+
+
+    /* =====================================================
+       QUIZ BUTTON
+    ===================================================== */
+
+    .quiz-link{
+
+      position:relative;
+      z-index:3;
+
+      display:inline-block;
+
+      padding:11px 18px;
+
+      border-radius:10px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #397cff,
+          #e83e82
+        );
+
+      color:white;
+
+      font-size:14px;
+
+      font-weight:850;
+
+      box-shadow:
+        0 8px 22px rgba(57,124,255,.18);
+
+      transition:.3s ease;
+    }
+
+    .quiz-link:hover{
+
+      transform:
+        translateY(-3px);
+
+      box-shadow:
+        0 13px 30px rgba(232,62,130,.25);
+    }
+
+
+    /* =====================================================
+       BACK LINK
+    ===================================================== */
+
+    .back-link{
+
+      display:block;
+
+      width:max-content;
+
+      margin:50px auto 0;
+
+      color:#315fe8;
+
+      font-weight:850;
+
+      font-size:14px;
+
+      transition:.25s ease;
+    }
+
+    .back-link:hover{
+
+      color:#e83e82;
+
+      transform:translateX(-4px);
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    footer{
+
+      background:#070c20;
+
+      color:#aeb7d0;
+
+      text-align:center;
+
+      padding:30px 7%;
+
+      font-size:13px;
+    }
+
+    footer strong{
+      color:white;
+    }
+
+
+    /* =====================================================
+       TABLET
+    ===================================================== */
+
+    @media(max-width:1000px){
+
+      .topic-grid{
+
+        grid-template-columns:
+          repeat(2,minmax(0,1fr));
       }
 
-      .hero {
-        padding: 65px 6%;
-      }
-
-      .hero h1 {
-        font-size: 40px;
-      }
-
-      .practice-section {
-        padding: 55px 6%;
-      }
-
-      .topic-grid {
-        grid-template-columns: 1fr;
-      }
     }
+
+
+    /* =====================================================
+       MOBILE
+    ===================================================== */
+
+    @media(max-width:850px){
+
+      nav{
+
+        padding:14px 5%;
+
+        flex-wrap:wrap;
+      }
+
+      .menu-toggle{
+
+        display:flex;
+      }
+
+      .nav-links{
+
+        display:none;
+
+        width:100%;
+
+        flex-direction:column;
+
+        gap:0;
+
+        margin-top:14px;
+
+        padding:8px;
+
+        border-radius:16px;
+
+        background:
+          linear-gradient(
+            145deg,
+            rgba(23,31,68,.98),
+            rgba(30,19,58,.98)
+          );
+
+        border:
+          1px solid rgba(255,255,255,.10);
+
+        box-shadow:
+          0 20px 40px rgba(0,0,0,.25);
+      }
+
+      .nav-links.active{
+        display:flex;
+      }
+
+      .nav-links li{
+        width:100%;
+      }
+
+      .nav-links a{
+
+        display:block;
+
+        width:100%;
+
+        padding:13px 15px;
+
+        border-radius:10px;
+
+        font-size:15px;
+      }
+
+      .nav-links a:hover{
+
+        background:
+          rgba(255,95,158,.10);
+
+        color:#ff6ba8;
+      }
+
+
+      /* HERO */
+
+      .hero{
+
+        padding:75px 6%;
+      }
+
+      .hero h1{
+
+        font-size:
+          clamp(42px,11vw,58px);
+
+        letter-spacing:-2.5px;
+      }
+
+      .hero p{
+        font-size:16px;
+      }
+
+
+      /* SECTION */
+
+      .practice-section{
+
+        padding:70px 6%;
+      }
+
+      .section-heading h2{
+
+        font-size:32px;
+      }
+
+
+      /* CARDS */
+
+      .topic-grid{
+
+        grid-template-columns:1fr;
+
+      }
+
+
+      /* SIDE PATTERN */
+
+      .side-bio{
+
+        width:28px;
+
+        gap:25px;
+
+        opacity:.75;
+      }
+
+      .side-bio.left{
+        left:2px;
+      }
+
+      .side-bio.right{
+        right:2px;
+      }
+
+      .bio-symbol{
+
+        width:22px;
+        height:22px;
+
+        font-size:14px;
+
+        opacity:.30;
+      }
+
+    }
+
+
+    /* =====================================================
+       SMALL MOBILE
+    ===================================================== */
+
+    @media(max-width:500px){
+
+      .logo{
+        font-size:21px;
+      }
+
+      .menu-toggle{
+
+        width:40px;
+        height:40px;
+
+        font-size:23px;
+      }
+
+      .hero{
+
+        padding:
+          65px 6%
+          75px;
+      }
+
+      .hero h1{
+
+        font-size:43px;
+
+        letter-spacing:-2px;
+      }
+
+      .topic-card{
+
+        padding:26px;
+
+        min-height:230px;
+      }
+
+      .side-bio{
+
+        width:22px;
+
+        gap:22px;
+      }
+
+      .side-bio.left{
+        left:0;
+      }
+
+      .side-bio.right{
+        right:0;
+      }
+
+      .bio-symbol{
+
+        width:18px;
+        height:18px;
+
+        font-size:12px;
+
+        opacity:.25;
+      }
+
+    }
+
   </style>
 </head>
 
+
 <body>
+
+
+  <!-- =====================================================
+       BIOTECH SIDE PATTERN
+  ===================================================== -->
+
+  <div class="side-bio left">
+
+    <div class="bio-symbol">🧬</div>
+    <div class="bio-symbol">✦</div>
+    <div class="bio-symbol">🧪</div>
+    <div class="bio-symbol">✦</div>
+    <div class="bio-symbol">🔬</div>
+
+  </div>
+
+
+  <div class="side-bio right">
+
+    <div class="bio-symbol">🔬</div>
+    <div class="bio-symbol">✦</div>
+    <div class="bio-symbol">🧫</div>
+    <div class="bio-symbol">✦</div>
+    <div class="bio-symbol">🧬</div>
+
+  </div>
+
+
+  <!-- =====================================================
+       NAVIGATION
+  ===================================================== -->
 
   <nav>
 
@@ -197,36 +1078,88 @@
       BioVerse <span>Hub</span>
     </a>
 
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="resources.html">Resources</a></li>
-      <li><a href="practice.html">Practice</a></li>
-      <li><a href="index.html#explore">Tools</a></li>
-      <li><a href="index.html#explore">Courses</a></li>
-      <li><a href="index.html#explore">Research</a></li>
-      <li><a href="index.html#explore">Career</a></li>
+
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      aria-label="Open navigation menu"
+      aria-expanded="false">
+
+      ☰
+
+    </button>
+
+
+    <ul class="nav-links" id="navLinks">
+
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+
+      <li>
+        <a href="resources.html">Resources</a>
+      </li>
+
+      <li>
+        <a href="practice.html">Practice</a>
+      </li>
+
+      <li>
+        <a href="index.html#explore">Tools</a>
+      </li>
+
+      <li>
+        <a href="index.html#explore">Courses</a>
+      </li>
+
+      <li>
+        <a href="index.html#explore">Research</a>
+      </li>
+
+      <li>
+        <a href="index.html#explore">Career</a>
+      </li>
+
     </ul>
 
   </nav>
 
 
+  <!-- =====================================================
+       HERO
+  ===================================================== -->
+
   <header class="hero">
 
-    <h1>Practice & Quizzes</h1>
+    <div class="hero-content">
 
-    <p>
-      Strengthen your biotechnology concepts with topic-based quizzes,
-      practice questions, and interactive learning.
-    </p>
+      <h1>
+        Practice
+        <span>& Quizzes</span>
+      </h1>
+
+      <p>
+        Strengthen your biotechnology concepts with topic-based quizzes,
+        practice questions, and interactive learning.
+      </p>
+
+    </div>
 
   </header>
 
 
+  <!-- =====================================================
+       PRACTICE
+  ===================================================== -->
+
   <main class="practice-section">
+
 
     <div class="section-heading">
 
-      <h2>Choose a Topic</h2>
+      <h2>
+        Choose a Topic
+      </h2>
 
       <p>
         Select a topic to start practicing and test your understanding.
@@ -237,125 +1170,269 @@
 
     <div class="topic-grid">
 
+
+      <!-- BIOTECHNOLOGY BASICS -->
+
       <div class="topic-card">
 
-        <div class="topic-icon">🧬</div>
+        <div class="topic-icon">
+          🧬
+        </div>
 
-        <h3>Biotechnology Basics</h3>
+        <h3>
+          Biotechnology Basics
+        </h3>
 
         <p>
           Practice fundamental biotechnology concepts and terminology.
         </p>
 
-        <a href="Biotechnology-basics.html" class="quiz-link">
+        <a
+          href="Biotechnology-basics.html"
+          class="quiz-link">
+
           Start Quiz →
+
         </a>
 
       </div>
 
 
+      <!-- CELL BIOLOGY -->
+
       <div class="topic-card">
 
-        <div class="topic-icon">🔬</div>
+        <div class="topic-icon">
+          🔬
+        </div>
 
-        <h3>Cell Biology</h3>
+        <h3>
+          Cell Biology
+        </h3>
 
         <p>
           Review important cell structures, organelles, and cellular processes.
         </p>
 
-        <a href="Cell-biology.html" class="quiz-link">
+        <a
+          href="Cell-biology.html"
+          class="quiz-link">
+
           Start Quiz →
+
         </a>
 
       </div>
 
 
+      <!-- MOLECULAR BIOLOGY -->
+
       <div class="topic-card">
 
-        <div class="topic-icon">🧬</div>
+        <div class="topic-icon">
+          🧬
+        </div>
 
-        <h3>Molecular Biology</h3>
+        <h3>
+          Molecular Biology
+        </h3>
 
         <p>
           Test your knowledge of DNA, RNA, genes, and molecular processes.
         </p>
 
-        <a href="Molecular-biology.html" class="quiz-link">
+        <a
+          href="Molecular-biology.html"
+          class="quiz-link">
+
           Start Quiz →
+
         </a>
 
       </div>
 
 
+      <!-- BIOCHEMISTRY -->
+
       <div class="topic-card">
 
-        <div class="topic-icon">🧪</div>
+        <div class="topic-icon">
+          🧪
+        </div>
 
-        <h3>Biochemistry</h3>
+        <h3>
+          Biochemistry
+        </h3>
 
         <p>
           Practice concepts related to biomolecules, enzymes, and metabolism.
         </p>
 
-        <a href="#" class="quiz-link">
+        <a
+          href="#"
+          class="quiz-link">
+
           Coming Soon
+
         </a>
 
       </div>
 
 
+      <!-- MICROBIOLOGY -->
+
       <div class="topic-card">
 
-        <div class="topic-icon">🦠</div>
+        <div class="topic-icon">
+          🦠
+        </div>
 
-        <h3>Microbiology</h3>
+        <h3>
+          Microbiology
+        </h3>
 
         <p>
           Practice basic concepts related to microorganisms and microbiology.
         </p>
 
-        <a href="#" class="quiz-link">
+        <a
+          href="#"
+          class="quiz-link">
+
           Coming Soon
+
         </a>
 
       </div>
 
 
+      <!-- GENETICS -->
+
       <div class="topic-card">
 
-        <div class="topic-icon">🧬</div>
+        <div class="topic-icon">
+          🧬
+        </div>
 
-        <h3>Genetics</h3>
+        <h3>
+          Genetics
+        </h3>
 
         <p>
           Test your understanding of genes, inheritance, mutations, and variation.
         </p>
 
-        <a href="#" class="quiz-link">
+        <a
+          href="#"
+          class="quiz-link">
+
           Coming Soon
+
         </a>
 
       </div>
 
+
     </div>
 
 
-    <a href="index.html" class="back-link">
+    <!-- BACK LINK -->
+
+    <a
+      href="index.html"
+      class="back-link">
+
       ← Back to BioVerse Hub
+
     </a>
 
   </main>
 
 
+  <!-- =====================================================
+       FOOTER
+  ===================================================== -->
+
   <footer>
 
     <p>
-      © 2026 <strong>BioVerse Hub</strong>.
+
+      © 2026
+
+      <strong>
+        BioVerse Hub
+      </strong>.
+
       Built for biotechnology students worldwide.
+
     </p>
 
   </footer>
+
+
+  <!-- =====================================================
+       MOBILE MENU JAVASCRIPT
+  ===================================================== -->
+
+  <script>
+
+    const menuToggle =
+      document.getElementById("menuToggle");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+
+    menuToggle.addEventListener(
+      "click",
+      function(){
+
+        navLinks.classList.toggle("active");
+
+
+        const isOpen =
+          navLinks.classList.contains("active");
+
+
+        menuToggle.setAttribute(
+          "aria-expanded",
+          isOpen
+        );
+
+
+        menuToggle.textContent =
+          isOpen ? "✕" : "☰";
+
+      }
+    );
+
+
+    /* Close menu after selecting a page */
+
+    document
+      .querySelectorAll(".nav-links a")
+      .forEach(function(link){
+
+        link.addEventListener(
+          "click",
+          function(){
+
+            navLinks.classList.remove("active");
+
+            menuToggle.setAttribute(
+              "aria-expanded",
+              "false"
+            );
+
+            menuToggle.textContent = "☰";
+
+          }
+        );
+
+      });
+
+  </script>
+
 
 </body>
 </html>
