@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -8,184 +10,6 @@
 
 <meta name="description"
 content="BioVerse Hub is a student-friendly biotechnology platform for resources, practice, tools, courses, research, and career opportunities.">
-
-   /* =================================
-   BIOTECH SIDE PATTERN
-================================= */
-
-.side-bio{
-  position:fixed;
-  top:50%;
-  transform:translateY(-50%);
-  width:48px;
-
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:34px;
-
-  z-index:2;
-  pointer-events:none;
-}
-
-.side-bio.left{
-  left:10px;
-}
-
-.side-bio.right{
-  right:10px;
-}
-
-
-/* individual scientific symbols */
-
-.bio-symbol{
-  width:30px;
-  height:30px;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  font-size:20px;
-
-  opacity:.38;
-
-  filter:
-    drop-shadow(0 0 7px rgba(255,95,158,.45));
-
-  animation:
-    bioFloat 4s ease-in-out infinite;
-}
-
-
-/* blue/pink alternating glow */
-
-.bio-symbol:nth-child(odd){
-  color:#4f9cff;
-
-  filter:
-    drop-shadow(0 0 8px rgba(79,156,255,.65));
-}
-
-.bio-symbol:nth-child(even){
-  color:#ff5f9e;
-
-  filter:
-    drop-shadow(0 0 8px rgba(255,95,158,.65));
-}
-
-
-/* different animation timing */
-
-.bio-symbol:nth-child(2){
-  animation-delay:.8s;
-}
-
-.bio-symbol:nth-child(3){
-  animation-delay:1.6s;
-}
-
-.bio-symbol:nth-child(4){
-  animation-delay:2.4s;
-}
-
-.bio-symbol:nth-child(5){
-  animation-delay:3.2s;
-}
-
-
-@keyframes bioFloat{
-
-  0%,100%{
-    transform:translateY(0);
-    opacity:.28;
-  }
-
-  50%{
-    transform:translateY(-7px);
-    opacity:.55;
-  }
-
-}
-
-
-/* small connecting line */
-
-.side-bio::before{
-  content:"";
-
-  position:absolute;
-
-  top:8px;
-  bottom:8px;
-
-  width:1px;
-
-  background:
-    linear-gradient(
-      to bottom,
-      transparent,
-      rgba(79,156,255,.25),
-      rgba(255,95,158,.3),
-      rgba(79,156,255,.25),
-      transparent
-    );
-
-  z-index:-1;
-}
-
-
-/* MOBILE */
-
-@media(max-width:850px){
-
-  .side-bio{
-    width:28px;
-    gap:25px;
-    opacity:.75;
-  }
-
-  .side-bio.left{
-    left:2px;
-  }
-
-  .side-bio.right{
-    right:2px;
-  }
-
-  .bio-symbol{
-    width:22px;
-    height:22px;
-    font-size:14px;
-    opacity:.30;
-  }
-
-}
-
-@media(max-width:500px){
-
-  .side-bio{
-    width:22px;
-    gap:22px;
-  }
-
-  .side-bio.left{
-    left:0;
-  }
-
-  .side-bio.right{
-    right:0;
-  }
-
-  .bio-symbol{
-    width:18px;
-    height:18px;
-    font-size:12px;
-    opacity:.25;
-  }
-
-}
 
 <style>
 
@@ -233,6 +57,7 @@ nav{
   z-index:1000;
 
   background:rgba(8,13,35,.94);
+
   backdrop-filter:blur(18px);
   -webkit-backdrop-filter:blur(18px);
 
@@ -251,19 +76,24 @@ nav{
 }
 
 
-/* DESKTOP NAV */
+/* =====================================================
+   DESKTOP NAV
+===================================================== */
 
 .nav-links{
   display:flex;
   gap:24px;
+
   list-style:none;
   align-items:center;
 }
 
 .nav-links a{
   color:#dce3fa;
+
   font-size:14px;
   font-weight:700;
+
   transition:.25s ease;
 }
 
@@ -272,7 +102,9 @@ nav{
 }
 
 
-/* MOBILE MENU BUTTON */
+/* =====================================================
+   MOBILE MENU BUTTON
+===================================================== */
 
 .menu-toggle{
   display:none;
@@ -309,15 +141,18 @@ nav{
 
 .hero{
   min-height:780px;
+
   padding:90px 7%;
 
   display:flex;
   align-items:center;
 
   position:relative;
+
   overflow:hidden;
 
   background:
+
     radial-gradient(
       circle at 78% 38%,
       rgba(52,120,255,.32),
@@ -345,19 +180,24 @@ nav{
 }
 
 
-/* BACKGROUND GRID */
+/* =====================================================
+   HERO GRID
+===================================================== */
 
 .hero::before{
   content:"";
 
   position:absolute;
+
   inset:0;
 
   background-image:
+
     linear-gradient(
       rgba(255,255,255,.035) 1px,
       transparent 1px
     ),
+
     linear-gradient(
       90deg,
       rgba(255,255,255,.035) 1px,
@@ -366,17 +206,20 @@ nav{
 
   background-size:50px 50px;
 
-  mask-image:linear-gradient(
-    to right,
-    transparent,
-    black 30%,
-    black 85%,
-    transparent
-  );
+  mask-image:
+    linear-gradient(
+      to right,
+      transparent,
+      black 30%,
+      black 85%,
+      transparent
+    );
 }
 
 
-/* HERO ORBIT GLOW */
+/* =====================================================
+   HERO ORBIT GLOW
+===================================================== */
 
 .hero::after{
   content:"";
@@ -396,7 +239,8 @@ nav{
   box-shadow:
     0 0 110px rgba(93,167,255,.08);
 
-  animation:heroOrbit 14s linear infinite;
+  animation:
+    heroOrbit 14s linear infinite;
 }
 
 @keyframes heroOrbit{
@@ -420,11 +264,13 @@ nav{
   width:54%;
 
   position:relative;
+
   z-index:20;
 }
 
 .badge{
   display:inline-flex;
+
   align-items:center;
   gap:9px;
 
@@ -439,6 +285,7 @@ nav{
   border:1px solid rgba(110,170,255,.28);
 
   font-size:13px;
+
   font-weight:800;
 
   margin-bottom:25px;
@@ -452,7 +299,8 @@ nav{
 
   color:#ff5f9e;
 
-  animation:twinkle 1.8s ease-in-out infinite;
+  animation:
+    twinkle 1.8s ease-in-out infinite;
 }
 
 @keyframes twinkle{
@@ -514,7 +362,9 @@ nav{
 
 .hero p em{
   color:#ff8bb8;
+
   font-style:italic;
+
   font-weight:700;
 }
 
@@ -525,7 +375,9 @@ nav{
 
 .hero-buttons{
   display:flex;
+
   gap:14px;
+
   flex-wrap:wrap;
 }
 
@@ -535,6 +387,7 @@ nav{
   border-radius:12px;
 
   font-size:14px;
+
   font-weight:800;
 
   transition:.3s ease;
@@ -555,7 +408,9 @@ nav{
 }
 
 .btn-primary:hover{
-  transform:translateY(-4px) scale(1.02);
+  transform:
+    translateY(-4px)
+    scale(1.02);
 
   box-shadow:
     0 18px 45px rgba(233,79,155,.3);
@@ -572,6 +427,7 @@ nav{
 }
 
 .btn-secondary:hover{
+
   transform:translateY(-4px);
 
   border-color:#ff5f9e;
@@ -705,7 +561,7 @@ nav{
 }
 
 
-/* DNA MAIN BODY */
+/* DNA BODY */
 
 .dna{
 
@@ -730,7 +586,7 @@ nav{
 }
 
 
-/* STRANDS */
+/* DNA STRANDS */
 
 .strand{
 
@@ -816,10 +672,11 @@ nav{
 }
 
 
-/* DNA Rungs */
+/* DNA RUNGS */
 
 .rungs{
   position:absolute;
+
   inset:0;
 
   transform-style:preserve-3d;
@@ -868,6 +725,7 @@ nav{
 
   0%,100%{
     opacity:.55;
+
     transform:
       scaleX(1)
       rotateY(18deg);
@@ -875,6 +733,7 @@ nav{
 
   50%{
     opacity:1;
+
     transform:
       scaleX(.72)
       rotateY(18deg);
@@ -883,7 +742,7 @@ nav{
 }
 
 
-/* DNA GLOWING BASE PAIRS */
+/* DNA BASES */
 
 .base{
 
@@ -910,6 +769,7 @@ nav{
 }
 
 .base.two{
+
   right:30px;
   top:138px;
 
@@ -923,6 +783,7 @@ nav{
 }
 
 .base.three{
+
   left:30px;
   top:262px;
 
@@ -936,6 +797,7 @@ nav{
 }
 
 .base.four{
+
   right:30px;
   top:386px;
 
@@ -1030,6 +892,7 @@ nav{
 @keyframes orbitSpin{
 
   to{
+
     transform:
       translate(-50%,-50%)
       rotateX(68deg)
@@ -1040,33 +903,46 @@ nav{
 
 
 /* =====================================================
-   EXPLORE
+   GENERAL SECTION
 ===================================================== */
 
 .section{
   padding:95px 7%;
+
   position:relative;
 }
 
+
+/* =====================================================
+   EXPLORE SECTION
+===================================================== */
+
 .explore{
 
- .explore{
+  position:relative;
+
+  overflow:hidden;
+
   background:
+
     radial-gradient(
       circle at 8% 20%,
       rgba(57,124,255,.16),
       transparent 28%
     ),
+
     radial-gradient(
       circle at 92% 25%,
       rgba(255,95,158,.14),
       transparent 28%
     ),
+
     radial-gradient(
       circle at 50% 100%,
       rgba(99,91,255,.10),
       transparent 35%
     ),
+
     linear-gradient(
       135deg,
       #eef2ff 0%,
@@ -1074,7 +950,179 @@ nav{
       #fff0f7 100%
     );
 }
+
+
+/* =====================================================
+   BIOTECH SIDE PATTERN
+   ONLY INSIDE EXPLORE SECTION
+===================================================== */
+
+.bio-side{
+
+  position:absolute;
+
+  top:70px;
+  bottom:70px;
+
+  width:46px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:space-around;
+
+  z-index:1;
+
+  pointer-events:none;
 }
+
+
+/* LEFT */
+
+.bio-side.left{
+  left:10px;
+}
+
+
+/* RIGHT */
+
+.bio-side.right{
+  right:10px;
+}
+
+
+/* CONNECTING LINE */
+
+.bio-side::before{
+
+  content:"";
+
+  position:absolute;
+
+  top:8px;
+  bottom:8px;
+
+  left:50%;
+
+  width:1px;
+
+  transform:translateX(-50%);
+
+  background:
+
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(72,125,255,.20),
+      rgba(255,95,158,.30),
+      rgba(72,125,255,.20),
+      transparent
+    );
+
+  opacity:.7;
+}
+
+
+/* SYMBOL */
+
+.bio-symbol{
+
+  position:relative;
+
+  width:30px;
+  height:30px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  font-size:18px;
+
+  border-radius:50%;
+
+  color:#ff5f9e;
+
+  background:
+    rgba(255,255,255,.78);
+
+  border:
+    1px solid rgba(255,95,158,.20);
+
+  box-shadow:
+    0 0 14px rgba(255,95,158,.18);
+
+  opacity:.55;
+
+  animation:
+    bioFloat 4s ease-in-out infinite;
+}
+
+
+/* BLUE SYMBOL */
+
+.bio-symbol.blue{
+
+  color:#397cff;
+
+  border-color:
+    rgba(57,124,255,.20);
+
+  box-shadow:
+    0 0 14px rgba(57,124,255,.18);
+}
+
+
+/* DIFFERENT MOTION */
+
+.bio-symbol:nth-child(2){
+  animation-delay:.8s;
+}
+
+.bio-symbol:nth-child(3){
+  animation-delay:1.6s;
+}
+
+.bio-symbol:nth-child(4){
+  animation-delay:2.4s;
+}
+
+.bio-symbol:nth-child(5){
+  animation-delay:3.2s;
+}
+
+@keyframes bioFloat{
+
+  0%,100%{
+    transform:translateY(0);
+    opacity:.42;
+  }
+
+  50%{
+    transform:translateY(-6px);
+    opacity:.68;
+  }
+
+}
+
+
+/* KEEP CONTENT ABOVE SIDE PATTERN */
+
+.explore .section-heading,
+.explore .cards{
+
+  position:relative;
+
+  z-index:2;
+}
+
+
+/* =====================================================
+   SECTION HEADING
+===================================================== */
 
 .section-heading{
 
@@ -1108,6 +1156,7 @@ nav{
     );
 
   -webkit-background-clip:text;
+
   background-clip:text;
 
   color:transparent;
@@ -1138,6 +1187,7 @@ nav{
 }
 
 .card{
+
   position:relative;
 
   padding:31px;
@@ -1153,7 +1203,8 @@ nav{
       rgba(246,248,255,.92)
     );
 
-  border:1px solid rgba(120,135,220,.20);
+  border:
+    1px solid rgba(120,135,220,.20);
 
   box-shadow:
     0 14px 40px rgba(49,70,150,.10);
@@ -1165,10 +1216,11 @@ nav{
     box-shadow .3s ease,
     border-color .3s ease;
 }
-}
 
 
-/* EACH CARD HAS DIFFERENT COLOR */
+/* =====================================================
+   DIFFERENT CARD COLORS
+===================================================== */
 
 .card:nth-child(1){
 
@@ -1233,7 +1285,9 @@ nav{
 }
 
 
-/* CARD GLOW */
+/* =====================================================
+   CARD GLOW
+===================================================== */
 
 .card::before{
 
@@ -1270,7 +1324,9 @@ nav{
 }
 
 
-/* CARD BOTTOM LINE */
+/* =====================================================
+   CARD BOTTOM LINE
+===================================================== */
 
 .card::after{
 
@@ -1321,7 +1377,9 @@ nav{
 }
 
 
-/* ICON */
+/* =====================================================
+   CARD ICON
+===================================================== */
 
 .card-icon{
 
@@ -1329,6 +1387,7 @@ nav{
   height:60px;
 
   display:flex;
+
   align-items:center;
   justify-content:center;
 
@@ -1525,7 +1584,7 @@ footer strong{
 
 
 /* =====================================================
-   MOBILE NAVIGATION
+   MOBILE
 ===================================================== */
 
 @media(max-width:850px){
@@ -1538,9 +1597,11 @@ footer strong{
   }
 
   .menu-toggle{
-
     display:flex;
   }
+
+
+  /* MOBILE NAV */
 
   .nav-links{
 
@@ -1619,7 +1680,7 @@ footer strong{
   }
 
 
-  /* HERO */
+  /* MOBILE HERO */
 
   .hero{
 
@@ -1645,7 +1706,7 @@ footer strong{
   }
 
 
-  /* DNA */
+  /* MOBILE DNA */
 
   .hero-visual{
 
@@ -1660,7 +1721,7 @@ footer strong{
   }
 
 
-  /* CARDS */
+  /* MOBILE CARDS */
 
   .cards{
     grid-template-columns:1fr;
@@ -1673,6 +1734,35 @@ footer strong{
   .section-heading h2,
   .about h2{
     font-size:32px;
+  }
+
+
+  /* MOBILE SIDE PATTERN */
+
+  .bio-side{
+
+    top:55px;
+    bottom:55px;
+
+    width:30px;
+  }
+
+  .bio-side.left{
+    left:2px;
+  }
+
+  .bio-side.right{
+    right:2px;
+  }
+
+  .bio-symbol{
+
+    width:23px;
+    height:23px;
+
+    font-size:13px;
+
+    opacity:.48;
   }
 
 }
@@ -1740,9 +1830,39 @@ footer strong{
     padding:26px;
   }
 
+
+  /* SMALL MOBILE SIDE PATTERN */
+
+  .bio-side{
+
+    width:24px;
+
+    top:50px;
+    bottom:50px;
+  }
+
+  .bio-side.left{
+    left:0;
+  }
+
+  .bio-side.right{
+    right:0;
+  }
+
+  .bio-symbol{
+
+    width:19px;
+    height:19px;
+
+    font-size:11px;
+
+    opacity:.42;
+  }
+
 }
 
 </style>
+
 </head>
 
 
@@ -1753,31 +1873,6 @@ footer strong{
      NAVIGATION
 ===================================================== -->
 
-   <!-- =================================
-     BIOTECH SIDE PATTERN
-================================= -->
-
-<div class="side-bio left">
-
-  <div class="bio-symbol">🧬</div>
-  <div class="bio-symbol">✦</div>
-  <div class="bio-symbol">🧪</div>
-  <div class="bio-symbol">✦</div>
-  <div class="bio-symbol">🔬</div>
-
-</div>
-
-
-<div class="side-bio right">
-
-  <div class="bio-symbol">🔬</div>
-  <div class="bio-symbol">✦</div>
-  <div class="bio-symbol">🧫</div>
-  <div class="bio-symbol">✦</div>
-  <div class="bio-symbol">🧬</div>
-
-</div>
-
 <nav>
 
   <a href="#home" class="logo">
@@ -1785,7 +1880,7 @@ footer strong{
   </a>
 
 
-  <!-- MOBILE MENU BUTTON -->
+  <!-- MOBILE MENU -->
 
   <button
     class="menu-toggle"
@@ -1839,6 +1934,7 @@ footer strong{
 
 <section class="hero" id="home">
 
+
   <div class="particle p1"></div>
   <div class="particle p2"></div>
   <div class="particle p3"></div>
@@ -1846,6 +1942,7 @@ footer strong{
 
 
   <div class="hero-content">
+
 
     <div class="badge">
       Biotechnology learning for students worldwide
@@ -1879,6 +1976,7 @@ footer strong{
 
     <div class="hero-buttons">
 
+
       <a
         href="#explore"
         class="btn btn-primary">
@@ -1895,6 +1993,7 @@ footer strong{
         Discover BioVerse
 
       </a>
+
 
     </div>
 
@@ -1956,11 +2055,69 @@ footer strong{
   id="explore">
 
 
+  <!-- =================================================
+       BIOTECH SIDE PATTERN
+       STAYS ONLY INSIDE THIS WHITE SECTION
+  ================================================== -->
+
+  <div class="bio-side left">
+
+    <div class="bio-symbol">
+      🧬
+    </div>
+
+    <div class="bio-symbol blue">
+      ✦
+    </div>
+
+    <div class="bio-symbol">
+      🧪
+    </div>
+
+    <div class="bio-symbol blue">
+      ◈
+    </div>
+
+    <div class="bio-symbol">
+      🔬
+    </div>
+
+  </div>
+
+
+  <div class="bio-side right">
+
+    <div class="bio-symbol blue">
+      🔬
+    </div>
+
+    <div class="bio-symbol">
+      ✦
+    </div>
+
+    <div class="bio-symbol blue">
+      🧫
+    </div>
+
+    <div class="bio-symbol">
+      ◈
+    </div>
+
+    <div class="bio-symbol blue">
+      🧬
+    </div>
+
+  </div>
+
+
+  <!-- SECTION HEADING -->
+
   <div class="section-heading">
 
     <h2>
 
       Explore
+
       <span>
         BioVerse
       </span>
@@ -1977,6 +2134,10 @@ footer strong{
 
   </div>
 
+
+  <!-- =================================================
+       CARDS
+  ================================================== -->
 
   <div class="cards">
 
@@ -2177,9 +2338,11 @@ footer strong{
 
   <div class="about-content">
 
+
     <h2>
 
       About
+
       <span>
         BioVerse Hub
       </span>
@@ -2261,28 +2424,30 @@ menuToggle.addEventListener("click", function(){
 });
 
 
-/* Close menu after selecting a page */
+/* CLOSE MENU AFTER CLICKING A LINK */
 
-document.querySelectorAll(".nav-links a")
-.forEach(function(link){
+document
+  .querySelectorAll(".nav-links a")
+  .forEach(function(link){
 
-  link.addEventListener("click", function(){
+    link.addEventListener("click", function(){
 
-    navLinks.classList.remove("active");
+      navLinks.classList.remove("active");
 
-    menuToggle.setAttribute(
-      "aria-expanded",
-      "false"
-    );
+      menuToggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
 
-    menuToggle.textContent = "☰";
+      menuToggle.textContent = "☰";
+
+    });
 
   });
-
-});
 
 </script>
 
 
 </body>
+
 </html>
