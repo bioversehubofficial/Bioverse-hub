@@ -9,6 +9,11 @@
   <meta name="description" content="BioVerse Hub is a student-friendly biotechnology platform for resources, practice, tools, courses, research, and career opportunities.">
 
   <style>
+
+    /* =========================
+       GLOBAL
+    ========================= */
+
     * {
       margin: 0;
       padding: 0;
@@ -21,21 +26,35 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #f7fbfa;
-      color: #173b3a;
+      background: #f8f9ff;
+      color: #18213d;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    /* NAVBAR */
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+
+    /* =========================
+       NAVBAR
+    ========================= */
 
     nav {
       width: 100%;
-      background: rgba(255, 255, 255, 0.96);
-      border-bottom: 1px solid #e2eeee;
-      padding: 18px 7%;
+      background: rgba(255, 255, 255, 0.90);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+
+      border-bottom: 1px solid rgba(88, 73, 180, 0.10);
+
+      padding: 17px 7%;
+
       display: flex;
       justify-content: space-between;
       align-items: center;
+
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -43,78 +62,243 @@
 
     .logo {
       font-size: 24px;
-      font-weight: 800;
-      color: #126b67;
+      font-weight: 900;
+      color: #3154d9;
       text-decoration: none;
-      letter-spacing: -0.5px;
+      letter-spacing: -0.8px;
     }
 
     .logo span {
-      color: #173b3a;
+      color: #e83e82;
     }
 
     .nav-links {
       display: flex;
-      gap: 25px;
+      gap: 24px;
       list-style: none;
     }
 
     .nav-links a {
+      position: relative;
+
       text-decoration: none;
-      color: #315654;
+      color: #3c4564;
+
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
+
+      transition: 0.25s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+
+      position: absolute;
+      left: 0;
+      bottom: -7px;
+
+      width: 0;
+      height: 2px;
+
+      background: linear-gradient(
+        90deg,
+        #3154d9,
+        #e83e82,
+        #ef4444
+      );
+
+      transition: width 0.25s ease;
     }
 
     .nav-links a:hover {
-      color: #126b67;
+      color: #3154d9;
     }
 
-    /* HERO */
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
-      min-height: 650px;
+      min-height: 720px;
+
       padding: 90px 7%;
+
       display: flex;
       align-items: center;
+
+      position: relative;
+      overflow: hidden;
+
       background:
-        radial-gradient(circle at 85% 20%, #dcefed 0, transparent 30%),
-        linear-gradient(135deg, #f8fcfb, #eef8f6);
+        radial-gradient(
+          circle at 85% 20%,
+          rgba(49, 84, 217, 0.16),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 10% 80%,
+          rgba(232, 62, 130, 0.12),
+          transparent 28%
+        ),
+        linear-gradient(
+          135deg,
+          #f9fbff,
+          #f5f2ff
+        );
     }
 
+    /* Decorative glow */
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 420px;
+      height: 420px;
+
+      border-radius: 50%;
+
+      background: rgba(239, 68, 68, 0.07);
+
+      top: -170px;
+      right: -100px;
+
+      filter: blur(5px);
+
+      animation: glowMove 7s ease-in-out infinite;
+    }
+
+    .hero::after {
+      content: "";
+
+      position: absolute;
+
+      width: 300px;
+      height: 300px;
+
+      border-radius: 50%;
+
+      background: rgba(49, 84, 217, 0.07);
+
+      bottom: -150px;
+      left: 20%;
+
+      animation: glowMove 9s ease-in-out infinite reverse;
+    }
+
+    @keyframes glowMove {
+
+      0%,
+      100% {
+        transform: translate(0, 0);
+      }
+
+      50% {
+        transform: translate(20px, -18px);
+      }
+    }
+
+
+    /* Hero content */
+
     .hero-content {
-      max-width: 850px;
+      max-width: 700px;
+      position: relative;
+      z-index: 5;
     }
 
     .badge {
-      display: inline-block;
-      background: #dff1ee;
-      color: #126b67;
-      padding: 8px 16px;
-      border-radius: 30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      background: rgba(255, 255, 255, 0.75);
+
+      border: 1px solid rgba(49, 84, 217, 0.15);
+
+      color: #3154d9;
+
+      padding: 9px 17px;
+
+      border-radius: 50px;
+
       font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 22px;
+      font-weight: 800;
+
+      margin-bottom: 25px;
+
+      box-shadow: 0 8px 25px rgba(49, 84, 217, 0.08);
+    }
+
+    .badge::before {
+      content: "✦";
+
+      color: #e83e82;
+
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.25);
+      }
     }
 
     .hero h1 {
-      font-size: clamp(48px, 7vw, 82px);
+      font-size: clamp(48px, 7vw, 84px);
+
       line-height: 0.98;
+
       letter-spacing: -4px;
-      color: #173b3a;
-      margin-bottom: 24px;
+
+      color: #18213d;
+
+      margin-bottom: 26px;
+
+      font-weight: 900;
     }
 
     .hero h1 span {
-      color: #126b67;
+      background:
+        linear-gradient(
+          90deg,
+          #3154d9,
+          #e83e82,
+          #ef4444
+        );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      color: transparent;
     }
 
     .hero p {
-      max-width: 680px;
-      font-size: 19px;
-      color: #58706e;
-      margin-bottom: 34px;
+      max-width: 650px;
+
+      font-size: 18px;
+
+      color: #5d6682;
+
+      margin-bottom: 35px;
     }
+
+
+    /* =========================
+       HERO BUTTONS
+    ========================= */
 
     .hero-buttons {
       display: flex;
@@ -124,138 +308,574 @@
 
     .btn {
       display: inline-block;
-      padding: 13px 23px;
-      border-radius: 10px;
+
+      padding: 14px 23px;
+
+      border-radius: 12px;
+
       text-decoration: none;
-      font-weight: 700;
+
+      font-weight: 800;
+
       font-size: 14px;
-      transition: 0.2s ease;
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
     }
 
     .btn-primary {
-      background: #126b67;
       color: white;
+
+      background:
+        linear-gradient(
+          135deg,
+          #3154d9,
+          #e83e82
+        );
+
+      box-shadow:
+        0 12px 28px rgba(49, 84, 217, 0.24);
     }
 
     .btn-primary:hover {
-      background: #0e5653;
-      transform: translateY(-2px);
+      transform: translateY(-4px);
+
+      box-shadow:
+        0 18px 35px rgba(232, 62, 130, 0.25);
     }
 
     .btn-secondary {
-      border: 1px solid #b8d4d1;
-      color: #126b67;
-      background: white;
+      border: 1px solid #d6d9e8;
+
+      color: #3154d9;
+
+      background: rgba(255, 255, 255, 0.75);
+
+      box-shadow:
+        0 8px 22px rgba(40, 50, 90, 0.06);
     }
 
     .btn-secondary:hover {
-      transform: translateY(-2px);
+      transform: translateY(-4px);
+
+      border-color: #e83e82;
     }
 
-    /* SECTION */
+
+    /* =========================
+       3D BIOTECH VISUAL
+    ========================= */
+
+    .hero-visual {
+      position: absolute;
+
+      right: 7%;
+
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      width: 360px;
+      height: 470px;
+
+      z-index: 3;
+
+      perspective: 1000px;
+    }
+
+    .dna-container {
+      position: relative;
+
+      width: 100%;
+      height: 100%;
+
+      transform-style: preserve-3d;
+
+      animation: floatingDNA 5s ease-in-out infinite;
+    }
+
+    @keyframes floatingDNA {
+
+      0%,
+      100% {
+        transform: translateY(0) rotateY(-8deg);
+      }
+
+      50% {
+        transform: translateY(-18px) rotateY(8deg);
+      }
+    }
+
+    .dna {
+      position: absolute;
+
+      left: 50%;
+      top: 50%;
+
+      width: 170px;
+      height: 360px;
+
+      transform:
+        translate(-50%, -50%)
+        rotateZ(-8deg)
+        rotateY(15deg);
+
+      transform-style: preserve-3d;
+    }
+
+    .strand {
+      position: absolute;
+
+      width: 20px;
+      height: 20px;
+
+      border-radius: 50%;
+
+      box-shadow:
+        0 0 18px rgba(49, 84, 217, 0.35);
+
+      animation: strandMove 3s ease-in-out infinite;
+    }
+
+    .strand.left {
+      left: 20px;
+    }
+
+    .strand.right {
+      right: 20px;
+    }
+
+    .strand:nth-child(1),
+    .strand:nth-child(2) {
+      top: 15px;
+    }
+
+    .strand:nth-child(3),
+    .strand:nth-child(4) {
+      top: 75px;
+    }
+
+    .strand:nth-child(5),
+    .strand:nth-child(6) {
+      top: 135px;
+    }
+
+    .strand:nth-child(7),
+    .strand:nth-child(8) {
+      top: 195px;
+    }
+
+    .strand:nth-child(9),
+    .strand:nth-child(10) {
+      top: 255px;
+    }
+
+    .strand:nth-child(11),
+    .strand:nth-child(12) {
+      top: 315px;
+    }
+
+    .strand.left {
+      background: #3154d9;
+    }
+
+    .strand.right {
+      background: #e83e82;
+    }
+
+    @keyframes strandMove {
+
+      0%,
+      100% {
+        transform: translateX(0) scale(1);
+      }
+
+      50% {
+        transform: translateX(13px) scale(1.08);
+      }
+    }
+
+    .rung {
+      position: absolute;
+
+      left: 34px;
+
+      width: 102px;
+      height: 5px;
+
+      border-radius: 10px;
+
+      background:
+        linear-gradient(
+          90deg,
+          #3154d9,
+          #ef4444,
+          #e83e82
+        );
+
+      opacity: 0.65;
+
+      transform: rotateY(8deg);
+
+      animation: rungPulse 3s ease-in-out infinite;
+    }
+
+    .rung:nth-of-type(1) {
+      top: 25px;
+    }
+
+    .rung:nth-of-type(2) {
+      top: 85px;
+    }
+
+    .rung:nth-of-type(3) {
+      top: 145px;
+    }
+
+    .rung:nth-of-type(4) {
+      top: 205px;
+    }
+
+    .rung:nth-of-type(5) {
+      top: 265px;
+    }
+
+    .rung:nth-of-type(6) {
+      top: 325px;
+    }
+
+    @keyframes rungPulse {
+
+      0%,
+      100% {
+        transform: scaleX(1);
+        opacity: 0.55;
+      }
+
+      50% {
+        transform: scaleX(0.82);
+        opacity: 0.9;
+      }
+    }
+
+    /* Floating molecular dots */
+
+    .molecule {
+      position: absolute;
+
+      width: 14px;
+      height: 14px;
+
+      border-radius: 50%;
+
+      background: #ef4444;
+
+      box-shadow:
+        0 0 20px rgba(239, 68, 68, 0.4);
+
+      animation: moleculeFloat 4s ease-in-out infinite;
+    }
+
+    .molecule.one {
+      top: 80px;
+      left: 30px;
+    }
+
+    .molecule.two {
+      top: 150px;
+      right: 25px;
+
+      background: #3154d9;
+
+      animation-delay: 1s;
+    }
+
+    .molecule.three {
+      bottom: 100px;
+      left: 55px;
+
+      background: #e83e82;
+
+      animation-delay: 2s;
+    }
+
+    .molecule.four {
+      bottom: 65px;
+      right: 45px;
+
+      background: #3154d9;
+
+      animation-delay: 1.5s;
+    }
+
+    @keyframes moleculeFloat {
+
+      0%,
+      100% {
+        transform: translate(0, 0);
+      }
+
+      50% {
+        transform: translate(12px, -18px);
+      }
+    }
+
+
+    /* =========================
+       SECTION
+    ========================= */
 
     .section {
-      padding: 85px 7%;
+      padding: 90px 7%;
+      position: relative;
     }
 
     .section-heading {
       text-align: center;
+
       max-width: 700px;
+
       margin: 0 auto 50px;
     }
 
     .section-heading h2 {
-      font-size: 38px;
-      color: #173b3a;
+      font-size: 40px;
+
+      color: #18213d;
+
       margin-bottom: 12px;
+
+      font-weight: 900;
+
+      letter-spacing: -1.5px;
     }
 
     .section-heading p {
-      color: #687d7b;
+      color: #68718b;
+
+      font-size: 16px;
     }
 
-    /* CARDS */
+
+    /* =========================
+       CARDS
+    ========================= */
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
       gap: 25px;
     }
 
     .card {
-      background: white;
-      border: 1px solid #e0eceb;
-      border-radius: 18px;
+      position: relative;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.96),
+          rgba(248, 247, 255, 0.96)
+        );
+
+      border: 1px solid #e1e3f0;
+
+      border-radius: 20px;
+
       padding: 30px;
-      min-height: 220px;
-      transition: 0.25s ease;
-      box-shadow: 0 8px 30px rgba(20, 80, 75, 0.05);
+
+      min-height: 235px;
+
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+
+      box-shadow:
+        0 10px 30px rgba(38, 45, 90, 0.06);
+
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+
+      position: absolute;
+
+      width: 100px;
+      height: 100px;
+
+      border-radius: 50%;
+
+      background: rgba(49, 84, 217, 0.07);
+
+      top: -50px;
+      right: -40px;
+
+      transition: 0.3s ease;
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 14px 35px rgba(20, 80, 75, 0.10);
+      transform:
+        translateY(-9px)
+        rotateX(2deg);
+
+      border-color: rgba(232, 62, 130, 0.25);
+
+      box-shadow:
+        0 20px 45px rgba(49, 84, 217, 0.12);
+    }
+
+    .card:hover::before {
+      transform: scale(1.5);
     }
 
     .card-icon {
-      font-size: 30px;
-      margin-bottom: 18px;
+      width: 58px;
+      height: 58px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 29px;
+
+      border-radius: 16px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(49, 84, 217, 0.10),
+          rgba(232, 62, 130, 0.12)
+        );
+
+      margin-bottom: 20px;
+
+      position: relative;
+      z-index: 2;
     }
 
     .card h3 {
       margin-bottom: 10px;
-      color: #173b3a;
+
+      color: #18213d;
+
       font-size: 21px;
+
+      font-weight: 850;
+
+      position: relative;
+      z-index: 2;
     }
 
     .card p {
-      color: #6a7e7c;
+      color: #69728b;
+
       font-size: 14px;
+
+      position: relative;
+      z-index: 2;
     }
 
     .card-link {
-      display: block;
-      margin-top: 10px;
-      color: #123b4a;
+      display: inline-block;
+
+      margin-top: 17px;
+
+      color: #3154d9;
+
       text-decoration: none;
-      font-weight: bold;
+
+      font-weight: 800;
+
+      font-size: 14px;
+
+      position: relative;
+      z-index: 2;
+
+      transition: 0.2s ease;
     }
 
     .card-link:hover {
-      color: #126b67;
-      text-decoration: underline;
+      color: #e83e82;
+
+      transform: translateX(4px);
     }
 
-    /* ABOUT */
+
+    /* =========================
+       ABOUT
+    ========================= */
 
     .about {
-      background: #173b3a;
+      background:
+        radial-gradient(
+          circle at 20% 20%,
+          rgba(232, 62, 130, 0.16),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 85% 70%,
+          rgba(49, 84, 217, 0.20),
+          transparent 32%
+        ),
+        linear-gradient(
+          135deg,
+          #18213d,
+          #24244d
+        );
+
       color: white;
+
       text-align: center;
+
+      overflow: hidden;
     }
 
     .about-content {
       max-width: 800px;
+
       margin: auto;
+
+      position: relative;
+      z-index: 2;
     }
 
     .about h2 {
-      font-size: 38px;
+      font-size: 40px;
+
       margin-bottom: 18px;
+
+      font-weight: 900;
+
+      letter-spacing: -1px;
     }
 
     .about p {
-      color: #d4e4e2;
+      color: #d9dcef;
+
       font-size: 16px;
+
+      line-height: 1.8;
     }
 
-    /* FOOTER */
+
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
-      background: #102b2a;
-      color: #b9ccca;
+      background: #11172d;
+
+      color: #aeb5cc;
+
       text-align: center;
+
       padding: 28px 7%;
+
       font-size: 13px;
     }
 
@@ -263,7 +883,23 @@
       color: white;
     }
 
-    /* MOBILE */
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 1000px) {
+
+      .hero-visual {
+        opacity: 0.28;
+        right: -20px;
+      }
+
+      .hero-content {
+        max-width: 720px;
+      }
+    }
+
 
     @media (max-width: 850px) {
 
@@ -277,15 +913,26 @@
 
       .hero {
         padding: 75px 6%;
-        min-height: 580px;
+        min-height: 650px;
       }
 
       .hero h1 {
-        letter-spacing: -2px;
+        font-size: clamp(45px, 12vw, 65px);
+        letter-spacing: -2.5px;
       }
 
       .hero p {
         font-size: 17px;
+      }
+
+      .hero-visual {
+        width: 300px;
+        height: 400px;
+
+        right: -90px;
+        top: 55%;
+
+        opacity: 0.18;
       }
 
       .cards {
@@ -293,39 +940,108 @@
       }
 
       .section {
-        padding: 65px 6%;
+        padding: 70px 6%;
       }
 
       .section-heading h2,
       .about h2 {
-        font-size: 30px;
+        font-size: 31px;
       }
     }
+
+
+    @media (max-width: 500px) {
+
+      .logo {
+        font-size: 21px;
+      }
+
+      .hero {
+        padding-top: 65px;
+      }
+
+      .badge {
+        font-size: 12px;
+      }
+
+      .hero h1 {
+        font-size: 46px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .hero-visual {
+        right: -120px;
+        opacity: 0.12;
+      }
+
+      .card {
+        padding: 25px;
+      }
+    }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- NAVIGATION -->
+
+  <!-- =========================
+       NAVIGATION
+  ========================= -->
 
   <nav>
+
     <a href="#home" class="logo">
       BioVerse <span>Hub</span>
     </a>
 
     <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="resources.html">Resources</a></li>
-      <li><a href="practice.html">Practice</a></li>
-      <li><a href="tools.html">Tools</a></li>
-      <li><a href="courses.html">Courses</a></li>
-      <li><a href="research.html">Research</a></li>
-      <li><a href="career.html">Career</a></li>
+
+      <li>
+        <a href="#home">Home</a>
+      </li>
+
+      <li>
+        <a href="resources.html">Resources</a>
+      </li>
+
+      <li>
+        <a href="practice.html">Practice</a>
+      </li>
+
+      <li>
+        <a href="tools.html">Tools</a>
+      </li>
+
+      <li>
+        <a href="courses.html">Courses</a>
+      </li>
+
+      <li>
+        <a href="research.html">Research</a>
+      </li>
+
+      <li>
+        <a href="career.html">Career</a>
+      </li>
+
     </ul>
+
   </nav>
 
 
-  <!-- HERO -->
+  <!-- =========================
+       HERO / WELCOME
+  ========================= -->
 
   <section class="hero" id="home">
 
@@ -335,18 +1051,22 @@
         Biotechnology learning for students worldwide
       </div>
 
+
       <h1>
         Welcome to <span>BioVerse Hub.</span>
       </h1>
 
+
       <p>
         A student-friendly space to learn biotechnology, practice concepts,
-        discover useful tools, explore courses, and grow toward research and career opportunities.
+        discover useful tools, explore courses, and grow toward research
+        and career opportunities.
       </p>
+
 
       <div class="hero-buttons">
 
-        <a href="resources.html" class="btn btn-primary">
+        <a href="#explore" class="btn btn-primary">
           Explore BioVerse
         </a>
 
@@ -358,16 +1078,67 @@
 
     </div>
 
+
+    <!-- 3D BIOTECH VISUAL -->
+
+    <div class="hero-visual">
+
+      <div class="dna-container">
+
+        <div class="molecule one"></div>
+        <div class="molecule two"></div>
+        <div class="molecule three"></div>
+        <div class="molecule four"></div>
+
+
+        <div class="dna">
+
+          <div class="strand left"></div>
+          <div class="strand right"></div>
+
+          <div class="strand left"></div>
+          <div class="strand right"></div>
+
+          <div class="strand left"></div>
+          <div class="strand right"></div>
+
+          <div class="strand left"></div>
+          <div class="strand right"></div>
+
+          <div class="strand left"></div>
+          <div class="strand right"></div>
+
+          <div class="strand left"></div>
+          <div class="strand right"></div>
+
+
+          <div class="rung"></div>
+          <div class="rung"></div>
+          <div class="rung"></div>
+          <div class="rung"></div>
+          <div class="rung"></div>
+          <div class="rung"></div>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </section>
 
 
-  <!-- EXPLORE -->
+  <!-- =========================
+       EXPLORE
+  ========================= -->
 
   <section class="section" id="explore">
 
     <div class="section-heading">
 
-      <h2>Explore BioVerse</h2>
+      <h2>
+        Explore BioVerse
+      </h2>
 
       <p>
         Everything is being designed around the real needs of biotechnology students.
@@ -378,17 +1149,27 @@
 
     <div class="cards">
 
+
       <!-- RESOURCES -->
 
       <div class="card">
 
-        <div class="card-icon">📚</div>
+        <div class="card-icon">
+          📚
+        </div>
 
-        <h3>Resources</h3>
+        <h3>
+          Resources
+        </h3>
 
         <p>
-          Discover organized learning resources and study material across different areas of biotechnology.
+          Discover organized learning resources and study material across
+          different areas of biotechnology.
         </p>
+
+        <a href="resources.html" class="card-link">
+          Explore Resources →
+        </a>
 
       </div>
 
@@ -397,18 +1178,22 @@
 
       <div class="card">
 
-        <div class="card-icon">📝</div>
+        <div class="card-icon">
+          📝
+        </div>
 
-        <h3>Practice</h3>
+        <h3>
+          Practice
+        </h3>
 
         <p>
-          Strengthen your biotechnology concepts with quizzes, questions, and topic-based practice.
+          Strengthen your biotechnology concepts with quizzes, questions,
+          and topic-based practice.
         </p>
 
         <a href="practice.html" class="card-link">
           Explore Practice →
         </a>
-      
 
       </div>
 
@@ -417,36 +1202,21 @@
 
       <div class="card">
 
-        <div class="card-icon">🧪</div>
+        <div class="card-icon">
+          🧪
+        </div>
 
-        <h3>Biotech Tools</h3>
+        <h3>
+          Biotech Tools
+        </h3>
 
         <p>
-          Use useful calculators, converters, and other tools designed to support biotechnology students.
+          Use useful calculators, converters, sequence analyzers,
+          and other tools designed for biotechnology students.
         </p>
 
-        <a href="Molarity-calculator.html" class="card-link">
-          Molarity Calculator →
-        </a>
-
-        <a href="Dilution-calculator.html" class="card-link">
-          Dilution Calculator →
-        </a>
-
-        <a href="Molecular-weight-calculator.html" class="card-link">
-          Molecular Weight Calculator →
-        </a>
-
-        <a href="DNA-sequence-analyzer.html" class="card-link">
-          DNA Sequence Analyzer →
-        </a>
-
-        <a href="RNA-sequence-analyzer.html" class="card-link">
-          RNA Sequence Analyzer →
-        </a>
-
-        <a href="Protein-molecular-weight.html" class="card-link">
-          Protein Molecular Weight Calculator →
+        <a href="tools.html" class="card-link">
+          Explore Biotech Tools →
         </a>
 
       </div>
@@ -456,17 +1226,23 @@
 
       <div class="card">
 
-        <div class="card-icon">🎓</div>
+        <div class="card-icon">
+          🎓
+        </div>
 
-        <h3>Courses</h3>
+        <h3>
+          Courses
+        </h3>
 
         <p>
-          Explore useful courses and learning opportunities from reliable educational platforms.
+          Explore useful courses and learning opportunities from reliable
+          educational platforms.
         </p>
-        
-<a href="courses.html" class="card-link">
-  Explore Courses →
-</a>
+
+        <a href="courses.html" class="card-link">
+          Explore Courses →
+        </a>
+
       </div>
 
 
@@ -474,13 +1250,22 @@
 
       <div class="card">
 
-        <div class="card-icon">🔬</div>
+        <div class="card-icon">
+          🔬
+        </div>
 
-        <h3>Research</h3>
+        <h3>
+          Research
+        </h3>
 
         <p>
-          Build research awareness with beginner-friendly resources and guidance for students.
+          Build research awareness with beginner-friendly resources,
+          scientific literature, and guidance for students.
         </p>
+
+        <a href="research.html" class="card-link">
+          Explore Research →
+        </a>
 
       </div>
 
@@ -489,33 +1274,47 @@
 
       <div class="card">
 
-        <div class="card-icon">🚀</div>
+        <div class="card-icon">
+          🚀
+        </div>
 
-        <h3>Career</h3>
+        <h3>
+          Career
+        </h3>
 
         <p>
-          Discover internships, programs, certifications, competitions, and career resources.
+          Discover internships, programs, certifications,
+          competitions, and career resources.
         </p>
 
+        <a href="career.html" class="card-link">
+          Explore Career →
+        </a>
+
       </div>
+
 
     </div>
 
   </section>
 
 
-  <!-- ABOUT -->
+  <!-- =========================
+       ABOUT
+  ========================= -->
 
   <section class="section about" id="about">
 
     <div class="about-content">
 
-      <h2>About BioVerse Hub</h2>
+      <h2>
+        About BioVerse Hub
+      </h2>
 
       <p>
-        BioVerse Hub is being built as a student-friendly biotechnology platform
-        designed to make learning, practice, tools, research awareness, and
-        career exploration easier for students worldwide.
+        BioVerse Hub is being built as a student-friendly biotechnology
+        platform designed to make learning, practice, tools, research
+        awareness, and career exploration easier for students worldwide.
       </p>
 
     </div>
@@ -523,7 +1322,9 @@
   </section>
 
 
-  <!-- FOOTER -->
+  <!-- =========================
+       FOOTER
+  ========================= -->
 
   <footer>
 
@@ -533,6 +1334,7 @@
     </p>
 
   </footer>
+
 
 </body>
 </html>
