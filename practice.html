@@ -27,7 +27,7 @@
 
     body{
       font-family:"Segoe UI", Inter, Arial, sans-serif;
-      background:#f4f6ff;
+      background:#f5f7ff;
       color:#17213f;
       line-height:1.6;
       overflow-x:hidden;
@@ -54,7 +54,7 @@
       top:0;
       z-index:1000;
 
-      background:rgba(8,13,35,.94);
+      background:rgba(8,13,35,.95);
       backdrop-filter:blur(18px);
       -webkit-backdrop-filter:blur(18px);
 
@@ -164,15 +164,9 @@
 
       font-size:20px;
 
-      opacity:.38;
+      opacity:.35;
 
-      filter:
-        drop-shadow(
-          0 0 7px rgba(255,95,158,.45)
-        );
-
-      animation:
-        bioFloat 4s ease-in-out infinite;
+      animation:bioFloat 4s ease-in-out infinite;
     }
 
     .bio-symbol:nth-child(odd){
@@ -213,7 +207,7 @@
 
       0%,100%{
         transform:translateY(0);
-        opacity:.28;
+        opacity:.25;
       }
 
       50%{
@@ -238,8 +232,8 @@
           to bottom,
           transparent,
           rgba(79,156,255,.25),
-          rgba(255,95,158,.3),
-          rgba(79,156,255,.25),
+          rgba(255,95,158,.30),
+          rgba(255,89,103,.25),
           transparent
         );
 
@@ -248,7 +242,7 @@
 
 
     /* =====================================================
-       HERO
+       HERO — DARK LIKE HOME + RESOURCES
     ===================================================== */
 
     .hero{
@@ -270,30 +264,42 @@
       overflow:hidden;
 
       background:
+
         radial-gradient(
-          circle at 15% 20%,
-          rgba(57,124,255,.12),
+          circle at 15% 25%,
+          rgba(57,124,255,.20),
           transparent 30%
         ),
 
         radial-gradient(
           circle at 85% 25%,
-          rgba(255,95,158,.13),
+          rgba(255,95,158,.18),
           transparent 30%
+        ),
+
+        radial-gradient(
+          circle at 50% 100%,
+          rgba(255,89,103,.10),
+          transparent 35%
         ),
 
         linear-gradient(
           135deg,
-          #f8f9ff,
-          #edf2ff 55%,
-          #fff1f7
+          #080d23,
+          #111a3d 52%,
+          #24152f
         );
     }
 
+
+    /* subtle scientific grid */
+
     .hero::before{
+
       content:"";
 
       position:absolute;
+
       inset:0;
 
       background-image:
@@ -346,7 +352,7 @@
 
       font-weight:950;
 
-      color:#17213f;
+      color:white;
 
       margin-bottom:20px;
     }
@@ -373,7 +379,7 @@
 
       margin:auto;
 
-      color:#69738e;
+      color:#c9d2e8;
 
       font-size:17px;
 
@@ -382,7 +388,8 @@
 
 
     /* =====================================================
-       PRACTICE SECTION
+       PRACTICE MIDDLE SECTION
+       LIGHT + SOFT COLOR EFFECTS
     ===================================================== */
 
     .practice-section{
@@ -394,7 +401,69 @@
       margin:auto;
 
       padding:90px 7%;
+
+      isolation:isolate;
     }
+
+
+    /* soft background glow */
+
+    .practice-section::before{
+
+      content:"";
+
+      position:absolute;
+
+      width:380px;
+      height:380px;
+
+      left:-180px;
+      top:100px;
+
+      border-radius:50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(57,124,255,.10),
+          transparent 70%
+        );
+
+      z-index:-1;
+
+      pointer-events:none;
+    }
+
+    .practice-section::after{
+
+      content:"";
+
+      position:absolute;
+
+      width:380px;
+      height:380px;
+
+      right:-180px;
+      bottom:80px;
+
+      border-radius:50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(255,95,158,.10),
+          transparent 70%
+        );
+
+      z-index:-1;
+
+      pointer-events:none;
+    }
+
+
+    /* =====================================================
+       SECTION HEADING
+    ===================================================== */
 
     .section-heading{
 
@@ -554,7 +623,9 @@
     }
 
 
-    /* CARD GLOW */
+    /* =====================================================
+       CARD GLOW
+    ===================================================== */
 
     .topic-card::before{
 
@@ -591,7 +662,9 @@
     }
 
 
-    /* BOTTOM LINE */
+    /* =====================================================
+       BOTTOM COLOR LINE
+    ===================================================== */
 
     .topic-card::after{
 
@@ -621,7 +694,9 @@
     }
 
 
-    /* HOVER */
+    /* =====================================================
+       HOVER
+    ===================================================== */
 
     .topic-card:hover{
 
@@ -650,6 +725,9 @@
     ===================================================== */
 
     .topic-icon{
+
+      position:relative;
+      z-index:2;
 
       width:60px;
       height:60px;
@@ -791,12 +869,18 @@
 
 
     /* =====================================================
-       FOOTER
+       FOOTER — DARK
     ===================================================== */
 
     footer{
 
-      background:#070c20;
+      background:
+        linear-gradient(
+          135deg,
+          #070c20,
+          #111833,
+          #1c1026
+        );
 
       color:#aeb7d0;
 
@@ -805,6 +889,9 @@
       padding:30px 7%;
 
       font-size:13px;
+
+      border-top:
+        1px solid rgba(255,255,255,.07);
     }
 
     footer strong{
@@ -945,7 +1032,6 @@
       .topic-grid{
 
         grid-template-columns:1fr;
-
       }
 
 
@@ -1117,11 +1203,11 @@
       </li>
 
       <li>
-        <a href="index.html#explore">Tools</a>
+        <a href="tools.html">Tools</a>
       </li>
 
       <li>
-        <a href="index.html#explore">Courses</a>
+        <a href="courses.html">Courses</a>
       </li>
 
       <li>
@@ -1401,16 +1487,13 @@
 
         navLinks.classList.toggle("active");
 
-
         const isOpen =
           navLinks.classList.contains("active");
-
 
         menuToggle.setAttribute(
           "aria-expanded",
           isOpen
         );
-
 
         menuToggle.textContent =
           isOpen ? "✕" : "☰";
@@ -1418,8 +1501,6 @@
       }
     );
 
-
-    /* Close menu after selecting a page */
 
     document
       .querySelectorAll(".nav-links a")
