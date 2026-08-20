@@ -17,15 +17,15 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #f7fbfa;
-      color: #173b3a;
+      background: #f8faff;
+      color: #172554;
       line-height: 1.6;
     }
 
     nav {
       width: 100%;
       background: rgba(255, 255, 255, 0.96);
-      border-bottom: 1px solid #e2eeee;
+      border-bottom: 1px solid #e2e8f7;
       padding: 18px 7%;
       display: flex;
       justify-content: space-between;
@@ -35,12 +35,12 @@
     .logo {
       font-size: 24px;
       font-weight: 800;
-      color: #126b67;
+      color: #2563eb;
       text-decoration: none;
     }
 
     .logo span {
-      color: #173b3a;
+      color: #172554;
     }
 
     .nav-links {
@@ -51,27 +51,28 @@
 
     .nav-links a {
       text-decoration: none;
-      color: #315654;
+      color: #40516f;
       font-size: 14px;
       font-weight: 600;
     }
 
     .nav-links a:hover {
-      color: #126b67;
+      color: #2563eb;
     }
 
     .hero {
       padding: 90px 7%;
       text-align: center;
       background:
-        radial-gradient(circle at 85% 20%, #dcefed 0, transparent 30%),
-        linear-gradient(135deg, #f8fcfb, #eef8f6);
+        radial-gradient(circle at 85% 20%, #e7dfff 0, transparent 30%),
+        radial-gradient(circle at 15% 80%, #ffe1eb 0, transparent 28%),
+        linear-gradient(135deg, #f8faff, #eef4ff);
     }
 
     .badge {
       display: inline-block;
-      background: #dff1ee;
-      color: #126b67;
+      background: #e9e2ff;
+      color: #7c3aed;
       padding: 8px 16px;
       border-radius: 30px;
       font-size: 13px;
@@ -83,17 +84,17 @@
       font-size: clamp(42px, 6vw, 70px);
       line-height: 1;
       margin-bottom: 20px;
-      color: #173b3a;
+      color: #172554;
     }
 
     .hero h1 span {
-      color: #126b67;
+      color: #2563eb;
     }
 
     .hero p {
       max-width: 720px;
       margin: auto;
-      color: #58706e;
+      color: #5b6b88;
       font-size: 18px;
     }
 
@@ -110,10 +111,11 @@
     .section-heading h2 {
       font-size: 36px;
       margin-bottom: 12px;
+      color: #172554;
     }
 
     .section-heading p {
-      color: #687d7b;
+      color: #65738b;
     }
 
     .cards {
@@ -124,17 +126,18 @@
 
     .card {
       background: white;
-      border: 1px solid #e0eceb;
+      border: 1px solid #e1e7f5;
       border-radius: 18px;
       padding: 30px;
       min-height: 235px;
-      box-shadow: 0 8px 30px rgba(20, 80, 75, 0.05);
+      box-shadow: 0 8px 30px rgba(37, 99, 235, 0.06);
       transition: 0.25s ease;
     }
 
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 14px 35px rgba(20, 80, 75, 0.10);
+      box-shadow: 0 14px 35px rgba(37, 99, 235, 0.12);
+      border-color: #c9d7ff;
     }
 
     .card-icon {
@@ -145,27 +148,30 @@
     .card h3 {
       font-size: 21px;
       margin-bottom: 10px;
+      color: #172554;
     }
 
     .card p {
-      color: #6a7e7c;
+      color: #69778f;
       font-size: 14px;
       margin-bottom: 15px;
     }
 
     .card-link {
-      color: #126b67;
+      color: #2563eb;
       text-decoration: none;
       font-weight: 700;
       font-size: 14px;
     }
 
     .card-link:hover {
+      color: #e11d48;
       text-decoration: underline;
     }
 
     .skills {
-      background: #eef8f6;
+      background:
+        linear-gradient(135deg, #f0f5ff, #fff1f6);
     }
 
     .skills-content {
@@ -177,10 +183,11 @@
     .skills-content h2 {
       font-size: 36px;
       margin-bottom: 15px;
+      color: #172554;
     }
 
     .skills-content p {
-      color: #687d7b;
+      color: #65738b;
       margin-bottom: 30px;
     }
 
@@ -194,12 +201,20 @@
       background: white;
       padding: 18px;
       border-radius: 12px;
-      border: 1px solid #dfeceb;
+      border: 1px solid #e2e7f3;
       font-weight: 700;
+      color: #24365c;
+      transition: 0.25s ease;
+    }
+
+    .skill:hover {
+      border-color: #f3a6bd;
+      transform: translateY(-3px);
     }
 
     .cta {
-      background: #173b3a;
+      background:
+        linear-gradient(135deg, #172554, #1e3a8a);
       color: white;
       text-align: center;
     }
@@ -215,12 +230,12 @@
     }
 
     .cta p {
-      color: #d4e4e2;
+      color: #dbe5ff;
     }
 
     footer {
-      background: #102b2a;
-      color: #b9ccca;
+      background: #0f172a;
+      color: #aebbd2;
       text-align: center;
       padding: 28px 7%;
       font-size: 13px;
