@@ -521,15 +521,17 @@
        TOPIC GRID
     ===================================================== */
 
-    .topic-grid{
+   .topic-grid{
 
-      display:grid;
+  display:grid;
 
-      grid-template-columns:
-        repeat(3,minmax(0,1fr));
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
 
-      gap:26px;
-    }
+  gap:26px;
+
+  perspective:1200px;
+}
 
 
     /* =====================================================
@@ -565,6 +567,12 @@
         transform .3s ease,
         box-shadow .3s ease,
         border-color .3s ease;
+
+      transform-style:preserve-3d;
+
+  will-change:transform;
+
+  backface-visibility:hidden;
     }
 
 
@@ -698,18 +706,21 @@
        HOVER
     ===================================================== */
 
-    .topic-card:hover{
+   .topic-card:hover{
 
-      transform:
-        translateY(-10px)
-        rotateX(2deg);
+  transform:
+    translateY(-12px)
+    rotateX(4deg)
+    rotateY(-2deg)
+    scale(1.015);
 
-      border-color:
-        rgba(232,62,130,.35);
+  border-color:
+    rgba(232,62,130,.38);
 
-      box-shadow:
-        0 25px 55px rgba(49,84,217,.16);
-    }
+  box-shadow:
+    0 30px 60px rgba(49,84,217,.20),
+    0 10px 25px rgba(232,62,130,.08);
+}
 
     .topic-card:hover::before{
       transform:scale(1.8);
@@ -753,14 +764,19 @@
       margin-bottom:20px;
 
       transition:.3s ease;
-    }
+    }.topic-card:hover .topic-icon{
 
-    .topic-card:hover .topic-icon{
+  transform:
+    translateY(-6px)
+    translateZ(18px)
+    rotate(-5deg)
+    scale(1.10);
 
-      transform:
-        translateY(-3px)
-        rotate(-5deg)
-        scale(1.08);
+  box-shadow:
+    0 12px 25px rgba(57,124,255,.16);
+}
+
+    
     }
 
 
