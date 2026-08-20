@@ -1,468 +1,1607 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Career | BioVerse Hub</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="Explore biotechnology career resources, internships, certifications, competitions, skills, and opportunities with BioVerse Hub.">
+<title>Career | BioVerse Hub</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta name="description"
+content="Explore biotechnology career resources, internships, certifications, competitions, skills, and opportunities with BioVerse Hub.">
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f8faff;
-      color: #172554;
-      line-height: 1.6;
-    }
+<style>
 
-    nav {
-      width: 100%;
-      background: rgba(255, 255, 255, 0.96);
-      border-bottom: 1px solid #e2e8f7;
-      padding: 18px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+/* =====================================================
+   RESET
+===================================================== */
 
-    .logo {
-      font-size: 24px;
-      font-weight: 800;
-      color: #2563eb;
-      text-decoration: none;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    .logo span {
-      color: #172554;
-    }
+html{
+  scroll-behavior:smooth;
+}
 
-    .nav-links {
-      display: flex;
-      gap: 25px;
-      list-style: none;
-    }
+body{
+  font-family:"Segoe UI", Inter, Arial, sans-serif;
+  background:#f4f6ff;
+  color:#17213f;
+  line-height:1.6;
+  overflow-x:hidden;
+}
 
-    .nav-links a {
-      text-decoration: none;
-      color: #40516f;
-      font-size: 14px;
-      font-weight: 600;
-    }
+a{
+  text-decoration:none;
+}
 
-    .nav-links a:hover {
-      color: #2563eb;
-    }
 
-    .hero {
-      padding: 90px 7%;
-      text-align: center;
-      background:
-        radial-gradient(circle at 85% 20%, #e7dfff 0, transparent 30%),
-        radial-gradient(circle at 15% 80%, #ffe1eb 0, transparent 28%),
-        linear-gradient(135deg, #f8faff, #eef4ff);
-    }
+/* =====================================================
+   NAVBAR
+===================================================== */
 
-    .badge {
-      display: inline-block;
-      background: #e9e2ff;
-      color: #7c3aed;
-      padding: 8px 16px;
-      border-radius: 30px;
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
+nav{
+  width:100%;
+  padding:17px 7%;
 
-    .hero h1 {
-      font-size: clamp(42px, 6vw, 70px);
-      line-height: 1;
-      margin-bottom: 20px;
-      color: #172554;
-    }
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 
-    .hero h1 span {
-      color: #2563eb;
-    }
+  position:sticky;
+  top:0;
+  z-index:1000;
 
-    .hero p {
-      max-width: 720px;
-      margin: auto;
-      color: #5b6b88;
-      font-size: 18px;
-    }
+  background:rgba(8,13,35,.94);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
 
-    .section {
-      padding: 75px 7%;
-    }
+  border-bottom:1px solid rgba(255,255,255,.09);
+}
 
-    .section-heading {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 45px;
-    }
+.logo{
+  font-size:25px;
+  font-weight:900;
+  letter-spacing:-1px;
+  color:#5da7ff;
+}
 
-    .section-heading h2 {
-      font-size: 36px;
-      margin-bottom: 12px;
-      color: #172554;
-    }
+.logo span{
+  color:#ff5f9e;
+}
 
-    .section-heading p {
-      color: #65738b;
-    }
+.nav-links{
+  display:flex;
+  gap:24px;
+  list-style:none;
+  align-items:center;
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 25px;
-    }
+.nav-links a{
+  color:#dce3fa;
+  font-size:14px;
+  font-weight:700;
+  transition:.25s ease;
+}
 
-    .card {
-      background: white;
-      border: 1px solid #e1e7f5;
-      border-radius: 18px;
-      padding: 30px;
-      min-height: 235px;
-      box-shadow: 0 8px 30px rgba(37, 99, 235, 0.06);
-      transition: 0.25s ease;
-    }
+.nav-links a:hover{
+  color:#ff6ba7;
+}
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 14px 35px rgba(37, 99, 235, 0.12);
-      border-color: #c9d7ff;
-    }
 
-    .card-icon {
-      font-size: 32px;
-      margin-bottom: 18px;
-    }
+/* =====================================================
+   SIDE BIOTECH PATTERN
+===================================================== */
 
-    .card h3 {
-      font-size: 21px;
-      margin-bottom: 10px;
-      color: #172554;
-    }
+.side-bio{
+  position:fixed;
+  top:50%;
+  transform:translateY(-50%);
 
-    .card p {
-      color: #69778f;
-      font-size: 14px;
-      margin-bottom: 15px;
-    }
+  width:48px;
 
-    .card-link {
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 14px;
-    }
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 
-    .card-link:hover {
-      color: #e11d48;
-      text-decoration: underline;
-    }
+  gap:34px;
 
-    .skills {
-      background:
-        linear-gradient(135deg, #f0f5ff, #fff1f6);
-    }
+  z-index:5;
+  pointer-events:none;
+}
 
-    .skills-content {
-      max-width: 900px;
-      margin: auto;
-      text-align: center;
-    }
+.side-bio.left{
+  left:10px;
+}
 
-    .skills-content h2 {
-      font-size: 36px;
-      margin-bottom: 15px;
-      color: #172554;
-    }
+.side-bio.right{
+  right:10px;
+}
 
-    .skills-content p {
-      color: #65738b;
-      margin-bottom: 30px;
-    }
+.bio-symbol{
+  width:30px;
+  height:30px;
 
-    .skill-list {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-    }
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
-    .skill {
-      background: white;
-      padding: 18px;
-      border-radius: 12px;
-      border: 1px solid #e2e7f3;
-      font-weight: 700;
-      color: #24365c;
-      transition: 0.25s ease;
-    }
+  font-size:20px;
 
-    .skill:hover {
-      border-color: #f3a6bd;
-      transform: translateY(-3px);
-    }
+  opacity:.38;
 
-    .cta {
-      background:
-        linear-gradient(135deg, #172554, #1e3a8a);
-      color: white;
-      text-align: center;
-    }
+  filter:
+    drop-shadow(
+      0 0 7px rgba(255,95,158,.45)
+    );
 
-    .cta-content {
-      max-width: 800px;
-      margin: auto;
-    }
+  animation:
+    bioFloat 4s ease-in-out infinite;
+}
 
-    .cta h2 {
-      font-size: 36px;
-      margin-bottom: 15px;
-    }
+.bio-symbol:nth-child(odd){
+  color:#4f9cff;
 
-    .cta p {
-      color: #dbe5ff;
-    }
+  filter:
+    drop-shadow(
+      0 0 8px rgba(79,156,255,.65)
+    );
+}
 
-    footer {
-      background: #0f172a;
-      color: #aebbd2;
-      text-align: center;
-      padding: 28px 7%;
-      font-size: 13px;
-    }
+.bio-symbol:nth-child(even){
+  color:#ff5f9e;
 
-    footer strong {
-      color: white;
-    }
+  filter:
+    drop-shadow(
+      0 0 8px rgba(255,95,158,.65)
+    );
+}
 
-    @media (max-width: 850px) {
+.bio-symbol:nth-child(2){
+  animation-delay:.8s;
+}
 
-      nav {
-        padding: 16px 5%;
-      }
+.bio-symbol:nth-child(3){
+  animation-delay:1.6s;
+}
 
-      .nav-links {
-        display: none;
-      }
+.bio-symbol:nth-child(4){
+  animation-delay:2.4s;
+}
 
-      .hero {
-        padding: 70px 6%;
-      }
+.bio-symbol:nth-child(5){
+  animation-delay:3.2s;
+}
 
-      .section {
-        padding: 60px 6%;
-      }
+@keyframes bioFloat{
 
-      .cards {
-        grid-template-columns: 1fr;
-      }
+  0%,100%{
+    transform:translateY(0);
+    opacity:.28;
+  }
 
-      .skill-list {
-        grid-template-columns: 1fr;
-      }
+  50%{
+    transform:translateY(-7px);
+    opacity:.55;
+  }
 
-      .section-heading h2,
-      .skills-content h2,
-      .cta h2 {
-        font-size: 30px;
-      }
-    }
-  </style>
+}
+
+.side-bio::before{
+  content:"";
+
+  position:absolute;
+
+  top:8px;
+  bottom:8px;
+
+  width:1px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(79,156,255,.25),
+      rgba(255,95,158,.3),
+      rgba(79,156,255,.25),
+      transparent
+    );
+
+  z-index:-1;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+  min-height:430px;
+
+  padding:90px 7%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  text-align:center;
+
+  position:relative;
+  overflow:hidden;
+
+  background:
+
+    radial-gradient(
+      circle at 78% 38%,
+      rgba(52,120,255,.32),
+      transparent 28%
+    ),
+
+    radial-gradient(
+      circle at 90% 75%,
+      rgba(255,55,135,.28),
+      transparent 26%
+    ),
+
+    radial-gradient(
+      circle at 15% 15%,
+      rgba(239,68,68,.14),
+      transparent 24%
+    ),
+
+    linear-gradient(
+      135deg,
+      #070c24,
+      #10183d 52%,
+      #181133
+    );
+}
+
+
+/* HERO GRID */
+
+.hero::before{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  background-image:
+
+    linear-gradient(
+      rgba(255,255,255,.035) 1px,
+      transparent 1px
+    ),
+
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.035) 1px,
+      transparent 1px
+    );
+
+  background-size:50px 50px;
+
+  mask-image:
+    linear-gradient(
+      to right,
+      transparent,
+      black 30%,
+      black 85%,
+      transparent
+    );
+}
+
+
+/* HERO ORBIT */
+
+.hero::after{
+  content:"";
+
+  position:absolute;
+
+  width:520px;
+  height:520px;
+
+  right:-190px;
+  top:-190px;
+
+  border-radius:50%;
+
+  border:1px solid rgba(93,167,255,.13);
+
+  box-shadow:
+    0 0 110px rgba(93,167,255,.08);
+
+  animation:
+    heroOrbit 14s linear infinite;
+}
+
+@keyframes heroOrbit{
+
+  from{
+    transform:rotate(0deg);
+  }
+
+  to{
+    transform:rotate(360deg);
+  }
+
+}
+
+
+/* HERO CONTENT */
+
+.hero-content{
+  position:relative;
+  z-index:10;
+
+  max-width:850px;
+}
+
+.hero h1{
+  font-size:clamp(48px,7vw,72px);
+
+  line-height:1;
+
+  letter-spacing:-4px;
+
+  color:white;
+
+  font-weight:950;
+
+  margin-bottom:22px;
+}
+
+.hero h1 span{
+
+  background:
+    linear-gradient(
+      90deg,
+      #59a7ff,
+      #ff5f9e,
+      #ff5a67
+    );
+
+  -webkit-background-clip:text;
+  background-clip:text;
+
+  color:transparent;
+}
+
+.hero p{
+
+  max-width:760px;
+
+  margin:auto;
+
+  color:#bbc5e2;
+
+  font-size:17px;
+
+  line-height:1.85;
+}
+
+
+/* =====================================================
+   FLOATING HERO PARTICLES
+===================================================== */
+
+.hero-particle{
+
+  position:absolute;
+
+  width:7px;
+  height:7px;
+
+  border-radius:50%;
+
+  box-shadow:
+    0 0 18px currentColor;
+
+  animation:
+    particleFloat 5s ease-in-out infinite;
+
+  z-index:4;
+}
+
+.hp1{
+  left:18%;
+  top:25%;
+
+  color:#59a7ff;
+  background:#59a7ff;
+}
+
+.hp2{
+  right:18%;
+  top:30%;
+
+  color:#ff5f9e;
+  background:#ff5f9e;
+
+  animation-delay:1s;
+}
+
+.hp3{
+  left:27%;
+  bottom:22%;
+
+  color:#ff5a67;
+  background:#ff5a67;
+
+  animation-delay:2s;
+}
+
+.hp4{
+  right:28%;
+  bottom:20%;
+
+  color:#59a7ff;
+  background:#59a7ff;
+
+  animation-delay:3s;
+}
+
+@keyframes particleFloat{
+
+  0%,100%{
+    transform:translate(0,0);
+  }
+
+  50%{
+    transform:translate(15px,-20px);
+  }
+
+}
+
+
+/* =====================================================
+   CAREER SECTION
+===================================================== */
+
+.career{
+
+  max-width:1250px;
+
+  margin:auto;
+
+  padding:95px 7%;
+
+  position:relative;
+}
+
+
+/* =====================================================
+   SECTION HEADING
+===================================================== */
+
+.section-heading{
+
+  max-width:720px;
+
+  margin:0 auto 55px;
+
+  text-align:center;
+}
+
+.section-heading h2{
+
+  font-size:42px;
+
+  color:#17213f;
+
+  letter-spacing:-2px;
+
+  font-weight:950;
+
+  margin-bottom:12px;
+}
+
+.section-heading h2 span{
+
+  background:
+    linear-gradient(
+      90deg,
+      #315fe8,
+      #e83e82
+    );
+
+  -webkit-background-clip:text;
+  background-clip:text;
+
+  color:transparent;
+}
+
+.section-heading p{
+
+  color:#69738e;
+
+  font-size:16px;
+
+  font-style:italic;
+}
+
+
+/* =====================================================
+   CAREER GRID
+===================================================== */
+
+.grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+
+  gap:26px;
+}
+
+
+/* =====================================================
+   CAREER CARDS
+===================================================== */
+
+.card{
+
+  position:relative;
+
+  padding:31px;
+
+  min-height:245px;
+
+  border-radius:22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.96),
+      rgba(246,248,255,.92)
+    );
+
+  border:
+    1px solid rgba(120,135,220,.20);
+
+  box-shadow:
+    0 14px 40px rgba(49,70,150,.10);
+
+  overflow:hidden;
+
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease,
+    border-color .3s ease;
+}
+
+
+/* DIFFERENT CARD BACKGROUNDS */
+
+.card:nth-child(1){
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff 20%,
+      #edf5ff 100%
+    );
+}
+
+.card:nth-child(2){
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff 20%,
+      #fff0f7 100%
+    );
+}
+
+.card:nth-child(3){
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff 18%,
+      #f0f3ff 70%,
+      #fff0f4
+    );
+}
+
+.card:nth-child(4){
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff 20%,
+      #f4efff 100%
+    );
+}
+
+.card:nth-child(5){
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff 20%,
+      #edf4ff 65%,
+      #fff0f7
+    );
+}
+
+.card:nth-child(6){
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff 20%,
+      #fff0f1 100%
+    );
+}
+
+
+/* CARD GLOW */
+
+.card::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:180px;
+  height:180px;
+
+  border-radius:50%;
+
+  top:-90px;
+  right:-70px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(57,124,255,.22),
+      transparent 70%
+    );
+
+  transition:.4s ease;
+}
+
+.card:nth-child(even)::before{
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,75,145,.22),
+      transparent 70%
+    );
+}
+
+
+/* CARD BOTTOM LINE */
+
+.card::after{
+
+  content:"";
+
+  position:absolute;
+
+  left:0;
+  bottom:0;
+
+  width:100%;
+  height:4px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #397cff,
+      #ff5f9e,
+      #ff5967
+    );
+
+  transform:scaleX(.25);
+
+  transform-origin:left;
+
+  transition:.35s ease;
+}
+
+
+/* =====================================================
+   3D CARD HOVER
+===================================================== */
+
+.card:hover{
+
+  transform:
+    translateY(-10px)
+    rotateX(2deg);
+
+  border-color:
+    rgba(232,62,130,.35);
+
+  box-shadow:
+    0 25px 55px rgba(49,84,217,.16);
+}
+
+.card:hover::before{
+  transform:scale(1.8);
+}
+
+.card:hover::after{
+  transform:scaleX(1);
+}
+
+
+/* =====================================================
+   ICON
+===================================================== */
+
+.icon{
+
+  width:60px;
+  height:60px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:17px;
+
+  font-size:30px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(49,110,255,.14),
+      rgba(232,62,130,.16)
+    );
+
+  border:
+    1px solid rgba(80,120,230,.12);
+
+  margin-bottom:20px;
+
+  transition:.3s ease;
+}
+
+.card:hover .icon{
+
+  transform:
+    translateY(-3px)
+    rotate(-5deg)
+    scale(1.08);
+}
+
+
+/* =====================================================
+   CARD TEXT
+===================================================== */
+
+.card h3{
+
+  font-size:21px;
+
+  font-weight:900;
+
+  color:#17213f;
+
+  margin-bottom:10px;
+}
+
+.card p{
+
+  color:#69738e;
+
+  font-size:14px;
+
+  margin-bottom:18px;
+}
+
+.card-link{
+
+  display:inline-block;
+
+  margin-top:4px;
+
+  color:#315fe8;
+
+  font-size:14px;
+
+  font-weight:850;
+
+  transition:.25s ease;
+}
+
+.card-link:hover{
+
+  color:#e83e82;
+
+  transform:translateX(5px);
+}
+
+
+/* =====================================================
+   SKILLS SECTION
+===================================================== */
+
+.skills-section{
+
+  margin-top:75px;
+
+  padding:70px 30px;
+
+  position:relative;
+
+  overflow:hidden;
+
+  border-radius:24px;
+
+  text-align:center;
+
+  background:
+
+    radial-gradient(
+      circle at 15% 25%,
+      rgba(255,76,145,.15),
+      transparent 30%
+    ),
+
+    radial-gradient(
+      circle at 85% 75%,
+      rgba(54,119,255,.18),
+      transparent 30%
+    ),
+
+    linear-gradient(
+      135deg,
+      #eef3ff,
+      #fff2f7
+    );
+
+  border:
+    1px solid rgba(100,120,220,.15);
+
+  box-shadow:
+    0 20px 50px rgba(49,70,150,.09);
+}
+
+.skills-content{
+
+  position:relative;
+
+  z-index:2;
+
+  max-width:900px;
+
+  margin:auto;
+}
+
+.skills-content h2{
+
+  font-size:36px;
+
+  color:#17213f;
+
+  font-weight:950;
+
+  letter-spacing:-1px;
+
+  margin-bottom:15px;
+}
+
+.skills-content h2 span{
+
+  background:
+    linear-gradient(
+      90deg,
+      #315fe8,
+      #e83e82
+    );
+
+  -webkit-background-clip:text;
+  background-clip:text;
+
+  color:transparent;
+}
+
+.skills-content p{
+
+  max-width:720px;
+
+  margin:
+    0 auto 30px;
+
+  color:#69738e;
+
+  font-size:15px;
+}
+
+
+/* =====================================================
+   SKILL GRID
+===================================================== */
+
+.skill-list{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+
+  gap:15px;
+}
+
+.skill{
+
+  padding:18px;
+
+  border-radius:15px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.96),
+      rgba(248,249,255,.92)
+    );
+
+  border:
+    1px solid rgba(120,135,220,.18);
+
+  color:#24365c;
+
+  font-weight:800;
+
+  box-shadow:
+    0 9px 25px rgba(49,70,150,.07);
+
+  transition:.3s ease;
+}
+
+.skill:hover{
+
+  transform:
+    translateY(-5px);
+
+  border-color:
+    rgba(232,62,130,.35);
+
+  box-shadow:
+    0 16px 30px rgba(49,84,217,.12);
+}
+
+
+/* =====================================================
+   CTA
+===================================================== */
+
+.cta{
+
+  margin-top:75px;
+
+  position:relative;
+
+  overflow:hidden;
+
+  padding:55px 30px;
+
+  border-radius:24px;
+
+  text-align:center;
+
+  color:white;
+
+  background:
+
+    radial-gradient(
+      circle at 15% 25%,
+      rgba(255,76,145,.23),
+      transparent 30%
+    ),
+
+    radial-gradient(
+      circle at 85% 75%,
+      rgba(54,119,255,.25),
+      transparent 30%
+    ),
+
+    linear-gradient(
+      135deg,
+      #090f2c,
+      #17153d
+    );
+
+  box-shadow:
+    0 20px 50px rgba(30,40,100,.15);
+}
+
+.cta-content{
+
+  position:relative;
+
+  z-index:2;
+
+  max-width:800px;
+
+  margin:auto;
+}
+
+.cta h2{
+
+  font-size:36px;
+
+  font-weight:950;
+
+  margin-bottom:15px;
+}
+
+.cta p{
+
+  color:#c7cee5;
+
+  max-width:700px;
+
+  margin:auto;
+
+  font-size:15px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+  margin-top:75px;
+
+  padding:30px 7%;
+
+  text-align:center;
+
+  color:#aeb7d0;
+
+  background:#070c20;
+
+  font-size:13px;
+}
+
+footer strong{
+  color:white;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media(max-width:1000px){
+
+  .grid{
+
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
+  }
+
+  .skill-list{
+
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:850px){
+
+  nav{
+
+    padding:14px 5%;
+  }
+
+  .nav-links{
+    display:none;
+  }
+
+  .hero{
+
+    min-height:390px;
+
+    padding:
+      75px 6%;
+  }
+
+  .hero h1{
+
+    font-size:
+      clamp(44px,11vw,62px);
+
+    letter-spacing:-3px;
+  }
+
+  .hero p{
+
+    font-size:15px;
+  }
+
+  .career{
+
+    padding:
+      70px 6%;
+  }
+
+  .grid{
+
+    grid-template-columns:1fr;
+  }
+
+  .skill-list{
+
+    grid-template-columns:1fr;
+  }
+
+  .section-heading h2{
+
+    font-size:32px;
+  }
+
+  .skills-content h2{
+
+    font-size:30px;
+  }
+
+  .cta h2{
+
+    font-size:30px;
+  }
+
+  .side-bio{
+
+    width:28px;
+
+    gap:25px;
+
+    opacity:.75;
+  }
+
+  .side-bio.left{
+    left:2px;
+  }
+
+  .side-bio.right{
+    right:2px;
+  }
+
+  .bio-symbol{
+
+    width:22px;
+    height:22px;
+
+    font-size:14px;
+
+    opacity:.30;
+  }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media(max-width:500px){
+
+  .logo{
+    font-size:21px;
+  }
+
+  .hero{
+
+    min-height:370px;
+
+    padding:
+      65px 6%;
+  }
+
+  .hero h1{
+
+    font-size:43px;
+
+    letter-spacing:-2.5px;
+  }
+
+  .hero p{
+    font-size:14px;
+  }
+
+  .career{
+
+    padding:
+      60px 6%;
+  }
+
+  .card{
+
+    padding:26px;
+
+    min-height:235px;
+  }
+
+  .skills-section{
+
+    padding:
+      45px 22px;
+  }
+
+  .cta{
+
+    padding:
+      40px 22px;
+  }
+
+  .side-bio{
+
+    width:22px;
+
+    gap:22px;
+  }
+
+  .side-bio.left{
+    left:0;
+  }
+
+  .side-bio.right{
+    right:0;
+  }
+
+  .bio-symbol{
+
+    width:18px;
+    height:18px;
+
+    font-size:12px;
+
+    opacity:.25;
+  }
+
+}
+
+</style>
+
 </head>
+
 
 <body>
 
-  <nav>
 
-    <a href="index.html" class="logo">
-      BioVerse <span>Hub</span>
-    </a>
+<!-- =====================================================
+     SIDE BIOTECH PATTERN
+===================================================== -->
 
-    <ul class="nav-links">
+<div class="side-bio left">
 
-      <li><a href="index.html">Home</a></li>
-      <li><a href="resources.html">Resources</a></li>
-      <li><a href="practice.html">Practice</a></li>
-      <li><a href="tools.html">Tools</a></li>
-      <li><a href="courses.html">Courses</a></li>
-      <li><a href="research.html">Research</a></li>
-      <li><a href="career.html">Career</a></li>
+  <div class="bio-symbol">🧬</div>
+  <div class="bio-symbol">✦</div>
+  <div class="bio-symbol">🧪</div>
+  <div class="bio-symbol">✦</div>
+  <div class="bio-symbol">🔬</div>
 
-    </ul>
+</div>
 
-  </nav>
 
-  <section class="hero">
+<div class="side-bio right">
 
-    <div class="badge">
-      Build Your Biotechnology Career
-    </div>
+  <div class="bio-symbol">🔬</div>
+  <div class="bio-symbol">✦</div>
+  <div class="bio-symbol">🧫</div>
+  <div class="bio-symbol">✦</div>
+  <div class="bio-symbol">🧬</div>
+
+</div>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav>
+
+  <a href="index.html" class="logo">
+    BioVerse <span>Hub</span>
+  </a>
+
+  <ul class="nav-links">
+
+    <li>
+      <a href="index.html">Home</a>
+    </li>
+
+    <li>
+      <a href="resources.html">Resources</a>
+    </li>
+
+    <li>
+      <a href="practice.html">Practice</a>
+    </li>
+
+    <li>
+      <a href="tools.html">Tools</a>
+    </li>
+
+    <li>
+      <a href="courses.html">Courses</a>
+    </li>
+
+    <li>
+      <a href="research.html">Research</a>
+    </li>
+
+    <li>
+      <a href="career.html">Career</a>
+    </li>
+
+  </ul>
+
+</nav>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+  <div class="hero-particle hp1"></div>
+  <div class="hero-particle hp2"></div>
+  <div class="hero-particle hp3"></div>
+  <div class="hero-particle hp4"></div>
+
+
+  <div class="hero-content">
 
     <h1>
-      Turn Your Skills Into <span>Opportunities.</span>
+      Build Your
+      <span>Career</span>
     </h1>
 
     <p>
+
       Explore internships, certifications, competitions, skills,
       career paths, and opportunities designed to help biotechnology
       students prepare for their future.
+
     </p>
 
-  </section>
+  </div>
 
-  <section class="section">
+</section>
 
-    <div class="section-heading">
 
-      <h2>Explore Career Resources</h2>
+<!-- =====================================================
+     CAREER RESOURCES
+===================================================== -->
+
+<main class="career">
+
+
+  <div class="section-heading">
+
+    <h2>
+      Explore Career
+      <span>Opportunities</span>
+    </h2>
+
+    <p>
+
+      Discover important areas that can help you move from university
+      learning toward real-world biotechnology opportunities.
+
+    </p>
+
+  </div>
+
+
+  <div class="grid">
+
+
+    <!-- INTERNSHIPS -->
+
+    <div class="card">
+
+      <div class="icon">💼</div>
+
+      <h3>Internships</h3>
 
       <p>
-        Discover important areas that can help you move from university
-        learning toward real-world biotechnology opportunities.
+
+        Find biotechnology, laboratory, research, pharmaceutical,
+        and related internship opportunities.
+
       </p>
 
-    </div>
-
-    <div class="cards">
-
-      <div class="card">
-
-        <div class="card-icon">💼</div>
-
-        <h3>Internships</h3>
-
-        <p>
-          Find biotechnology, laboratory, research, pharmaceutical,
-          and related internship opportunities.
-        </p>
-
-        <a href="#" class="card-link">
-          Explore Internships →
-        </a>
-
-      </div>
-
-      <div class="card">
-
-        <div class="card-icon">🎓</div>
-
-        <h3>Certifications</h3>
-
-        <p>
-          Discover useful online certifications that can strengthen
-          your knowledge, skills, and CV.
-        </p>
-
-        <a href="#" class="card-link">
-          Explore Certifications →
-        </a>
-
-      </div>
-
-      <div class="card">
-
-        <div class="card-icon">🏆</div>
-
-        <h3>Competitions</h3>
-
-        <p>
-          Explore scientific competitions, challenges, hackathons,
-          and student opportunities.
-        </p>
-
-        <a href="#" class="card-link">
-          Explore Competitions →
-        </a>
-
-      </div>
-
-      <div class="card">
-
-        <div class="card-icon">📄</div>
-
-        <h3>CV & Portfolio</h3>
-
-        <p>
-          Learn how to build a professional biotechnology CV,
-          portfolio, and online presence.
-        </p>
-
-        <a href="#" class="card-link">
-          Build Your Profile →
-        </a>
-
-      </div>
-
-      <div class="card">
-
-        <div class="card-icon">🧬</div>
-
-        <h3>Career Paths</h3>
-
-        <p>
-          Explore different career directions including research,
-          pharmaceuticals, bioinformatics, diagnostics, and industry.
-        </p>
-
-        <a href="#" class="card-link">
-          Explore Career Paths →
-        </a>
-
-      </div>
-
-      <div class="card">
-
-        <div class="card-icon">💻</div>
-
-        <h3>Digital & Freelance Skills</h3>
-
-        <p>
-          Learn practical digital skills that can support remote work,
-          freelancing, and online earning opportunities.
-        </p>
-
-        <a href="#" class="card-link">
-          Explore Skills →
-        </a>
-
-      </div>
+      <a href="#" class="card-link">
+        Explore Internships →
+      </a>
 
     </div>
 
-  </section>
 
-  <section class="section skills">
+    <!-- CERTIFICATIONS -->
+
+    <div class="card">
+
+      <div class="icon">🎓</div>
+
+      <h3>Certifications</h3>
+
+      <p>
+
+        Discover useful online certifications that can strengthen
+        your knowledge, skills, and CV.
+
+      </p>
+
+      <a href="#" class="card-link">
+        Explore Certifications →
+      </a>
+
+    </div>
+
+
+    <!-- COMPETITIONS -->
+
+    <div class="card">
+
+      <div class="icon">🏆</div>
+
+      <h3>Competitions</h3>
+
+      <p>
+
+        Explore scientific competitions, challenges, hackathons,
+        and student opportunities.
+
+      </p>
+
+      <a href="#" class="card-link">
+        Explore Competitions →
+      </a>
+
+    </div>
+
+
+    <!-- CV & PORTFOLIO -->
+
+    <div class="card">
+
+      <div class="icon">📄</div>
+
+      <h3>CV & Portfolio</h3>
+
+      <p>
+
+        Learn how to build a professional biotechnology CV,
+        portfolio, and online presence.
+
+      </p>
+
+      <a href="#" class="card-link">
+        Build Your Profile →
+      </a>
+
+    </div>
+
+
+    <!-- CAREER PATHS -->
+
+    <div class="card">
+
+      <div class="icon">🧬</div>
+
+      <h3>Career Paths</h3>
+
+      <p>
+
+        Explore different career directions including research,
+        pharmaceuticals, bioinformatics, diagnostics, and industry.
+
+      </p>
+
+      <a href="#" class="card-link">
+        Explore Career Paths →
+      </a>
+
+    </div>
+
+
+    <!-- DIGITAL & FREELANCE -->
+
+    <div class="card">
+
+      <div class="icon">💻</div>
+
+      <h3>Digital & Freelance Skills</h3>
+
+      <p>
+
+        Learn practical digital skills that can support remote work,
+        freelancing, and online earning opportunities.
+
+      </p>
+
+      <a href="#" class="card-link">
+        Explore Skills →
+      </a>
+
+    </div>
+
+
+  </div>
+
+
+  <!-- =====================================================
+       SKILLS
+  ====================================================== -->
+
+  <section class="skills-section">
 
     <div class="skills-content">
 
-      <h2>Skills Worth Building</h2>
+      <h2>
+        Skills Worth
+        <span>Building</span>
+      </h2>
 
       <p>
+
         A strong biotechnology career combines scientific knowledge
         with practical, digital, communication, and research skills.
+
       </p>
+
 
       <div class="skill-list">
 
-        <div class="skill">Laboratory Skills</div>
-        <div class="skill">Research Skills</div>
-        <div class="skill">Bioinformatics</div>
-        <div class="skill">Data Analysis</div>
-        <div class="skill">Scientific Writing</div>
-        <div class="skill">Communication</div>
-        <div class="skill">Microsoft & Digital Skills</div>
-        <div class="skill">AI & Technology</div>
-        <div class="skill">Professional Networking</div>
+        <div class="skill">
+          Laboratory Skills
+        </div>
+
+        <div class="skill">
+          Research Skills
+        </div>
+
+        <div class="skill">
+          Bioinformatics
+        </div>
+
+        <div class="skill">
+          Data Analysis
+        </div>
+
+        <div class="skill">
+          Scientific Writing
+        </div>
+
+        <div class="skill">
+          Communication
+        </div>
+
+        <div class="skill">
+          Microsoft & Digital Skills
+        </div>
+
+        <div class="skill">
+          AI & Technology
+        </div>
+
+        <div class="skill">
+          Professional Networking
+        </div>
 
       </div>
 
@@ -470,30 +1609,51 @@
 
   </section>
 
-  <section class="section cta">
+
+  <!-- =====================================================
+       CTA
+  ====================================================== -->
+
+  <section class="cta">
 
     <div class="cta-content">
 
-      <h2>Start Preparing Before Graduation</h2>
+      <h2>
+        Start Preparing Before Graduation
+      </h2>
 
       <p>
+
         Your career does not start after graduation.
         Start building skills, experience, projects, and connections
         while you are still a student.
+
       </p>
 
     </div>
 
   </section>
 
-  <footer>
 
-    <p>
-      © 2026 <strong>BioVerse Hub</strong>.
-      Built for biotechnology students worldwide.
-    </p>
+</main>
 
-  </footer>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+  © 2026
+
+  <strong>
+    BioVerse Hub
+  </strong>.
+
+  Built for biotechnology students worldwide.
+
+</footer>
+
 
 </body>
 </html>
