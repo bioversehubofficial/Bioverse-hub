@@ -6,229 +6,1240 @@
 
   <title>Research | BioVerse Hub</title>
 
-  <meta name="description" content="Explore biotechnology research resources, guidance, databases, papers, and opportunities with BioVerse Hub.">
+  <meta name="description"
+        content="Explore biotechnology research resources, guidance, databases, papers, and opportunities with BioVerse Hub.">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+
+    /* =====================================================
+       RESET
+    ===================================================== */
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f7fbfa;
-      color: #173b3a;
-      line-height: 1.6;
+    html{
+      scroll-behavior:smooth;
     }
 
-    nav {
-      width: 100%;
-      background: rgba(255, 255, 255, 0.96);
-      border-bottom: 1px solid #e2eeee;
-      padding: 18px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    body{
+      font-family:"Segoe UI", Inter, Arial, sans-serif;
+      background:#f4f6ff;
+      color:#17213f;
+      line-height:1.6;
+      overflow-x:hidden;
     }
 
-    .logo {
-      font-size: 24px;
-      font-weight: 800;
-      color: #126b67;
-      text-decoration: none;
+    a{
+      text-decoration:none;
     }
 
-    .logo span {
-      color: #173b3a;
+
+    /* =====================================================
+       NAVBAR
+    ===================================================== */
+
+    nav{
+      width:100%;
+      padding:17px 7%;
+
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+
+      position:sticky;
+      top:0;
+      z-index:1000;
+
+      background:rgba(8,13,35,.95);
+
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+
+      border-bottom:1px solid rgba(255,255,255,.09);
     }
 
-    .nav-links {
-      display: flex;
-      gap: 25px;
-      list-style: none;
+    .logo{
+      font-size:25px;
+      font-weight:900;
+      letter-spacing:-1px;
+      color:#5da7ff;
     }
 
-    .nav-links a {
-      text-decoration: none;
-      color: #315654;
-      font-size: 14px;
-      font-weight: 600;
+    .logo span{
+      color:#ff5f9e;
     }
 
-    .nav-links a:hover {
-      color: #126b67;
+    .nav-links{
+      display:flex;
+      gap:24px;
+      list-style:none;
+      align-items:center;
     }
 
-    .hero {
-      padding: 90px 7%;
-      text-align: center;
+    .nav-links a{
+      color:#dce3fa;
+      font-size:14px;
+      font-weight:700;
+      transition:.25s ease;
+    }
+
+    .nav-links a:hover{
+      color:#ff6ba7;
+    }
+
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .hero{
+
+      position:relative;
+
+      min-height:500px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      text-align:center;
+
+      padding:100px 7%;
+
+      overflow:hidden;
+
       background:
-        radial-gradient(circle at 85% 20%, #dcefed 0, transparent 30%),
-        linear-gradient(135deg, #f8fcfb, #eef8f6);
+
+        radial-gradient(
+          circle at 15% 25%,
+          rgba(57,124,255,.18),
+          transparent 30%
+        ),
+
+        radial-gradient(
+          circle at 85% 20%,
+          rgba(255,95,158,.16),
+          transparent 30%
+        ),
+
+        radial-gradient(
+          circle at 50% 100%,
+          rgba(255,89,103,.10),
+          transparent 35%
+        ),
+
+        linear-gradient(
+          135deg,
+          #080d23,
+          #111a3d 52%,
+          #24152f
+        );
     }
 
-    .badge {
-      display: inline-block;
-      background: #dff1ee;
-      color: #126b67;
-      padding: 8px 16px;
-      border-radius: 30px;
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 20px;
+
+    /* =====================================================
+       HERO GRID
+    ===================================================== */
+
+    .hero::before{
+
+      content:"";
+
+      position:absolute;
+      inset:0;
+
+      background-image:
+
+        linear-gradient(
+          rgba(79,156,255,.035) 1px,
+          transparent 1px
+        ),
+
+        linear-gradient(
+          90deg,
+          rgba(79,156,255,.035) 1px,
+          transparent 1px
+        );
+
+      background-size:50px 50px;
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          transparent,
+          black 18%,
+          black 82%,
+          transparent
+        );
+
+      -webkit-mask-image:
+        linear-gradient(
+          to bottom,
+          transparent,
+          black 18%,
+          black 82%,
+          transparent
+        );
     }
 
-    .hero h1 {
-      font-size: clamp(42px, 6vw, 70px);
-      line-height: 1;
-      margin-bottom: 20px;
-      color: #173b3a;
+
+    /* =====================================================
+       MOLECULAR NETWORK
+    ===================================================== */
+
+    .molecule{
+
+      position:absolute;
+
+      width:360px;
+      height:360px;
+
+      border-radius:50%;
+
+      left:50%;
+      top:50%;
+
+      transform:
+        translate(-50%,-50%);
+
+      opacity:.65;
+
+      pointer-events:none;
+
+      animation:
+        moleculeFloat 10s ease-in-out infinite;
     }
 
-    .hero h1 span {
-      color: #126b67;
+
+    .molecule::before{
+
+      content:"";
+
+      position:absolute;
+
+      width:100%;
+      height:100%;
+
+      border-radius:50%;
+
+      border:
+        1px solid rgba(79,156,255,.12);
+
+      box-shadow:
+        0 0 60px rgba(57,124,255,.06);
     }
 
-    .hero p {
-      max-width: 720px;
-      margin: auto;
-      color: #58706e;
-      font-size: 18px;
+
+    .node{
+
+      position:absolute;
+
+      width:13px;
+      height:13px;
+
+      border-radius:50%;
+
+      background:
+        radial-gradient(
+          circle at 35% 30%,
+          white 0%,
+          #5da7ff 25%,
+          #397cff 60%,
+          rgba(57,124,255,.2) 100%
+        );
+
+      box-shadow:
+        0 0 18px rgba(57,124,255,.8);
+
+      animation:
+        nodePulse 3s ease-in-out infinite;
     }
 
-    .section {
-      padding: 75px 7%;
+
+    .node.pink{
+
+      background:
+        radial-gradient(
+          circle at 35% 30%,
+          white 0%,
+          #ff9ac4 25%,
+          #ff5f9e 60%,
+          rgba(255,95,158,.2) 100%
+        );
+
+      box-shadow:
+        0 0 18px rgba(255,95,158,.75);
     }
 
-    .section-heading {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 45px;
+
+    .node.red{
+
+      background:
+        radial-gradient(
+          circle at 35% 30%,
+          white 0%,
+          #ff9d9d 25%,
+          #ff5967 60%,
+          rgba(255,89,103,.2) 100%
+        );
+
+      box-shadow:
+        0 0 18px rgba(255,89,103,.75);
     }
 
-    .section-heading h2 {
-      font-size: 36px;
-      margin-bottom: 12px;
+
+    .node.one{
+      left:35px;
+      top:125px;
     }
 
-    .section-heading p {
-      color: #687d7b;
+    .node.two{
+      left:130px;
+      top:55px;
     }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 25px;
+    .node.three{
+      right:45px;
+      top:105px;
     }
 
-    .card {
-      background: white;
-      border: 1px solid #e0eceb;
-      border-radius: 18px;
-      padding: 30px;
-      min-height: 230px;
-      box-shadow: 0 8px 30px rgba(20, 80, 75, 0.05);
-      transition: 0.25s ease;
+    .node.four{
+      right:75px;
+      bottom:60px;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 14px 35px rgba(20, 80, 75, 0.10);
+    .node.five{
+      left:105px;
+      bottom:35px;
     }
 
-    .card-icon {
-      font-size: 32px;
-      margin-bottom: 18px;
+    .node.six{
+      left:50%;
+      top:50%;
+
+      transform:
+        translate(-50%,-50%);
+
+      width:18px;
+      height:18px;
     }
 
-    .card h3 {
-      font-size: 21px;
-      margin-bottom: 10px;
+
+    /* =====================================================
+       MOLECULAR LINES
+    ===================================================== */
+
+    .bond{
+
+      position:absolute;
+
+      height:1px;
+
+      transform-origin:left center;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(79,156,255,.05),
+          rgba(79,156,255,.45),
+          rgba(255,95,158,.25)
+        );
+
+      box-shadow:
+        0 0 8px rgba(79,156,255,.18);
     }
 
-    .card p {
-      color: #6a7e7c;
-      font-size: 14px;
-      margin-bottom: 15px;
+    .bond.one{
+      width:115px;
+      left:45px;
+      top:130px;
+      transform:rotate(-35deg);
     }
 
-    .card-link {
-      color: #126b67;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 14px;
+    .bond.two{
+      width:105px;
+      left:140px;
+      top:65px;
+      transform:rotate(22deg);
     }
 
-    .card-link:hover {
-      text-decoration: underline;
+    .bond.three{
+      width:125px;
+      left:145px;
+      top:65px;
+      transform:rotate(48deg);
     }
 
-    .guide {
-      background: #173b3a;
-      color: white;
-      text-align: center;
+    .bond.four{
+      width:120px;
+      left:190px;
+      top:180px;
+      transform:rotate(70deg);
     }
 
-    .guide-content {
-      max-width: 800px;
-      margin: auto;
+    .bond.five{
+      width:125px;
+      left:110px;
+      top:250px;
+      transform:rotate(-40deg);
     }
 
-    .guide h2 {
-      font-size: 36px;
-      margin-bottom: 15px;
+    .bond.six{
+      width:105px;
+      left:110px;
+      top:250px;
+      transform:rotate(-75deg);
     }
 
-    .guide p {
-      color: #d4e4e2;
-    }
 
-    footer {
-      background: #102b2a;
-      color: #b9ccca;
-      text-align: center;
-      padding: 28px 7%;
-      font-size: 13px;
-    }
+    @keyframes moleculeFloat{
 
-    footer strong {
-      color: white;
-    }
-
-    @media (max-width: 850px) {
-
-      nav {
-        padding: 16px 5%;
+      0%,100%{
+        transform:
+          translate(-50%,-50%)
+          rotate(0deg)
+          scale(1);
       }
 
-      .nav-links {
-        display: none;
+      50%{
+        transform:
+          translate(-50%,-52%)
+          rotate(5deg)
+          scale(1.04);
       }
 
-      .hero {
-        padding: 70px 6%;
-      }
-
-      .section {
-        padding: 60px 6%;
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
-      .section-heading h2,
-      .guide h2 {
-        font-size: 30px;
-      }
     }
+
+
+    @keyframes nodePulse{
+
+      0%,100%{
+        transform:scale(1);
+        opacity:.7;
+      }
+
+      50%{
+        transform:scale(1.3);
+        opacity:1;
+      }
+
+    }
+
+
+    /* =====================================================
+       HERO CONTENT
+    ===================================================== */
+
+    .hero-content{
+
+      position:relative;
+      z-index:10;
+
+      max-width:850px;
+    }
+
+
+    .badge{
+
+      display:inline-block;
+
+      padding:8px 17px;
+
+      margin-bottom:22px;
+
+      border-radius:30px;
+
+      color:#dbe8ff;
+
+      font-size:13px;
+      font-weight:800;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(57,124,255,.16),
+          rgba(255,95,158,.14)
+        );
+
+      border:
+        1px solid rgba(255,255,255,.10);
+
+      box-shadow:
+        0 8px 25px rgba(0,0,0,.15);
+    }
+
+
+    .hero h1{
+
+      font-size:
+        clamp(45px,6vw,70px);
+
+      line-height:1;
+
+      letter-spacing:-3px;
+
+      font-weight:950;
+
+      color:white;
+
+      margin-bottom:22px;
+    }
+
+
+    .hero h1 span{
+
+      background:
+        linear-gradient(
+          90deg,
+          #397cff,
+          #e83e82,
+          #ff5967
+        );
+
+      -webkit-background-clip:text;
+      background-clip:text;
+
+      color:transparent;
+    }
+
+
+    .hero p{
+
+      max-width:720px;
+
+      margin:auto;
+
+      color:#c9d2e8;
+
+      font-size:17px;
+
+      line-height:1.8;
+    }
+
+
+    /* =====================================================
+       RESEARCH SECTION
+    ===================================================== */
+
+    .section{
+
+      position:relative;
+
+      padding:90px 7%;
+
+      overflow:hidden;
+    }
+
+
+    .section::before{
+
+      content:"";
+
+      position:absolute;
+
+      width:420px;
+      height:420px;
+
+      top:40px;
+      left:-220px;
+
+      border-radius:50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(57,124,255,.10),
+          transparent 70%
+        );
+
+      pointer-events:none;
+    }
+
+
+    .section::after{
+
+      content:"";
+
+      position:absolute;
+
+      width:400px;
+      height:400px;
+
+      right:-220px;
+      bottom:0;
+
+      border-radius:50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(255,95,158,.09),
+          transparent 70%
+        );
+
+      pointer-events:none;
+    }
+
+
+    .section-heading{
+
+      position:relative;
+      z-index:3;
+
+      text-align:center;
+
+      max-width:720px;
+
+      margin:0 auto 52px;
+    }
+
+
+    .section-heading h2{
+
+      font-size:40px;
+
+      color:#17213f;
+
+      letter-spacing:-2px;
+
+      font-weight:950;
+
+      margin-bottom:12px;
+    }
+
+
+    .section-heading h2::after{
+
+      content:"";
+
+      display:block;
+
+      width:70px;
+      height:4px;
+
+      margin:14px auto 0;
+
+      border-radius:20px;
+
+      background:
+        linear-gradient(
+          90deg,
+          #397cff,
+          #ff5f9e,
+          #ff5967
+        );
+    }
+
+
+    .section-heading p{
+
+      color:#69738e;
+
+      font-size:16px;
+    }
+
+
+    /* =====================================================
+       CARDS
+    ===================================================== */
+
+    .cards{
+
+      position:relative;
+      z-index:5;
+
+      max-width:1200px;
+
+      margin:auto;
+
+      display:grid;
+
+      grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+      gap:26px;
+    }
+
+
+    .card{
+
+      position:relative;
+
+      min-height:245px;
+
+      padding:31px;
+
+      border-radius:22px;
+
+      overflow:hidden;
+
+      border:
+        1px solid rgba(120,135,220,.18);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.96),
+          rgba(239,245,255,.96)
+        );
+
+      box-shadow:
+        0 14px 40px rgba(49,70,150,.09);
+
+      transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+    }
+
+
+    .card:nth-child(2){
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff,
+          #fff0f7
+        );
+    }
+
+
+    .card:nth-child(3){
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff,
+          #f0f3ff 65%,
+          #fff0f4
+        );
+    }
+
+
+    .card:nth-child(4){
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff,
+          #f3efff
+        );
+    }
+
+
+    .card:nth-child(5){
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff,
+          #edf4ff 65%,
+          #fff0f7
+        );
+    }
+
+
+    .card:nth-child(6){
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff,
+          #fff0f1
+        );
+    }
+
+
+    /* CARD SCIENTIFIC GLOW */
+
+    .card::before{
+
+      content:"";
+
+      position:absolute;
+
+      width:170px;
+      height:170px;
+
+      top:-90px;
+      right:-70px;
+
+      border-radius:50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(57,124,255,.20),
+          transparent 70%
+        );
+
+      transition:.4s ease;
+    }
+
+
+    .card:nth-child(even)::before{
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(255,95,158,.20),
+          transparent 70%
+        );
+    }
+
+
+    .card::after{
+
+      content:"";
+
+      position:absolute;
+
+      left:0;
+      bottom:0;
+
+      width:100%;
+      height:4px;
+
+      background:
+        linear-gradient(
+          90deg,
+          #397cff,
+          #ff5f9e,
+          #ff5967
+        );
+
+      transform:scaleX(.25);
+
+      transform-origin:left;
+
+      transition:.35s ease;
+    }
+
+
+    .card:hover{
+
+      transform:
+        translateY(-10px)
+        rotateX(2deg);
+
+      border-color:
+        rgba(232,62,130,.32);
+
+      box-shadow:
+        0 25px 55px rgba(49,84,217,.15);
+    }
+
+
+    .card:hover::before{
+      transform:scale(1.8);
+    }
+
+
+    .card:hover::after{
+      transform:scaleX(1);
+    }
+
+
+    /* =====================================================
+       CARD ICON
+    ===================================================== */
+
+    .card-icon{
+
+      position:relative;
+      z-index:2;
+
+      width:60px;
+      height:60px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      border-radius:17px;
+
+      font-size:30px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(49,110,255,.13),
+          rgba(232,62,130,.15)
+        );
+
+      border:
+        1px solid rgba(80,120,230,.12);
+
+      margin-bottom:20px;
+
+      transition:.3s ease;
+    }
+
+
+    .card:hover .card-icon{
+
+      transform:
+        translateY(-3px)
+        rotate(-5deg)
+        scale(1.08);
+    }
+
+
+    /* =====================================================
+       CARD TEXT
+    ===================================================== */
+
+    .card h3{
+
+      position:relative;
+      z-index:2;
+
+      font-size:21px;
+
+      margin-bottom:10px;
+
+      font-weight:900;
+
+      color:#17213f;
+    }
+
+
+    .card p{
+
+      position:relative;
+      z-index:2;
+
+      color:#69738e;
+
+      font-size:14px;
+
+      margin-bottom:18px;
+    }
+
+
+    .card-link{
+
+      position:relative;
+      z-index:3;
+
+      color:#315fe8;
+
+      font-weight:850;
+
+      font-size:14px;
+
+      transition:.25s ease;
+    }
+
+
+    .card-link:hover{
+
+      color:#e83e82;
+
+      transform:translateX(3px);
+    }
+
+
+    /* =====================================================
+       RESEARCH GUIDANCE
+    ===================================================== */
+
+    .guide{
+
+      position:relative;
+
+      overflow:hidden;
+
+      background:
+
+        radial-gradient(
+          circle at 15% 40%,
+          rgba(57,124,255,.16),
+          transparent 30%
+        ),
+
+        radial-gradient(
+          circle at 85% 30%,
+          rgba(255,95,158,.15),
+          transparent 30%
+        ),
+
+        linear-gradient(
+          135deg,
+          #080d23,
+          #111a3d 55%,
+          #24152f
+        );
+
+      color:white;
+
+      text-align:center;
+    }
+
+
+    .guide::before{
+
+      content:"";
+
+      position:absolute;
+
+      width:300px;
+      height:300px;
+
+      border:1px solid rgba(79,156,255,.12);
+
+      border-radius:50%;
+
+      top:-150px;
+      left:-80px;
+    }
+
+
+    .guide::after{
+
+      content:"";
+
+      position:absolute;
+
+      width:250px;
+      height:250px;
+
+      border:1px solid rgba(255,95,158,.10);
+
+      border-radius:50%;
+
+      bottom:-130px;
+      right:-70px;
+    }
+
+
+    .guide-content{
+
+      position:relative;
+      z-index:5;
+
+      max-width:800px;
+
+      margin:auto;
+    }
+
+
+    .guide h2{
+
+      font-size:36px;
+
+      margin-bottom:15px;
+
+      font-weight:950;
+    }
+
+
+    .guide p{
+
+      color:#c9d2e8;
+
+      font-size:15px;
+
+      line-height:1.8;
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    footer{
+
+      background:#070c20;
+
+      color:#aeb7d0;
+
+      text-align:center;
+
+      padding:30px 7%;
+
+      font-size:13px;
+    }
+
+
+    footer strong{
+      color:white;
+    }
+
+
+    /* =====================================================
+       MOBILE
+    ===================================================== */
+
+    @media(max-width:1000px){
+
+      .cards{
+
+        grid-template-columns:
+          repeat(2,minmax(0,1fr));
+      }
+
+    }
+
+
+    @media(max-width:850px){
+
+      nav{
+
+        padding:15px 5%;
+      }
+
+      .nav-links{
+        display:none;
+      }
+
+
+      .hero{
+
+        min-height:450px;
+
+        padding:75px 6%;
+      }
+
+
+      .hero h1{
+
+        font-size:
+          clamp(42px,11vw,58px);
+
+        letter-spacing:-2.5px;
+      }
+
+
+      .hero p{
+        font-size:16px;
+      }
+
+
+      .molecule{
+
+        width:280px;
+        height:280px;
+
+        opacity:.42;
+      }
+
+
+      .section{
+
+        padding:70px 6%;
+      }
+
+
+      .section-heading h2{
+
+        font-size:32px;
+      }
+
+
+      .cards{
+
+        grid-template-columns:1fr;
+      }
+
+
+      .card{
+
+        min-height:230px;
+
+        padding:27px;
+      }
+
+
+      .guide h2{
+
+        font-size:30px;
+      }
+
+    }
+
+
+    @media(max-width:500px){
+
+      .logo{
+        font-size:21px;
+      }
+
+
+      .hero{
+
+        padding:
+          65px 6%
+          75px;
+      }
+
+
+      .hero h1{
+
+        font-size:43px;
+
+        letter-spacing:-2px;
+      }
+
+
+      .molecule{
+
+        width:230px;
+        height:230px;
+
+        opacity:.32;
+      }
+
+
+      .node{
+
+        width:10px;
+        height:10px;
+      }
+
+
+      .node.six{
+
+        width:14px;
+        height:14px;
+      }
+
+
+      .section{
+
+        padding:
+          65px 6%;
+      }
+
+
+      .card{
+
+        padding:26px;
+      }
+
+
+      .guide{
+
+        padding:
+          70px 6%;
+      }
+
+    }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- NAVIGATION -->
+
+  <!-- =====================================================
+       NAVIGATION
+  ===================================================== -->
 
   <nav>
 
@@ -238,52 +1249,98 @@
 
     <ul class="nav-links">
 
-      <li><a href="index.html">Home</a></li>
+      <li>
+        <a href="index.html">Home</a>
+      </li>
 
-      <li><a href="resources.html">Resources</a></li>
+      <li>
+        <a href="resources.html">Resources</a>
+      </li>
 
-      <li><a href="practice.html">Practice</a></li>
+      <li>
+        <a href="practice.html">Practice</a>
+      </li>
 
-      <li><a href="tools.html">Tools</a></li>
+      <li>
+        <a href="tools.html">Tools</a>
+      </li>
 
-      <li><a href="courses.html">Courses</a></li>
+      <li>
+        <a href="courses.html">Courses</a>
+      </li>
 
-      <li><a href="research.html">Research</a></li>
+      <li>
+        <a href="research.html">Research</a>
+      </li>
 
-      <li><a href="career.html">Career</a></li>
+      <li>
+        <a href="career.html">Career</a>
+      </li>
 
     </ul>
 
   </nav>
 
 
-  <!-- HERO -->
+  <!-- =====================================================
+       HERO
+  ===================================================== -->
 
   <section class="hero">
 
-    <div class="badge">
-      Explore Biotechnology Research
+
+    <!-- MOLECULAR VISUAL -->
+
+    <div class="molecule">
+
+      <span class="node one"></span>
+      <span class="node two pink"></span>
+      <span class="node three"></span>
+      <span class="node four red"></span>
+      <span class="node five pink"></span>
+      <span class="node six"></span>
+
+      <span class="bond one"></span>
+      <span class="bond two"></span>
+      <span class="bond three"></span>
+      <span class="bond four"></span>
+      <span class="bond five"></span>
+      <span class="bond six"></span>
+
     </div>
 
-    <h1>
-      Discover the World of <span>Research.</span>
-    </h1>
 
-    <p>
-      Build your research awareness, discover scientific resources,
-      understand research methods, and explore opportunities in biotechnology.
-    </p>
+    <div class="hero-content">
+
+      <div class="badge">
+        Explore Biotechnology Research
+      </div>
+
+      <h1>
+        Discover the World of <span>Research.</span>
+      </h1>
+
+      <p>
+        Build your research awareness, discover scientific resources,
+        understand research methods, and explore opportunities in biotechnology.
+      </p>
+
+    </div>
 
   </section>
 
 
-  <!-- RESEARCH AREAS -->
+  <!-- =====================================================
+       RESEARCH AREAS
+  ===================================================== -->
 
   <section class="section">
 
     <div class="section-heading">
 
-      <h2>Explore Research</h2>
+      <h2>
+        Explore Research
+      </h2>
 
       <p>
         Start building your understanding of biotechnology research through
@@ -300,19 +1357,25 @@
 
       <div class="card">
 
-        <div 
-          
-      class="card-icon">🔬</div>
+        <div class="card-icon">
+          🔬
+        </div>
 
-        <h3>Research Basics</h3>
+        <h3>
+          Research Basics
+        </h3>
 
         <p>
           Learn how scientific research works, from asking research questions
           to designing experiments and interpreting results.
         </p>
 
-        <a href="research-basics.html" class="card-link">
+        <a
+          href="research-basics.html"
+          class="card-link">
+
           Explore Basics →
+
         </a>
 
       </div>
@@ -322,17 +1385,25 @@
 
       <div class="card">
 
-        <div class="card-icon">🧪</div>
+        <div class="card-icon">
+          🧪
+        </div>
 
-        <h3>Research Methods</h3>
+        <h3>
+          Research Methods
+        </h3>
 
         <p>
           Understand common laboratory techniques, experimental approaches,
           data collection, and scientific methodology.
         </p>
 
-        <a href="research-methods.html" class="card-link">
+        <a
+          href="research-methods.html"
+          class="card-link">
+
           Explore Methods →
+
         </a>
 
       </div>
@@ -342,17 +1413,25 @@
 
       <div class="card">
 
-        <div class="card-icon">📄</div>
+        <div class="card-icon">
+          📄
+        </div>
 
-        <h3>Scientific Papers</h3>
+        <h3>
+          Scientific Papers
+        </h3>
 
         <p>
           Learn how to find, read, understand, and organize scientific
           literature related to biotechnology.
         </p>
 
-        <a href="research-literature.html" class="card-link">
+        <a
+          href="research-literature.html"
+          class="card-link">
+
           Learn More →
+
         </a>
 
       </div>
@@ -362,17 +1441,25 @@
 
       <div class="card">
 
-        <div class="card-icon">🧬</div>
+        <div class="card-icon">
+          🧬
+        </div>
 
-        <h3>Research Databases</h3>
+        <h3>
+          Research Databases
+        </h3>
 
         <p>
           Discover useful biological databases and online resources for
           exploring genes, proteins, sequences, and scientific information.
         </p>
 
-        <a href="research-databases.html" class="card-link">
+        <a
+          href="research-databases.html"
+          class="card-link">
+
           Explore Databases →
+
         </a>
 
       </div>
@@ -382,17 +1469,25 @@
 
       <div class="card">
 
-        <div class="card-icon">💻</div>
+        <div class="card-icon">
+          💻
+        </div>
 
-        <h3>Bioinformatics</h3>
+        <h3>
+          Bioinformatics
+        </h3>
 
         <p>
           Explore how computational tools and biological data are used to
           answer modern biotechnology research questions.
         </p>
 
-        <a href="bioinformatics.html" class="card-link">
+        <a
+          href="bioinformatics.html"
+          class="card-link">
+
           Explore Bioinformatics →
+
         </a>
 
       </div>
@@ -402,33 +1497,46 @@
 
       <div class="card">
 
-        <div class="card-icon">🚀</div>
+        <div class="card-icon">
+          🚀
+        </div>
 
-        <h3>Research Opportunities</h3>
+        <h3>
+          Research Opportunities
+        </h3>
 
         <p>
           Find research programs, internships, competitions, fellowships,
           and other opportunities for biotechnology students.
         </p>
 
-        <a href="research-opportunities.html" class="card-link">
+        <a
+          href="research-opportunities.html"
+          class="card-link">
+
           Explore Opportunities →
+
         </a>
 
       </div>
+
 
     </div>
 
   </section>
 
 
-  <!-- RESEARCH GUIDANCE -->
+  <!-- =====================================================
+       RESEARCH GUIDANCE
+  ===================================================== -->
 
   <section class="section guide">
 
     <div class="guide-content">
 
-      <h2>Start Building Your Research Skills</h2>
+      <h2>
+        Start Building Your Research Skills
+      </h2>
 
       <p>
         Research is not only about reading scientific papers.
@@ -441,16 +1549,24 @@
   </section>
 
 
-  <!-- FOOTER -->
+  <!-- =====================================================
+       FOOTER
+  ===================================================== -->
 
   <footer>
 
     <p>
-      © 2026 <strong>BioVerse Hub</strong>.
+      © 2026
+
+      <strong>
+        BioVerse Hub
+      </strong>.
+
       Built for biotechnology students worldwide.
     </p>
 
   </footer>
+
 
 </body>
 </html>
