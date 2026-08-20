@@ -319,51 +319,37 @@
     }
 
     .hero h1{
+  position:relative;
+  z-index:2;
 
-      font-size:
-        clamp(45px,6vw,64px);
+  font-size:clamp(42px, 6vw, 60px);
+  margin-bottom:18px;
+  color:white;
+}
 
-      line-height:1;
+.hero h1 span{
+  background:linear-gradient(
+    90deg,
+    #397cff,
+    #e83e82,
+    #ff5967
+  );
 
-      letter-spacing:-3px;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
 
-      font-weight:950;
+.hero p{
+  position:relative;
+  z-index:2;
 
-      color:white;
+  max-width:720px;
+  margin:auto;
 
-      margin-bottom:20px;
-    }
-
-    .hero h1 span{
-
-      background:
-        linear-gradient(
-          90deg,
-          #397cff,
-          #e83e82,
-          #ff5967
-        );
-
-      -webkit-background-clip:text;
-      background-clip:text;
-
-      color:transparent;
-    }
-
-    .hero p{
-
-      max-width:720px;
-
-      margin:auto;
-
-      color:c9d2e8;
-
-      font-size:17px;
-
-      line-height:1.8;
-    }
-
-
+  color:#c9d2e8;
+  font-size:17px;
+}
     /* =====================================================
        TOOLS SECTION
     ===================================================== */
@@ -750,83 +736,38 @@
        NOTE
     ===================================================== */
 
-    .note{
+    .hero h1{
+  position:relative;
+  z-index:2;
 
-      position:relative;
+  font-size:clamp(42px, 6vw, 60px);
+  margin-bottom:18px;
+  color:white;
+}
 
-      overflow:hidden;
+.hero h1 span{
+  background:linear-gradient(
+    90deg,
+    #397cff,
+    #e83e82,
+    #ff5967
+  );
 
-      margin-top:70px;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
 
-      padding:38px;
+.hero p{
+  position:relative;
+  z-index:2;
 
-      text-align:center;
+  max-width:720px;
+  margin:auto;
 
-      border-radius:22px;
-
-      background:
-        linear-gradient(
-          135deg,
-          #edf5ff,
-          #fff0f7,
-          #fff2f3
-        );
-
-      border:
-        1px solid rgba(120,135,220,.18);
-
-      box-shadow:
-        0 14px 40px rgba(49,70,150,.08);
-    }
-
-    .note::before{
-
-      content:"";
-
-      position:absolute;
-
-      width:220px;
-      height:220px;
-
-      top:-120px;
-      right:-80px;
-
-      border-radius:50%;
-
-      background:
-        radial-gradient(
-          circle,
-          rgba(57,124,255,.16),
-          transparent 70%
-        );
-    }
-
-    .note h2{
-
-      position:relative;
-
-      font-size:28px;
-
-      color:#17213f;
-
-      margin-bottom:10px;
-    }
-
-    .note p{
-
-      position:relative;
-
-      max-width:750px;
-
-      margin:auto;
-
-      color:#69738e;
-
-      font-size:14px;
-
-      line-height:1.8;
-    }
-
+  color:#c9d2e8;
+  font-size:17px;
+}
 
     /* =====================================================
        BACK LINK
