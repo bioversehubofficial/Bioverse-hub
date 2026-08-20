@@ -732,8 +732,11 @@
     }
 
 
-    /* =====================================================
-      .note{
+   /* =====================================================
+   NOTE / LEARNING & PRACTICE
+   ===================================================== */
+
+.note{
   display:block;
   width:100%;
   position:relative;
@@ -761,6 +764,55 @@
     0 18px 45px rgba(15,25,70,.18);
 
   overflow:hidden;
+}
+
+.note::before{
+  content:"";
+
+  position:absolute;
+
+  width:220px;
+  height:220px;
+
+  top:-120px;
+  right:-80px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(57,124,255,.20),
+      transparent 70%
+    );
+
+  pointer-events:none;
+}
+
+.note h2{
+  position:relative;
+  z-index:2;
+
+  margin:0 0 10px;
+
+  font-size:27px;
+  font-weight:900;
+
+  color:white;
+}
+
+.note p{
+  position:relative;
+  z-index:2;
+
+  max-width:750px;
+
+  margin:0 auto;
+
+  color:#c9d2e8;
+
+  font-size:14px;
+  line-height:1.7;
 }
 
 .note::before{
