@@ -6,232 +6,1474 @@
 
   <title>Courses | BioVerse Hub</title>
 
-  <meta name="description" content="Explore biotechnology, molecular biology, bioinformatics, research, and data science learning opportunities for students.">
+  <meta name="description"
+        content="Explore biotechnology, molecular biology, bioinformatics, research, and data science learning opportunities for students.">
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+
+    /* =====================================================
+       RESET
+    ===================================================== */
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f7fbfa;
-      color: #173b3a;
-      line-height: 1.6;
+    html{
+      scroll-behavior:smooth;
     }
 
-    nav {
-      background: white;
-      border-bottom: 1px solid #e1eceb;
-      padding: 18px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    body{
+      font-family:"Segoe UI", Inter, Arial, sans-serif;
+      background:#f4f6ff;
+      color:#17213f;
+      line-height:1.6;
+      overflow-x:hidden;
     }
 
-    .logo {
-      text-decoration: none;
-      font-size: 24px;
-      font-weight: 800;
-      color: #126b67;
+    a{
+      text-decoration:none;
     }
 
-    .logo span {
-      color: #173b3a;
+
+    /* =====================================================
+       NAVBAR
+    ===================================================== */
+
+    nav{
+      width:100%;
+      padding:17px 7%;
+
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+
+      position:sticky;
+      top:0;
+      z-index:1000;
+
+      background:rgba(8,13,35,.95);
+
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+
+      border-bottom:1px solid rgba(255,255,255,.09);
     }
 
-    .nav-links {
-      display: flex;
-      gap: 22px;
-      list-style: none;
+    .logo{
+      font-size:25px;
+      font-weight:900;
+      letter-spacing:-1px;
+      color:#5da7ff;
     }
 
-    .nav-links a {
-      text-decoration: none;
-      color: #315654;
-      font-size: 14px;
-      font-weight: 600;
+    .logo span{
+      color:#ff5f9e;
     }
 
-    .nav-links a:hover {
-      color: #126b67;
+    .nav-links{
+      display:flex;
+      gap:24px;
+      list-style:none;
+      align-items:center;
     }
 
-    .hero {
-      text-align: center;
-      padding: 85px 7%;
+    .nav-links a{
+      color:#dce3fa;
+      font-size:14px;
+      font-weight:700;
+      transition:.25s ease;
+    }
+
+    .nav-links a:hover{
+      color:#ff6ba7;
+    }
+
+
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
+
+    .menu-toggle{
+      display:none;
+
+      width:44px;
+      height:44px;
+
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:12px;
+
+      background:rgba(255,255,255,.06);
+
+      color:white;
+      font-size:25px;
+
+      cursor:pointer;
+
+      align-items:center;
+      justify-content:center;
+
+      transition:.3s ease;
+    }
+
+    .menu-toggle:hover{
+      background:rgba(255,95,158,.15);
+      border-color:#ff5f9e;
+    }
+
+
+    /* =====================================================
+       BIOTECH SIDE PATTERN
+    ===================================================== */
+
+    .side-bio{
+      position:fixed;
+
+      top:50%;
+      transform:translateY(-50%);
+
+      width:48px;
+
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+
+      gap:34px;
+
+      z-index:2;
+
+      pointer-events:none;
+    }
+
+    .side-bio.left{
+      left:10px;
+    }
+
+    .side-bio.right{
+      right:10px;
+    }
+
+    .bio-symbol{
+      width:30px;
+      height:30px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      font-size:20px;
+
+      opacity:.35;
+
+      animation:bioFloat 4s ease-in-out infinite;
+    }
+
+    .bio-symbol:nth-child(odd){
+      color:#4f9cff;
+
+      filter:
+        drop-shadow(
+          0 0 8px rgba(79,156,255,.65)
+        );
+    }
+
+    .bio-symbol:nth-child(even){
+      color:#ff5f9e;
+
+      filter:
+        drop-shadow(
+          0 0 8px rgba(255,95,158,.65)
+        );
+    }
+
+    .bio-symbol:nth-child(2){
+      animation-delay:.8s;
+    }
+
+    .bio-symbol:nth-child(3){
+      animation-delay:1.6s;
+    }
+
+    .bio-symbol:nth-child(4){
+      animation-delay:2.4s;
+    }
+
+    .bio-symbol:nth-child(5){
+      animation-delay:3.2s;
+    }
+
+    @keyframes bioFloat{
+
+      0%,100%{
+        transform:translateY(0);
+        opacity:.25;
+      }
+
+      50%{
+        transform:translateY(-7px);
+        opacity:.55;
+      }
+
+    }
+
+    .side-bio::before{
+      content:"";
+
+      position:absolute;
+
+      top:8px;
+      bottom:8px;
+
+      width:1px;
+
       background:
-        radial-gradient(circle at 85% 20%, #dcefed 0, transparent 30%),
-        linear-gradient(135deg, #f8fcfb, #eaf7f4);
+        linear-gradient(
+          to bottom,
+          transparent,
+          rgba(79,156,255,.25),
+          rgba(255,95,158,.3),
+          rgba(255,89,103,.25),
+          transparent
+        );
+
+      z-index:-1;
     }
 
-    .hero h1 {
-      font-size: clamp(42px, 6vw, 60px);
-      margin-bottom: 18px;
-      color: #173b3a;
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .hero{
+
+      position:relative;
+
+      min-height:460px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      text-align:center;
+
+      padding:90px 7%;
+
+      overflow:hidden;
+
+      background:
+        radial-gradient(
+          circle at 15% 25%,
+          rgba(57,124,255,.20),
+          transparent 30%
+        ),
+
+        radial-gradient(
+          circle at 85% 20%,
+          rgba(255,95,158,.18),
+          transparent 30%
+        ),
+
+        radial-gradient(
+          circle at 50% 100%,
+          rgba(255,89,103,.10),
+          transparent 35%
+        ),
+
+        linear-gradient(
+          135deg,
+          #080d23,
+          #111a3d 50%,
+          #24152f
+        );
     }
 
-    .hero h1 span {
-      color: #126b67;
+
+    /* =====================================================
+       HERO GRID
+    ===================================================== */
+
+    .hero::before{
+
+      content:"";
+
+      position:absolute;
+
+      inset:0;
+
+      background-image:
+
+        linear-gradient(
+          rgba(79,125,255,.035) 1px,
+          transparent 1px
+        ),
+
+        linear-gradient(
+          90deg,
+          rgba(79,125,255,.035) 1px,
+          transparent 1px
+        );
+
+      background-size:50px 50px;
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          transparent,
+          black 15%,
+          black 85%,
+          transparent
+        );
+
+      -webkit-mask-image:
+        linear-gradient(
+          to bottom,
+          transparent,
+          black 15%,
+          black 85%,
+          transparent
+        );
     }
 
-    .hero p {
-      max-width: 720px;
-      margin: auto;
-      color: #607774;
-      font-size: 17px;
+
+    /* =====================================================
+       3D FLOATING ORBS
+    ===================================================== */
+
+    .orb{
+      position:absolute;
+
+      border-radius:50%;
+
+      pointer-events:none;
+
+      opacity:.65;
+
+      filter:blur(.2px);
+
+      animation:
+        orbFloat 8s ease-in-out infinite;
     }
 
-    .courses {
-      max-width: 1200px;
-      margin: auto;
-      padding: 70px 7%;
+    .orb::after{
+
+      content:"";
+
+      position:absolute;
+
+      width:35%;
+      height:35%;
+
+      top:15%;
+      left:18%;
+
+      border-radius:50%;
+
+      background:
+        radial-gradient(
+          circle at 35% 35%,
+          rgba(255,255,255,.75),
+          rgba(255,255,255,.15) 35%,
+          transparent 70%
+        );
+
+      filter:blur(2px);
     }
 
-    .section-heading {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 40px;
+    .orb-blue{
+
+      width:105px;
+      height:105px;
+
+      left:8%;
+      top:18%;
+
+      background:
+        radial-gradient(
+          circle at 35% 30%,
+          #9ec8ff,
+          #397cff 38%,
+          #1748c9 72%,
+          #101b55
+        );
+
+      box-shadow:
+        0 0 35px rgba(57,124,255,.35),
+        inset -15px -18px 25px rgba(0,0,0,.25);
+
+      animation-delay:-2s;
     }
 
-    .section-heading h2 {
-      font-size: 34px;
-      margin-bottom: 10px;
+    .orb-pink{
+
+      width:75px;
+      height:75px;
+
+      right:13%;
+      top:24%;
+
+      background:
+        radial-gradient(
+          circle at 35% 30%,
+          #ffb5d2,
+          #ff5f9e 40%,
+          #d52d6f 70%,
+          #47152e
+        );
+
+      box-shadow:
+        0 0 32px rgba(255,95,158,.35),
+        inset -12px -14px 20px rgba(0,0,0,.25);
+
+      animation-delay:-4s;
     }
 
-    .section-heading p {
-      color: #687d7b;
+    .orb-red{
+
+      width:58px;
+      height:58px;
+
+      right:27%;
+      bottom:16%;
+
+      background:
+        radial-gradient(
+          circle at 35% 30%,
+          #ffb3b8,
+          #ff5967 42%,
+          #c92f45 70%,
+          #451421
+        );
+
+      box-shadow:
+        0 0 28px rgba(255,89,103,.32),
+        inset -10px -12px 18px rgba(0,0,0,.25);
+
+      animation-delay:-6s;
     }
 
-    .course-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
+    .orb-small{
+
+      width:34px;
+      height:34px;
+
+      left:25%;
+      bottom:17%;
+
+      background:
+        radial-gradient(
+          circle at 35% 30%,
+          #c5ddff,
+          #5d9fff 45%,
+          #294fbc 75%,
+          #141b4c
+        );
+
+      box-shadow:
+        0 0 20px rgba(57,124,255,.30);
+
+      animation-delay:-1s;
     }
 
-    .course-card {
-      background: white;
-      border: 1px solid #e0eceb;
-      border-radius: 18px;
-      padding: 28px;
-      min-height: 280px;
-      box-shadow: 0 8px 25px rgba(20, 80, 75, 0.06);
-      transition: 0.25s ease;
-    }
+    @keyframes orbFloat{
 
-    .course-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 14px 30px rgba(20, 80, 75, 0.10);
-    }
-
-    .course-icon {
-      font-size: 30px;
-      margin-bottom: 15px;
-    }
-
-    .course-card h3 {
-      font-size: 21px;
-      margin-bottom: 10px;
-    }
-
-    .course-card p {
-      color: #687d7b;
-      font-size: 14px;
-      margin-bottom: 18px;
-    }
-
-    .course-tag {
-      display: inline-block;
-      background: #e6f4f1;
-      color: #126b67;
-      padding: 5px 10px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: bold;
-      margin-bottom: 18px;
-    }
-
-    .course-link {
-      display: inline-block;
-      color: #123b4a;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 14px;
-    }
-
-    .course-link:hover {
-      color: #126b67;
-      text-decoration: underline;
-    }
-
-    .note {
-      margin-top: 55px;
-      background: #173b3a;
-      color: white;
-      border-radius: 18px;
-      padding: 32px;
-      text-align: center;
-    }
-
-    .note h2 {
-      margin-bottom: 10px;
-      font-size: 27px;
-    }
-
-    .note p {
-      max-width: 750px;
-      margin: auto;
-      color: #d4e4e2;
-      font-size: 14px;
-    }
-
-    .back-link {
-      display: block;
-      text-align: center;
-      margin-top: 40px;
-      color: #126b67;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    footer {
-      background: #102b2a;
-      color: #c5d4d2;
-      text-align: center;
-      padding: 28px;
-      font-size: 13px;
-    }
-
-    footer strong {
-      color: white;
-    }
-
-    @media (max-width: 850px) {
-
-      .nav-links {
-        display: none;
+      0%,100%{
+        transform:
+          translate3d(0,0,0)
+          rotate(0deg);
       }
 
-      .course-grid {
-        grid-template-columns: 1fr;
+      25%{
+        transform:
+          translate3d(10px,-14px,0)
+          rotate(8deg);
       }
 
-      .hero {
-        padding: 65px 6%;
+      50%{
+        transform:
+          translate3d(-5px,-25px,0)
+          rotate(15deg);
       }
 
-      .courses {
-        padding: 55px 6%;
+      75%{
+        transform:
+          translate3d(-14px,-8px,0)
+          rotate(8deg);
       }
+
     }
+
+
+    /* =====================================================
+       HERO CONTENT
+    ===================================================== */
+
+    .hero-content{
+
+      position:relative;
+
+      z-index:5;
+
+      max-width:800px;
+    }
+
+    .hero h1{
+
+      font-size:
+        clamp(45px,6vw,64px);
+
+      line-height:1;
+
+      letter-spacing:-3px;
+
+      font-weight:950;
+
+      color:white;
+
+      margin-bottom:20px;
+    }
+
+    .hero h1 span{
+
+      background:
+        linear-gradient(
+          90deg,
+          #397cff,
+          #e83e82,
+          #ff5967
+        );
+
+      -webkit-background-clip:text;
+      background-clip:text;
+
+      color:transparent;
+    }
+
+    .hero p{
+
+      max-width:720px;
+
+      margin:auto;
+
+      color:#c9d2e8;
+
+      font-size:17px;
+
+      line-height:1.8;
+    }
+
+
+    /* =====================================================
+       COURSES SECTION
+    ===================================================== */
+
+    .courses{
+
+      position:relative;
+
+      max-width:1200px;
+
+      margin:auto;
+
+      padding:90px 7%;
+    }
+
+
+    /* =====================================================
+       SECTION HEADING
+    ===================================================== */
+
+    .section-heading{
+
+      text-align:center;
+
+      max-width:720px;
+
+      margin:0 auto 50px;
+    }
+
+    .section-heading h2{
+
+      font-size:40px;
+
+      color:#17213f;
+
+      letter-spacing:-2px;
+
+      font-weight:950;
+
+      margin-bottom:12px;
+    }
+
+    .section-heading h2::after{
+
+      content:"";
+
+      display:block;
+
+      width:70px;
+      height:4px;
+
+      margin:14px auto 0;
+
+      border-radius:20px;
+
+      background:
+        linear-gradient(
+          90deg,
+          #397cff,
+          #ff5f9e,
+          #ff5967
+        );
+    }
+
+    .section-heading p{
+
+      color:#69738e;
+
+      font-size:16px;
+    }
+
+
+    /* =====================================================
+       COURSE GRID
+    ===================================================== */
+
+    .course-grid{
+
+      display:grid;
+
+      grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+      gap:26px;
+    }
+
+
+    /* =====================================================
+       COURSE CARDS
+    ===================================================== */
+
+    .course-card{
+
+      position:relative;
+
+      min-height:280px;
+
+      padding:31px;
+
+      border-radius:22px;
+
+      overflow:hidden;
+
+      border:
+        1px solid rgba(120,135,220,.20);
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff 20%,
+          #edf5ff 100%
+        );
+
+      box-shadow:
+        0 14px 40px rgba(49,70,150,.10);
+
+      transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+    }
+
+
+    /* CARD COLOR VARIATIONS */
+
+    .course-card:nth-child(2){
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff 20%,
+          #fff0f7 100%
+        );
+    }
+
+    .course-card:nth-child(3){
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff 18%,
+          #f0f3ff 70%,
+          #fff0f4
+        );
+    }
+
+    .course-card:nth-child(4){
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff 20%,
+          #f4efff 100%
+        );
+    }
+
+    .course-card:nth-child(5){
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff 20%,
+          #edf4ff 65%,
+          #fff0f7
+        );
+    }
+
+    .course-card:nth-child(6){
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff 20%,
+          #fff0f1 100%
+        );
+    }
+
+
+    /* CARD GLOW */
+
+    .course-card::before{
+
+      content:"";
+
+      position:absolute;
+
+      width:180px;
+      height:180px;
+
+      border-radius:50%;
+
+      top:-90px;
+      right:-70px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(57,124,255,.22),
+          transparent 70%
+        );
+
+      transition:.4s ease;
+    }
+
+    .course-card:nth-child(even)::before{
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(255,75,145,.22),
+          transparent 70%
+        );
+    }
+
+
+    /* BOTTOM LINE */
+
+    .course-card::after{
+
+      content:"";
+
+      position:absolute;
+
+      left:0;
+      bottom:0;
+
+      width:100%;
+      height:4px;
+
+      background:
+        linear-gradient(
+          90deg,
+          #397cff,
+          #ff5f9e,
+          #ff5967
+        );
+
+      transform:scaleX(.25);
+
+      transform-origin:left;
+
+      transition:.35s ease;
+    }
+
+
+    /* HOVER */
+
+    .course-card:hover{
+
+      transform:
+        translateY(-10px)
+        rotateX(2deg);
+
+      border-color:
+        rgba(232,62,130,.35);
+
+      box-shadow:
+        0 25px 55px rgba(49,84,217,.16);
+    }
+
+    .course-card:hover::before{
+      transform:scale(1.8);
+    }
+
+    .course-card:hover::after{
+      transform:scaleX(1);
+    }
+
+
+    /* =====================================================
+       COURSE ICON
+    ===================================================== */
+
+    .course-icon{
+
+      position:relative;
+
+      z-index:2;
+
+      width:60px;
+      height:60px;
+
+      display:flex;
+
+      align-items:center;
+      justify-content:center;
+
+      border-radius:17px;
+
+      font-size:30px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(49,110,255,.14),
+          rgba(232,62,130,.16)
+        );
+
+      border:
+        1px solid rgba(80,120,230,.12);
+
+      margin-bottom:16px;
+
+      transition:.3s ease;
+    }
+
+    .course-card:hover .course-icon{
+
+      transform:
+        translateY(-3px)
+        rotate(-5deg)
+        scale(1.08);
+    }
+
+
+    /* =====================================================
+       COURSE TAG
+    ===================================================== */
+
+    .course-tag{
+
+      position:relative;
+
+      z-index:2;
+
+      display:inline-block;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(57,124,255,.12),
+          rgba(255,95,158,.13)
+        );
+
+      color:#315fe8;
+
+      padding:5px 11px;
+
+      border-radius:20px;
+
+      font-size:12px;
+
+      font-weight:800;
+
+      margin-bottom:14px;
+
+      border:
+        1px solid rgba(57,124,255,.10);
+    }
+
+
+    /* =====================================================
+       CARD TEXT
+    ===================================================== */
+
+    .course-card h3{
+
+      position:relative;
+
+      z-index:2;
+
+      font-size:21px;
+
+      font-weight:900;
+
+      color:#17213f;
+
+      margin-bottom:10px;
+    }
+
+    .course-card p{
+
+      position:relative;
+
+      z-index:2;
+
+      color:#69738e;
+
+      font-size:14px;
+
+      margin-bottom:18px;
+    }
+
+
+    /* =====================================================
+       COURSE LINK
+    ===================================================== */
+
+    .course-link{
+
+      position:relative;
+
+      z-index:3;
+
+      display:inline-block;
+
+      padding:10px 16px;
+
+      border-radius:10px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #397cff,
+          #e83e82
+        );
+
+      color:white;
+
+      font-size:13px;
+
+      font-weight:850;
+
+      box-shadow:
+        0 8px 22px rgba(57,124,255,.18);
+
+      transition:.3s ease;
+    }
+
+    .course-link:hover{
+
+      transform:
+        translateY(-3px);
+
+      box-shadow:
+        0 13px 30px rgba(232,62,130,.25);
+    }
+
+
+    /* =====================================================
+       NOTE / LEARNING SECTION
+    ===================================================== */
+
+    .note{
+
+      position:relative;
+
+      margin-top:55px;
+
+      padding:35px 30px;
+
+      border-radius:20px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #080d23 0%,
+          #111a3d 55%,
+          #24152f 100%
+        );
+
+      color:white;
+
+      text-align:center;
+
+      border:
+        1px solid rgba(255,255,255,.08);
+
+      box-shadow:
+        0 18px 45px rgba(15,25,70,.18);
+
+      overflow:hidden;
+    }
+
+    .note::before{
+
+      content:"";
+
+      position:absolute;
+
+      width:220px;
+      height:220px;
+
+      top:-120px;
+      right:-80px;
+
+      border-radius:50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(57,124,255,.20),
+          transparent 70%
+        );
+
+      pointer-events:none;
+    }
+
+    .note::after{
+
+      content:"";
+
+      position:absolute;
+
+      width:180px;
+      height:180px;
+
+      bottom:-120px;
+      left:-70px;
+
+      border-radius:50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(255,95,158,.15),
+          transparent 70%
+        );
+
+      pointer-events:none;
+    }
+
+    .note h2{
+
+      position:relative;
+
+      z-index:2;
+
+      margin:0 0 10px;
+
+      font-size:27px;
+
+      font-weight:900;
+
+      color:white;
+    }
+
+    .note p{
+
+      position:relative;
+
+      z-index:2;
+
+      max-width:750px;
+
+      margin:auto;
+
+      color:#c9d2e8;
+
+      font-size:14px;
+
+      line-height:1.7;
+    }
+
+
+    /* =====================================================
+       BACK LINK
+    ===================================================== */
+
+    .back-link{
+
+      display:block;
+
+      width:max-content;
+
+      margin:50px auto 0;
+
+      color:#315fe8;
+
+      font-weight:850;
+
+      font-size:14px;
+
+      transition:.25s ease;
+    }
+
+    .back-link:hover{
+
+      color:#e83e82;
+
+      transform:translateX(-4px);
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    footer{
+
+      background:#070c20;
+
+      color:#aeb7d0;
+
+      text-align:center;
+
+      padding:30px 7%;
+
+      font-size:13px;
+    }
+
+    footer strong{
+      color:white;
+    }
+
+
+    /* =====================================================
+       TABLET
+    ===================================================== */
+
+    @media(max-width:1000px){
+
+      .course-grid{
+
+        grid-template-columns:
+          repeat(2,minmax(0,1fr));
+      }
+
+    }
+
+
+    /* =====================================================
+       MOBILE
+    ===================================================== */
+
+    @media(max-width:850px){
+
+      nav{
+
+        padding:14px 5%;
+
+        flex-wrap:wrap;
+      }
+
+      .menu-toggle{
+
+        display:flex;
+      }
+
+      .nav-links{
+
+        display:none;
+
+        width:100%;
+
+        flex-direction:column;
+
+        gap:0;
+
+        margin-top:14px;
+
+        padding:8px;
+
+        border-radius:16px;
+
+        background:
+          linear-gradient(
+            145deg,
+            rgba(23,31,68,.98),
+            rgba(30,19,58,.98)
+          );
+
+        border:
+          1px solid rgba(255,255,255,.10);
+
+        box-shadow:
+          0 20px 40px rgba(0,0,0,.25);
+      }
+
+      .nav-links.active{
+        display:flex;
+      }
+
+      .nav-links li{
+        width:100%;
+      }
+
+      .nav-links a{
+
+        display:block;
+
+        width:100%;
+
+        padding:13px 15px;
+
+        border-radius:10px;
+
+        font-size:15px;
+      }
+
+      .nav-links a:hover{
+
+        background:
+          rgba(255,95,158,.10);
+
+        color:#ff6ba8;
+      }
+
+
+      /* HERO */
+
+      .hero{
+
+        min-height:420px;
+
+        padding:75px 6%;
+      }
+
+      .hero h1{
+
+        font-size:
+          clamp(42px,11vw,58px);
+
+        letter-spacing:-2.5px;
+      }
+
+      .hero p{
+        font-size:16px;
+      }
+
+
+      /* ORBS */
+
+      .orb-blue{
+
+        width:75px;
+        height:75px;
+
+        left:3%;
+        top:15%;
+      }
+
+      .orb-pink{
+
+        width:55px;
+        height:55px;
+
+        right:5%;
+        top:20%;
+      }
+
+      .orb-red{
+
+        width:45px;
+        height:45px;
+
+        right:18%;
+        bottom:13%;
+      }
+
+      .orb-small{
+
+        width:25px;
+        height:25px;
+
+        left:18%;
+        bottom:15%;
+      }
+
+
+      /* COURSES */
+
+      .courses{
+
+        padding:70px 6%;
+      }
+
+      .section-heading h2{
+
+        font-size:32px;
+      }
+
+
+      /* CARDS */
+
+      .course-grid{
+
+        grid-template-columns:1fr;
+      }
+
+
+      /* SIDE PATTERN */
+
+      .side-bio{
+
+        width:28px;
+
+        gap:25px;
+
+        opacity:.75;
+      }
+
+      .side-bio.left{
+        left:2px;
+      }
+
+      .side-bio.right{
+        right:2px;
+      }
+
+      .bio-symbol{
+
+        width:22px;
+        height:22px;
+
+        font-size:14px;
+
+        opacity:.30;
+      }
+
+    }
+
+
+    /* =====================================================
+       SMALL MOBILE
+    ===================================================== */
+
+    @media(max-width:500px){
+
+      .logo{
+        font-size:21px;
+      }
+
+      .menu-toggle{
+
+        width:40px;
+        height:40px;
+
+        font-size:23px;
+      }
+
+      .hero{
+
+        padding:
+          65px 6%
+          75px;
+      }
+
+      .hero h1{
+
+        font-size:43px;
+
+        letter-spacing:-2px;
+      }
+
+      .course-card{
+
+        padding:26px;
+
+        min-height:270px;
+      }
+
+      .side-bio{
+
+        width:22px;
+
+        gap:22px;
+      }
+
+      .side-bio.left{
+        left:0;
+      }
+
+      .side-bio.right{
+        right:0;
+      }
+
+      .bio-symbol{
+
+        width:18px;
+        height:18px;
+
+        font-size:12px;
+
+        opacity:.25;
+      }
+
+      .note{
+
+        padding:28px 22px;
+      }
+
+    }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- NAVIGATION -->
+
+  <!-- =====================================================
+       BIOTECH SIDE PATTERN
+  ===================================================== -->
+
+  <div class="side-bio left">
+
+    <div class="bio-symbol">🧬</div>
+    <div class="bio-symbol">✦</div>
+    <div class="bio-symbol">🧪</div>
+    <div class="bio-symbol">✦</div>
+    <div class="bio-symbol">🔬</div>
+
+  </div>
+
+
+  <div class="side-bio right">
+
+    <div class="bio-symbol">🔬</div>
+    <div class="bio-symbol">✦</div>
+    <div class="bio-symbol">🧫</div>
+    <div class="bio-symbol">✦</div>
+    <div class="bio-symbol">🧬</div>
+
+  </div>
+
+
+  <!-- =====================================================
+       NAVIGATION
+  ===================================================== -->
 
   <nav>
 
@@ -239,7 +1481,17 @@
       BioVerse <span>Hub</span>
     </a>
 
-    <ul class="nav-links">
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      aria-label="Open navigation menu"
+      aria-expanded="false">
+
+      ☰
+
+    </button>
+
+    <ul class="nav-links" id="navLinks">
 
       <li>
         <a href="index.html">Home</a>
@@ -254,7 +1506,7 @@
       </li>
 
       <li>
-        <a href="index.html#explore">Tools</a>
+        <a href="tools.html">Tools</a>
       </li>
 
       <li>
@@ -274,29 +1526,52 @@
   </nav>
 
 
-  <!-- HERO -->
+  <!-- =====================================================
+       HERO
+  ===================================================== -->
 
   <header class="hero">
 
-    <h1>
-      Learn & <span>Grow</span>
-    </h1>
+    <!-- FLOATING 3D ORBS -->
 
-    <p>
-      Discover useful courses and learning opportunities
-      that can help you build biotechnology knowledge and practical skills.
-    </p>
+    <div class="orb orb-blue"></div>
+
+    <div class="orb orb-pink"></div>
+
+    <div class="orb orb-red"></div>
+
+    <div class="orb orb-small"></div>
+
+
+    <div class="hero-content">
+
+      <h1>
+        Learn &
+        <span>Grow</span>
+      </h1>
+
+      <p>
+        Discover useful courses and learning opportunities
+        that can help you build biotechnology knowledge and
+        practical skills.
+      </p>
+
+    </div>
 
   </header>
 
 
-  <!-- COURSES -->
+  <!-- =====================================================
+       COURSES
+  ===================================================== -->
 
   <main class="courses">
 
     <div class="section-heading">
 
-      <h2>Explore Learning Areas</h2>
+      <h2>
+        Explore Learning Areas
+      </h2>
 
       <p>
         Start with subjects that support your biotechnology studies
@@ -313,11 +1588,17 @@
 
       <div class="course-card">
 
-        <div class="course-icon">🧬</div>
+        <div class="course-icon">
+          🧬
+        </div>
 
-        <span class="course-tag">Biotechnology</span>
+        <span class="course-tag">
+          Biotechnology
+        </span>
 
-        <h3>Biotechnology Fundamentals</h3>
+        <h3>
+          Biotechnology Fundamentals
+        </h3>
 
         <p>
           Build a stronger foundation in biotechnology concepts,
@@ -329,7 +1610,9 @@
           target="_blank"
           rel="noopener noreferrer"
           class="course-link">
+
           Explore Courses →
+
         </a>
 
       </div>
@@ -339,11 +1622,17 @@
 
       <div class="course-card">
 
-        <div class="course-icon">🧬</div>
+        <div class="course-icon">
+          🧬
+        </div>
 
-        <span class="course-tag">Molecular Biology</span>
+        <span class="course-tag">
+          Molecular Biology
+        </span>
 
-        <h3>DNA, RNA & Molecular Biology</h3>
+        <h3>
+          DNA, RNA & Molecular Biology
+        </h3>
 
         <p>
           Explore molecular biology topics including DNA,
@@ -355,7 +1644,9 @@
           target="_blank"
           rel="noopener noreferrer"
           class="course-link">
+
           Explore Courses →
+
         </a>
 
       </div>
@@ -365,11 +1656,17 @@
 
       <div class="course-card">
 
-        <div class="course-icon">🔬</div>
+        <div class="course-icon">
+          🔬
+        </div>
 
-        <span class="course-tag">Cell Biology</span>
+        <span class="course-tag">
+          Cell Biology
+        </span>
 
-        <h3>Cell & Cellular Biology</h3>
+        <h3>
+          Cell & Cellular Biology
+        </h3>
 
         <p>
           Strengthen your understanding of cell structure,
@@ -381,7 +1678,9 @@
           target="_blank"
           rel="noopener noreferrer"
           class="course-link">
+
           Explore Courses →
+
         </a>
 
       </div>
@@ -391,11 +1690,17 @@
 
       <div class="course-card">
 
-        <div class="course-icon">💻</div>
+        <div class="course-icon">
+          💻
+        </div>
 
-        <span class="course-tag">Bioinformatics</span>
+        <span class="course-tag">
+          Bioinformatics
+        </span>
 
-        <h3>Bioinformatics & Biological Data</h3>
+        <h3>
+          Bioinformatics & Biological Data
+        </h3>
 
         <p>
           Begin exploring computational approaches used
@@ -407,7 +1712,9 @@
           target="_blank"
           rel="noopener noreferrer"
           class="course-link">
+
           Explore Courses →
+
         </a>
 
       </div>
@@ -417,11 +1724,17 @@
 
       <div class="course-card">
 
-        <div class="course-icon">📊</div>
+        <div class="course-icon">
+          📊
+        </div>
 
-        <span class="course-tag">Data Skills</span>
+        <span class="course-tag">
+          Data Skills
+        </span>
 
-        <h3>Biostatistics & Data Analysis</h3>
+        <h3>
+          Biostatistics & Data Analysis
+        </h3>
 
         <p>
           Develop basic statistical and data-analysis skills
@@ -433,7 +1746,9 @@
           target="_blank"
           rel="noopener noreferrer"
           class="course-link">
+
           Explore Courses →
+
         </a>
 
       </div>
@@ -443,11 +1758,17 @@
 
       <div class="course-card">
 
-        <div class="course-icon">🔎</div>
+        <div class="course-icon">
+          🔎
+        </div>
 
-        <span class="course-tag">Research Skills</span>
+        <span class="course-tag">
+          Research Skills
+        </span>
 
-        <h3>Research & Scientific Skills</h3>
+        <h3>
+          Research & Scientific Skills
+        </h3>
 
         <p>
           Explore learning opportunities related to scientific
@@ -459,7 +1780,9 @@
           target="_blank"
           rel="noopener noreferrer"
           class="course-link">
+
           Explore Courses →
+
         </a>
 
       </div>
@@ -468,11 +1791,15 @@
     </div>
 
 
-    <!-- NOTE -->
+    <!-- =================================================
+         NOTE
+    ================================================= -->
 
     <section class="note">
 
-      <h2>Choose Courses Carefully</h2>
+      <h2>
+        Choose Courses Carefully
+      </h2>
 
       <p>
         Course availability, free access, certificates, and pricing
@@ -483,21 +1810,94 @@
     </section>
 
 
-    <a href="index.html" class="back-link">
+    <!-- BACK LINK -->
+
+    <a
+      href="index.html"
+      class="back-link">
+
       ← Back to BioVerse Hub
+
     </a>
 
   </main>
 
 
-  <!-- FOOTER -->
+  <!-- =====================================================
+       FOOTER
+  ===================================================== -->
 
   <footer>
 
-    © 2026 <strong>BioVerse Hub</strong>.
+    © 2026
+
+    <strong>
+      BioVerse Hub
+    </strong>.
+
     Built for biotechnology students worldwide.
 
   </footer>
+
+
+  <!-- =====================================================
+       MOBILE MENU
+  ===================================================== -->
+
+  <script>
+
+    const menuToggle =
+      document.getElementById("menuToggle");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+
+    menuToggle.addEventListener(
+      "click",
+      function(){
+
+        navLinks.classList.toggle("active");
+
+        const isOpen =
+          navLinks.classList.contains("active");
+
+        menuToggle.setAttribute(
+          "aria-expanded",
+          isOpen
+        );
+
+        menuToggle.textContent =
+          isOpen ? "✕" : "☰";
+
+      }
+    );
+
+
+    document
+      .querySelectorAll(".nav-links a")
+      .forEach(function(link){
+
+        link.addEventListener(
+          "click",
+          function(){
+
+            navLinks.classList.remove("active");
+
+            menuToggle.setAttribute(
+              "aria-expanded",
+              "false"
+            );
+
+            menuToggle.textContent = "☰";
+
+          }
+        );
+
+      });
+
+  </script>
+
 
 </body>
 </html>
