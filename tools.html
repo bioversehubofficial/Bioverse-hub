@@ -317,13 +317,10 @@
       position:relative;
       z-index:5;
     }
+.hero h1{
 
-   .hero h1{
-
-  position:relative;
-  z-index:2;
-
-  font-size:clamp(45px,6vw,64px);
+  font-size:
+    clamp(45px,6vw,64px);
 
   line-height:1;
 
@@ -335,23 +332,22 @@
 
   margin-bottom:20px;
 }
-}
 
 .hero h1 span{
-  display:inline-block !important;
 
-  background:linear-gradient(
-    90deg,
-    #397cff 0%,
-    #e83e82 50%,
-    #ff5967 100%
-  ) !important;
+  background:
+    linear-gradient(
+      90deg,
+      #397cff,
+      #e83e82,
+      #ff5967
+    );
 
-  -webkit-background-clip:text !important;
-  background-clip:text !important;
+  -webkit-background-clip:text;
+  background-clip:text;
 
-  -webkit-text-fill-color:transparent !important;
-  color:transparent !important;
+  color:transparent;
+}
 }
 .hero p{
   position:relative;
