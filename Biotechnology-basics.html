@@ -6,132 +6,747 @@
 
   <title>Biotechnology Basics Quiz | BioVerse Hub</title>
 
+  <meta name="description"
+        content="Test and strengthen your biotechnology fundamentals with advanced, application-based and interview-oriented questions.">
+
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f7f9fb;
-      color: #1f2937;
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    header {
-      background: #123b4a;
-      color: white;
-      padding: 25px 20px;
-      text-align: center;
+    html{
+      scroll-behavior:smooth;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 30px;
+    body{
+      font-family:"Segoe UI", Inter, Arial, sans-serif;
+      background:#f5f7ff;
+      color:#17213f;
+      line-height:1.6;
+      overflow-x:hidden;
     }
 
-    header p {
-      margin-top: 8px;
-      font-size: 15px;
+    a{
+      text-decoration:none;
     }
 
-    .quiz-container {
-      max-width: 850px;
-      margin: 40px auto;
-      padding: 0 20px;
+
+    /* =====================================================
+       HEADER
+    ===================================================== */
+
+    header{
+
+      position:relative;
+
+      padding:70px 7%;
+
+      text-align:center;
+
+      overflow:hidden;
+
+      color:white;
+
+      background:
+
+        radial-gradient(
+          circle at 15% 25%,
+          rgba(57,124,255,.20),
+          transparent 30%
+        ),
+
+        radial-gradient(
+          circle at 85% 25%,
+          rgba(255,95,158,.18),
+          transparent 30%
+        ),
+
+        radial-gradient(
+          circle at 50% 100%,
+          rgba(255,89,103,.10),
+          transparent 35%
+        ),
+
+        linear-gradient(
+          135deg,
+          #080d23,
+          #111a3d 52%,
+          #24152f
+        );
     }
 
-    .question-card {
-      background: white;
-      padding: 25px;
-      margin-bottom: 20px;
-      border-radius: 12px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    header::before{
+
+      content:"";
+
+      position:absolute;
+
+      inset:0;
+
+      background-image:
+
+        linear-gradient(
+          rgba(49,95,232,.035) 1px,
+          transparent 1px
+        ),
+
+        linear-gradient(
+          90deg,
+          rgba(49,95,232,.035) 1px,
+          transparent 1px
+        );
+
+      background-size:50px 50px;
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          transparent,
+          black 20%,
+          black 80%,
+          transparent
+        );
+
+      -webkit-mask-image:
+        linear-gradient(
+          to bottom,
+          transparent,
+          black 20%,
+          black 80%,
+          transparent
+        );
     }
 
-    .question-card h3 {
-      margin-top: 0;
+    header h1{
+
+      position:relative;
+      z-index:2;
+
+      margin:0;
+
+      font-size:
+        clamp(40px,6vw,60px);
+
+      line-height:1;
+
+      letter-spacing:-3px;
+
+      font-weight:950;
     }
 
-    label {
-      display: block;
-      padding: 10px;
-      margin: 8px 0;
-      border: 1px solid #d9e1e5;
-      border-radius: 8px;
-      cursor: pointer;
+    header h1 span{
+
+      background:
+        linear-gradient(
+          90deg,
+          #397cff,
+          #e83e82,
+          #ff5967
+        );
+
+      -webkit-background-clip:text;
+      background-clip:text;
+
+      color:transparent;
     }
 
-    label:hover {
-      background: #f1f6f8;
+    header p{
+
+      position:relative;
+      z-index:2;
+
+      max-width:760px;
+
+      margin:18px auto 0;
+
+      color:#c9d2e8;
+
+      font-size:16px;
+
+      line-height:1.8;
     }
 
-    button {
-      display: block;
-      margin: 30px auto;
-      padding: 13px 28px;
-      border: none;
-      border-radius: 8px;
-      background: #123b4a;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
+
+    /* =====================================================
+       QUIZ CONTAINER
+    ===================================================== */
+
+    .quiz-container{
+
+      max-width:950px;
+
+      margin:auto;
+
+      padding:75px 6%;
     }
 
-    button:hover {
-      opacity: 0.9;
+
+    /* =====================================================
+       INTRO
+    ===================================================== */
+
+    .quiz-intro{
+
+      text-align:center;
+
+      margin-bottom:45px;
     }
 
-    #result {
-      text-align: center;
-      font-size: 22px;
-      font-weight: bold;
-      margin: 25px 0;
+    .quiz-intro h2{
+
+      font-size:34px;
+
+      color:#17213f;
+
+      letter-spacing:-1.5px;
+
+      margin-bottom:10px;
     }
 
-    .back-link {
-      display: block;
-      text-align: center;
-      margin: 25px;
-      color: #123b4a;
-      text-decoration: none;
-      font-weight: bold;
+    .quiz-intro p{
+
+      color:#69738e;
+
+      font-size:15px;
     }
+
+
+    /* =====================================================
+       QUESTION CARD
+    ===================================================== */
+
+    .question-card{
+
+      position:relative;
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff 20%,
+          #edf5ff 100%
+        );
+
+      padding:28px;
+
+      margin-bottom:25px;
+
+      border-radius:20px;
+
+      border:
+        1px solid rgba(120,135,220,.20);
+
+      box-shadow:
+        0 14px 40px rgba(49,70,150,.10);
+
+      overflow:hidden;
+
+      transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+    }
+
+    .question-card:nth-of-type(even){
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff 20%,
+          #fff0f7 100%
+        );
+    }
+
+    .question-card::before{
+
+      content:"";
+
+      position:absolute;
+
+      width:160px;
+      height:160px;
+
+      right:-70px;
+      top:-80px;
+
+      border-radius:50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(57,124,255,.15),
+          transparent 70%
+        );
+
+      pointer-events:none;
+    }
+
+    .question-card:hover{
+
+      transform:translateY(-4px);
+
+      box-shadow:
+        0 20px 45px rgba(49,84,217,.14);
+    }
+
+
+    /* =====================================================
+       QUESTION
+    ===================================================== */
+
+    .question-number{
+
+      display:inline-block;
+
+      margin-bottom:10px;
+
+      padding:5px 11px;
+
+      border-radius:20px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #397cff,
+          #e83e82
+        );
+
+      color:white;
+
+      font-size:12px;
+
+      font-weight:800;
+    }
+
+    .question-card h3{
+
+      position:relative;
+      z-index:2;
+
+      margin:0 0 18px;
+
+      font-size:18px;
+
+      line-height:1.5;
+
+      color:#17213f;
+    }
+
+
+    /* =====================================================
+       OPTIONS
+    ===================================================== */
+
+    label{
+
+      position:relative;
+      z-index:2;
+
+      display:block;
+
+      padding:12px 14px;
+
+      margin:9px 0;
+
+      border:
+        1px solid #d9e1f0;
+
+      border-radius:11px;
+
+      background:rgba(255,255,255,.72);
+
+      cursor:pointer;
+
+      font-size:14px;
+
+      color:#3d4761;
+
+      transition:.25s ease;
+    }
+
+    label:hover{
+
+      border-color:#7d9cff;
+
+      background:#f4f7ff;
+
+      transform:translateX(3px);
+    }
+
+    label input{
+
+      margin-right:9px;
+
+      accent-color:#e83e82;
+    }
+
+
+    /* =====================================================
+       EXPLANATION
+    ===================================================== */
+
+    .explanation{
+
+      display:none;
+
+      position:relative;
+      z-index:3;
+
+      margin-top:18px;
+
+      padding:16px 18px;
+
+      border-left:
+        4px solid #e83e82;
+
+      border-radius:10px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #f0f5ff,
+          #fff1f7
+        );
+
+      color:#4d5872;
+
+      font-size:14px;
+
+      line-height:1.7;
+    }
+
+    .explanation strong{
+
+      color:#17213f;
+    }
+
+
+    /* =====================================================
+       CORRECT / WRONG
+    ===================================================== */
+
+    .correct-answer{
+
+      border-color:#4caf50 !important;
+
+      background:#f1fff4 !important;
+    }
+
+    .wrong-answer{
+
+      border-color:#e85d75 !important;
+
+      background:#fff3f5 !important;
+    }
+
+
+    /* =====================================================
+       SUBMIT BUTTON
+    ===================================================== */
+
+    button{
+
+      display:block;
+
+      margin:40px auto 25px;
+
+      padding:14px 30px;
+
+      border:none;
+
+      border-radius:11px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #397cff,
+          #e83e82
+        );
+
+      color:white;
+
+      font-size:15px;
+
+      font-weight:850;
+
+      cursor:pointer;
+
+      box-shadow:
+        0 10px 25px rgba(57,124,255,.20);
+
+      transition:.3s ease;
+    }
+
+    button:hover{
+
+      transform:translateY(-3px);
+
+      box-shadow:
+        0 15px 32px rgba(232,62,130,.25);
+    }
+
+
+    /* =====================================================
+       RESULT
+    ===================================================== */
+
+    #result{
+
+      display:none;
+
+      text-align:center;
+
+      margin:30px 0;
+
+      padding:25px;
+
+      border-radius:18px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #080d23,
+          #111a3d,
+          #24152f
+        );
+
+      color:white;
+
+      box-shadow:
+        0 18px 45px rgba(15,25,70,.18);
+    }
+
+    #result h2{
+
+      margin-bottom:8px;
+
+      font-size:27px;
+    }
+
+    #result p{
+
+      color:#c9d2e8;
+
+      font-size:14px;
+    }
+
+
+    /* =====================================================
+       BACK LINK
+    ===================================================== */
+
+    .back-link{
+
+      display:block;
+
+      width:max-content;
+
+      margin:45px auto 0;
+
+      color:#315fe8;
+
+      font-weight:850;
+
+      font-size:14px;
+
+      transition:.25s ease;
+    }
+
+    .back-link:hover{
+
+      color:#e83e82;
+
+      transform:translateX(-4px);
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    footer{
+
+      background:
+        linear-gradient(
+          135deg,
+          #070c20,
+          #111833,
+          #1c1026
+        );
+
+      color:#aeb7d0;
+
+      text-align:center;
+
+      padding:30px 7%;
+
+      font-size:13px;
+    }
+
+    footer strong{
+      color:white;
+    }
+
+
+    /* =====================================================
+       MOBILE
+    ===================================================== */
+
+    @media(max-width:600px){
+
+      header{
+
+        padding:60px 6%;
+      }
+
+      header h1{
+
+        font-size:42px;
+
+        letter-spacing:-2px;
+      }
+
+      header p{
+
+        font-size:15px;
+      }
+
+      .quiz-container{
+
+        padding:60px 5%;
+      }
+
+      .quiz-intro h2{
+
+        font-size:29px;
+      }
+
+      .question-card{
+
+        padding:22px;
+
+        border-radius:17px;
+      }
+
+      .question-card h3{
+
+        font-size:17px;
+      }
+
+      label{
+
+        padding:11px;
+
+        font-size:13px;
+      }
+
+    }
+
   </style>
 </head>
 
+
 <body>
 
+
+  <!-- =====================================================
+       HEADER
+  ===================================================== -->
+
   <header>
-    <h1>Biotechnology Basics Quiz</h1>
-    <p>Test your understanding of fundamental biotechnology concepts.</p>
+
+    <h1>
+      Biotechnology
+      <span>Basics</span>
+    </h1>
+
+    <p>
+      Test your understanding of biotechnology fundamentals
+      through concept-based, application-oriented, and
+      interview-focused questions.
+    </p>
+
   </header>
+
+
+  <!-- =====================================================
+       QUIZ
+    ===================================================== -->
 
   <main class="quiz-container">
 
+
+    <div class="quiz-intro">
+
+      <h2>
+        Biotechnology Fundamentals
+      </h2>
+
+      <p>
+        Work through the questions carefully. After submission,
+        review the explanations to strengthen your understanding.
+      </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         QUESTION 1
+    ===================================================== -->
+
     <div class="question-card">
-      <h3>1. What is biotechnology?</h3>
+
+      <span class="question-number">
+        Question 1
+      </span>
+
+      <h3>
+        What best describes biotechnology?
+      </h3>
 
       <label>
         <input type="radio" name="q1" value="a">
-        The use of biological systems or organisms to develop useful products and processes
+        The use of biological systems, organisms, or biomolecules to develop useful products and processes
       </label>
 
       <label>
         <input type="radio" name="q1" value="b">
-        The study of stars and planets
+        The study of celestial bodies and space
       </label>
 
       <label>
         <input type="radio" name="q1" value="c">
-        The study of computer hardware
+        The study of rocks and minerals
       </label>
 
       <label>
         <input type="radio" name="q1" value="d">
-        The study of rocks
+        The study of computer hardware
       </label>
+
+      <div class="explanation">
+        <strong>Correct Answer: A</strong><br>
+        Biotechnology applies biological organisms, cells, enzymes,
+        genes, or other biological systems to create or improve
+        products, processes, and technologies. It includes fields
+        such as medicine, agriculture, food production, and environmental science.
+      </div>
+
     </div>
 
 
+    <!-- QUESTION 2 -->
+
     <div class="question-card">
-      <h3>2. Which molecule carries genetic information in most living organisms?</h3>
+
+      <span class="question-number">
+        Question 2
+      </span>
+
+      <h3>
+        Which molecule serves as the primary hereditary material in most organisms?
+      </h3>
 
       <label>
         <input type="radio" name="q2" value="a">
@@ -150,124 +765,1206 @@
 
       <label>
         <input type="radio" name="q2" value="d">
-        Glucose
+        ATP
       </label>
+
+      <div class="explanation">
+        <strong>Correct Answer: B</strong><br>
+        DNA stores hereditary information in most organisms. Its
+        nucleotide sequence contains the information needed for
+        biological development, function, and reproduction.
+      </div>
+
     </div>
 
 
+    <!-- QUESTION 3 -->
+
     <div class="question-card">
-      <h3>3. Which of the following is commonly used to produce genetically modified organisms?</h3>
+
+      <span class="question-number">
+        Question 3
+      </span>
+
+      <h3>
+        Which technique allows scientists to amplify a specific DNA region rapidly?
+      </h3>
 
       <label>
         <input type="radio" name="q3" value="a">
-        Genetic engineering
+        PCR
       </label>
 
       <label>
         <input type="radio" name="q3" value="b">
-        Evaporation
+        Centrifugation
       </label>
 
       <label>
         <input type="radio" name="q3" value="c">
-        Filtration only
+        Chromatography
       </label>
 
       <label>
         <input type="radio" name="q3" value="d">
-        Freezing
+        Spectrophotometry
       </label>
+
+      <div class="explanation">
+        <strong>Correct Answer: A</strong><br>
+        Polymerase Chain Reaction (PCR) selectively amplifies a target
+        DNA sequence. It is widely used in diagnostics, research,
+        cloning, genetic analysis, and molecular biology.
+      </div>
+
     </div>
 
 
+    <!-- QUESTION 4 -->
+
     <div class="question-card">
-      <h3>4. Which field applies biotechnology to the production of medicines?</h3>
+
+      <span class="question-number">
+        Question 4
+      </span>
+
+      <h3>
+        In recombinant DNA technology, what is the main purpose of a vector?
+      </h3>
 
       <label>
         <input type="radio" name="q4" value="a">
-        Pharmaceutical biotechnology
+        To transport a DNA fragment into a suitable host cell
       </label>
 
       <label>
         <input type="radio" name="q4" value="b">
-        Astronomy
+        To destroy all DNA inside the host
       </label>
 
       <label>
         <input type="radio" name="q4" value="c">
-        Geology
+        To measure cell size
       </label>
 
       <label>
         <input type="radio" name="q4" value="d">
-        Architecture
+        To remove proteins from a solution
       </label>
+
+      <div class="explanation">
+        <strong>Correct Answer: A</strong><br>
+        A vector is a DNA molecule used to carry a desired DNA fragment
+        into a host cell. Plasmids are common vectors in molecular
+        biotechnology because they can replicate inside suitable bacterial cells.
+      </div>
+
     </div>
 
 
+    <!-- QUESTION 5 -->
+
     <div class="question-card">
-      <h3>5. Which organism is commonly used in biotechnology for fermentation?</h3>
+
+      <span class="question-number">
+        Question 5
+      </span>
+
+      <h3>
+        Which enzyme is commonly used to cut DNA at specific recognition sequences?
+      </h3>
 
       <label>
         <input type="radio" name="q5" value="a">
-        Yeast
+        DNA ligase
       </label>
 
       <label>
         <input type="radio" name="q5" value="b">
-        Eagle
+        Restriction enzyme
       </label>
 
       <label>
         <input type="radio" name="q5" value="c">
-        Fish
+        RNA polymerase
       </label>
 
       <label>
         <input type="radio" name="q5" value="d">
-        Butterfly
+        Amylase
       </label>
+
+      <div class="explanation">
+        <strong>Correct Answer: B</strong><br>
+        Restriction enzymes recognize specific DNA sequences and cut
+        the DNA at or near those sites. They are important tools in
+        recombinant DNA technology.
+      </div>
+
     </div>
 
 
-    <button onclick="checkQuiz()">Submit Quiz</button>
+    <!-- QUESTION 6 -->
+
+    <div class="question-card">
+
+      <span class="question-number">
+        Question 6
+      </span>
+
+      <h3>
+        What is the primary function of DNA ligase in genetic engineering?
+      </h3>
+
+      <label>
+        <input type="radio" name="q6" value="a">
+        To join DNA fragments together
+      </label>
+
+      <label>
+        <input type="radio" name="q6" value="b">
+        To synthesize RNA
+      </label>
+
+      <label>
+        <input type="radio" name="q6" value="c">
+        To digest proteins
+      </label>
+
+      <label>
+        <input type="radio" name="q6" value="d">
+        To separate DNA by size
+      </label>
+
+      <div class="explanation">
+        <strong>Correct Answer: A</strong><br>
+        DNA ligase joins DNA fragments by forming phosphodiester
+        bonds between adjacent nucleotides. This makes it essential
+        for constructing recombinant DNA molecules.
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 7 -->
+
+    <div class="question-card">
+
+      <span class="question-number">
+        Question 7
+      </span>
+
+      <h3>
+        Which microorganism is widely used as a host for recombinant protein production?
+      </h3>
+
+      <label>
+        <input type="radio" name="q7" value="a">
+        Escherichia coli
+      </label>
+
+      <label>
+        <input type="radio" name="q7" value="b">
+        Plasmodium falciparum
+      </label>
+
+      <label>
+        <input type="radio" name="q7" value="c">
+        Influenza virus
+      </label>
+
+      <label>
+        <input type="radio" name="q7" value="d">
+        Amoeba only
+      </label>
+
+      <div class="explanation">
+        <strong>Correct Answer: A</strong><br>
+        E. coli is a widely used biotechnology host because it grows
+        rapidly, is relatively easy to culture, and can express many
+        recombinant proteins when appropriate expression systems are used.
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 8 -->
+
+    <div class="question-card">
+
+      <span class="question-number">
+        Question 8
+      </span>
+
+      <h3>
+        What is a genetically modified organism (GMO)?
+      </h3>
+
+      <label>
+        <input type="radio" name="q8" value="a">
+        An organism whose genetic material has been deliberately altered using biotechnology
+      </label>
+
+      <label>
+        <input type="radio" name="q8" value="b">
+        Any organism that reproduces naturally
+      </label>
+
+      <label>
+        <input type="radio" name="q8" value="c">
+        An organism that contains no DNA
+      </label>
+
+      <label>
+        <input type="radio" name="q8" value="d">
+        A microorganism that cannot mutate
+      </label>
+
+      <div class="explanation">
+        <strong>Correct Answer: A</strong><br>
+        A GMO is an organism whose genetic material has been intentionally
+        modified using molecular biotechnology. The modification may involve
+        adding, removing, or altering genetic sequences.
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 9 -->
+
+    <div class="question-card">
+
+      <span class="question-number">
+        Question 9
+      </span>
+
+      <h3>
+        Which biotechnology branch primarily focuses on using biological systems for medical applications?
+      </h3>
+
+      <label>
+        <input type="radio" name="q9" value="a">
+        Red biotechnology
+      </label>
+
+      <label>
+        <input type="radio" name="q9" value="b">
+        White biotechnology
+      </label>
+
+      <label>
+        <input type="radio" name="q9" value="c">
+        Grey biotechnology
+      </label>
+
+      <label>
+        <input type="radio" name="q9" value="d">
+        Blue biotechnology
+      </label>
+
+      <div class="explanation">
+        <strong>Correct Answer: A</strong><br>
+        Red biotechnology refers broadly to biotechnology applied to
+        healthcare and medicine, including therapeutics, vaccines,
+        diagnostics, and other biomedical applications.
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 10 -->
+
+    <div class="question-card">
+
+      <span class="question-number">
+        Question 10
+      </span>
+
+      <h3>
+        Which biotechnology branch is most closely associated with industrial production using microorganisms or enzymes?
+      </h3>
+
+      <label>
+        <input type="radio" name="q10" value="a">
+        White biotechnology
+      </label>
+
+      <label>
+        <input type="radio" name="q10" value="b">
+        Red biotechnology
+      </label>
+
+      <label>
+        <input type="radio" name="q10" value="c">
+        Blue biotechnology
+      </label>
+
+      <label>
+        <input type="radio" name="q10" value="d">
+        Grey biotechnology
+      </label>
+
+      <div class="explanation">
+        <strong>Correct Answer: A</strong><br>
+        White biotechnology, also called industrial biotechnology,
+        uses organisms, cells, or enzymes to manufacture products
+        and improve industrial processes.
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 11 -->
+
+    <div class="question-card">
+
+      <span class="question-number">
+        Question 11
+      </span>
+
+      <h3>
+        Why are sterile conditions important during microbial biotechnology experiments?
+      </h3>
+
+      <label>
+        <input type="radio" name="q11" value="a">
+        To prevent unwanted microorganisms from contaminating the experiment
+      </label>
+
+      <label>
+        <input type="radio" name="q11" value="b">
+        To increase the size of DNA molecules
+      </label>
+
+      <label>
+        <input type="radio" name="q11" value="c">
+        To stop all biochemical reactions
+      </label>
+
+      <label>
+        <input type="radio" name="q11" value="d">
+        To change bacterial DNA automatically
+      </label>
+
+      <div class="explanation">
+        <strong>Correct Answer: A</strong><br>
+        Contamination can introduce unwanted organisms that compete
+        with the intended culture or alter experimental results.
+        Maintaining appropriate aseptic conditions helps preserve
+        the reliability and reproducibility of the experiment.
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 12 -->
+
+    <div class="question-card">
+
+      <span class="question-number">
+        Question 12
+      </span>
+
+      <h3>
+        In a bioreactor, why are parameters such as temperature, pH, and dissolved oxygen monitored?
+      </h3>
+
+      <label>
+        <input type="radio" name="q12" value="a">
+        To maintain conditions suitable for the biological process
+      </label>
+
+      <label>
+        <input type="radio" name="q12" value="b">
+        To eliminate the need for microorganisms
+      </label>
+
+      <label>
+        <input type="radio" name="q12" value="c">
+        To convert proteins directly into DNA
+      </label>
+
+      <label>
+        <input type="radio" name="q12" value="d">
+        To prevent cells from performing metabolism
+      </label>
+
+      <div class="explanation">
+        <strong>Correct Answer: A</strong><br>
+        Biological systems are sensitive to environmental conditions.
+        Controlling factors such as temperature, pH, and oxygen helps
+        maintain suitable growth and product formation conditions in a bioprocess.
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 13 -->
+
+    <div class="question-card">
+
+      <span class="question-number">
+        Question 13
+      </span>
+
+      <h3>
+        A researcher wants to determine whether a DNA sample contains a specific target sequence. Which approach would be especially useful?
+      </h3>
+
+      <label>
+        <input type="radio" name="q13" value="a">
+        PCR using appropriate primers
+      </label>
+
+      <label>
+        <input type="radio" name="q13" value="b">
+        Measuring only the sample's color
+      </label>
+
+      <label>
+        <input type="radio" name="q13" value="c">
+        Heating the DNA indefinitely
+      </label>
+
+      <label>
+        <input type="radio" name="q13" value="d">
+        Measuring atmospheric pressure
+      </label>
+
+      <div class="explanation">
+        <strong>Correct Answer: A</strong><br>
+        PCR can selectively amplify a target region when primers are
+        designed to bind sequences flanking that region. Detection of
+        the resulting amplification can indicate whether the target sequence was present.
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 14 -->
+
+    <div class="question-card">
+
+      <span class="question-number">
+        Question 14
+      </span>
+
+      <h3>
+        What is the main advantage of using enzymes as biological catalysts in biotechnology?
+      </h3>
+
+      <label>
+        <input type="radio" name="q14" value="a">
+        They can catalyze specific reactions under relatively mild conditions
+      </label>
+
+      <label>
+        <input type="radio" name="q14" value="b">
+        They always work without any substrate
+      </label>
+
+      <label>
+        <input type="radio" name="q14" value="c">
+        They permanently prevent chemical reactions
+      </label>
+
+      <label>
+        <input type="radio" name="q14" value="d">
+        They are all made from DNA
+      </label>
+
+      <div class="explanation">
+        <strong>Correct Answer: A</strong><br>
+        Enzymes are highly useful because many have strong substrate
+        specificity and can accelerate reactions under conditions that
+        are often compatible with biological systems.
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 15 -->
+
+    <div class="question-card">
+
+      <span class="question-number">
+        Question 15
+      </span>
+
+      <h3>
+        Which statement best explains the role of fermentation in biotechnology?
+      </h3>
+
+      <label>
+        <input type="radio" name="q15" value="a">
+        Microorganisms or cells are used to produce desired metabolites or products under controlled conditions
+      </label>
+
+      <label>
+        <input type="radio" name="q15" value="b">
+        All fermentation processes require sunlight
+      </label>
+
+      <label>
+        <input type="radio" name="q15" value="c">
+        Fermentation only occurs in plants
+      </label>
+
+      <label>
+        <input type="radio" name="q15" value="d">
+        Fermentation means DNA sequencing
+      </label>
+
+      <div class="explanation">
+        <strong>Correct Answer: A</strong><br>
+        Industrial fermentation uses microorganisms or cultured cells
+        to produce useful compounds such as enzymes, organic acids,
+        pharmaceuticals, and other products under controlled conditions.
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 16 -->
+
+    <div class="question-card">
+
+      <span class="question-number">
+        Question 16
+      </span>
+
+      <h3>
+        Why are controls important in a biotechnology experiment?
+      </h3>
+
+      <label>
+        <input type="radio" name="q16" value="a">
+        They provide a comparison that helps determine whether the experimental factor caused the observed effect
+      </label>
+
+      <label>
+        <input type="radio" name="q16" value="b">
+        They guarantee every experiment will succeed
+      </label>
+
+      <label>
+        <input type="radio" name="q16" value="c">
+        They eliminate the need for measurements
+      </label>
+
+      <label>
+        <input type="radio" name="q16" value="d">
+        They automatically identify every mutation
+      </label>
+
+      <div class="explanation">
+        <strong>Correct Answer: A</strong><br>
+        Controls provide a reference condition. Comparing experimental
+        and control groups helps researchers determine whether an observed
+        change is associated with the variable being investigated.
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 17 -->
+
+    <div class="question-card">
+
+      <span class="question-number">
+        Question 17
+      </span>
+
+      <h3>
+        Which factor is most important when selecting a host organism for recombinant protein production?
+      </h3>
+
+      <label>
+        <input type="radio" name="q17" value="a">
+        Whether the host can efficiently express and, when necessary, properly process the target protein
+      </label>
+
+      <label>
+        <input type="radio" name="q17" value="b">
+        The color of the laboratory walls
+      </label>
+
+      <label>
+        <input type="radio" name="q17" value="c">
+        Whether the organism can survive without any nutrients
+      </label>
+
+      <label>
+        <input type="radio" name="q17" value="d">
+        Whether the organism is visible to the naked eye
+      </label>
+
+      <div class="explanation">
+        <strong>Correct Answer: A</strong><br>
+        Host selection depends on the biological requirements of the
+        target protein. Expression level, folding, stability, and post-translational
+        processing can all influence which host is appropriate.
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 18 -->
+
+    <div class="question-card">
+
+      <span class="question-number">
+        Question 18
+      </span>
+
+      <h3>
+        Which technique separates DNA fragments primarily according to their size?
+      </h3>
+
+      <label>
+        <input type="radio" name="q18" value="a">
+        Gel electrophoresis
+      </label>
+
+      <label>
+        <input type="radio" name="q18" value="b">
+        PCR
+      </label>
+
+      <label>
+        <input type="radio" name="q18" value="c">
+        Fermentation
+      </label>
+
+      <label>
+        <input type="radio" name="q18" value="d">
+        ELISA
+      </label>
+
+      <div class="explanation">
+        <strong>Correct Answer: A</strong><br>
+        DNA fragments move through a gel when an electric field is applied.
+        Smaller fragments generally migrate more readily through the gel matrix,
+        allowing fragments to be separated according to size.
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 19 -->
+
+    <div class="question-card">
+
+      <span class="question-number">
+        Question 19
+      </span>
+
+      <h3>
+        A biotechnology company wants to produce a therapeutic protein at large scale. Which factor becomes especially important?
+      </h3>
+
+      <label>
+        <input type="radio" name="q19" value="a">
+        Scalability and consistent process control
+      </label>
+
+      <label>
+        <input type="radio" name="q19" value="b">
+        Using a different organism for every batch without validation
+      </label>
+
+      <label>
+        <input type="radio" name="q19" value="c">
+        Ignoring contamination risks
+      </label>
+
+      <label>
+        <input type="radio" name="q19" value="d">
+        Avoiding all quality-control measurements
+      </label>
+
+      <div class="explanation">
+        <strong>Correct Answer: A</strong><br>
+        Industrial biotechnology requires processes that can be scaled
+        while maintaining product quality, reproducibility, safety,
+        and appropriate process control.
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 20 -->
+
+    <div class="question-card">
+
+      <span class="question-number">
+        Question 20
+      </span>
+
+      <h3>
+        Why is biosafety important in biotechnology laboratories?
+      </h3>
+
+      <label>
+        <input type="radio" name="q20" value="a">
+        It helps reduce risks to researchers, the environment, and the surrounding community
+      </label>
+
+      <label>
+        <input type="radio" name="q20" value="b">
+        It makes scientific controls unnecessary
+      </label>
+
+      <label>
+        <input type="radio" name="q20" value="c">
+        It guarantees that biological materials are harmless
+      </label>
+
+      <label>
+        <input type="radio" name="q20" value="d">
+        It eliminates the need for laboratory training
+      </label>
+
+      <div class="explanation">
+        <strong>Correct Answer: A</strong><br>
+        Biosafety involves practices and controls designed to reduce
+        biological risks and protect laboratory personnel, the environment,
+        and others who could potentially be exposed.
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 21 -->
+
+    <div class="question-card">
+
+      <span class="question-number">
+        Question 21
+      </span>
+
+      <h3>
+        In an interview, you are asked why biotechnology is considered interdisciplinary. Which answer is strongest?
+      </h3>
+
+      <label>
+        <input type="radio" name="q21" value="a">
+        It combines biology with areas such as chemistry, engineering, computing, statistics, and medicine
+      </label>
+
+      <label>
+        <input type="radio" name="q21" value="b">
+        It uses biology only
+      </label>
+
+      <label>
+        <input type="radio" name="q21" value="c">
+        It is unrelated to technology
+      </label>
+
+      <label>
+        <input type="radio" name="q21" value="d">
+        It is only a branch of agriculture
+      </label>
+
+      <div class="explanation">
+        <strong>Correct Answer: A</strong><br>
+        Modern biotechnology integrates multiple disciplines. Molecular biology,
+        chemistry, engineering, bioinformatics, statistics, medicine, and other
+        fields frequently work together to solve biological problems.
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 22 -->
+
+    <div class="question-card">
+
+      <span class="question-number">
+        Question 22
+      </span>
+
+      <h3>
+        A researcher obtains unexpected results in an experiment. What should be the best first response?
+      </h3>
+
+      <label>
+        <input type="radio" name="q22" value="a">
+        Review controls, experimental conditions, procedures, and possible sources of error before drawing conclusions
+      </label>
+
+      <label>
+        <input type="radio" name="q22" value="b">
+        Immediately discard all results
+      </label>
+
+      <label>
+        <input type="radio" name="q22" value="c">
+        Change the data to match the expected result
+      </label>
+
+      <label>
+        <input type="radio" name="q22" value="d">
+        Ignore the unexpected observation
+      </label>
+
+      <div class="explanation">
+        <strong>Correct Answer: A</strong><br>
+        Unexpected results should be investigated systematically. Researchers
+        should examine controls, methods, measurements, sample quality,
+        and experimental conditions before deciding what the result means.
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 23 -->
+
+    <div class="question-card">
+
+      <span class="question-number">
+        Question 23
+      </span>
+
+      <h3>
+        Which statement best distinguishes genetic engineering from selective breeding?
+      </h3>
+
+      <label>
+        <input type="radio" name="q23" value="a">
+        Genetic engineering directly modifies genetic material using molecular techniques, whereas selective breeding relies on choosing organisms with desired traits for reproduction
+      </label>
+
+      <label>
+        <input type="radio" name="q23" value="b">
+        They are exactly the same process
+      </label>
+
+      <label>
+        <input type="radio" name="q23" value="c">
+        Selective breeding never involves genetics
+      </label>
+
+      <label>
+        <input type="radio" name="q23" value="d">
+        Genetic engineering does not involve DNA
+      </label>
+
+      <div class="explanation">
+        <strong>Correct Answer: A</strong><br>
+        Genetic engineering uses molecular methods to intentionally alter
+        genetic material. Selective breeding changes populations by choosing
+        organisms with desirable inherited traits for reproduction over generations.
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 24 -->
+
+    <div class="question-card">
+
+      <span class="question-number">
+        Question 24
+      </span>
+
+      <h3>
+        Why is reproducibility important in biotechnology research?
+      </h3>
+
+      <label>
+        <input type="radio" name="q24" value="a">
+        Reproducible results increase confidence that an observation is reliable rather than an accidental outcome
+      </label>
+
+      <label>
+        <input type="radio" name="q24" value="b">
+        Reproducibility means researchers must always obtain identical numbers
+      </label>
+
+      <label>
+        <input type="radio" name="q24" value="c">
+        It removes the need for experimental controls
+      </label>
+
+      <label>
+        <input type="radio" name="q24" value="d">
+        It means experiments never contain biological variation
+      </label>
+
+      <div class="explanation">
+        <strong>Correct Answer: A</strong><br>
+        Reproducibility helps establish confidence in scientific findings.
+        Biological experiments can contain variation, so reproducibility
+        does not necessarily mean every measurement is exactly identical.
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 25 -->
+
+    <div class="question-card">
+
+      <span class="question-number">
+        Question 25
+      </span>
+
+      <h3>
+        During a biotechnology interview, which response demonstrates the strongest scientific thinking?
+      </h3>
+
+      <label>
+        <input type="radio" name="q25" value="a">
+        I would examine the evidence, controls, experimental design, and possible limitations before making a conclusion
+      </label>
+
+      <label>
+        <input type="radio" name="q25" value="b">
+        I would always assume the first result is correct
+      </label>
+
+      <label>
+        <input type="radio" name="q25" value="c">
+        I would ignore contradictory evidence
+      </label>
+
+      <label>
+        <input type="radio" name="q25" value="d">
+        I would change results if they were unexpected
+      </label>
+
+      <div class="explanation">
+        <strong>Correct Answer: A</strong><br>
+        Scientific thinking requires evidence-based reasoning. Strong
+        biotechnology professionals evaluate experimental design, controls,
+        limitations, and alternative explanations before reaching conclusions.
+      </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         SUBMIT
+    ===================================================== -->
+
+    <button onclick="checkQuiz()">
+      Submit Quiz
+    </button>
+
+
+    <!-- =====================================================
+         RESULT
+    ===================================================== -->
 
     <div id="result"></div>
 
-    <a href="index.html#practice" class="back-link">
+
+    <!-- BACK -->
+
+    <a
+      href="index.html#practice"
+      class="back-link">
+
       ← Back to Practice
+
     </a>
 
   </main>
 
 
+  <!-- =====================================================
+       JAVASCRIPT
+    ===================================================== -->
+
   <script>
-    function checkQuiz() {
+
+    function checkQuiz(){
 
       const answers = {
-        q1: "a",
-        q2: "b",
-        q3: "a",
-        q4: "a",
-        q5: "a"
+
+        q1:"a",
+        q2:"b",
+        q3:"a",
+        q4:"a",
+        q5:"b",
+        q6:"a",
+        q7:"a",
+        q8:"a",
+        q9:"a",
+        q10:"a",
+        q11:"a",
+        q12:"a",
+        q13:"a",
+        q14:"a",
+        q15:"a",
+        q16:"a",
+        q17:"a",
+        q18:"a",
+        q19:"a",
+        q20:"a",
+        q21:"a",
+        q22:"a",
+        q23:"a",
+        q24:"a",
+        q25:"a"
+
       };
+
 
       let score = 0;
 
-      for (let question in answers) {
-        const selected = document.querySelector(
-          'input[name="' + question + '"]:checked'
-        );
 
-        if (selected && selected.value === answers[question]) {
-          score++;
+      for(let question in answers){
+
+        const selected =
+          document.querySelector(
+            'input[name="' + question + '"]:checked'
+          );
+
+
+        const labels =
+          document.querySelectorAll(
+            'input[name="' + question + '"]'
+          );
+
+
+        labels.forEach(function(input){
+
+          input.parentElement.classList.remove(
+            "correct-answer",
+            "wrong-answer"
+          );
+
+        });
+
+
+        if(selected){
+
+          if(selected.value === answers[question]){
+
+            score++;
+
+            selected.parentElement.classList.add(
+              "correct-answer"
+            );
+
+          }else{
+
+            selected.parentElement.classList.add(
+              "wrong-answer"
+            );
+
+          }
+
         }
+
+
+        labels.forEach(function(input){
+
+          if(input.value === answers[question]){
+
+            input.parentElement.classList.add(
+              "correct-answer"
+            );
+
+          }
+
+        });
+
       }
 
-      document.getElementById("result").textContent =
-        "Your Score: " + score + " / 5";
+
+      /* SHOW EXPLANATIONS */
+
+      document
+        .querySelectorAll(".explanation")
+        .forEach(function(explanation){
+
+          explanation.style.display = "block";
+
+        });
+
+
+      /* RESULT */
+
+      const percentage =
+        Math.round((score / 25) * 100);
+
+
+      let message = "";
+
+
+      if(score >= 23){
+
+        message =
+          "Excellent! Your biotechnology fundamentals are very strong.";
+
+      }else if(score >= 19){
+
+        message =
+          "Great work! You have a strong foundation with a few areas to revise.";
+
+      }else if(score >= 14){
+
+        message =
+          "Good attempt. Review the explanations and strengthen the weaker concepts.";
+
+      }else{
+
+        message =
+          "Keep practicing. Use the explanations to build a stronger foundation.";
+
+      }
+
+
+      const result =
+        document.getElementById("result");
+
+
+      result.innerHTML =
+
+        "<h2>Your Score: " +
+        score +
+        " / 25</h2>" +
+
+        "<p>" +
+        percentage +
+        "% — " +
+        message +
+        "</p>";
+
+
+      result.style.display = "block";
+
+
+      result.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+      });
+
     }
+
   </script>
+
+
+  <!-- =====================================================
+       FOOTER
+    ===================================================== -->
+
+  <footer>
+
+    © 2026
+
+    <strong>
+      BioVerse Hub
+    </strong>.
+
+    Built for biotechnology students worldwide.
+
+  </footer>
+
 
 </body>
 </html>
