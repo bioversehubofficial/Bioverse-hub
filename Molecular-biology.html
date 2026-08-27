@@ -6,268 +6,2629 @@
 
   <title>Molecular Biology Quiz | BioVerse Hub</title>
 
+  <meta name="description"
+        content="Practice molecular biology with concept-based, advanced, experimental, and interview-oriented questions on BioVerse Hub.">
+
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f7f9fb;
-      color: #1f2937;
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    header {
-      background: #123b4a;
-      color: white;
-      padding: 25px 20px;
-      text-align: center;
+    html{
+      scroll-behavior:smooth;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 30px;
+    body{
+      font-family:"Segoe UI", Inter, Arial, sans-serif;
+      background:#f5f7ff;
+      color:#17213f;
+      line-height:1.6;
+      overflow-x:hidden;
     }
 
-    header p {
-      margin-top: 8px;
-      font-size: 15px;
+    a{
+      text-decoration:none;
     }
 
-    .quiz-container {
-      max-width: 850px;
-      margin: 40px auto;
-      padding: 0 20px;
+    /* ================= NAVBAR ================= */
+
+    nav{
+      width:100%;
+      padding:17px 7%;
+
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+
+      position:sticky;
+      top:0;
+      z-index:1000;
+
+      background:rgba(8,13,35,.95);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+
+      border-bottom:1px solid rgba(255,255,255,.09);
     }
 
-    .question-card {
-      background: white;
-      padding: 25px;
-      margin-bottom: 20px;
-      border-radius: 12px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    .logo{
+      font-size:25px;
+      font-weight:900;
+      letter-spacing:-1px;
+      color:#5da7ff;
     }
 
-    .question-card h3 {
-      margin-top: 0;
+    .logo span{
+      color:#ff5f9e;
     }
 
-    label {
-      display: block;
-      padding: 10px;
-      margin: 8px 0;
-      border: 1px solid #d9e1e5;
-      border-radius: 8px;
-      cursor: pointer;
+    .nav-links{
+      display:flex;
+      gap:24px;
+      list-style:none;
+      align-items:center;
     }
 
-    label:hover {
-      background: #f1f6f8;
+    .nav-links a{
+      color:#dce3fa;
+      font-size:14px;
+      font-weight:700;
+      transition:.25s ease;
     }
 
-    button {
-      display: block;
-      margin: 30px auto;
-      padding: 13px 28px;
-      border: none;
-      border-radius: 8px;
-      background: #123b4a;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
+    .nav-links a:hover{
+      color:#ff6ba7;
     }
 
-    button:hover {
-      opacity: 0.9;
+    .menu-toggle{
+      display:none;
+
+      width:44px;
+      height:44px;
+
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:12px;
+
+      background:rgba(255,255,255,.06);
+
+      color:white;
+      font-size:25px;
+
+      cursor:pointer;
+
+      align-items:center;
+      justify-content:center;
     }
 
-    #result {
-      text-align: center;
-      font-size: 22px;
-      font-weight: bold;
-      margin: 25px 0;
+    /* ================= SIDE BIO ================= */
+
+    .side-bio{
+      position:fixed;
+      top:50%;
+      transform:translateY(-50%);
+
+      width:48px;
+
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+
+      gap:34px;
+
+      z-index:2;
+      pointer-events:none;
     }
 
-    .back-link {
-      display: block;
-      text-align: center;
-      margin: 25px;
-      color: #123b4a;
-      text-decoration: none;
-      font-weight: bold;
+    .side-bio.left{
+      left:10px;
     }
+
+    .side-bio.right{
+      right:10px;
+    }
+
+    .bio-symbol{
+      width:30px;
+      height:30px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      font-size:20px;
+      opacity:.35;
+
+      animation:bioFloat 4s ease-in-out infinite;
+    }
+
+    .bio-symbol:nth-child(odd){
+      color:#4f9cff;
+      filter:drop-shadow(0 0 8px rgba(79,156,255,.65));
+    }
+
+    .bio-symbol:nth-child(even){
+      color:#ff5f9e;
+      filter:drop-shadow(0 0 8px rgba(255,95,158,.65));
+    }
+
+    .bio-symbol:nth-child(2){
+      animation-delay:.8s;
+    }
+
+    .bio-symbol:nth-child(3){
+      animation-delay:1.6s;
+    }
+
+    .bio-symbol:nth-child(4){
+      animation-delay:2.4s;
+    }
+
+    .bio-symbol:nth-child(5){
+      animation-delay:3.2s;
+    }
+
+    @keyframes bioFloat{
+      0%,100%{
+        transform:translateY(0);
+        opacity:.25;
+      }
+
+      50%{
+        transform:translateY(-7px);
+        opacity:.55;
+      }
+    }
+
+    .side-bio::before{
+      content:"";
+
+      position:absolute;
+
+      top:8px;
+      bottom:8px;
+
+      width:1px;
+
+      background:
+        linear-gradient(
+          to bottom,
+          transparent,
+          rgba(79,156,255,.25),
+          rgba(255,95,158,.30),
+          rgba(255,89,103,.25),
+          transparent
+        );
+
+      z-index:-1;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero{
+      position:relative;
+
+      min-height:400px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      text-align:center;
+
+      padding:85px 7%;
+
+      overflow:hidden;
+
+      background:
+
+        radial-gradient(
+          circle at 15% 25%,
+          rgba(57,124,255,.20),
+          transparent 30%
+        ),
+
+        radial-gradient(
+          circle at 85% 25%,
+          rgba(255,95,158,.18),
+          transparent 30%
+        ),
+
+        radial-gradient(
+          circle at 50% 100%,
+          rgba(255,89,103,.10),
+          transparent 35%
+        ),
+
+        linear-gradient(
+          135deg,
+          #080d23,
+          #111a3d 52%,
+          #24152f
+        );
+    }
+
+    .hero::before{
+      content:"";
+
+      position:absolute;
+      inset:0;
+
+      background-image:
+
+        linear-gradient(
+          rgba(49,95,232,.035) 1px,
+          transparent 1px
+        ),
+
+        linear-gradient(
+          90deg,
+          rgba(49,95,232,.035) 1px,
+          transparent 1px
+        );
+
+      background-size:50px 50px;
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          transparent,
+          black 20%,
+          black 80%,
+          transparent
+        );
+
+      -webkit-mask-image:
+        linear-gradient(
+          to bottom,
+          transparent,
+          black 20%,
+          black 80%,
+          transparent
+        );
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:5;
+    }
+
+    .hero h1{
+      font-size:clamp(45px,6vw,64px);
+
+      line-height:1;
+
+      letter-spacing:-3px;
+
+      font-weight:950;
+
+      color:white;
+
+      margin-bottom:20px;
+    }
+
+    .hero h1 span{
+      background:
+        linear-gradient(
+          90deg,
+          #397cff,
+          #e83e82,
+          #ff5967
+        );
+
+      -webkit-background-clip:text;
+      background-clip:text;
+
+      color:transparent;
+    }
+
+    .hero p{
+      max-width:760px;
+
+      margin:auto;
+
+      color:#c9d2e8;
+
+      font-size:17px;
+
+      line-height:1.8;
+    }
+
+    /* ================= QUIZ SECTION ================= */
+
+    .quiz-section{
+      position:relative;
+
+      max-width:1050px;
+
+      margin:auto;
+
+      padding:80px 7%;
+    }
+
+    .intro-box{
+      text-align:center;
+
+      margin-bottom:45px;
+    }
+
+    .intro-box h2{
+      font-size:36px;
+
+      color:#17213f;
+
+      letter-spacing:-1.5px;
+
+      font-weight:950;
+
+      margin-bottom:12px;
+    }
+
+    .intro-box h2::after{
+      content:"";
+
+      display:block;
+
+      width:70px;
+      height:4px;
+
+      margin:14px auto 0;
+
+      border-radius:20px;
+
+      background:
+        linear-gradient(
+          90deg,
+          #397cff,
+          #ff5f9e,
+          #ff5967
+        );
+    }
+
+    .intro-box p{
+      color:#69738e;
+      font-size:16px;
+    }
+
+    /* ================= LEVEL BADGES ================= */
+
+    .level{
+      display:inline-block;
+
+      padding:5px 11px;
+
+      border-radius:20px;
+
+      font-size:11px;
+
+      font-weight:800;
+
+      letter-spacing:.5px;
+
+      margin-bottom:12px;
+    }
+
+    .foundation{
+      background:#e9f2ff;
+      color:#2869d8;
+    }
+
+    .intermediate{
+      background:#fff0f7;
+      color:#d33c7d;
+    }
+
+    .advanced{
+      background:#f0ecff;
+      color:#6d4bd8;
+    }
+
+    .interview{
+      background:#ffecef;
+      color:#dc3f57;
+    }
+
+    /* ================= QUESTION CARD ================= */
+
+    .question-card{
+      position:relative;
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff 15%,
+          #f1f6ff 100%
+        );
+
+      border:
+        1px solid rgba(120,135,220,.18);
+
+      border-radius:22px;
+
+      padding:30px;
+
+      margin-bottom:25px;
+
+      box-shadow:
+        0 14px 40px rgba(49,70,150,.09);
+
+      overflow:hidden;
+
+      transition:.3s ease;
+    }
+
+    .question-card:nth-child(even){
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff 15%,
+          #fff2f8 100%
+        );
+    }
+
+    .question-card::before{
+      content:"";
+
+      position:absolute;
+
+      width:180px;
+      height:180px;
+
+      right:-90px;
+      top:-90px;
+
+      border-radius:50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(57,124,255,.13),
+          transparent 70%
+        );
+
+      pointer-events:none;
+    }
+
+    .question-card:hover{
+      transform:translateY(-4px);
+
+      box-shadow:
+        0 22px 50px rgba(49,84,217,.14);
+    }
+
+    .question-card h3{
+      position:relative;
+      z-index:2;
+
+      font-size:19px;
+
+      line-height:1.5;
+
+      color:#17213f;
+
+      margin-bottom:18px;
+    }
+
+    .question-number{
+      color:#397cff;
+      font-weight:950;
+    }
+
+    /* ================= OPTIONS ================= */
+
+    .options{
+      position:relative;
+      z-index:3;
+    }
+
+    .option{
+      display:block;
+
+      padding:13px 15px;
+
+      margin:9px 0;
+
+      border:
+        1px solid #dce3ef;
+
+      border-radius:12px;
+
+      background:rgba(255,255,255,.72);
+
+      cursor:pointer;
+
+      transition:.25s ease;
+    }
+
+    .option:hover{
+      background:#f3f6ff;
+      border-color:#8faeff;
+    }
+
+    .option input{
+      margin-right:9px;
+      accent-color:#397cff;
+    }
+
+    .option.correct{
+      background:#e9f8ef;
+      border-color:#48a868;
+    }
+
+    .option.wrong{
+      background:#fff0f1;
+      border-color:#e35a69;
+    }
+
+    /* ================= EXPLANATION ================= */
+
+    .explanation{
+      display:none;
+
+      position:relative;
+      z-index:4;
+
+      margin-top:18px;
+
+      padding:18px;
+
+      border-radius:14px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #eef5ff,
+          #fff0f7
+        );
+
+      border-left:
+        4px solid #397cff;
+    }
+
+    .explanation.show{
+      display:block;
+    }
+
+    .explanation strong{
+      color:#17213f;
+    }
+
+    .answer-line{
+      font-weight:850;
+      margin-bottom:7px;
+    }
+
+    .key-point{
+      margin-top:10px;
+
+      font-size:13px;
+
+      color:#59657f;
+    }
+
+    /* ================= SUBMIT ================= */
+
+    .submit-btn{
+      display:block;
+
+      margin:45px auto 20px;
+
+      padding:14px 30px;
+
+      border:none;
+
+      border-radius:12px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #397cff,
+          #e83e82
+        );
+
+      color:white;
+
+      font-size:16px;
+
+      font-weight:850;
+
+      cursor:pointer;
+
+      box-shadow:
+        0 10px 28px rgba(57,124,255,.20);
+
+      transition:.3s ease;
+    }
+
+    .submit-btn:hover{
+      transform:translateY(-3px);
+
+      box-shadow:
+        0 15px 35px rgba(232,62,130,.25);
+    }
+
+    /* ================= RESULT ================= */
+
+    #result{
+      display:none;
+
+      text-align:center;
+
+      padding:28px;
+
+      margin:25px 0 35px;
+
+      border-radius:20px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #080d23,
+          #111a3d,
+          #24152f
+        );
+
+      color:white;
+
+      box-shadow:
+        0 18px 45px rgba(15,25,70,.18);
+    }
+
+    #result.show{
+      display:block;
+    }
+
+    #scoreText{
+      font-size:30px;
+      font-weight:950;
+
+      margin-bottom:7px;
+    }
+
+    #scoreMessage{
+      color:#c9d2e8;
+      font-size:14px;
+    }
+
+    /* ================= BACK LINK ================= */
+
+    .back-link{
+      display:block;
+
+      width:max-content;
+
+      margin:45px auto 0;
+
+      color:#315fe8;
+
+      font-weight:850;
+
+      font-size:14px;
+
+      transition:.25s ease;
+    }
+
+    .back-link:hover{
+      color:#e83e82;
+      transform:translateX(-4px);
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer{
+      background:
+        linear-gradient(
+          135deg,
+          #070c20,
+          #111833,
+          #1c1026
+        );
+
+      color:#aeb7d0;
+
+      text-align:center;
+
+      padding:30px 7%;
+
+      font-size:13px;
+    }
+
+    footer strong{
+      color:white;
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media(max-width:850px){
+
+      nav{
+        padding:14px 5%;
+        flex-wrap:wrap;
+      }
+
+      .menu-toggle{
+        display:flex;
+      }
+
+      .nav-links{
+        display:none;
+
+        width:100%;
+
+        flex-direction:column;
+
+        gap:0;
+
+        margin-top:14px;
+
+        padding:8px;
+
+        border-radius:16px;
+
+        background:
+          linear-gradient(
+            145deg,
+            rgba(23,31,68,.98),
+            rgba(30,19,58,.98)
+          );
+      }
+
+      .nav-links.active{
+        display:flex;
+      }
+
+      .nav-links li{
+        width:100%;
+      }
+
+      .nav-links a{
+        display:block;
+        width:100%;
+        padding:13px 15px;
+        border-radius:10px;
+        font-size:15px;
+      }
+
+      .hero{
+        min-height:380px;
+        padding:70px 6%;
+      }
+
+      .hero h1{
+        font-size:clamp(42px,11vw,58px);
+        letter-spacing:-2.5px;
+      }
+
+      .hero p{
+        font-size:16px;
+      }
+
+      .quiz-section{
+        padding:65px 6%;
+      }
+
+      .intro-box h2{
+        font-size:31px;
+      }
+
+      .question-card{
+        padding:25px;
+      }
+
+      .side-bio{
+        width:28px;
+        gap:25px;
+      }
+
+      .side-bio.left{
+        left:2px;
+      }
+
+      .side-bio.right{
+        right:2px;
+      }
+
+      .bio-symbol{
+        width:22px;
+        height:22px;
+        font-size:14px;
+      }
+    }
+
+    @media(max-width:500px){
+
+      .logo{
+        font-size:21px;
+      }
+
+      .hero{
+        padding:60px 6% 70px;
+      }
+
+      .hero h1{
+        font-size:43px;
+        letter-spacing:-2px;
+      }
+
+      .question-card{
+        padding:22px;
+      }
+
+      .question-card h3{
+        font-size:17px;
+      }
+
+      .option{
+        font-size:14px;
+        padding:12px;
+      }
+
+      .side-bio{
+        width:22px;
+        gap:22px;
+      }
+
+      .bio-symbol{
+        width:18px;
+        height:18px;
+        font-size:12px;
+      }
+    }
+
   </style>
 </head>
 
 <body>
 
-  <header>
-    <h1>Molecular Biology Quiz</h1>
-    <p>Test your understanding of fundamental molecular biology concepts.</p>
+  <!-- SIDE BIOTECH PATTERN -->
+
+  <div class="side-bio left">
+    <div class="bio-symbol">🧬</div>
+    <div class="bio-symbol">✦</div>
+    <div class="bio-symbol">🧪</div>
+    <div class="bio-symbol">✦</div>
+    <div class="bio-symbol">🔬</div>
+  </div>
+
+  <div class="side-bio right">
+    <div class="bio-symbol">🔬</div>
+    <div class="bio-symbol">✦</div>
+    <div class="bio-symbol">🧫</div>
+    <div class="bio-symbol">✦</div>
+    <div class="bio-symbol">🧬</div>
+  </div>
+
+
+  <!-- NAVIGATION -->
+
+  <nav>
+
+    <a href="index.html" class="logo">
+      BioVerse <span>Hub</span>
+    </a>
+
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      aria-label="Open navigation menu"
+      aria-expanded="false">
+
+      ☰
+
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+
+      <li>
+        <a href="resources.html">Resources</a>
+      </li>
+
+      <li>
+        <a href="practice.html">Practice</a>
+      </li>
+
+      <li>
+        <a href="tools.html">Tools</a>
+      </li>
+
+      <li>
+        <a href="courses.html">Courses</a>
+      </li>
+
+      <li>
+        <a href="index.html#explore">Research</a>
+      </li>
+
+      <li>
+        <a href="index.html#explore">Career</a>
+      </li>
+
+    </ul>
+
+  </nav>
+
+
+  <!-- HERO -->
+
+  <header class="hero">
+
+    <div class="hero-content">
+
+      <h1>
+        Molecular
+        <span>Biology</span>
+      </h1>
+
+      <p>
+        Test your molecular biology knowledge through foundation,
+        advanced, experimental, and interview-oriented questions.
+      </p>
+
+    </div>
+
   </header>
 
-  <main class="quiz-container">
 
-    <div class="question-card">
-      <h3>1. What is the primary function of DNA?</h3>
+  <!-- QUIZ -->
 
-      <label>
-        <input type="radio" name="q1" value="a">
-        To store genetic information
-      </label>
+  <main class="quiz-section">
 
-      <label>
-        <input type="radio" name="q1" value="b">
-        To digest food
-      </label>
+    <div class="intro-box">
 
-      <label>
-        <input type="radio" name="q1" value="c">
-        To produce cellular waste
-      </label>
+      <h2>
+        Molecular Biology Practice
+      </h2>
 
-      <label>
-        <input type="radio" name="q1" value="d">
-        To transport oxygen
-      </label>
+      <p>
+        Work through the questions carefully. Focus on understanding
+        the scientific reasoning behind each answer.
+      </p>
+
     </div>
 
 
+    <!-- QUESTION 1 -->
+
     <div class="question-card">
-      <h3>2. Which molecule carries genetic information from DNA to the ribosome for protein synthesis?</h3>
 
-      <label>
-        <input type="radio" name="q2" value="a">
-        Lipid
-      </label>
+      <span class="level foundation">
+        FOUNDATION
+      </span>
 
-      <label>
-        <input type="radio" name="q2" value="b">
-        Messenger RNA (mRNA)
-      </label>
+      <h3>
+        <span class="question-number">1.</span>
+        What is the primary role of DNA in a cell?
+      </h3>
 
-      <label>
-        <input type="radio" name="q2" value="c">
-        Glucose
-      </label>
+      <div class="options">
 
-      <label>
-        <input type="radio" name="q2" value="d">
-        ATP
-      </label>
+        <label class="option">
+          <input type="radio" name="q1" value="a">
+          To store hereditary genetic information
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q1" value="b">
+          To catalyze every chemical reaction in the cell
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q1" value="c">
+          To transport oxygen throughout the body
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q1" value="d">
+          To directly produce ATP in every cell
+        </label>
+
+      </div>
+
+      <div class="explanation" id="e1">
+        <div class="answer-line">
+          Correct Answer: A — To store hereditary genetic information
+        </div>
+
+        DNA stores the genetic instructions used by cells. These
+        instructions can be copied during replication and expressed
+        through processes such as transcription and translation.
+
+        <div class="key-point">
+          Key concept: DNA is the major long-term information-storage
+          molecule of cellular inheritance.
+        </div>
+      </div>
+
     </div>
 
 
+    <!-- QUESTION 2 -->
+
     <div class="question-card">
-      <h3>3. What process produces RNA from a DNA template?</h3>
 
-      <label>
-        <input type="radio" name="q3" value="a">
-        Translation
-      </label>
+      <span class="level foundation">
+        FOUNDATION
+      </span>
 
-      <label>
-        <input type="radio" name="q3" value="b">
-        Replication
-      </label>
+      <h3>
+        <span class="question-number">2.</span>
+        Which molecule normally carries a transcribed genetic message
+        from DNA toward the ribosome?
+      </h3>
 
-      <label>
-        <input type="radio" name="q3" value="c">
-        Transcription
-      </label>
+      <div class="options">
 
-      <label>
-        <input type="radio" name="q3" value="d">
-        Mutation
-      </label>
+        <label class="option">
+          <input type="radio" name="q2" value="a">
+          Lipid
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q2" value="b">
+          Messenger RNA (mRNA)
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q2" value="c">
+          Glycogen
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q2" value="d">
+          ATP
+        </label>
+
+      </div>
+
+      <div class="explanation" id="e2">
+        <div class="answer-line">
+          Correct Answer: B — Messenger RNA (mRNA)
+        </div>
+
+        mRNA acts as an intermediary carrying information copied from
+        a gene to the ribosome, where its sequence can be used during
+        protein synthesis.
+
+        <div class="key-point">
+          Key concept: DNA → RNA → protein is a central framework for
+          understanding gene expression.
+        </div>
+      </div>
+
     </div>
 
 
+    <!-- QUESTION 3 -->
+
     <div class="question-card">
-      <h3>4. Where does translation mainly occur in a cell?</h3>
 
-      <label>
-        <input type="radio" name="q4" value="a">
-        Ribosomes
-      </label>
+      <span class="level foundation">
+        FOUNDATION
+      </span>
 
-      <label>
-        <input type="radio" name="q4" value="b">
-        Lysosomes
-      </label>
+      <h3>
+        <span class="question-number">3.</span>
+        What is the process of producing an RNA molecule using DNA as
+        a template called?
+      </h3>
 
-      <label>
-        <input type="radio" name="q4" value="c">
-        Golgi apparatus
-      </label>
+      <div class="options">
 
-      <label>
-        <input type="radio" name="q4" value="d">
-        Cell membrane
-      </label>
+        <label class="option">
+          <input type="radio" name="q3" value="a">
+          Translation
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q3" value="b">
+          DNA replication
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q3" value="c">
+          Transcription
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q3" value="d">
+          Protein folding
+        </label>
+
+      </div>
+
+      <div class="explanation" id="e3">
+        <div class="answer-line">
+          Correct Answer: C — Transcription
+        </div>
+
+        Transcription uses one DNA strand as a template for producing
+        a complementary RNA molecule. RNA polymerase catalyzes the
+        synthesis of the growing RNA strand.
+
+        <div class="key-point">
+          Key concept: Transcription converts DNA sequence information
+          into an RNA copy.
+        </div>
+      </div>
+
     </div>
 
 
+    <!-- QUESTION 4 -->
+
     <div class="question-card">
-      <h3>5. Which base is found in DNA but not normally in RNA?</h3>
 
-      <label>
-        <input type="radio" name="q5" value="a">
-        Adenine
-      </label>
+      <span class="level foundation">
+        FOUNDATION
+      </span>
 
-      <label>
-        <input type="radio" name="q5" value="b">
-        Cytosine
-      </label>
+      <h3>
+        <span class="question-number">4.</span>
+        Which molecule directly carries amino acids to the ribosome
+        during translation?
+      </h3>
 
-      <label>
-        <input type="radio" name="q5" value="c">
-        Thymine
-      </label>
+      <div class="options">
 
-      <label>
-        <input type="radio" name="q5" value="d">
-        Guanine
-      </label>
+        <label class="option">
+          <input type="radio" name="q4" value="a">
+          tRNA
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q4" value="b">
+          DNA
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q4" value="c">
+          rRNA only
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q4" value="d">
+          Lipid
+        </label>
+
+      </div>
+
+      <div class="explanation" id="e4">
+        <div class="answer-line">
+          Correct Answer: A — tRNA
+        </div>
+
+        Transfer RNA molecules carry specific amino acids and use
+        their anticodons to pair with complementary codons in mRNA
+        during translation.
+
+        <div class="key-point">
+          Key concept: tRNA connects nucleotide information in mRNA
+          with the amino acids used to build proteins.
+        </div>
+      </div>
+
     </div>
 
 
-    <button onclick="checkQuiz()">Submit Quiz</button>
+    <!-- QUESTION 5 -->
 
-    <div id="result"></div>
+    <div class="question-card">
 
-    <a href="index.html#practice" class="back-link">
+      <span class="level foundation">
+        FOUNDATION
+      </span>
+
+      <h3>
+        <span class="question-number">5.</span>
+        Which base is normally present in DNA but replaced by uracil
+        in RNA?
+      </h3>
+
+      <div class="options">
+
+        <label class="option">
+          <input type="radio" name="q5" value="a">
+          Adenine
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q5" value="b">
+          Cytosine
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q5" value="c">
+          Thymine
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q5" value="d">
+          Guanine
+        </label>
+
+      </div>
+
+      <div class="explanation" id="e5">
+        <div class="answer-line">
+          Correct Answer: C — Thymine
+        </div>
+
+        DNA normally contains thymine, whereas RNA normally contains
+        uracil in its place. Adenine, cytosine, and guanine occur in
+        both DNA and RNA.
+
+        <div class="key-point">
+          Key concept: DNA uses T; RNA normally uses U.
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 6 -->
+
+    <div class="question-card">
+
+      <span class="level intermediate">
+        INTERMEDIATE
+      </span>
+
+      <h3>
+        <span class="question-number">6.</span>
+        Why is DNA replication described as semiconservative?
+      </h3>
+
+      <div class="options">
+
+        <label class="option">
+          <input type="radio" name="q6" value="a">
+          Each daughter DNA molecule contains one parental strand
+          and one newly synthesized strand
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q6" value="b">
+          Only half of the genome is replicated
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q6" value="c">
+          Only one DNA strand is ever copied
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q6" value="d">
+          DNA is copied only during half of the cell cycle
+        </label>
+
+      </div>
+
+      <div class="explanation" id="e6">
+        <div class="answer-line">
+          Correct Answer: A — One parental strand and one new strand
+        </div>
+
+        During replication, the two parental strands separate and each
+        serves as a template for a new complementary strand. Therefore,
+        each resulting DNA double helix contains one old and one newly
+        synthesized strand.
+
+        <div class="key-point">
+          Key concept: Complementary base pairing allows each parental
+          strand to guide synthesis of a new strand.
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 7 -->
+
+    <div class="question-card">
+
+      <span class="level intermediate">
+        INTERMEDIATE
+      </span>
+
+      <h3>
+        <span class="question-number">7.</span>
+        DNA polymerase extends a newly synthesized DNA strand in which
+        direction?
+      </h3>
+
+      <div class="options">
+
+        <label class="option">
+          <input type="radio" name="q7" value="a">
+          3′ → 5′
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q7" value="b">
+          5′ → 3′
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q7" value="c">
+          Both directions equally on the same strand
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q7" value="d">
+          2′ → 4′
+        </label>
+
+      </div>
+
+      <div class="explanation" id="e7">
+        <div class="answer-line">
+          Correct Answer: B — 5′ → 3′
+        </div>
+
+        DNA polymerase adds nucleotides to the available 3′ end of the
+        growing strand. As a result, the new DNA strand is synthesized
+        in the 5′ → 3′ direction.
+
+        <div class="key-point">
+          Key concept: The direction of DNA synthesis explains why
+          leading and lagging strand synthesis differ.
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 8 -->
+
+    <div class="question-card">
+
+      <span class="level intermediate">
+        INTERMEDIATE
+      </span>
+
+      <h3>
+        <span class="question-number">8.</span>
+        What is the main reason the lagging strand is synthesized
+        discontinuously?
+      </h3>
+
+      <div class="options">
+
+        <label class="option">
+          <input type="radio" name="q8" value="a">
+          DNA polymerase can synthesize DNA only 5′ → 3′ while the
+          template strands are antiparallel
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q8" value="b">
+          DNA polymerase cannot recognize DNA
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q8" value="c">
+          RNA cannot be produced continuously
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q8" value="d">
+          Ribosomes block DNA replication
+        </label>
+
+      </div>
+
+      <div class="explanation" id="e8">
+        <div class="answer-line">
+          Correct Answer: A
+        </div>
+
+        The two DNA strands are antiparallel, but DNA polymerase can
+        extend DNA only in the 5′ → 3′ direction. Therefore, synthesis
+        on one template must occur in short segments that are later
+        joined together.
+
+        <div class="key-point">
+          Key concept: Okazaki fragments are a consequence of strand
+          antiparallelism and the directionality of DNA synthesis.
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 9 -->
+
+    <div class="question-card">
+
+      <span class="level intermediate">
+        INTERMEDIATE
+      </span>
+
+      <h3>
+        <span class="question-number">9.</span>
+        What is the primary function of DNA ligase during replication?
+      </h3>
+
+      <div class="options">
+
+        <label class="option">
+          <input type="radio" name="q9" value="a">
+          It unwinds the DNA double helix
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q9" value="b">
+          It joins DNA fragments by sealing breaks in the sugar-phosphate backbone
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q9" value="c">
+          It adds amino acids to proteins
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q9" value="d">
+          It removes all mutations
+        </label>
+
+      </div>
+
+      <div class="explanation" id="e9">
+        <div class="answer-line">
+          Correct Answer: B
+        </div>
+
+        DNA ligase seals breaks between adjacent DNA fragments,
+        particularly those produced during discontinuous synthesis of
+        the lagging strand.
+
+        <div class="key-point">
+          Key concept: Ligase helps convert separate DNA fragments into
+          a continuous DNA strand.
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 10 -->
+
+    <div class="question-card">
+
+      <span class="level intermediate">
+        INTERMEDIATE
+      </span>
+
+      <h3>
+        <span class="question-number">10.</span>
+        Which enzyme is primarily responsible for separating the two
+        DNA strands at a replication fork?
+      </h3>
+
+      <div class="options">
+
+        <label class="option">
+          <input type="radio" name="q10" value="a">
+          DNA ligase
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q10" value="b">
+          Helicase
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q10" value="c">
+          Ribosome
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q10" value="d">
+          RNA polymerase
+        </label>
+
+      </div>
+
+      <div class="explanation" id="e10">
+        <div class="answer-line">
+          Correct Answer: B — Helicase
+        </div>
+
+        Helicase helps unwind the DNA double helix at the replication
+        fork, exposing template strands that can then be copied.
+
+        <div class="key-point">
+          Key concept: Replication requires coordinated action of
+          helicase, primase, polymerase, ligase and other proteins.
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 11 -->
+
+    <div class="question-card">
+
+      <span class="level advanced">
+        ADVANCED
+      </span>
+
+      <h3>
+        <span class="question-number">11.</span>
+        A researcher wants to amplify a specific DNA region from a
+        small sample. Which technique is most directly suited for this
+        purpose?
+      </h3>
+
+      <div class="options">
+
+        <label class="option">
+          <input type="radio" name="q11" value="a">
+          PCR
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q11" value="b">
+          Western blotting
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q11" value="c">
+          Gram staining
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q11" value="d">
+          Protein dialysis
+        </label>
+
+      </div>
+
+      <div class="explanation" id="e11">
+        <div class="answer-line">
+          Correct Answer: A — PCR
+        </div>
+
+        PCR is designed to amplify a defined DNA region in vitro.
+        Sequence-specific primers determine which region is amplified.
+
+        <div class="key-point">
+          Key concept: PCR is widely used to obtain many copies of a
+          selected DNA region for downstream analysis.
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 12 -->
+
+    <div class="question-card">
+
+      <span class="level advanced">
+        ADVANCED
+      </span>
+
+      <h3>
+        <span class="question-number">12.</span>
+        Why are primers required in PCR?
+      </h3>
+
+      <div class="options">
+
+        <label class="option">
+          <input type="radio" name="q12" value="a">
+          They provide a starting point with a free 3′ end for DNA synthesis
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q12" value="b">
+          They supply amino acids to DNA polymerase
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q12" value="c">
+          They permanently break DNA into fragments
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q12" value="d">
+          They replace the need for a DNA template
+        </label>
+
+      </div>
+
+      <div class="explanation" id="e12">
+        <div class="answer-line">
+          Correct Answer: A
+        </div>
+
+        DNA polymerase requires an existing nucleic-acid strand with a
+        suitable 3′ end to extend. PCR primers bind to complementary
+        target sequences and provide those starting points.
+
+        <div class="key-point">
+          Key concept: Primer binding contributes to PCR specificity
+          because primers define the region that is amplified.
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 13 -->
+
+    <div class="question-card">
+
+      <span class="level advanced">
+        ADVANCED
+      </span>
+
+      <h3>
+        <span class="question-number">13.</span>
+        A mutation changes one DNA base but does not change the encoded
+        amino acid. What type of mutation can this be?
+      </h3>
+
+      <div class="options">
+
+        <label class="option">
+          <input type="radio" name="q13" value="a">
+          Silent mutation
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q13" value="b">
+          Frameshift mutation
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q13" value="c">
+          Large chromosomal deletion
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q13" value="d">
+          Replication fork
+        </label>
+
+      </div>
+
+      <div class="explanation" id="e13">
+        <div class="answer-line">
+          Correct Answer: A — Silent mutation
+        </div>
+
+        Because multiple codons can encode the same amino acid, a
+        nucleotide substitution can sometimes leave the amino-acid
+        sequence unchanged.
+
+        <div class="key-point">
+          Key concept: A DNA sequence change does not automatically
+          mean that the resulting protein sequence changes.
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 14 -->
+
+    <div class="question-card">
+
+      <span class="level advanced">
+        ADVANCED
+      </span>
+
+      <h3>
+        <span class="question-number">14.</span>
+        What is the most likely consequence of inserting one nucleotide
+        into a protein-coding region?
+      </h3>
+
+      <div class="options">
+
+        <label class="option">
+          <input type="radio" name="q14" value="a">
+          A frameshift may alter the downstream reading frame
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q14" value="b">
+          Nothing can change because DNA is redundant
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q14" value="c">
+          Translation always becomes faster
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q14" value="d">
+          DNA automatically becomes RNA
+        </label>
+
+      </div>
+
+      <div class="explanation" id="e14">
+        <div class="answer-line">
+          Correct Answer: A
+        </div>
+
+        Because codons are read in groups of three nucleotides, adding
+        one nucleotide can shift the reading frame for downstream
+        codons. The resulting protein can therefore be substantially
+        altered.
+
+        <div class="key-point">
+          Key concept: Insertions or deletions that are not multiples
+          of three can produce frameshift effects.
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 15 -->
+
+    <div class="question-card">
+
+      <span class="level advanced">
+        ADVANCED
+      </span>
+
+      <h3>
+        <span class="question-number">15.</span>
+        A gene is transcribed at a much higher level after a regulatory
+        change. What does this most directly indicate?
+      </h3>
+
+      <div class="options">
+
+        <label class="option">
+          <input type="radio" name="q15" value="a">
+          Increased gene expression at the transcriptional level
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q15" value="b">
+          DNA has necessarily been completely replicated
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q15" value="c">
+          All cellular proteins have increased
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q15" value="d">
+          The gene has necessarily mutated
+        </label>
+
+      </div>
+
+      <div class="explanation" id="e15">
+        <div class="answer-line">
+          Correct Answer: A
+        </div>
+
+        Increased transcription means more RNA is being produced from
+        the gene. Gene regulation controls when and how strongly genes
+        are expressed.
+
+        <div class="key-point">
+          Key concept: Changes in gene expression can occur without
+          changing the underlying DNA sequence.
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 16 -->
+
+    <div class="question-card">
+
+      <span class="level advanced">
+        ADVANCED
+      </span>
+
+      <h3>
+        <span class="question-number">16.</span>
+        Which statement best explains why cells can produce different
+        amounts of different proteins?
+      </h3>
+
+      <div class="options">
+
+        <label class="option">
+          <input type="radio" name="q16" value="a">
+          Gene expression can be regulated at multiple stages
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q16" value="b">
+          Every gene is translated at exactly the same rate
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q16" value="c">
+          DNA contains no regulatory information
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q16" value="d">
+          All mRNA molecules are identical
+        </label>
+
+      </div>
+
+      <div class="explanation" id="e16">
+        <div class="answer-line">
+          Correct Answer: A
+        </div>
+
+        Cells regulate gene expression so that different genes can be
+        transcribed and translated with different efficiencies and at
+        different times.
+
+        <div class="key-point">
+          Key concept: Gene regulation allows cells to respond to their
+          needs instead of producing every protein equally.
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 17 -->
+
+    <div class="question-card">
+
+      <span class="level interview">
+        INTERVIEW & RESEARCH
+      </span>
+
+      <h3>
+        <span class="question-number">17.</span>
+        During PCR, a researcher obtains no amplification in the sample
+        but the positive control works. Which conclusion is most
+        reasonable as a first interpretation?
+      </h3>
+
+      <div class="options">
+
+        <label class="option">
+          <input type="radio" name="q17" value="a">
+          The PCR system can work, so the problem may be specific to
+          the sample, target, or reaction components associated with it
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q17" value="b">
+          PCR can never amplify DNA from that sample
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q17" value="c">
+          The positive control proves the sample contains the target
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q17" value="d">
+          The result proves that the target gene does not exist
+        </label>
+
+      </div>
+
+      <div class="explanation" id="e17">
+        <div class="answer-line">
+          Correct Answer: A
+        </div>
+
+        A successful positive control indicates that the PCR setup is
+        capable of producing amplification. A failed sample therefore
+        shifts attention toward sample quality, target sequence,
+        primer-template compatibility, inhibitors, or sample-specific
+        factors rather than immediately concluding that PCR itself
+        cannot work.
+
+        <div class="key-point">
+          Interview tip: Controls help you distinguish a general assay
+          failure from a sample-specific problem.
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 18 -->
+
+    <div class="question-card">
+
+      <span class="level interview">
+        INTERVIEW & RESEARCH
+      </span>
+
+      <h3>
+        <span class="question-number">18.</span>
+        In an experiment studying gene expression, why might measuring
+        RNA levels be useful?
+      </h3>
+
+      <div class="options">
+
+        <label class="option">
+          <input type="radio" name="q18" value="a">
+          RNA levels can provide information about transcription and
+          gene-expression patterns
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q18" value="b">
+          RNA measurements directly determine every protein's structure
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q18" value="c">
+          RNA exists only in DNA
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q18" value="d">
+          RNA levels always equal protein levels
+        </label>
+
+      </div>
+
+      <div class="explanation" id="e18">
+        <div class="answer-line">
+          Correct Answer: A
+        </div>
+
+        Measuring RNA abundance can provide information about gene
+        transcription and expression patterns. However, RNA abundance
+        does not necessarily equal protein abundance because regulation
+        can also occur after transcription.
+
+        <div class="key-point">
+          Interview tip: Distinguish transcriptional regulation from
+          post-transcriptional and translational regulation.
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 19 -->
+
+    <div class="question-card">
+
+      <span class="level interview">
+        INTERVIEW & RESEARCH
+      </span>
+
+      <h3>
+        <span class="question-number">19.</span>
+        A researcher wants to determine whether a specific DNA
+        fragment is present in a sample. Which approach is most directly
+        suited to detect and amplify that target?
+      </h3>
+
+      <div class="options">
+
+        <label class="option">
+          <input type="radio" name="q19" value="a">
+          PCR using primers designed for the target region
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q19" value="b">
+          Measuring cellular glucose concentration
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q19" value="c">
+          Protein staining without a DNA-based assay
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q19" value="d">
+          Measuring membrane thickness
+        </label>
+
+      </div>
+
+      <div class="explanation" id="e19">
+        <div class="answer-line">
+          Correct Answer: A
+        </div>
+
+        PCR can selectively amplify a defined DNA region when suitable
+        primers target sequences surrounding the region of interest.
+        The resulting amplification can then be analyzed using an
+        appropriate detection method.
+
+        <div class="key-point">
+          Interview tip: Always connect the biological question with
+          the molecule and technique you actually need to measure.
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 20 -->
+
+    <div class="question-card">
+
+      <span class="level interview">
+        INTERVIEW & RESEARCH
+      </span>
+
+      <h3>
+        <span class="question-number">20.</span>
+        Why is a negative control useful in a molecular biology
+        experiment?
+      </h3>
+
+      <div class="options">
+
+        <label class="option">
+          <input type="radio" name="q20" value="a">
+          It helps reveal contamination or nonspecific background
+          signals when no target should be present
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q20" value="b">
+          It guarantees every experimental sample is correct
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q20" value="c">
+          It replaces the experimental sample
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q20" value="d">
+          It increases the amount of target DNA
+        </label>
+
+      </div>
+
+      <div class="explanation" id="e20">
+        <div class="answer-line">
+          Correct Answer: A
+        </div>
+
+        A negative control is expected to lack the target signal.
+        Unexpected amplification or signal in that control can indicate
+        contamination, nonspecific reactions, or another source of
+        background.
+
+        <div class="key-point">
+          Interview tip: Controls are essential for interpreting whether
+          an observed result is actually meaningful.
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 21 -->
+
+    <div class="question-card">
+
+      <span class="level interview">
+        INTERVIEW & RESEARCH
+      </span>
+
+      <h3>
+        <span class="question-number">21.</span>
+        A scientist finds that a mutation occurs in a non-coding
+        regulatory region. Which statement is the most scientifically
+        appropriate?
+      </h3>
+
+      <div class="options">
+
+        <label class="option">
+          <input type="radio" name="q21" value="a">
+          It may affect gene regulation even though it does not directly
+          change a protein-coding sequence
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q21" value="b">
+          It can never have any biological effect
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q21" value="c">
+          It must always destroy the entire chromosome
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q21" value="d">
+          It automatically changes every protein in the cell
+        </label>
+
+      </div>
+
+      <div class="explanation" id="e21">
+        <div class="answer-line">
+          Correct Answer: A
+        </div>
+
+        Non-coding regions can contain regulatory elements involved in
+        controlling gene expression. Therefore, a mutation outside a
+        protein-coding region can still influence when or how strongly
+        a gene is expressed.
+
+        <div class="key-point">
+          Interview tip: Do not assume "non-coding" means "non-functional."
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 22 -->
+
+    <div class="question-card">
+
+      <span class="level interview">
+        INTERVIEW & RESEARCH
+      </span>
+
+      <h3>
+        <span class="question-number">22.</span>
+        A researcher compares two cell populations and finds that one
+        has much more mRNA from a particular gene. What is the safest
+        conclusion?
+      </h3>
+
+      <div class="options">
+
+        <label class="option">
+          <input type="radio" name="q22" value="a">
+          The gene is transcriptionally more active or its RNA is more
+          abundant under the tested conditions
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q22" value="b">
+          The protein must be exactly ten times higher
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q22" value="c">
+          The DNA sequence must be completely different
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q22" value="d">
+          The cells must have different numbers of chromosomes
+        </label>
+
+      </div>
+
+      <div class="explanation" id="e22">
+        <div class="answer-line">
+          Correct Answer: A
+        </div>
+
+        Higher RNA abundance indicates a difference in RNA levels under
+        the conditions tested. It does not automatically prove a
+        proportional difference in protein abundance or a difference in
+        DNA sequence.
+
+        <div class="key-point">
+          Research tip: Keep conclusions proportional to what your
+          experiment actually measured.
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 23 -->
+
+    <div class="question-card">
+
+      <span class="level interview">
+        INTERVIEW & RESEARCH
+      </span>
+
+      <h3>
+        <span class="question-number">23.</span>
+        Why is proofreading important during DNA replication?
+      </h3>
+
+      <div class="options">
+
+        <label class="option">
+          <input type="radio" name="q23" value="a">
+          It helps reduce replication errors and maintain genetic
+          information accurately
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q23" value="b">
+          It guarantees mutations never occur
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q23" value="c">
+          It converts RNA into protein
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q23" value="d">
+          It prevents DNA from being copied
+        </label>
+
+      </div>
+
+      <div class="explanation" id="e23">
+        <div class="answer-line">
+          Correct Answer: A
+        </div>
+
+        DNA replication is highly accurate, and proofreading mechanisms
+        help detect and correct certain copying errors. This contributes
+        to maintaining genome stability.
+
+        <div class="key-point">
+          Research tip: High replication fidelity results from multiple
+          coordinated mechanisms rather than one single process.
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- QUESTION 24 -->
+
+    <div class="question-card">
+
+      <span class="level interview">
+        INTERVIEW & RESEARCH
+      </span>
+
+      <h3>
+        <span class="question-number">24.</span>
+        During an interview, you are asked: "Why is molecular biology
+        important in biotechnology?" Which answer is strongest?
+      </h3>
+
+      <div class="options">
+
+        <label class="option">
+          <input type="radio" name="q24" value="a">
+          Because it explains molecular mechanisms such as DNA
+          replication, gene expression, and protein production that
+          underpin many biotechnology applications
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q24" value="b">
+          Because every biotechnology process is only about DNA
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q24" value="c">
+          Because molecular biology replaces all other biological fields
+        </label>
+
+        <label class="option">
+          <input type="radio" name="q24" value="d">
+          Because proteins have no role in biotechnology
+        </label>
+
+      </div>
+
+      <div class="explanation" id="e24">
+        <div class="answer-line">
+          Correct Answer: A
+        </div>
+
+        Molecular biology provides the mechanistic understanding of
+        genetic information, gene expression, proteins, and molecular
+        interactions. That knowledge supports many biotechnology
+        applications, including genetic engineering, diagnostics,
+        research, and biotechnology product development.
+
+        <div class="key-point">
+          Interview tip: A strong interview answer connects scientific
+          fundamentals with real-world biotechnology applications.
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- RESULT -->
+
+    <div id="result">
+
+      <div id="scoreText"></div>
+
+      <div id="scoreMessage"></div>
+
+    </div>
+
+
+    <button
+      class="submit-btn"
+      onclick="checkQuiz()">
+
+      Submit Quiz
+
+    </button>
+
+
+    <a
+      href="practice.html"
+      class="back-link">
+
       ← Back to Practice
+
     </a>
 
   </main>
 
 
-  <script>
-    function checkQuiz() {
+  <!-- FOOTER -->
 
-      const answers = {
-        q1: "a",
-        q2: "b",
-        q3: "c",
-        q4: "a",
-        q5: "c"
-      };
+  <footer>
+
+    © 2026
+
+    <strong>
+      BioVerse Hub
+    </strong>.
+
+    Built for biotechnology students worldwide.
+
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    const answers = {
+
+      q1:"a",
+      q2:"b",
+      q3:"c",
+      q4:"a",
+      q5:"c",
+
+      q6:"a",
+      q7:"b",
+      q8:"a",
+      q9:"b",
+      q10:"b",
+
+      q11:"a",
+      q12:"a",
+      q13:"a",
+      q14:"a",
+      q15:"a",
+      q16:"a",
+
+      q17:"a",
+      q18:"a",
+      q19:"a",
+      q20:"a",
+      q21:"a",
+      q22:"a",
+      q23:"a",
+      q24:"a"
+
+    };
+
+
+    function checkQuiz(){
 
       let score = 0;
 
-      for (let question in answers) {
+      let unanswered = 0;
 
-        const selected = document.querySelector(
-          'input[name="' + question + '"]:checked'
-        );
 
-        if (selected && selected.value === answers[question]) {
-          score++;
+      for(let question in answers){
+
+        const selected =
+          document.querySelector(
+            'input[name="' + question + '"]:checked'
+          );
+
+
+        const questionNumber =
+          question.replace("q","");
+
+
+        const explanation =
+          document.getElementById(
+            "e" + questionNumber
+          );
+
+
+        const options =
+          document.querySelectorAll(
+            'input[name="' + question + '"]'
+          );
+
+
+        if(!selected){
+
+          unanswered++;
+
+          continue;
+
         }
+
+
+        if(selected.value === answers[question]){
+
+          score++;
+
+          selected.parentElement.classList.add("correct");
+
+        }
+
+        else{
+
+          selected.parentElement.classList.add("wrong");
+
+
+          options.forEach(function(option){
+
+            if(option.value === answers[question]){
+
+              option.parentElement.classList.add("correct");
+
+            }
+
+          });
+
+        }
+
+
+        explanation.classList.add("show");
+
       }
 
-      document.getElementById("result").textContent =
-        "Your Score: " + score + " / 5";
+
+      const result =
+        document.getElementById("result");
+
+      const scoreText =
+        document.getElementById("scoreText");
+
+      const scoreMessage =
+        document.getElementById("scoreMessage");
+
+
+      scoreText.textContent =
+        "Your Score: " + score + " / 24";
+
+
+      if(score >= 21){
+
+        scoreMessage.textContent =
+          "Excellent! Your molecular biology understanding is at a strong advanced level.";
+
+      }
+
+      else if(score >= 17){
+
+        scoreMessage.textContent =
+          "Very good! You have a solid understanding. Review the explanations to strengthen the weaker areas.";
+
+      }
+
+      else if(score >= 12){
+
+        scoreMessage.textContent =
+          "Good start! Review the explanations carefully and try the quiz again.";
+
+      }
+
+      else{
+
+        scoreMessage.textContent =
+          "Keep practicing! Focus on the explanations and build your concepts step by step.";
+
+      }
+
+
+      if(unanswered > 0){
+
+        scoreMessage.textContent +=
+          " You left " +
+          unanswered +
+          " question(s) unanswered.";
+
+      }
+
+
+      result.classList.add("show");
+
+
+      result.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+      });
+
     }
+
+
+    /* MOBILE MENU */
+
+    const menuToggle =
+      document.getElementById("menuToggle");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+
+    menuToggle.addEventListener(
+      "click",
+      function(){
+
+        navLinks.classList.toggle("active");
+
+
+        const isOpen =
+          navLinks.classList.contains("active");
+
+
+        menuToggle.setAttribute(
+          "aria-expanded",
+          isOpen
+        );
+
+
+        menuToggle.textContent =
+          isOpen ? "✕" : "☰";
+
+      }
+    );
+
+
+    document
+      .querySelectorAll(".nav-links a")
+      .forEach(function(link){
+
+        link.addEventListener(
+          "click",
+          function(){
+
+            navLinks.classList.remove("active");
+
+            menuToggle.setAttribute(
+              "aria-expanded",
+              "false"
+            );
+
+            menuToggle.textContent = "☰";
+
+          }
+        );
+
+      });
+
   </script>
 
 </body>
