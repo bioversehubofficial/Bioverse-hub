@@ -6,269 +6,1226 @@
 
   <title>Cell Biology Quiz | BioVerse Hub</title>
 
+  <meta name="description"
+        content="Test your cell biology knowledge with conceptual, advanced, and interview-oriented questions on BioVerse Hub.">
+
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f7f9fb;
-      color: #1f2937;
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    header {
-      background: #123b4a;
-      color: white;
-      padding: 25px 20px;
-      text-align: center;
+    body{
+      font-family:"Segoe UI", Arial, sans-serif;
+      background:#f5f7ff;
+      color:#17213f;
+      line-height:1.6;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 30px;
+    header{
+      background:
+        radial-gradient(circle at 20% 20%, rgba(57,124,255,.18), transparent 30%),
+        radial-gradient(circle at 80% 20%, rgba(255,95,158,.16), transparent 30%),
+        linear-gradient(135deg,#080d23,#111a3d 55%,#24152f);
+
+      color:white;
+      padding:55px 20px;
+      text-align:center;
     }
 
-    header p {
-      margin-top: 8px;
-      font-size: 15px;
+    header h1{
+      margin:0;
+      font-size:clamp(38px,6vw,54px);
+      font-weight:950;
+      letter-spacing:-2px;
     }
 
-    .quiz-container {
-      max-width: 850px;
-      margin: 40px auto;
-      padding: 0 20px;
+    header h1 span{
+      background:linear-gradient(
+        90deg,
+        #397cff,
+        #e83e82,
+        #ff5967
+      );
+
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
     }
 
-    .question-card {
-      background: white;
-      padding: 25px;
-      margin-bottom: 20px;
-      border-radius: 12px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    header p{
+      margin:14px auto 0;
+      max-width:700px;
+      color:#c9d2e8;
+      font-size:16px;
     }
 
-    .question-card h3 {
-      margin-top: 0;
+    .quiz-container{
+      max-width:900px;
+      margin:50px auto;
+      padding:0 20px;
     }
 
-    label {
-      display: block;
-      padding: 10px;
-      margin: 8px 0;
-      border: 1px solid #d9e1e5;
-      border-radius: 8px;
-      cursor: pointer;
+    .quiz-intro{
+      text-align:center;
+      margin-bottom:35px;
     }
 
-    label:hover {
-      background: #f1f6f8;
+    .quiz-intro h2{
+      font-size:30px;
+      margin-bottom:8px;
     }
 
-    button {
-      display: block;
-      margin: 30px auto;
-      padding: 13px 28px;
-      border: none;
-      border-radius: 8px;
-      background: #123b4a;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
+    .quiz-intro p{
+      color:#69738e;
     }
 
-    button:hover {
-      opacity: 0.9;
+    .question-card{
+      position:relative;
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff 20%,
+          #edf5ff 100%
+        );
+
+      padding:28px;
+      margin-bottom:24px;
+      border-radius:20px;
+
+      border:1px solid rgba(120,135,220,.18);
+
+      box-shadow:
+        0 12px 35px rgba(49,70,150,.10);
+
+      transition:.3s ease;
     }
 
-    #result {
-      text-align: center;
-      font-size: 22px;
-      font-weight: bold;
-      margin: 25px 0;
+    .question-card:hover{
+      transform:translateY(-3px);
+
+      box-shadow:
+        0 20px 45px rgba(49,84,217,.15);
     }
 
-    .back-link {
-      display: block;
-      text-align: center;
-      margin: 25px;
-      color: #123b4a;
-      text-decoration: none;
-      font-weight: bold;
+    .question-number{
+      display:inline-block;
+
+      padding:5px 11px;
+      margin-bottom:12px;
+
+      border-radius:20px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(57,124,255,.12),
+          rgba(232,62,130,.12)
+        );
+
+      color:#315fe8;
+
+      font-size:13px;
+      font-weight:800;
     }
+
+    .question-card h3{
+      margin:0 0 18px;
+      font-size:18px;
+      line-height:1.5;
+      color:#17213f;
+    }
+
+    label{
+      display:block;
+
+      padding:13px 15px;
+      margin:9px 0;
+
+      border:1px solid #d9e1e5;
+      border-radius:11px;
+
+      background:rgba(255,255,255,.65);
+
+      cursor:pointer;
+
+      transition:.25s ease;
+    }
+
+    label:hover{
+      background:#f0f5ff;
+      border-color:#8aa9ff;
+      transform:translateX(3px);
+    }
+
+    label input{
+      margin-right:9px;
+      accent-color:#397cff;
+    }
+
+    button{
+      display:block;
+
+      margin:40px auto 25px;
+
+      padding:14px 30px;
+
+      border:none;
+      border-radius:12px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #397cff,
+          #e83e82
+        );
+
+      color:white;
+
+      font-size:16px;
+      font-weight:850;
+
+      cursor:pointer;
+
+      box-shadow:
+        0 10px 25px rgba(57,124,255,.20);
+
+      transition:.3s ease;
+    }
+
+    button:hover{
+      transform:translateY(-3px);
+
+      box-shadow:
+        0 15px 32px rgba(232,62,130,.25);
+    }
+
+    #result{
+      text-align:center;
+
+      margin:30px 0;
+
+      padding:25px;
+
+      border-radius:18px;
+
+      background:white;
+
+      border:1px solid rgba(120,135,220,.15);
+
+      box-shadow:
+        0 10px 30px rgba(49,70,150,.08);
+
+      font-size:23px;
+      font-weight:900;
+
+      color:#17213f;
+    }
+
+    .explanation{
+      display:none;
+
+      margin-top:18px;
+      padding:16px 18px;
+
+      border-left:4px solid #397cff;
+
+      border-radius:10px;
+
+      background:#f1f6ff;
+
+      color:#4d5a78;
+
+      font-size:14px;
+      line-height:1.7;
+    }
+
+    .correct-answer{
+      display:block;
+
+      margin-bottom:6px;
+
+      color:#315fe8;
+
+      font-weight:850;
+    }
+
+    .back-link{
+      display:block;
+
+      width:max-content;
+
+      margin:35px auto;
+
+      color:#315fe8;
+
+      text-decoration:none;
+
+      font-weight:850;
+
+      transition:.25s ease;
+    }
+
+    .back-link:hover{
+      color:#e83e82;
+      transform:translateX(-4px);
+    }
+
+    footer{
+      background:
+        linear-gradient(
+          135deg,
+          #070c20,
+          #111833,
+          #1c1026
+        );
+
+      color:#aeb7d0;
+
+      text-align:center;
+
+      padding:30px 7%;
+
+      font-size:13px;
+    }
+
+    footer strong{
+      color:white;
+    }
+
+    @media(max-width:600px){
+
+      header{
+        padding:45px 18px;
+      }
+
+      header h1{
+        font-size:39px;
+      }
+
+      .quiz-container{
+        margin:35px auto;
+        padding:0 14px;
+      }
+
+      .question-card{
+        padding:22px 18px;
+      }
+
+      .question-card h3{
+        font-size:17px;
+      }
+
+      label{
+        font-size:14px;
+        padding:12px;
+      }
+
+    }
+
   </style>
 </head>
 
 <body>
 
-  <header>
-    <h1>Cell Biology Quiz</h1>
-    <p>Test your understanding of fundamental cell biology concepts.</p>
-  </header>
+<header>
 
-  <main class="quiz-container">
+  <h1>
+    Cell Biology <span>Quiz</span>
+  </h1>
 
-    <div class="question-card">
-      <h3>1. What is the basic structural and functional unit of life?</h3>
+  <p>
+    Challenge your understanding of cellular structure, organelles,
+    membranes, signaling, cell cycle, and molecular mechanisms.
+  </p>
 
-      <label>
-        <input type="radio" name="q1" value="a">
-        Tissue
-      </label>
-
-      <label>
-        <input type="radio" name="q1" value="b">
-        Cell
-      </label>
-
-      <label>
-        <input type="radio" name="q1" value="c">
-        Organ
-      </label>
-
-      <label>
-        <input type="radio" name="q1" value="d">
-        Organ system
-      </label>
-    </div>
+</header>
 
 
-    <div class="question-card">
-      <h3>2. Which organelle is known as the powerhouse of the cell?</h3>
+<main class="quiz-container">
 
-      <label>
-        <input type="radio" name="q2" value="a">
-        Nucleus
-      </label>
+  <div class="quiz-intro">
 
-      <label>
-        <input type="radio" name="q2" value="b">
-        Ribosome
-      </label>
+    <h2>Advanced Cell Biology Practice</h2>
 
-      <label>
-        <input type="radio" name="q2" value="c">
-        Mitochondrion
-      </label>
+    <p>
+      These questions combine conceptual knowledge,
+      application, and interview-oriented thinking.
+    </p>
 
-      <label>
-        <input type="radio" name="q2" value="d">
-        Golgi apparatus
-      </label>
-    </div>
+  </div>
 
 
-    <div class="question-card">
-      <h3>3. Which structure controls many activities of a eukaryotic cell?</h3>
+  <!-- QUESTION 1 -->
 
-      <label>
-        <input type="radio" name="q3" value="a">
-        Cell wall
-      </label>
+  <div class="question-card">
 
-      <label>
-        <input type="radio" name="q3" value="b">
-        Nucleus
-      </label>
+    <span class="question-number">Question 1</span>
 
-      <label>
-        <input type="radio" name="q3" value="c">
-        Lysosome
-      </label>
+    <h3>
+      Which feature most directly distinguishes prokaryotic cells
+      from eukaryotic cells?
+    </h3>
 
-      <label>
-        <input type="radio" name="q3" value="d">
-        Vacuole
-      </label>
-    </div>
+    <label>
+      <input type="radio" name="q1" value="a">
+      Presence of DNA
+    </label>
 
+    <label>
+      <input type="radio" name="q1" value="b">
+      Presence of ribosomes
+    </label>
 
-    <div class="question-card">
-      <h3>4. Which organelle is primarily responsible for protein synthesis?</h3>
+    <label>
+      <input type="radio" name="q1" value="c">
+      Absence of a membrane-bound nucleus
+    </label>
 
-      <label>
-        <input type="radio" name="q4" value="a">
-        Ribosome
-      </label>
+    <label>
+      <input type="radio" name="q1" value="d">
+      Presence of a plasma membrane
+    </label>
 
-      <label>
-        <input type="radio" name="q4" value="b">
-        Mitochondrion
-      </label>
+    <div class="explanation" id="exp1"></div>
 
-      <label>
-        <input type="radio" name="q4" value="c">
-        Lysosome
-      </label>
-
-      <label>
-        <input type="radio" name="q4" value="d">
-        Nucleus
-      </label>
-    </div>
+  </div>
 
 
-    <div class="question-card">
-      <h3>5. Which structure regulates what enters and leaves the cell?</h3>
+  <!-- QUESTION 2 -->
 
-      <label>
-        <input type="radio" name="q5" value="a">
-        Cell membrane
-      </label>
+  <div class="question-card">
 
-      <label>
-        <input type="radio" name="q5" value="b">
-        Nucleolus
-      </label>
+    <span class="question-number">Question 2</span>
 
-      <label>
-        <input type="radio" name="q5" value="c">
-        Ribosome
-      </label>
+    <h3>
+      A cell is placed in a hypotonic solution. What is most likely
+      to happen to an animal cell?
+    </h3>
 
-      <label>
-        <input type="radio" name="q5" value="d">
-        Chromosome
-      </label>
-    </div>
+    <label>
+      <input type="radio" name="q2" value="a">
+      It loses water and shrinks
+    </label>
+
+    <label>
+      <input type="radio" name="q2" value="b">
+      It gains water and may swell or lyse
+    </label>
+
+    <label>
+      <input type="radio" name="q2" value="c">
+      No water movement occurs
+    </label>
+
+    <label>
+      <input type="radio" name="q2" value="d">
+      It immediately becomes plasmolyzed
+    </label>
+
+    <div class="explanation" id="exp2"></div>
+
+  </div>
 
 
-    <button onclick="checkQuiz()">Submit Quiz</button>
+  <!-- QUESTION 3 -->
 
-    <div id="result"></div>
+  <div class="question-card">
 
-    <a href="index.html#practice" class="back-link">
-      ← Back to Practice
-    </a>
+    <span class="question-number">Question 3</span>
 
-  </main>
+    <h3>
+      Which organelle is primarily responsible for modifying,
+      sorting, and packaging proteins for transport?
+    </h3>
+
+    <label>
+      <input type="radio" name="q3" value="a">
+      Lysosome
+    </label>
+
+    <label>
+      <input type="radio" name="q3" value="b">
+      Golgi apparatus
+    </label>
+
+    <label>
+      <input type="radio" name="q3" value="c">
+      Nucleolus
+    </label>
+
+    <label>
+      <input type="radio" name="q3" value="d">
+      Peroxisome
+    </label>
+
+    <div class="explanation" id="exp3"></div>
+
+  </div>
 
 
-  <script>
-    function checkQuiz() {
+  <!-- QUESTION 4 -->
 
-      const answers = {
-        q1: "b",
-        q2: "c",
-        q3: "b",
-        q4: "a",
-        q5: "a"
-      };
+  <div class="question-card">
 
-      let score = 0;
+    <span class="question-number">Question 4</span>
 
-      for (let question in answers) {
+    <h3>
+      Why does the phospholipid bilayer form spontaneously in an
+      aqueous environment?
+    </h3>
 
-        const selected = document.querySelector(
-          'input[name="' + question + '"]:checked'
-        );
+    <label>
+      <input type="radio" name="q4" value="a">
+      Phospholipids are completely hydrophilic
+    </label>
 
-        if (selected && selected.value === answers[question]) {
-          score++;
-        }
-      }
+    <label>
+      <input type="radio" name="q4" value="b">
+      Hydrophobic tails avoid interaction with water
+    </label>
 
-      document.getElementById("result").textContent =
-        "Your Score: " + score + " / 5";
+    <label>
+      <input type="radio" name="q4" value="c">
+      Proteins force all phospholipids into position
+    </label>
+
+    <label>
+      <input type="radio" name="q4" value="d">
+      DNA molecules attract phospholipids
+    </label>
+
+    <div class="explanation" id="exp4"></div>
+
+  </div>
+
+
+  <!-- QUESTION 5 -->
+
+  <div class="question-card">
+
+    <span class="question-number">Question 5</span>
+
+    <h3>
+      Which process moves molecules against their concentration
+      gradient and requires cellular energy?
+    </h3>
+
+    <label>
+      <input type="radio" name="q5" value="a">
+      Simple diffusion
+    </label>
+
+    <label>
+      <input type="radio" name="q5" value="b">
+      Osmosis
+    </label>
+
+    <label>
+      <input type="radio" name="q5" value="c">
+      Active transport
+    </label>
+
+    <label>
+      <input type="radio" name="q5" value="d">
+      Facilitated diffusion
+    </label>
+
+    <div class="explanation" id="exp5"></div>
+
+  </div>
+
+
+  <!-- QUESTION 6 -->
+
+  <div class="question-card">
+
+    <span class="question-number">Question 6</span>
+
+    <h3>
+      A mutation damages the mitochondrial electron transport chain.
+      Which cellular process would be most directly affected?
+    </h3>
+
+    <label>
+      <input type="radio" name="q6" value="a">
+      ATP production by oxidative phosphorylation
+    </label>
+
+    <label>
+      <input type="radio" name="q6" value="b">
+      DNA transcription in the nucleus
+    </label>
+
+    <label>
+      <input type="radio" name="q6" value="c">
+      Protein folding in the Golgi apparatus
+    </label>
+
+    <label>
+      <input type="radio" name="q6" value="d">
+      Ribosome assembly in lysosomes
+    </label>
+
+    <div class="explanation" id="exp6"></div>
+
+  </div>
+
+
+  <!-- QUESTION 7 -->
+
+  <div class="question-card">
+
+    <span class="question-number">Question 7</span>
+
+    <h3>
+      Which organelle contains enzymes responsible for intracellular
+      digestion of macromolecules?
+    </h3>
+
+    <label>
+      <input type="radio" name="q7" value="a">
+      Lysosome
+    </label>
+
+    <label>
+      <input type="radio" name="q7" value="b">
+      Ribosome
+    </label>
+
+    <label>
+      <input type="radio" name="q7" value="c">
+      Centrosome
+    </label>
+
+    <label>
+      <input type="radio" name="q7" value="d">
+      Nucleolus
+    </label>
+
+    <div class="explanation" id="exp7"></div>
+
+  </div>
+
+
+  <!-- QUESTION 8 -->
+
+  <div class="question-card">
+
+    <span class="question-number">Question 8</span>
+
+    <h3>
+      During which stage of the cell cycle is DNA replicated?
+    </h3>
+
+    <label>
+      <input type="radio" name="q8" value="a">
+      G1 phase
+    </label>
+
+    <label>
+      <input type="radio" name="q8" value="b">
+      S phase
+    </label>
+
+    <label>
+      <input type="radio" name="q8" value="c">
+      G2 phase
+    </label>
+
+    <label>
+      <input type="radio" name="q8" value="d">
+      M phase
+    </label>
+
+    <div class="explanation" id="exp8"></div>
+
+  </div>
+
+
+  <!-- QUESTION 9 -->
+
+  <div class="question-card">
+
+    <span class="question-number">Question 9</span>
+
+    <h3>
+      What is the main function of the spindle apparatus during
+      mitosis?
+    </h3>
+
+    <label>
+      <input type="radio" name="q9" value="a">
+      Synthesize DNA
+    </label>
+
+    <label>
+      <input type="radio" name="q9" value="b">
+      Separate chromosomes
+    </label>
+
+    <label>
+      <input type="radio" name="q9" value="c">
+      Produce ATP
+    </label>
+
+    <label>
+      <input type="radio" name="q9" value="d">
+      Digest proteins
+    </label>
+
+    <div class="explanation" id="exp9"></div>
+
+  </div>
+
+
+  <!-- QUESTION 10 -->
+
+  <div class="question-card">
+
+    <span class="question-number">Question 10</span>
+
+    <h3>
+      Which checkpoint primarily ensures that DNA replication has
+      been completed correctly before a cell enters mitosis?
+    </h3>
+
+    <label>
+      <input type="radio" name="q10" value="a">
+      G1 checkpoint
+    </label>
+
+    <label>
+      <input type="radio" name="q10" value="b">
+      G2 checkpoint
+    </label>
+
+    <label>
+      <input type="radio" name="q10" value="c">
+      Metaphase checkpoint
+    </label>
+
+    <label>
+      <input type="radio" name="q10" value="d">
+      Cytokinesis checkpoint
+    </label>
+
+    <div class="explanation" id="exp10"></div>
+
+  </div>
+
+
+  <!-- QUESTION 11 -->
+
+  <div class="question-card">
+
+    <span class="question-number">Question 11</span>
+
+    <h3>
+      A researcher blocks ribosomal function in a cell. Which
+      process would be directly inhibited?
+    </h3>
+
+    <label>
+      <input type="radio" name="q11" value="a">
+      Protein synthesis
+    </label>
+
+    <label>
+      <input type="radio" name="q11" value="b">
+      DNA replication
+    </label>
+
+    <label>
+      <input type="radio" name="q11" value="c">
+      Lipid storage
+    </label>
+
+    <label>
+      <input type="radio" name="q11" value="d">
+      ATP hydrolysis
+    </label>
+
+    <div class="explanation" id="exp11"></div>
+
+  </div>
+
+
+  <!-- QUESTION 12 -->
+
+  <div class="question-card">
+
+    <span class="question-number">Question 12</span>
+
+    <h3>
+      Which structure is directly involved in the synthesis of
+      secretory and membrane proteins?
+    </h3>
+
+    <label>
+      <input type="radio" name="q12" value="a">
+      Smooth ER
+    </label>
+
+    <label>
+      <input type="radio" name="q12" value="b">
+      Rough ER
+    </label>
+
+    <label>
+      <input type="radio" name="q12" value="c">
+      Lysosome
+    </label>
+
+    <label>
+      <input type="radio" name="q12" value="d">
+      Peroxisome
+    </label>
+
+    <div class="explanation" id="exp12"></div>
+
+  </div>
+
+
+  <!-- QUESTION 13 -->
+
+  <div class="question-card">
+
+    <span class="question-number">Question 13</span>
+
+    <h3>
+      Which organelle is especially important for detoxification
+      reactions and fatty-acid metabolism?
+    </h3>
+
+    <label>
+      <input type="radio" name="q13" value="a">
+      Peroxisome
+    </label>
+
+    <label>
+      <input type="radio" name="q13" value="b">
+      Nucleolus
+    </label>
+
+    <label>
+      <input type="radio" name="q13" value="c">
+      Ribosome
+    </label>
+
+    <label>
+      <input type="radio" name="q13" value="d">
+      Centrosome
+    </label>
+
+    <div class="explanation" id="exp13"></div>
+
+  </div>
+
+
+  <!-- QUESTION 14 -->
+
+  <div class="question-card">
+
+    <span class="question-number">Question 14</span>
+
+    <h3>
+      What is the primary role of the nucleolus?
+    </h3>
+
+    <label>
+      <input type="radio" name="q14" value="a">
+      ATP production
+    </label>
+
+    <label>
+      <input type="radio" name="q14" value="b">
+      Ribosomal RNA synthesis and ribosome assembly
+    </label>
+
+    <label>
+      <input type="radio" name="q14" value="c">
+      Lipid digestion
+    </label>
+
+    <label>
+      <input type="radio" name="q14" value="d">
+      Cell membrane transport
+    </label>
+
+    <div class="explanation" id="exp14"></div>
+
+  </div>
+
+
+  <!-- QUESTION 15 -->
+
+  <div class="question-card">
+
+    <span class="question-number">Question 15</span>
+
+    <h3>
+      Which type of cell-cell junction prevents substances from
+      passing between adjacent epithelial cells?
+    </h3>
+
+    <label>
+      <input type="radio" name="q15" value="a">
+      Gap junction
+    </label>
+
+    <label>
+      <input type="radio" name="q15" value="b">
+      Tight junction
+    </label>
+
+    <label>
+      <input type="radio" name="q15" value="c">
+      Desmosome
+    </label>
+
+    <label>
+      <input type="radio" name="q15" value="d">
+      Ribosome
+    </label>
+
+    <div class="explanation" id="exp15"></div>
+
+  </div>
+
+
+  <!-- QUESTION 16 -->
+
+  <div class="question-card">
+
+    <span class="question-number">Question 16</span>
+
+    <h3>
+      Which cellular process allows a cell to take in large particles
+      by engulfing them?
+    </h3>
+
+    <label>
+      <input type="radio" name="q16" value="a">
+      Exocytosis
+    </label>
+
+    <label>
+      <input type="radio" name="q16" value="b">
+      Phagocytosis
+    </label>
+
+    <label>
+      <input type="radio" name="q16" value="c">
+      Osmosis
+    </label>
+
+    <label>
+      <input type="radio" name="q16" value="d">
+      Simple diffusion
+    </label>
+
+    <div class="explanation" id="exp16"></div>
+
+  </div>
+
+
+  <!-- QUESTION 17 -->
+
+  <div class="question-card">
+
+    <span class="question-number">Question 17</span>
+
+    <h3>
+      Which statement best describes apoptosis?
+    </h3>
+
+    <label>
+      <input type="radio" name="q17" value="a">
+      Uncontrolled cell swelling caused by injury
+    </label>
+
+    <label>
+      <input type="radio" name="q17" value="b">
+      Programmed and regulated cell death
+    </label>
+
+    <label>
+      <input type="radio" name="q17" value="c">
+      Cell division without DNA replication
+    </label>
+
+    <label>
+      <input type="radio" name="q17" value="d">
+      Permanent activation of protein synthesis
+    </label>
+
+    <div class="explanation" id="exp17"></div>
+
+  </div>
+
+
+  <!-- QUESTION 18 -->
+
+  <div class="question-card">
+
+    <span class="question-number">Question 18</span>
+
+    <h3>
+      A mutation causes a cell to ignore normal growth-control
+      signals. Which consequence is most closely associated with this?
+    </h3>
+
+    <label>
+      <input type="radio" name="q18" value="a">
+      Reduced cellular metabolism only
+    </label>
+
+    <label>
+      <input type="radio" name="q18" value="b">
+      Uncontrolled cell proliferation
+    </label>
+
+    <label>
+      <input type="radio" name="q18" value="c">
+      Complete loss of ribosomes
+    </label>
+
+    <label>
+      <input type="radio" name="q18" value="d">
+      Immediate formation of cell walls
+    </label>
+
+    <div class="explanation" id="exp18"></div>
+
+  </div>
+
+
+  <!-- QUESTION 19 -->
+
+  <div class="question-card">
+
+    <span class="question-number">Question 19</span>
+
+    <h3>
+      Which cytoskeletal component is mainly responsible for forming
+      the mitotic spindle?
+    </h3>
+
+    <label>
+      <input type="radio" name="q19" value="a">
+      Microtubules
+    </label>
+
+    <label>
+      <input type="radio" name="q19" value="b">
+      Microfilaments only
+    </label>
+
+    <label>
+      <input type="radio" name="q19" value="c">
+      Intermediate filaments only
+    </label>
+
+    <label>
+      <input type="radio" name="q19" value="d">
+      Collagen fibers
+    </label>
+
+    <div class="explanation" id="exp19"></div>
+
+  </div>
+
+
+  <!-- QUESTION 20 -->
+
+  <div class="question-card">
+
+    <span class="question-number">Question 20</span>
+
+    <h3>
+      A scientist observes that a membrane protein can move laterally
+      within the lipid bilayer. Which model best explains this behavior?
+    </h3>
+
+    <label>
+      <input type="radio" name="q20" value="a">
+      Lock-and-key model
+    </label>
+
+    <label>
+      <input type="radio" name="q20" value="b">
+      Fluid mosaic model
+    </label>
+
+    <label>
+      <input type="radio" name="q20" value="c">
+      Central dogma
+    </label>
+
+    <label>
+      <input type="radio" name="q20" value="d">
+      Operon model
+    </label>
+
+    <div class="explanation" id="exp20"></div>
+
+  </div>
+
+
+  <button onclick="checkQuiz()">
+    Submit Quiz
+  </button>
+
+
+  <div id="result"></div>
+
+
+  <a href="practice.html" class="back-link">
+    ← Back to Practice
+  </a>
+
+</main>
+
+
+<footer>
+
+  <p>
+    © 2026
+    <strong>BioVerse Hub</strong>.
+    Built for biotechnology students worldwide.
+  </p>
+
+</footer>
+
+
+<script>
+
+function checkQuiz(){
+
+  const answers = {
+
+    q1:"c",
+    q2:"b",
+    q3:"b",
+    q4:"b",
+    q5:"c",
+    q6:"a",
+    q7:"a",
+    q8:"b",
+    q9:"b",
+    q10:"b",
+    q11:"a",
+    q12:"b",
+    q13:"a",
+    q14:"b",
+    q15:"b",
+    q16:"b",
+    q17:"b",
+    q18:"b",
+    q19:"a",
+    q20:"b"
+
+  };
+
+
+  const explanations = {
+
+    q1:"Correct Answer: C — Prokaryotic cells do not have a membrane-bound nucleus. Their DNA is located in a nucleoid region. Both prokaryotes and eukaryotes contain DNA, ribosomes, and plasma membranes.",
+
+    q2:"Correct Answer: B — A hypotonic solution has a lower solute concentration outside the cell. Water therefore moves into the animal cell by osmosis, which can cause swelling and potentially lysis.",
+
+    q3:"Correct Answer: B — The Golgi apparatus modifies, sorts, and packages proteins into vesicles. It is an important part of the endomembrane system.",
+
+    q4:"Correct Answer: B — Phospholipids are amphipathic: their hydrophilic heads interact with water while their hydrophobic tails avoid water. This drives formation of the bilayer.",
+
+    q5:"Correct Answer: C — Active transport moves substances against their concentration or electrochemical gradient and requires energy, often from ATP or another stored gradient.",
+
+    q6:"Correct Answer: A — The mitochondrial electron transport chain establishes a proton gradient used by ATP synthase to produce ATP through oxidative phosphorylation.",
+
+    q7:"Correct Answer: A — Lysosomes contain hydrolytic enzymes that break down proteins, lipids, nucleic acids, and other cellular material.",
+
+    q8:"Correct Answer: B — DNA replication occurs during S phase of interphase. The cell duplicates its genetic material before entering mitosis.",
+
+    q9:"Correct Answer: B — The mitotic spindle is made mainly of microtubules and helps organize and separate duplicated chromosomes during cell division.",
+
+    q10:"Correct Answer: B — The G2 checkpoint verifies that DNA replication has been completed and checks for DNA damage before the cell enters mitosis.",
+
+    q11:"Correct Answer: A — Ribosomes translate mRNA into polypeptide chains. Blocking ribosome function therefore directly inhibits protein synthesis.",
+
+    q12:"Correct Answer: B — Ribosomes attached to the rough endoplasmic reticulum synthesize proteins destined for secretion, membranes, or certain organelles.",
+
+    q13:"Correct Answer: A — Peroxisomes contain enzymes involved in fatty-acid oxidation and detoxification reactions, including breakdown of hydrogen peroxide.",
+
+    q14:"Correct Answer: B — The nucleolus is a specialized nuclear region where rRNA is produced and ribosomal subunits begin to assemble.",
+
+    q15:"Correct Answer: B — Tight junctions seal neighboring epithelial cells and reduce movement of substances through the space between cells.",
+
+    q16:"Correct Answer: B — Phagocytosis is a form of endocytosis in which cells engulf large particles such as cellular debris or microorganisms.",
+
+    q17:"Correct Answer: B — Apoptosis is a regulated form of programmed cell death that helps remove unnecessary or damaged cells while limiting damage to surrounding tissue.",
+
+    q18:"Correct Answer: B — Loss of normal growth-control mechanisms can allow cells to divide excessively. This uncontrolled proliferation is a major feature of cancer biology.",
+
+    q19:"Correct Answer: A — Microtubules form the major structural component of the mitotic spindle and interact with chromosomes through specialized attachment sites.",
+
+    q20:"Correct Answer: B — The fluid mosaic model describes the membrane as a dynamic lipid bilayer containing proteins that can move within the membrane, especially laterally."
+  };
+
+
+  let score = 0;
+
+
+  for(let question in answers){
+
+    const selected =
+      document.querySelector(
+        'input[name="' + question + '"]:checked'
+      );
+
+
+    const explanation =
+      document.getElementById(
+        "exp" + question.substring(1)
+      );
+
+
+    if(selected && selected.value === answers[question]){
+
+      score++;
+
+      explanation.style.display = "block";
+
+      explanation.innerHTML =
+        "<span class='correct-answer'>✓ Correct</span>" +
+        explanations[question];
+
+    }else{
+
+      explanation.style.display = "block";
+
+      explanation.innerHTML =
+        "<span class='correct-answer'>✗ Review</span>" +
+        explanations[question];
+
     }
-  </script>
+
+  }
+
+
+  document.getElementById("result").textContent =
+    "Your Score: " + score + " / 20";
+
+  window.scrollTo({
+    top:document.getElementById("result").offsetTop - 80,
+    behavior:"smooth"
+  });
+
+}
+
+</script>
 
 </body>
 </html>
